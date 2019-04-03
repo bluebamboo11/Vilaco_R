@@ -53,10 +53,12 @@ class Fulllayout extends React.Component {
   componentDidMount() {
     window.addEventListener('load', this.updateDimensions);
     window.addEventListener('resize', this.updateDimensions);
-    const use = auth.checkLogin();
-    if(!use){
-      this.setState({isLogin:false})
-    }
+     auth.checkLogin((use)=>{
+      if(!use){
+        this.setState({isLogin:false})
+      }
+    });
+
   }
   /*--------------------------------------------------------------------------------*/
   /*Function that handles sidebar, changes when resizing App                        */

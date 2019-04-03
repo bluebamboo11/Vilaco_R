@@ -8,7 +8,7 @@
         "chart.js": "2.7.2",
         "chroma-js": "^1.4.1",
         "firebase": "^5.7.2",
-        "history": "4.7.2",
+        "history": "4.9.0",
         "immutability-helper": "2.7.1",
         "joi": "^13.7.0",
         "joi-validation-strategy": "^0.3.3",

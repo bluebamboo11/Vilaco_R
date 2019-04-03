@@ -64,7 +64,16 @@ class Login extends React.Component {
             }
         });
     }
-
+     getError(code) {
+        switch (code) {
+            case 'auth/invalid-email':
+                return "Email không hợp lệ";
+            case 'auth/user-not-found':
+                return"Email này chưa được đăng ký" ;
+            default:
+                return;
+        }
+    }
 
     validForm() {
         let status = true;
@@ -108,9 +117,16 @@ class Login extends React.Component {
     login(event) {
         if (this.validForm()) {
             auth.doSignInWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
-                this.setState({isLogin: true})
+                if(user){
+                    this.setState({isLogin: true})
+                }
             }).catch((error) => {
-                console.log(error)
+               const textErr = this.getError(error.code);
+               if(textErr){
+                   this.validators.email.errors = [textErr];
+                   this.validators['email'].valid = false;
+                   this.forceUpdate()
+               }
             });
         }
 

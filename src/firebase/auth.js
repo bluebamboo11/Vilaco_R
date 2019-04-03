@@ -17,9 +17,9 @@ export const doPasswordReset = (email) =>
 export const doPasswordUpdate = (password) =>
     auth.currentUser.updatePassword(password);
 
-export const checkLogin = () => {
-    let user = auth.currentUser;
-    if (user) {
-        return user
-    }
+export const checkLogin = (callback) => {
+    auth.onAuthStateChanged(function (user) {
+        callback(user)
+    });
+
 };
