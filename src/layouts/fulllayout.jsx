@@ -6,6 +6,8 @@ import Footer from '../components/footer/footer.jsx';
 import Customizer from '../components/customizer/customizer';
 import ThemeRoutes from '../routes/routing.jsx';
 import {auth} from "../firebase";
+import {connect} from "react-redux";
+import {setUser} from "../redux/actions";
 
 class Fulllayout extends React.Component {
   /*--------------------------------------------------------------------------------*/
@@ -55,7 +57,9 @@ class Fulllayout extends React.Component {
     window.addEventListener('resize', this.updateDimensions);
      auth.checkLogin((use)=>{
       if(!use){
-        this.setState({isLogin:false})
+        this.setState({isLogin:false});
+      }else {
+        this.props.dispatch(setUser(use))
       }
     });
 
@@ -313,4 +317,5 @@ class Fulllayout extends React.Component {
     );
   }
 }
+Fulllayout = connect()(Fulllayout);
 export default Fulllayout;

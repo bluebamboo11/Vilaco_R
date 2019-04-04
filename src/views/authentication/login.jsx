@@ -135,7 +135,7 @@ class Login extends React.Component {
 
     render() {
         if (this.state.isLogin) {
-            return <Redirect to={'/dashboards'}/>
+            return <Redirect to={'/profile'}/>
         }
         return <div className="">
             {/* --------------------------------------------------------------------------------*/}

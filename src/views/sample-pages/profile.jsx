@@ -13,27 +13,16 @@ import {
     Nav,
     NavItem,
     NavLink,
-    Progress,
-    Form,
-    FormGroup,
-    Label,
-    Input
 } from 'reactstrap';
 
 import classnames from 'classnames';
 
 import img1 from '../../assets/images/users/avatar-default.jpg';
-import img2 from '../../assets/images/users/3.jpg';
-import img3 from '../../assets/images/users/4.jpg';
-import img4 from '../../assets/images/users/5.jpg';
 
-import time1 from '../../assets/images/big/img1.jpg';
-import time2 from '../../assets/images/big/img2.jpg';
-import time3 from '../../assets/images/big/img3.jpg';
-import time4 from '../../assets/images/big/img4.jpg';
 import Setting from "../../components/profile/setting";
 import Info from "../../components/profile/info";
 import ChangePassword from "../../components/profile/changePassword";
+import {connect} from "react-redux";
 
 class Profile extends React.Component {
     // Tabs
@@ -42,7 +31,8 @@ class Profile extends React.Component {
 
         this.toggle = this.toggle.bind(this);
         this.state = {
-            'activeTab': '1'
+            'activeTab': '1',
+            user:{}
         };
     }
 
@@ -52,6 +42,11 @@ class Profile extends React.Component {
                 'activeTab': tab
             });
         }
+    }
+
+
+    componentDidMount() {
+        console.log(this.props.user)
     }
 
     render() {
@@ -163,7 +158,7 @@ class Profile extends React.Component {
                                     <Setting/>
                                 </TabPane>
                                 <TabPane tabId="3">
-                                   <ChangePassword/>
+                                    <ChangePassword/>
                                 </TabPane>
                             </TabContent>
                         </Card>
@@ -173,5 +168,8 @@ class Profile extends React.Component {
         );
     }
 }
+
+
+
 
 export default Profile;

@@ -7,15 +7,20 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 
 import './assets/scss/style.css';
+import {createStore} from "redux";
+import {todoApp} from "./redux/reducers";
+import {Provider} from "react-redux";
 
 //const hist = createBrowserHistory();
-
+export const store = createStore(todoApp);
 ReactDOM.render(
-    <BrowserRouter>
-        <Switch>
-            {indexRoutes.map((prop, key) => {
-                return <Route path={prop.path} key={key} component={prop.component}/>;
-            })}
-        </Switch>
-    </BrowserRouter>
+    <Provider store={store}>
+        <BrowserRouter>
+            <Switch>
+                {indexRoutes.map((prop, key) => {
+                    return <Route path={prop.path} key={key} component={prop.component}/>;
+                })}
+            </Switch>
+        </BrowserRouter>
+    </Provider>
     , document.getElementById('root'));
