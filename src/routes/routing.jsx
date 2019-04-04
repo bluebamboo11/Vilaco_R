@@ -96,6 +96,17 @@ var auths = [].concat(AuthRoutes);
 var ThemeRoutes = [
   {
     navlabel: true,
+    name: 'Cá nhân',
+    icon: 'mdi mdi-dots-horizontal'
+  },
+  {
+    path: '/profile',
+    name: 'Thông tin cá nhân',
+    icon: 'mdi mdi-account-network',
+    component: Profile
+  },
+  {
+    navlabel: true,
     name: 'Personal',
     icon: 'mdi mdi-dots-horizontal'
   },
