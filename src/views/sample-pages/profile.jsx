@@ -50,6 +50,8 @@ class Profile extends React.Component {
     }
 
     render() {
+        let {name, phone, gender, address, code, hobby, forte, weakness,birthday,email} = this.props.userData;
+
         return (
             <div>
                 <Row>
@@ -63,8 +65,8 @@ class Profile extends React.Component {
                                         width="150"
                                         alt=""
                                     />
-                                    <CardTitle className="mt-2">Hanna Gover</CardTitle>
-                                    <CardSubtitle>Accounts Manager Amix corp</CardSubtitle>
+                                    <CardTitle className="mt-2">{name}</CardTitle>
+                                    <CardSubtitle>Tài khoản chưa được xác nhận</CardSubtitle>
                                     <Row className="text-center justify-content-md-center">
 
                                         <Col xs="4">
@@ -79,22 +81,13 @@ class Profile extends React.Component {
                             </CardBody>
                             <CardBody className="border-top">
                                 <div>
-                                    <small className="text-muted">Địa chỉ Skype</small>
+                                    <small className="text-muted">Skype</small>
                                     <h6>hannagover@gmail.com</h6>
                                     <small className="text-muted pt-4 db">Số điện thoại - zalo</small>
-                                    <h6>+91 654 784 547</h6>
-                                    <small className="text-muted pt-4 db">Địa chỉ</small>
-                                    <h6>71 Pilgrim Avenue Chevy Chase, MD 20815</h6>
-                                    <div>
-                                        <Iframe
-                                            className="position-relative"
-                                            url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470029.1604841957!2d72.29955005258641!3d23.019996818380896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1493204785508"
-                                            width="280"
-                                            height="150"
-                                            frameborder="0"
-                                            allowfullscreen
-                                        />
-                                    </div>
+                                    <h6>{phone}</h6>
+                                    <small className="text-muted pt-4 db">Địa chỉ - Quê quán</small>
+                                    <h6>{address}</h6>
+
                                     <small className="text-muted pt-4 db">Social Profile</small>
                                     <br/>
                                     <Button className="btn-circle" color="info">
@@ -169,7 +162,12 @@ class Profile extends React.Component {
     }
 }
 
-
+const mapStateToProps = state => {
+    return {
+        userData: state.userData
+    }
+};
+Profile = connect(mapStateToProps)(Profile);
 
 
 export default Profile;

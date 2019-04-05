@@ -1,8 +1,10 @@
 import React from 'react';
-import {Button, Card, CardBody, Col, Form, FormGroup, Input, Label, Row} from "reactstrap";
+import {Button, Card, CardBody, Col, Form, FormGroup, Input, Label, Row,Spinner } from "reactstrap";
 import {connect} from "react-redux";
 import {userService} from "../../firebase";
 import Datetime from 'react-datetime';
+import * as moment from 'moment';
+import {setUserData} from "../../redux/actions";
 require('moment/locale/vi');
 class Setting extends React.Component {
     constructor(props) {
@@ -10,18 +12,10 @@ class Setting extends React.Component {
         this.onInputChange = this.onInputChange.bind(this);
         this.doUpdate = this.doUpdate.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
-        this.state =
-            {
-                name: '',
-                phone: '',
-                address: '',
-                gender: 'nam',
-                code: '',
-                hobby: '',
-                forte: '',
-                weakness: '',
-                birthday: ''
-            }
+        this.state = this.props.userData;
+        if( this.state.birthday){
+            this.state.birthday = moment( this.state.birthday,'DD/MM/YYYY');
+        }
     }
 
 
@@ -38,7 +32,10 @@ class Setting extends React.Component {
     doUpdate(event) {
         event.preventDefault();
         console.log(this.props.user);
-        userService.doCreateUser(this.props.user.uid,{...this.state})
+        let userData = {...this.state};
+        userData.birthday = userData.birthday.format('DD/MM/YYYY');
+        this.props.dispatch(setUserData( userData));
+        userService.doCreateUser(this.props.user.uid,userData)
     }
 
     render() {
@@ -61,7 +58,6 @@ class Setting extends React.Component {
                                         onChange={this.onDateChange}
                                         value={birthday}
                                         timeFormat={false}
-                                        inputProps={{ 'placeholder': 'Date Picker Here' }}
                                     />
                                 </FormGroup>
                                 <FormGroup>
@@ -99,7 +95,7 @@ class Setting extends React.Component {
                                         <option>Nữ</option>
                                     </Input>
                                 </FormGroup>
-                                <Button color="primary">Cập nhật</Button>
+                                <Button color="primary"> <Spinner type="grow" color="primary" />Cập nhật</Button>
                             </Form>
                         </CardBody>
                     </Card>
@@ -111,7 +107,8 @@ class Setting extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.user
+        user: state.user,
+        userData:state.userData
     }
 };
 Setting = connect(mapStateToProps)(Setting);

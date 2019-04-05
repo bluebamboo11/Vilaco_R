@@ -1,5 +1,6 @@
 import React from 'react';
 import {Card, CardBody, Col, Progress, Row} from "reactstrap";
+import {connect} from "react-redux";
 
 class Info extends React.Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class Info extends React.Component {
 
 
     render() {
+        let {name, phone, gender, address, code, hobby, forte, weakness,birthday,email} = this.props.userData;
         return (
             <Row>
                 <Col sm="12">
@@ -19,48 +21,34 @@ class Info extends React.Component {
                         <CardBody>
                             <Row>
                                 <Col md="3" xs="6" className="border-right">
-                                    <strong>Tên đây đủ</strong>
-                                    <br />
-                                    <p className="text-muted">Johnathan Deo</p>
-                                </Col>
-                                <Col md="3" xs="6" className="border-right">
-                                    <strong>Điện thoại</strong>
-                                    <br />
-                                    <p className="text-muted">(123) 456 7890</p>
-                                </Col>
-                                <Col md="3" xs="6" className="border-right">
                                     <strong>Email</strong>
                                     <br />
-                                    <p className="text-muted">johnathan@admin.com</p>
+                                    <p className="text-muted">{email}</p>
                                 </Col>
                                 <Col md="3" xs="6" className="border-right">
-                                    <strong>Quê quán</strong>
+                                    <strong>Ngày sinh</strong>
                                     <br />
-                                    <p className="text-muted">London</p>
+                                    <p className="text-muted">{birthday}</p>
+                                </Col>
+                                <Col md="3" xs="6" className="border-right">
+                                    <strong>CMT</strong>
+                                    <br />
+                                    <p className="text-muted">{code}</p>
+                                </Col>
+                                <Col md="3" xs="6" className="border-right">
+                                    <strong>Giới tính</strong>
+                                    <br />
+                                    <p className="text-muted">{gender}</p>
                                 </Col>
                             </Row>
                             <p className="mt-4">
-                                Donec pede justo, fringilla vel, aliquet nec,
-                                vulputate eget, arcu. In enim justo, rhoncus ut,
-                                imperdiet a, venenatis vitae, justo. Nullam dictum
-                                felis eu pede mollis pretium. Integer tincidunt.Cras
-                                dapibus. Vivamus elementum semper nisi. Aenean
-                                vulputate eleifend tellus. Aenean leo ligula,
-                                porttitor eu, consequat vitae, eleifend ac, enim.
+                                {hobby}
                             </p>
                             <p>
-                                Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. Lorem Ipsum has been the
-                                industries standard dummy text ever since the 1500s,
-                                when an unknown printer took a galley of type and
-                                scrambled it to make a type specimen book. It has
-                                survived not only five centuries{' '}
+                                {forte}
                             </p>
                             <p>
-                                It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages, and
-                                more recently with desktop publishing software like
-                                Aldus PageMaker including versions of Lorem Ipsum.
+                                {weakness}
                             </p>
                             <h4 className="font-medium mt-4">Skill Set</h4>
                             <hr />
@@ -87,4 +75,11 @@ class Info extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        userData: state.userData
+    }
+};
+Info = connect(mapStateToProps)(Info);
 export default Info;

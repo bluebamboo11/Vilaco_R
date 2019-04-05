@@ -5,9 +5,10 @@ import Sidebar from '../components/sidebar/sidebar.jsx';
 import Footer from '../components/footer/footer.jsx';
 import Customizer from '../components/customizer/customizer';
 import ThemeRoutes from '../routes/routing.jsx';
-import {auth} from "../firebase";
+import {auth,userService} from "../firebase";
 import {connect} from "react-redux";
-import {setUser} from "../redux/actions";
+import {setUser, setUserData} from "../redux/actions";
+
 
 class Fulllayout extends React.Component {
   /*--------------------------------------------------------------------------------*/
@@ -20,6 +21,7 @@ class Fulllayout extends React.Component {
       isOpen: false,
       isLogin:true,
       width: window.innerWidth,
+      isLoad:true,
       settings: [
         {
           theme: 'light',
@@ -57,9 +59,18 @@ class Fulllayout extends React.Component {
     window.addEventListener('resize', this.updateDimensions);
      auth.checkLogin((use)=>{
       if(!use){
-        this.setState({isLogin:false});
+        this.setState({isLogin:false,isLoad:false});
       }else {
-        this.props.dispatch(setUser(use))
+        userService.getOneUser(use.uid,(data)=>{
+          if(data){
+            data.email = use.email;
+          }
+          this.props.dispatch(setUserData(data));
+          this.setState({isLoad:false});
+          this.props.dispatch(setUser(use))
+
+        });
+
       }
     });
 
@@ -69,6 +80,9 @@ class Fulllayout extends React.Component {
   /*--------------------------------------------------------------------------------*/
   updateDimensions() {
     let element = document.getElementById('main-wrapper');
+    if(!element){
+      return
+    }
     this.setState({
       width: window.innerWidth
     });
@@ -227,6 +241,9 @@ class Fulllayout extends React.Component {
     });
   };
   render() {
+    if(this.state.isLoad){
+      return <div />
+    }
     if(!this.state.isLogin){
       return <Redirect to={'/authentication/login'} />
     }

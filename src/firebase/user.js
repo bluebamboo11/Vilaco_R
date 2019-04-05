@@ -8,7 +8,7 @@ export const doCreateUser = (id,user) =>
 
 
 export const getOneUser = (uid,callback) => {
-    db.collection("user").doc(uid).then(function(doc) {
+    db.collection("user").doc(uid).get().then(function(doc) {
         if (doc.exists) {
             callback(doc.data())
         } else {
