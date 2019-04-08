@@ -28,6 +28,7 @@ Mã giáo viên
 Họ và tên
 Giới tính
 Skype
+phone
 
 DANH SÁCH CBPN
 Mã nhân viên

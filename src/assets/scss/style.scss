@@ -3,7 +3,6 @@ Template Name: Admin Template
 Author: Niravjoshi / Wrappixel
 File: scss
 */
-
 /**
  * Table Of Content
  *
@@ -22,11 +21,9 @@ File: scss
  *  14. Component
  */
 @import 'all/custom/variables.scss';
-
 // Import Bootstrap source files (Required file)
 @import 'all/bootstrap/bootstrap.scss';
 @import 'all/custom/custom.scss';
-
 //This is for the icons (Required file)
 @import 'all/icons/font-awesome/css/fontawesome-all.css';
 @import 'all/icons/simple-line-icons/css/simple-line-icons.css';

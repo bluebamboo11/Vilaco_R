@@ -5,6 +5,7 @@ import Register2 from '../views/authentication/register2.jsx';
 import Lockscreen from '../views/authentication/lockscreen.jsx';
 import Recoverpwd from '../views/authentication/recover-pwd.jsx';
 import Maintanance from '../views/authentication/maintanance.jsx';
+import RegistrationForm from "../views/authentication/registrationForm";
 
 var authRoutes = [
     { path: '/authentication/login', name: 'Login', icon: 'mdi mdi-account-key', component: Login },
@@ -13,6 +14,7 @@ var authRoutes = [
     { path: '/authentication/register2', name: 'Firebase Register', icon: 'mdi mdi-account-plus', component: Register2 },
     { path: '/authentication/lockscreen', name: 'Lockscreen', icon: 'mdi mdi-account-off', component: Lockscreen },
     { path: '/authentication/recover-pwd', name: 'Recover Password', icon: 'mdi mdi-account-convert', component: Recoverpwd },
-    { path: '/authentication/maintanance', name: 'Maintanance', icon: 'mdi mdi-pencil-box-outline', component: Maintanance }
+    { path: '/authentication/maintanance', name: 'Maintanance', icon: 'mdi mdi-pencil-box-outline', component: Maintanance },
+    { path: '/authentication/mau-dang-ky', name: 'RegistrationForm', icon: 'mdi mdi-account-key', component: RegistrationForm }
 ];
 export default authRoutes; 

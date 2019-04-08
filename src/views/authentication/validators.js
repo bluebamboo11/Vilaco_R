@@ -36,7 +36,23 @@ const validator = {
     ],
     'state': '',
     'valid': false
-  }
+  },
+  'passwordOld': {
+    'errors': [],
+    'rules': [
+      {
+        'message': 'Mật khẩu phải có ít nhất 6 ký tự',
+        'test': value => value.length >= 6
+      },
+      {
+        'message': 'Mật khẩu không hợp lệ',
+        'test': /^[a-z0-9A-Z_]+$/
+      }
+    ],
+    'state': '',
+    'valid': false
+  },
+
 };
 
 export default validator;

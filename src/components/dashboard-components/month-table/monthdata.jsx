@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 
 class Monthdata extends React.Component {
   render() {
-    const image = <img src={this.props.image} alt="user" width="50" />;
+    const image = <img src={this.props.image} alt="user" width="50" height="50" />;
     const username = (
-      <h6 className="font-medium mb-0">{this.props.username}</h6>
+      <h6 className="font-medium mb-0">{this.props.name}</h6>
     );
-    const smtext = <small className="text-muted">{this.props.smtext}</small>;
-    const templatename = <div>{this.props.templatename}</div>;
+    const smtext = <small className="text-muted">{this.props.email}</small>;
+    const city = <div>{this.props.city}</div>;
     const badge = (
       <span className={'badge badge-' + this.props.badgeColor}>
         {this.props.badge}
       </span>
     );
-    const budget = <div>{this.props.budget}</div>;
+    const phone = <div>{this.props.phone}</div>;
     return (
       <tr>
         <td>
@@ -24,9 +24,9 @@ class Monthdata extends React.Component {
           {username}
           {smtext}
         </td>
-        <td>{templatename}</td>
+        <td>{city}</td>
+        <td>{phone}</td>
         <td>{badge}</td>
-        <td>{budget}</td>
       </tr>
     );
   }

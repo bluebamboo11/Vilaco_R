@@ -13,7 +13,7 @@ class Info extends React.Component {
 
 
     render() {
-        let {name, phone, gender, address, code, hobby, forte, weakness,birthday,email} = this.props.userData;
+        let { gender, code, hobby, forte, weakness,birthday,email} = this.props.userData;
         return (
             <Row>
                 <Col sm="12">
@@ -41,33 +41,20 @@ class Info extends React.Component {
                                     <p className="text-muted">{gender}</p>
                                 </Col>
                             </Row>
-                            <p className="mt-4">
+                            <div className="mt-4"/>
+                            <strong >Sở thích</strong>
+                            <p >
                                 {hobby}
                             </p>
+                            <strong>Sở trường</strong>
                             <p>
                                 {forte}
                             </p>
+                            <strong>Sở đoản</strong>
                             <p>
                                 {weakness}
                             </p>
-                            <h4 className="font-medium mt-4">Skill Set</h4>
-                            <hr />
-                            <h5 className="mt-4">
-                                Wordpress <span className="float-right">80%</span>
-                            </h5>
-                            <Progress value={2 * 5} />
-                            <h5 className="mt-4">
-                                HTML 5 <span className="float-right">90%</span>
-                            </h5>
-                            <Progress color="success" value="25" />
-                            <h5 className="mt-4">
-                                jQuery <span className="float-right">50%</span>
-                            </h5>
-                            <Progress color="info" value={50} />
-                            <h5 className="mt-4">
-                                Photoshop <span className="float-right">70%</span>
-                            </h5>
-                            <Progress color="warning" value={75} />
+
                         </CardBody>
                     </Card>
                 </Col>

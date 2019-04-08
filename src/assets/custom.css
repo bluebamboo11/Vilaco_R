@@ -1,0 +1,44 @@
+
+.avatar-img {
+    width: 150px;
+    height: 150px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.btn-secondary-upload:hover {
+    color: #fff !important;
+    background-color: #72859a !important;
+    border-color: #6a7e95 !important;
+}
+
+.btn-secondary-upload {
+    color: #fff !important;
+    background-color: #8898aa !important;
+    border-color: #8898aa !important;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+.mark-avatar{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 75px);
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.load-login{
+    position: absolute;
+    left: 12px;
+    /*width: 80%;*/
+    height: 80%;
+    top: 10%;
+}
+.page-wrapper{
+    height: 100vh;
+}
+.page-wrapper > .page-content {
+    height: calc(100% - 51px);
+    min-height: auto;
+    padding: 30px 30px 0 30px;
+}

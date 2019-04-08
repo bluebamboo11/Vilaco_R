@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 // import { createBrowserHistory } from 'history';
 import indexRoutes from './routes/index.jsx';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 // import {HashRouter} from 'react-router-dom'
 
 
 import './assets/scss/style.css';
+import './assets/custom.css';
 import {createStore} from "redux";
 import {todoApp} from "./redux/reducers";
 import {Provider} from "react-redux";

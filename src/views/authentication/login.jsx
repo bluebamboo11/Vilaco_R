@@ -9,8 +9,7 @@ import {
     Form,
     Row,
     Col,
-    UncontrolledTooltip,
-    Button
+    Button, Spinner
 } from 'reactstrap';
 import img1 from '../../assets/images/logo-icon.png';
 import img2 from '../../assets/images/background/login-register.jpg';
@@ -34,7 +33,8 @@ class Login extends React.Component {
         this.showErrors = this.showErrors.bind(this);
         this.formValidators = this.formValidators.bind(this);
         this.validForm = this.validForm.bind(this);
-        this.state = {isLogin: false, email: '', password: ''}
+        this.changeKeepLogin = this.changeKeepLogin.bind(this);
+        this.state = {isLogin: false, email: '', password: '',isLoadLogin:false,isKeepLogin:true}
     }
 
 
@@ -64,12 +64,15 @@ class Login extends React.Component {
             }
         });
     }
-     getError(code) {
+
+    getError(code) {
         switch (code) {
             case 'auth/invalid-email':
                 return "Email không hợp lệ";
             case 'auth/user-not-found':
-                return"Email này chưa được đăng ký" ;
+                return "Email này chưa được đăng ký";
+            case 'auth/wrong-password':
+                return "Mật khẩu chưa chính xác";
             default:
                 return;
         }
@@ -95,11 +98,11 @@ class Login extends React.Component {
             const errors = validator.errors.map((info, index) => <span className="error"
                                                                        key={index}>* {info}<br/></span>);
 
-                return (
-                    <div className="error mb-2">
-                        {errors}
-                    </div>
-                );
+            return (
+                <div className="error mb-2">
+                    {errors}
+                </div>
+            );
 
         }
 
@@ -115,24 +118,38 @@ class Login extends React.Component {
     }
 
     login(event) {
-        if (this.validForm()) {
-            auth.doSignInWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
-                if(user){
-                    this.setState({isLogin: true})
+        if (this.validForm()&&!this.state.isLoadLogin) {
+            this.setState({isLoadLogin: true});
+            console.log(this.state.isKeepLogin);
+            auth.doSignInWithEmailAndPassword(this.state.email, this.state.password,this.state.isKeepLogin).then((user) => {
+                if (user) {
+                    this.setState({isLogin: true,isLoadLogin:false})
                 }
             }).catch((error) => {
-               const textErr = this.getError(error.code);
-               if(textErr){
-                   this.validators.email.errors = [textErr];
-                   this.validators['email'].valid = false;
-                   this.forceUpdate()
-               }
+                this.setState({isLoadLogin:false});
+                const textErr = this.getError(error.code);
+                if (textErr === 'Mật khẩu chưa chính xác') {
+                    this.validators.password.errors = [textErr];
+                    this.validators['password'].valid = false;
+                    this.forceUpdate();
+                    return
+                }
+                if (textErr) {
+                    console.log(textErr);
+                    this.validators.email.errors = [textErr];
+                    this.validators['email'].valid = false;
+                    this.forceUpdate()
+                }
             });
         }
 
         event.preventDefault();
     }
-
+    changeKeepLogin(){
+        this.setState({
+           isKeepLogin: !this.state.isKeepLogin
+        });
+    }
     render() {
         if (this.state.isLogin) {
             return <Redirect to={'/profile'}/>
@@ -151,7 +168,7 @@ class Login extends React.Component {
                         </div>
                         <Row>
                             <Col xs="12">
-                                <Form className="mt-3" id="loginform">
+                                <Form className="mt-3" id="loginform" onSubmit={this.login}>
                                     <InputGroup className="mb-3">
                                         <InputGroupAddon addonType="prepend">
                                             <InputGroupText>
@@ -173,7 +190,8 @@ class Login extends React.Component {
                                     </InputGroup>
                                     {this.showErrors('password')}
                                     <div className="d-flex no-block align-items-center mb-3">
-                                        <CustomInput type="checkbox" id="exampleCustomCheckbox" label="Duy trì đăng nhập"/>
+                                        <CustomInput type="checkbox" defaultChecked={this.state.isKeepLogin} id="exampleCustomCheckbox" onChange={this.changeKeepLogin}
+                                                     label="Duy trì đăng nhập"/>
                                         <div className="ml-auto">
                                             <a href="#recoverform" id="to-recover" onClick={this.handleClick}
                                                className="forgot text-dark float-right"><i
@@ -182,30 +200,16 @@ class Login extends React.Component {
                                     </div>
                                     <Row className="mb-3">
                                         <Col xs="12">
-                                            <Button color="primary" size="lg" type="submit" block onClick={this.login}
-                                                    disabled={!this.validForm()}
-                                                    className={`${this.validForm() ? '' : 'disabled'}`}>Đăng Nhập</Button>
+                                            <Button color="primary" size="lg" type="submit" block
+                                                    disabled={!this.validForm()||this.state.isLoadLogin}
+                                                    className={`${this.validForm()||this.state.isLoadLogin ? '' : 'disabled'}`}>{this.state.isLoadLogin ?
+                                                <Spinner className="load-login" type="grow"/> : ''}Đăng Nhập</Button>
                                         </Col>
                                     </Row>
-                                    <div className="text-center mb-2">
-                                        <div className="social">
-                                            <Button id="UncontrolledTooltipExample1" className="btn-facebook mr-2"
-                                                    color="primary">
-                                                <i aria-hidden="true" className="fab fa-facebook-f"></i>
-                                            </Button>
-                                            <UncontrolledTooltip placement="top" target="UncontrolledTooltipExample1">
-                                                Facebook</UncontrolledTooltip>
-                                            <Button id="UncontrolledTooltipExample2" className="btn-googleplus"
-                                                    color="danger">
-                                                <i aria-hidden="true" className="fab fa-google-plus-g"></i>
-                                            </Button>
-                                            <UncontrolledTooltip placement="top" target="UncontrolledTooltipExample2">
-                                                Google Plus</UncontrolledTooltip>
-                                        </div>
-                                    </div>
+
                                     <div className="text-center">
-                                        Không có tài khoản <a href="#/authentication/register"
-                                                                       className="text-info ml-1"><b>Đăng Ký</b></a>
+                                        Không có tài khoản <a href="/authentication/register"
+                                                              className="text-info ml-1"><b>Đăng Ký</b></a>
                                     </div>
                                 </Form>
                             </Col>

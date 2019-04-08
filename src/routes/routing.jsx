@@ -91,6 +91,7 @@ import Datatable from '../views/tables/react-bootstrap-table.jsx';
 /*                               Map Page                                         */
 /*--------------------------------------------------------------------------------*/
 import Vectormap from '../views/maps/vectormap.jsx';
+import Student from "../views/student/Student";
 var auths = [].concat(AuthRoutes);
 
 var ThemeRoutes = [
@@ -102,8 +103,19 @@ var ThemeRoutes = [
   {
     path: '/profile',
     name: 'Thông tin cá nhân',
-    icon: 'mdi mdi-account-network',
+    icon: 'mdi mdi-account',
     component: Profile
+  },
+  {
+    navlabel: true,
+    name: 'Quản lý tài khoản',
+    icon: 'mdi mdi-dots-horizontal'
+  },
+  {
+    path: '/hoc-vien',
+    name: 'Học viên',
+    icon: 'mdi mdi-account-multiple',
+    component: Student
   },
   {
     navlabel: true,
