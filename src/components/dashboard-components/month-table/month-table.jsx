@@ -18,9 +18,9 @@ class MonthTable extends React.Component {
     }
 
     renderListData() {
-        console.log(this.props.listUser);
         return this.props.listUser.map((user) => {
             return <Monthdata
+                user={user}
                 key={user.id}
                 image={user.avatar}
                 name={user.name}

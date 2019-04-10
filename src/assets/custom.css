@@ -18,7 +18,8 @@
     border-color: #8898aa !important;
     box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
 }
-.mark-avatar{
+
+.mark-avatar {
     width: 150px;
     height: 150px;
     position: absolute;
@@ -27,18 +28,72 @@
     display: flex;
     background-color: rgba(255, 255, 255, 0.7);
 }
-.load-login{
+
+.load-login {
     position: absolute;
     left: 12px;
     /*width: 80%;*/
     height: 80%;
     top: 10%;
 }
-.page-wrapper{
+
+.page-wrapper {
     height: 100vh;
 }
+
 .page-wrapper > .page-content {
     height: calc(100% - 51px);
     min-height: auto;
     padding: 30px 30px 0 30px;
+}
+
+.row-use {
+    cursor: pointer;
+}
+
+.row-use:hover {
+    background-color: #f6f9fc;
+}
+
+.card-info {
+    height: 100%;
+}
+.card-info .form-control{
+    background-color: #e9ecef;
+}
+.little-profile .pro-img img {
+    width: 160px;
+    height: 160px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 100%;
+}
+
+.little-profile .pro-img {
+    position: relative;
+    margin-top: -105px;
+    margin-bottom: 20px;
+}
+
+.info-group .form-control{
+    height: auto;
+}
+.content-info{
+    height: calc(100% - 200px);
+}
+.btn-info-student{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.avatar{
+    object-fit: cover;
+}
+.icon-month{
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+   border-radius: 100%;
+    color: white;
+    display: inline-block;
+    text-align: center;
 }

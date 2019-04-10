@@ -1,4 +1,4 @@
-import {SET_USER, SET_USER_DATA,ADD_LISR_USER} from "./actions";
+import {SET_USER, SET_USER_DATA,ADD_LISR_USER,SELECT_STUDENT} from "./actions";
 
 const initialState = {
     user: null,
@@ -17,7 +17,8 @@ const initialState = {
         skype:'',
         town:''
     },
-    listUser:[]
+    listUser:[],
+    student:null
 };
 
 export function todoApp(state = initialState, action) {
@@ -29,6 +30,8 @@ export function todoApp(state = initialState, action) {
         case ADD_LISR_USER:
             let listUser = state.listUser.concat(action.data);
             return {...state, listUser:listUser };
+        case SELECT_STUDENT:
+            return {...state, student:action.data };
         default:
             return state
     }

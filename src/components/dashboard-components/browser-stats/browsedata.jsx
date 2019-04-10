@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 class BrowseData extends React.Component {
   render() {
-    const image = <img src={this.props.image} alt="logo" />;
+    const image =<div className={'icon-month font-18 font-bold badge-'+this.props.badgeColor}>{this.props.month}</div>;
     const content = <span className="ml-4">{this.props.content}</span>;
 
     const badge = (
-      <span className={'badge badge-' + this.props.badgeColor}>
+      <span className={'badge font-16 badge-' + this.props.badgeColor}>
         {this.props.badge}
       </span>
     );
@@ -15,7 +15,7 @@ class BrowseData extends React.Component {
       /*--------------------------------------------------------------------------------*/
       /* Component Html                                                                 */
       /*--------------------------------------------------------------------------------*/
-      <div className="d-flex align-items-center mt-3 py-2">
+      <div className="d-flex align-items-center  py-2">
         <div>
           {image}
           {content}

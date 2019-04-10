@@ -296,7 +296,6 @@ class Fulllayout extends React.Component {
                 {/*--------------------------------------------------------------------------------*/}
                 <div className="page-wrapper d-block">
                     <div className="page-content container-fluid">
-                        <PerfectScrollbar>
                         <Switch>
                             {ThemeRoutes.map((prop, key) => {
                                 if (prop.navlabel) {
@@ -337,23 +336,22 @@ class Fulllayout extends React.Component {
                                 }
                             })}
                         </Switch>
-                        </PerfectScrollbar>
                     </div>
                     <Footer/>
                 </div>
                 {/*--------------------------------------------------------------------------------*/}
                 {/* Customizer from which you can set all the Layout Settings                      */}
                 {/*--------------------------------------------------------------------------------*/}
-                <Customizer
-                    darkTheme={this.darkTheme}
-                    boxedTheme={this.boxedTheme}
-                    rtl={this.rtl}
-                    headerPosition={this.headerPosition}
-                    sidebarPosition={this.sidebarPosition}
-                    navbarbgChange={this.navbarbgChange}
-                    sidebarbgChange={this.sidebarbgChange}
-                    logobgChange={this.logobgChange}
-                />
+                {/*<Customizer*/}
+                {/*    darkTheme={this.darkTheme}*/}
+                {/*    boxedTheme={this.boxedTheme}*/}
+                {/*    rtl={this.rtl}*/}
+                {/*    headerPosition={this.headerPosition}*/}
+                {/*    sidebarPosition={this.sidebarPosition}*/}
+                {/*    navbarbgChange={this.navbarbgChange}*/}
+                {/*    sidebarbgChange={this.sidebarbgChange}*/}
+                {/*    logobgChange={this.logobgChange}*/}
+                {/*/>*/}
             </div>
         );
     }
