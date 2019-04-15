@@ -1,34 +1,24 @@
 import React from 'react';
 import {Row, Col} from 'reactstrap';
-import {
-    RevenueCards,
-    CardProfile,
-    MonthTable,
-
-} from 'components/dashboard-components';
-
 import {connect} from "react-redux";
+import MonthTableContract from "../../components/contract/MonthTableContract";
 
 
 
-class Student extends React.Component {
+class Contract  extends React.Component {
     constructor(props) {
         super(props);
     }
 
 
-
     render() {
         return (
             <div style={{height: '100%', width: '100%'}}>
-                <RevenueCards/>
-                <Row style={{height: 'calc(100% - 132px)'}}>
+                <Row style={{height: '100%'}}>
                     <Col lg="8" style={{height: '100%'}}>
-                        <MonthTable type="student"/>
+                        <MonthTableContract />
                     </Col>
-                    <Col lg="4" className="h-100">
-                        <CardProfile/>
-                    </Col>
+
                 </Row>
 
             </div>
@@ -41,5 +31,5 @@ const mapStateToProps = state => {
         listUser: state.listUser
     }
 };
-Student = connect(mapStateToProps)(Student);
-export default Student;
+Contract = connect(mapStateToProps)(Contract);
+export default Contract;

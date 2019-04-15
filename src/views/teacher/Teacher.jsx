@@ -8,10 +8,11 @@ import {
 } from 'components/dashboard-components';
 
 import {connect} from "react-redux";
+import CardProfileTeacher from "../../components/dashboard-components/card-profile/CardProfileTeacher";
 
 
 
-class Student extends React.Component {
+class Teacher extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -24,10 +25,10 @@ class Student extends React.Component {
                 <RevenueCards/>
                 <Row style={{height: 'calc(100% - 132px)'}}>
                     <Col lg="8" style={{height: '100%'}}>
-                        <MonthTable type="student"/>
+                        <MonthTable type="teacher"/>
                     </Col>
                     <Col lg="4" className="h-100">
-                        <CardProfile/>
+                        <CardProfileTeacher/>
                     </Col>
                 </Row>
 
@@ -41,5 +42,5 @@ const mapStateToProps = state => {
         listUser: state.listUser
     }
 };
-Student = connect(mapStateToProps)(Student);
-export default Student;
+Teacher = connect(mapStateToProps)(Teacher);
+export default Teacher;

@@ -70,7 +70,7 @@ class formSteps extends Component {
     onChangeUse() {
         this.onAuth = checkLogin((user) => {
             this.setState({user: user});
-            this.check(user.uid);
+            this.check(user);
             if (user) {
                 if (!user.emailVerified) {
                     user.sendEmailVerification().then(() => {
@@ -82,8 +82,8 @@ class formSteps extends Component {
         })
     }
 
-    check(uid) {
-        checkActive(uid, (type) => {
+    check(user) {
+        checkActive(user.uid, (type) => {
             this.setState({active: type, isLoad: false, isLoadSave: type !== 'unActive'})
         })
     }
@@ -101,6 +101,7 @@ class formSteps extends Component {
         }
         storage.upAvatar(this.state.user.uid, userData.avatar, (url) => {
             userData.avatar = url;
+            userData.email = this.state.user.email;
             userService.doCreateUser(this.state.user.uid, userData).then(() => {
                 this.setState({isLoadSave: false})
             })

@@ -1,17 +1,12 @@
 import React from 'react';
 import {Row, Col} from 'reactstrap';
-import {
-    RevenueCards,
-    CardProfile,
-    MonthTable,
-
-} from 'components/dashboard-components';
-
 import {connect} from "react-redux";
+import MonthTableJapan from "../../components/Employees/MonthTableJapan";
 
 
 
-class Student extends React.Component {
+
+class Japan  extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -21,14 +16,11 @@ class Student extends React.Component {
     render() {
         return (
             <div style={{height: '100%', width: '100%'}}>
-                <RevenueCards/>
-                <Row style={{height: 'calc(100% - 132px)'}}>
+                <Row style={{height: '100%'}}>
                     <Col lg="8" style={{height: '100%'}}>
-                        <MonthTable type="student"/>
+                        <MonthTableJapan />
                     </Col>
-                    <Col lg="4" className="h-100">
-                        <CardProfile/>
-                    </Col>
+
                 </Row>
 
             </div>
@@ -41,5 +33,5 @@ const mapStateToProps = state => {
         listUser: state.listUser
     }
 };
-Student = connect(mapStateToProps)(Student);
-export default Student;
+Japan = connect(mapStateToProps)(Japan);
+export default Japan;

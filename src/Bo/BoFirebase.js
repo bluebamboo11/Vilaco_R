@@ -1,6 +1,8 @@
 export const userBo = (data)=>{
     if(data.type ==='student'){
         return {
+            email:data.email,
+            avatar:data.avatar,
             name:data.name,
             phone: data.phone,
             address: data.address,
@@ -13,14 +15,19 @@ export const userBo = (data)=>{
             district: data.district,
             city: data.city,
             town:data.town,
+            type:data.type,
+            validate:data.validate,
         }
     }
     return {
+        email:data.email,
+        avatar:data.avatar,
         name:data.name,
         phone: data.phone,
         gender:data.gender,
-        skype:data.skype
-
+        skype:data.skype,
+        type:data.type,
+        validate:data.validate,
     }
 
 };

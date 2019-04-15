@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { auth, db } from '../../firebase';
+
 import validators from './validators';
 import {
   Input,
@@ -92,26 +92,7 @@ class Register2 extends React.Component {
   }
 
   doRegister(event) {
-    const { username, email, password } = this.state;
-    auth
-      .doCreateUserWithEmailAndPassword(email, password)
-      .then(authUser => {
-        db.doCreateUser(authUser.user.uid, username, email)
-          .then(() => {
-            this.setState(() => ({
-              email,
-              password,
-              username
-            }));
-            this.props.history.push('/authentication/login2');
-          })
-          .catch(error => {
-            alert('Something went wrong!');
-          });
-      })
-      .catch(error => {
-        alert('Something went wrong!');
-      });
+
     event.preventDefault();
   }
 

@@ -9,6 +9,7 @@ import {auth, userService} from "../firebase";
 import {connect} from "react-redux";
 import {setUser, setUserData} from "../redux/actions";
 import PerfectScrollbar from "react-perfect-scrollbar";
+import {doCreateAutoUserTest} from "../firebase/test";
 
 
 class Fulllayout extends React.Component {
@@ -60,6 +61,7 @@ class Fulllayout extends React.Component {
 
     /*--------------------------------------------------------------------------------*/
     componentDidMount() {
+        // doCreateAutoUserTest();
         window.addEventListener('load', this.updateDimensions);
         window.addEventListener('resize', this.updateDimensions);
         this.onChangeAuth = auth.checkLogin((use) => {
@@ -70,8 +72,8 @@ class Fulllayout extends React.Component {
                     if (data) {
                         data.email = use.email;
                         this.props.dispatch(setUserData(data));
-                        userService.getAccess(use.uid, (access) => {
-                            if (!access) {
+                        userService.getAccess(use.uid, data.type,(access) => {
+                            if (!access||!access.validate) {
                                 this.setState({registered: false});
                             }
                             this.setState({isLoad: false});
@@ -128,21 +130,21 @@ class Fulllayout extends React.Component {
 
             default:
         }
-        if (this.state.settings[0].sidebarpos === 'fixed') {
-            document.getElementById('sidebar-position').setAttribute('checked', '');
-        }
-        if (this.state.settings[0].headerpos === 'fixed') {
-            document.getElementById('header-position').setAttribute('checked', '');
-        }
-        if (this.state.settings[0].theme === 'dark') {
-            document.getElementById('theme-view').setAttribute('checked', '');
-        }
-        if (this.state.settings[0].boxed === 'boxed') {
-            document.getElementById('boxed-layout').setAttribute('checked', '');
-        }
-        if (this.state.settings[0].dir === 'rtl') {
-            document.getElementById('rtl').setAttribute('checked', '');
-        }
+        // if (this.state.settings[0].sidebarpos === 'fixed') {
+        //     document.getElementById('sidebar-position').setAttribute('checked', '');
+        // }
+        // if (this.state.settings[0].headerpos === 'fixed') {
+        //     document.getElementById('header-position').setAttribute('checked', '');
+        // }
+        // if (this.state.settings[0].theme === 'dark') {
+        //     document.getElementById('theme-view').setAttribute('checked', '');
+        // }
+        // if (this.state.settings[0].boxed === 'boxed') {
+        //     document.getElementById('boxed-layout').setAttribute('checked', '');
+        // }
+        // if (this.state.settings[0].dir === 'rtl') {
+        //     document.getElementById('rtl').setAttribute('checked', '');
+        // }
     }
 
     /*--------------------------------------------------------------------------------*/

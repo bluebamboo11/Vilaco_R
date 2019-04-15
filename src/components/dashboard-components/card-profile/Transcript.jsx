@@ -1,12 +1,21 @@
 import React from 'react';
-import {
-   CardTitle
-} from 'reactstrap';
-
 import {connect} from "react-redux";
+import Table from "@material-ui/core/Table";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
+import TableBody from "@material-ui/core/TableBody";
+import PerfectScrollbar from "react-perfect-scrollbar";
+import withStyles from "@material-ui/core/styles/withStyles";
 
-import BrowseData from "../browser-stats/browsedata";
-
+const rows = [
+    {month: 1, point: 90},
+    {month: 2, point: 90},
+    {month: 3, point: 90},
+    {month: 4, point: 90},
+    {month: 5, point: 90},
+    {month: 6, point: 90},
+];
 
 class Transcript extends React.Component {
     constructor(props) {
@@ -28,44 +37,47 @@ class Transcript extends React.Component {
     render() {
 
         return (
-            <div className="text-left p-2 h-100">
-                <CardTitle >Bảng điểm tiếng nhật</CardTitle>
-                <BrowseData
-                     month="1"
-                    content="Tháng 1"
-                    badge="90"
-                    badgeColor="danger"
-                />
-                <BrowseData
-                    month="2"
-                    content="Tháng 2"
-                    badge="90"
-                    badgeColor="primary"
-                />
-                <BrowseData
-                    month="3"
-                    content="Tháng 3"
-                    badge="90"
-                    badgeColor="info"
-                />
-                <BrowseData
-                    month="4"
-                    content="Tháng 4"
-                    badge="90"
-                    badgeColor="warning"
-                />
-                <BrowseData
-                    month="5"
-                    content="Tháng 5"
-                    badge="90"
-                    badgeColor="success"
-                />
-                <BrowseData
-                    month="6"
-                    content="Tháng 6"
-                    badge="90"
-                    badgeColor="info"
-                />
+            <div className="text-left p-4 content-info-st">
+                <PerfectScrollbar>
+                    <h5>Bảng điểm tiếng nhật</h5>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Tháng</TableCell>
+                                <TableCell align="right">Điểm</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {rows.map((row, index) => (
+                                <TableRow key={row.month} className={index % 2 === 0 ? 'cell-c' : ''}>
+                                    <TableCell component="th" scope="row">
+                                        {row.month}
+                                    </TableCell>
+                                    <TableCell align="right">{row.point}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                    <h5 className="pt-4">Bảng điểm thể lực</h5>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Tháng</TableCell>
+                                <TableCell align="right">Điểm</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {rows.map((row, index) => (
+                                <TableRow className={index % 2 === 0 ? 'cell-c' : ''} key={row.month}>
+                                    <TableCell component="th" scope="row">
+                                        {row.month}
+                                    </TableCell>
+                                    <TableCell align="right">{row.point}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </PerfectScrollbar>
             </div>
 
         );

@@ -30,7 +30,7 @@ export default class Step4 extends Component {
     }
 
     renderBirthday(props) {
-        return <Input {...props} placeholder="ngày/tháng/năm" invalid={!this.props.userData.birthday}/>
+        return <Input {...props} placeholder="Ngày/Tháng/Năm" invalid={!this.props.userData.birthday}/>
     }
 
     render() {

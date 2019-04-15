@@ -1,4 +1,15 @@
-import {SET_USER, SET_USER_DATA,ADD_LISR_USER,SELECT_STUDENT} from "./actions";
+import {
+    SET_USER,
+    SET_USER_DATA,
+    ADD_LIST_USER,
+    SELECT_CLASS,
+    SELECT_STUDENT,
+    SELECT_CONTRACT,
+    SELECT_EMPLOYEE,
+    ADD_LIST_CLASS,
+    ADD_LIST_EMPLOYEE,
+    ADD_LIST_CONTRACT
+} from "./actions";
 
 const initialState = {
     user: null,
@@ -14,11 +25,11 @@ const initialState = {
         birthday: '',
         district: '',
         city: '',
-        skype:'',
-        town:''
+        skype: '',
+        town: ''
     },
-    listUser:[],
-    student:null
+    listUser: [],
+    student: null,
 };
 
 export function todoApp(state = initialState, action) {
@@ -27,12 +38,26 @@ export function todoApp(state = initialState, action) {
             return {...state, user: action.user};
         case SET_USER_DATA:
             return {...state, userData: action.data};
-        case ADD_LISR_USER:
-            let listUser = state.listUser.concat(action.data);
-            return {...state, listUser:listUser };
+        case ADD_LIST_USER:
+            let listUser = action.data;
+            return {...state, listUser: listUser};
         case SELECT_STUDENT:
-            return {...state, student:action.data };
+            return {...state, student: action.data};
+        case SELECT_CLASS:
+            return {...state, classSelected: action.data};
+        case SELECT_CONTRACT:
+            return {...state, contractSelected: action.data};
+        case ADD_LIST_EMPLOYEE:
+            return {...state, listEmployee: action.data};
+        case ADD_LIST_CLASS:
+            return {...state, listClass: action.data};
+        case ADD_LIST_CONTRACT:
+            return {...state, listContract: action.data};
+        case SELECT_EMPLOYEE:
+            return {...state, employeeSelected: action.data};
         default:
             return state
     }
 }
+
+

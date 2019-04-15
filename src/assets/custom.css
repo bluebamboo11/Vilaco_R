@@ -58,9 +58,11 @@
 .card-info {
     height: 100%;
 }
-.card-info .form-control{
+
+.card-info .form-control {
     background-color: #e9ecef;
 }
+
 .little-profile .pro-img img {
     width: 160px;
     height: 160px;
@@ -74,26 +76,72 @@
     margin-bottom: 20px;
 }
 
-.info-group .form-control{
+.info-group .form-control {
     height: auto;
 }
-.content-info{
+
+.content-info {
     height: calc(100% - 200px);
 }
-.btn-info-student{
+
+.btn-info-student {
     position: absolute;
     top: 0;
     right: 0;
 }
-.avatar{
+
+.avatar {
     object-fit: cover;
 }
-.icon-month{
+
+.icon-month {
     line-height: 40px;
     width: 40px;
     height: 40px;
-   border-radius: 100%;
+    border-radius: 100%;
     color: white;
     display: inline-block;
     text-align: center;
+}
+
+.content-info-st {
+    height: calc(100% - 155px);
+}
+
+.btn-custom-s {
+    margin: 0 10px;
+    width: 120px;
+}
+
+#main-wrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.cell-c {
+    background-color: #fafafa;
+}
+.select-row{
+    background-color: rgba(38, 116, 196, 0.51) !important;
+
+}
+.select-row *{
+    color: white !important;
+}
+button:focus{
+    outline: none!important;
+}
+.menu-info{
+    position: absolute;
+    right: 6px;
+    top: 7px;
+}
+.little-profile{
+    position: relative;
+}
+.ra-dialog-add{
+    min-width: 500px;
+}
+.form-control-custom{
+    min-height: 35px;
 }
