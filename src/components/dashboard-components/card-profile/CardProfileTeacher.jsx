@@ -9,10 +9,11 @@ import {
 
 import img1 from 'assets/images/background/profile-bg.jpg';
 import {connect} from "react-redux";
-import {adminService} from '../../../firebase'
-import InfoStudent from "./InfoStudent";
+import {adminService, userService} from '../../../firebase'
 import {addListUser, selectStudent} from "../../../redux/actions";
 import InfoTeacher from "./InfoTeacher";
+import ContractDialog from "../../ContractDialog/ContractDialog";
+import LongMenu from "../../menu/LongMenu";
 
 
 class CardProfileTeacher extends React.Component {
@@ -23,6 +24,8 @@ class CardProfileTeacher extends React.Component {
         this.removeUser = this.removeUser.bind(this);
         this.renderValidate = this.renderValidate.bind(this);
         this.validateUser = this.validateUser.bind(this);
+        this.openAddClass = this.openAddClass.bind(this);
+        this.addClass = this.addClass.bind(this);
         this.state = {
             value: 0,
             modal: false,
@@ -59,6 +62,15 @@ class CardProfileTeacher extends React.Component {
             this.props.dispatch(addListUser(this.props.listUser.concat()));
         })
     }
+    addClass(id) {
+        let listClass = this.props.user.classId||[];
+        listClass.push(id);
+        userService.doUpdateUser(this.props.user.uid, {classId: listClass}).then(() => {
+            let user = {...this.props.user};
+            user.classId = id;
+            this.updateUser(user)
+        })
+    }
 
     renderValidate() {
         if (this.props.user.validate) {
@@ -66,17 +78,38 @@ class CardProfileTeacher extends React.Component {
         }
         return <Badge color="warning" style={{fontSize: 10}}> Chưa xác thực</Badge>
     }
-
+    openAddClass(){
+        this.addClassDialog.handleClickOpen()
+    }
     render() {
         if (!this.props.user) {
             return <Card className="card-info"/>
         }
         let {avatar, name,validate} = this.props.user;
+        let options = [
+            {title: 'Xác nhận', onClick: this.validateUser},
+            {title: 'Xóa', onClick: this.toggle},
+            {title: 'Thêm lớp', onClick: this.openAddClass},
+
+        ];
+        if (validate) {
+            options = [
+                {title: 'Xóa', onClick: this.toggle},
+                {title: 'Thêm lớp', onClick: this.openAddClass},
+
+            ];
+        }
         return (
-            /*--------------------------------------------------------------------------------*/
-            /* Used In Dashboard-1,2,3  and Widget Page                                       */
-            /*--------------------------------------------------------------------------------*/
+
             <Card className="card-info">
+                <ContractDialog
+                    options={this.props.listClass}
+                    save={this.addClass}
+                    titleEmpty="Không có lớp học còn hoạt đông"
+                    title="Chọn một lớp học"
+                    refDialog={ref => {
+                        this.addClassDialog = ref;
+                    }}/>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="modal-dialog-centered">
                     <ModalHeader className="border-0" toggle={this.toggle}>Xóa tài khoản</ModalHeader>
                     <ModalBody>
@@ -94,6 +127,9 @@ class CardProfileTeacher extends React.Component {
 
                     </div>
                     <h3 className="mb-3">{name} {this.renderValidate()}</h3>
+                    <div className="menu-info">
+                        <LongMenu options={options}/>
+                    </div>
                     <InfoTeacher/>
                     {!validate&&<Button color="success" className="btn-rounded btn-custom-s" onClick={this.validateUser}>Xác nhận</Button>}
                     <Button color="danger" className="btn-rounded btn-custom-s" onClick={this.toggle}>Xóa</Button>
@@ -107,7 +143,8 @@ class CardProfileTeacher extends React.Component {
 const mapStateToProps = state => {
     return {
         user: state.student,
-        listUser: state.listUser
+        listUser: state.listUser,
+        listClass: state.listClass,
     }
 };
 CardProfileTeacher = connect(mapStateToProps)(CardProfileTeacher);
