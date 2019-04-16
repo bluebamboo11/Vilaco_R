@@ -57,6 +57,7 @@
 
 .card-info {
     height: 100%;
+    position: relative;
 }
 
 .card-info .form-control {
@@ -121,27 +122,60 @@
 .cell-c {
     background-color: #fafafa;
 }
-.select-row{
+
+.select-row {
     background-color: rgba(38, 116, 196, 0.51) !important;
 
 }
-.select-row *{
+
+.select-row * {
     color: white !important;
 }
-button:focus{
-    outline: none!important;
+
+button:focus {
+    outline: none !important;
 }
-.menu-info{
+
+.menu-info {
     position: absolute;
     right: 6px;
     top: 7px;
 }
-.little-profile{
+
+.little-profile {
     position: relative;
 }
-.ra-dialog-add{
+
+.ra-dialog-add {
     min-width: 500px;
 }
-.form-control-custom{
+
+.form-control-custom {
     min-height: 35px;
+}
+
+.load-page {
+    overflow: hidden;
+    background: white;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.load-page-all{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ebebeb;
+    z-index: 100;
 }

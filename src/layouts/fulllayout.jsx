@@ -7,7 +7,7 @@ import Customizer from '../components/customizer/customizer';
 import ThemeRoutes from '../routes/routing.jsx';
 import {auth, userService} from "../firebase";
 import {connect} from "react-redux";
-import {setUser, setUserData} from "../redux/actions";
+import {isLoading, setUser, setUserData} from "../redux/actions";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import {doCreateAutoUserTest} from "../firebase/test";
 
@@ -62,11 +62,13 @@ class Fulllayout extends React.Component {
     /*--------------------------------------------------------------------------------*/
     componentDidMount() {
         // doCreateAutoUserTest();
+        this.props.dispatch(isLoading(true))
         window.addEventListener('load', this.updateDimensions);
         window.addEventListener('resize', this.updateDimensions);
         this.onChangeAuth = auth.checkLogin((use) => {
             if (!use) {
-                this.setState({isLogin: false, isLoad: false});
+                this.setState({isLogin: false});
+                this.props.dispatch(isLoading(false))
             } else {
                 userService.getOneUser(use.uid, (data) => {
                     if (data) {
@@ -76,10 +78,11 @@ class Fulllayout extends React.Component {
                             if (!access||!access.validate) {
                                 this.setState({registered: false});
                             }
-                            this.setState({isLoad: false});
+                            this.props.dispatch(isLoading(false))
                         })
                     } else {
-                        this.setState({registered: false, isLoad: false});
+                        this.setState({registered: false});
+                        this.props.dispatch(isLoading(false))
                     }
                     this.props.dispatch(setUser(use))
 
@@ -262,9 +265,7 @@ class Fulllayout extends React.Component {
     };
 
     render() {
-        if (this.state.isLoad) {
-            return <div/>
-        }
+
         if (!this.state.registered) {
             return <Redirect to={'/authentication/mau-dang-ky'}/>
         }

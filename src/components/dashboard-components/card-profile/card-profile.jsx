@@ -18,6 +18,7 @@ import InfoStudent from "./InfoStudent";
 import {addListUser, selectStudent} from "../../../redux/actions";
 import LongMenu from "../../menu/LongMenu";
 import ContractDialog from "../../ContractDialog/ContractDialog";
+import Loading from "../../Loading/Loading";
 
 
 
@@ -127,10 +128,9 @@ class CardProfile extends React.Component {
         }
 
         return (
-            /*--------------------------------------------------------------------------------*/
-            /* Used In Dashboard-1,2,3  and Widget Page                                       */
-            /*--------------------------------------------------------------------------------*/
+
             <Card className="card-info">
+                {this.props.loadSelect&&<Loading/>}
                 <ContractDialog
                     options={this.props.listContract}
                     save={this.addContract}
@@ -233,6 +233,7 @@ const mapStateToProps = state => {
         listUser: state.listUser,
         listContract: state.listContract,
         listClass: state.listClass,
+        loadSelect: state.loadSelect,
     }
 };
 CardProfile = connect(mapStateToProps)(CardProfile);

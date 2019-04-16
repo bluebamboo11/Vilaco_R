@@ -8,7 +8,9 @@ import {
     SELECT_EMPLOYEE,
     ADD_LIST_CLASS,
     ADD_LIST_EMPLOYEE,
-    ADD_LIST_CONTRACT
+    ADD_LIST_CONTRACT,
+    IS_LOADING,
+    IS_LOAD_SELECT
 } from "./actions";
 
 const initialState = {
@@ -29,6 +31,7 @@ const initialState = {
         town: ''
     },
     listUser: [],
+    loadAll: false,
     student: null,
 };
 
@@ -55,6 +58,10 @@ export function todoApp(state = initialState, action) {
             return {...state, listContract: action.data};
         case SELECT_EMPLOYEE:
             return {...state, employeeSelected: action.data};
+        case IS_LOADING:
+            return {...state, loadAll: action.data};
+        case IS_LOAD_SELECT:
+            return {...state, loadSelect: action.data};
         default:
             return state
     }

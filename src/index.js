@@ -12,6 +12,7 @@ import './assets/custom.css';
 import {createStore} from "redux";
 import {todoApp} from "./redux/reducers";
 import {Provider} from "react-redux";
+import LoadingAll from "./components/Loading/LoadingAll";
 
 //const hist = createBrowserHistory();
 export const store = createStore(todoApp);
@@ -24,5 +25,6 @@ ReactDOM.render(
                 })}
             </Switch>
         </BrowserRouter>
+        <LoadingAll/>
     </Provider>
     , document.getElementById('root'));
