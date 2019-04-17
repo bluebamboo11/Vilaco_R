@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {isLoadSelect, selectContract} from "../../redux/actions";
 import {userService} from "../../firebase";
 import {Badge} from "reactstrap";
+
 class MonthDataContract extends React.Component {
     constructor(props) {
         super(props);
@@ -13,18 +14,20 @@ class MonthDataContract extends React.Component {
     select() {
         this.props.dispatch(selectContract(this.props.contract));
         this.props.dispatch(isLoadSelect(true));
-        userService.getAllStudentByContract(this.props.contract.id,(listStudent)=>{
-            this.props.dispatch(selectContract({...this.props.contract,listStudent:listStudent}));
+        userService.getAllStudentByContract(this.props.contract.id, (listStudent) => {
+            this.props.dispatch(selectContract({...this.props.contract, listStudent: listStudent}));
             this.props.dispatch(isLoadSelect(false));
         })
 
     }
+
     renderStatus() {
-        if (this.props.contract.open == true) {
+        if (this.props.contract.open && JSON.parse(this.props.contract.open)) {
             return <Badge color="success">Hoạt động</Badge>
         }
         return <Badge color="danger"> Đóng</Badge>
     }
+
     render() {
         let {name, syndication, company, salary, city, departureDate, examDay} = this.props.contract;
         let classTr = "row-use";

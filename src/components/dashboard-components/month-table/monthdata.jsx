@@ -9,12 +9,13 @@ class Monthdata extends React.Component {
     constructor(props) {
         super(props);
         this.selectStudent = this.selectStudent.bind(this);
-        this.renderValidate = this.renderValidate.bind(this)
+        this.renderValidate = this.renderValidate.bind(this);
+        this.selectTeacher = this.selectTeacher.bind(this)
     }
 
     selectStudent() {
+        console.log(1);
         this.props.dispatch(selectStudent({...this.props.user}));
-
         let listPromise = [null, null];
         if (this.props.user.contractId) {
             listPromise[0] = contractService.getContractById(this.props.user.contractId);
@@ -41,6 +42,19 @@ class Monthdata extends React.Component {
         }
 
     }
+
+    selectTeacher() {
+        this.props.dispatch(selectStudent({...this.props.user}));
+        this.props.dispatch(isLoadSelect(true));
+        classService.getAllClassByTeacher(this.props.user.uid, (listClass) => {
+            console.log(listClass);
+            let user = {...this.props.user, listClass: listClass};
+            this.props.dispatch(isLoadSelect(false));
+            this.props.dispatch(selectStudent(user));
+        })
+
+    }
+
 
 
     renderValidate() {
@@ -73,7 +87,7 @@ class Monthdata extends React.Component {
             );
         }
         return (
-            <tr className="row-use" onClick={this.selectStudent}>
+            <tr className="row-use" onClick={this.selectTeacher}>
                 <td>
                     <span className="round"><img className="avatar" src={avatar} alt="user" width="50"
                                                  height="50"/></span>

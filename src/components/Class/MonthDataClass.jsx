@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {Badge} from "reactstrap";
-import {selectClass, selectContract} from "../../redux/actions";
+import {isLoadSelect, selectClass} from "../../redux/actions";
+import {userService} from "../../firebase";
 
 class MonthDataClass extends React.Component {
     constructor(props) {
@@ -12,11 +13,18 @@ class MonthDataClass extends React.Component {
     }
 
     select() {
-        this.props.dispatch(selectClass(this.props.dataClass))
+        this.props.dispatch(selectClass(this.props.classData));
+        this.props.dispatch(isLoadSelect(true));
+        userService.getAllStudentByClass(this.props.classData.id, (listStudent) => {
+            userService.getOneUser(this.props.classData.teacherId, (teacher) => {
+                this.props.dispatch(isLoadSelect(false));
+                this.props.dispatch(selectClass({...this.props.classData, listStudent: listStudent, teacher: teacher}));
+            })
+        })
     }
 
     getTeacherById(id) {
-        let teacher = null;
+        let teacher = {name:''};
         this.props.listTeacher.forEach((data) => {
             if (data.id === id) {
                 teacher = data;
@@ -26,16 +34,16 @@ class MonthDataClass extends React.Component {
     }
 
     renderStatus() {
-        if (this.props.dataClass.open) {
+        if (this.props.classData.open) {
             return <Badge color="success">Hoạt động</Badge>
         }
         return <Badge color="danger"> Đóng</Badge>
     }
 
     render() {
-        let {name, startDate, endDate, teacher} = this.props.dataClass;
+        let {name, startDate, endDate, teacherId} = this.props.classData;
         let classTr = "row-use";
-        if (this.props.select && this.props.select.id === this.props.dataClass.id) {
+        if (this.props.select && this.props.select.id === this.props.classData.id) {
             classTr = classTr + ' select-row'
         }
         return (
@@ -50,7 +58,7 @@ class MonthDataClass extends React.Component {
                     <div>{endDate}</div>
                 </td>
                 <td>
-                    <div>{this.getTeacherById(teacher).name}</div>
+                    <div>{this.getTeacherById(teacherId).name}</div>
                 </td>
                 <td>
                     <div>{this.renderStatus()}</div>

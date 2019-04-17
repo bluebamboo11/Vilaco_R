@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import { createBrowserHistory } from 'history';
 import indexRoutes from './routes/index.jsx';
+import 'react-datetime/css/react-datetime.css'
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import {HashRouter} from 'react-router-dom'

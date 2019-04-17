@@ -50,9 +50,11 @@ class DialogAddClass extends React.Component {
     }
 
     renderOptionTeacher() {
-        return this.props.listTeacher.map((teacher) => {
-            return <option key={teacher.id} value={teacher.id}>{`${teacher.name} (${teacher.skype})`}</option>
-        })
+        if (this.props.listTeacher) {
+            return this.props.listTeacher.map((teacher) => {
+                return <option key={teacher.id} value={teacher.id}>{`${teacher.name} (${teacher.skype})`}</option>
+            })
+        }
     }
 
     render() {

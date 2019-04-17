@@ -6,7 +6,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import withStyles from "@material-ui/core/styles/withStyles";
+
 
 const rows = [
     {month: 1, point: 90},

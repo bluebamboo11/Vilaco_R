@@ -16,6 +16,7 @@ import {connect} from "react-redux";
 import {classService} from '../../firebase'
 import MonthDataClass from "./MonthDataClass";
 import DialogAddClass from "./DialogAddClass";
+import {addListClass, addListTeacher} from "../../redux/actions";
 
 
 class MonthTableClass extends React.Component {
@@ -44,7 +45,6 @@ class MonthTableClass extends React.Component {
 
     }
 
-
     componentDidMount() {
         this.getAll()
     }
@@ -52,7 +52,8 @@ class MonthTableClass extends React.Component {
 
     getAll() {
         classService.getAllClass((listClass, listTeacher) => {
-            this.setState({listClass: listClass, listTeacher: listTeacher});
+            this.props.dispatch(addListClass(listClass));
+            this.props.dispatch(addListTeacher(listTeacher));
             this.listData = listClass;
         })
     }
@@ -67,22 +68,19 @@ class MonthTableClass extends React.Component {
                 }
             }
         });
-        this.setState({listClass: listClass})
+        this.props.dispatch(addListClass(listClass));
     }
 
     add(data) {
         classService.addNewClass(data).then((docRef) => {
             data.id = docRef.id;
-            this.setState((state) => {
-                return {
-                    listClass: state.listClass.concat([data])
-                }
-            })
+            this.props.dispatch(addListClass(this.props.listClass.concat([data])))
         })
     }
 
     exitSearch() {
-        this.setState({listClass: this.listData,searchKey:''});
+        this.props.dispatch(addListClass( this.listData));
+        this.setState({searchKey:''});
     }
 
     changeKey(event) {
@@ -99,24 +97,22 @@ class MonthTableClass extends React.Component {
     }
 
     renderListData() {
-        return this.state.listClass.map((data) => {
-            return <MonthDataClass
-                key={data.id}
-                listTeacher={this.state.listTeacher}
-                dataClass={data}
-            />
-        })
-
+        if(this.props.listClass){
+            return this.props.listClass.map((data) => {
+                return <MonthDataClass
+                    key={data.id}
+                    listTeacher={this.state.listTeacher}
+                    classData={data}
+                />
+            })
+        }
     }
 
     render() {
         return (
-            /*--------------------------------------------------------------------------------*/
-            /* Used In Dashboard-2 && Widget Page                                             */
-            /*--------------------------------------------------------------------------------*/
             <Card style={{height: '100%'}}>
                 <DialogAddClass modal={this.state.modal} toggle={this.toggle} add={this.add}
-                                listTeacher={this.state.listTeacher} classData={this.state.class}/>
+                                listTeacher={this.props.listTeacher} classData={this.state.class}/>
                 <CardBody style={{height: '100%'}}>
                     <div className="d-flex no-block">
                         <CardTitle>Danh sách đơn hàng</CardTitle>
@@ -174,7 +170,9 @@ class MonthTableClass extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        listUser: state.listUser
+        listUser: state.listUser,
+        listClass: state.listClass,
+        listTeacher: state.listTeacher,
     }
 };
 MonthTableClass = connect(mapStateToProps)(MonthTableClass);

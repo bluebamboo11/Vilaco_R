@@ -16,18 +16,17 @@ import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 import Table from "@material-ui/core/Table";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import DialogAddContract from "./DialogAddContract";
 import {contractService} from "../../firebase";
 import {addListContract, selectContract} from "../../redux/actions";
+import DialogAddClass from "./DialogAddClass";
 
 
-class CardInfoContract extends React.Component {
+class CardInfoClass extends React.Component {
     constructor(props) {
         super(props);
         this.renderTable = this.renderTable.bind(this);
         this.toggle = this.toggle.bind(this);
         this.updateContract = this.updateContract.bind(this);
-        this.getEmployee = this.getEmployee.bind(this);
         this.state = {modal: false}
 
     }
@@ -39,7 +38,7 @@ class CardInfoContract extends React.Component {
     }
 
     renderTable() {
-        if (this.props.contract.listStudent && this.props.contract.listStudent.length > 0) {
+        if (this.props.classData.listStudent && this.props.classData.listStudent.length > 0) {
             return (
                 <PerfectScrollbar option={{suppressScrollX: true}}>
                     <h5>Danh sách học viên</h5><Table>
@@ -51,8 +50,8 @@ class CardInfoContract extends React.Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {this.props.contract.listStudent.map((row, index) => (
-                            <TableRow key={row.id} className={index % 2 === 0 ? 'cell-c' : ''}>
+                        {this.props.classData.listStudent.map((row, index) => (
+                            <TableRow key={row.uid} className={index % 2 === 0 ? 'cell-c' : ''}>
                                 <TableCell component="th" scope="row">
                                     {row.name}
                                 </TableCell>
@@ -74,37 +73,28 @@ class CardInfoContract extends React.Component {
             this.props.listContract.forEach((contract, index) => {
                 if (contract.id === data.id) {
                     this.props.listContract[index] = data;
-                    this.props.dispatch(addListContract( this.props.listContract.concat()));
+                    this.props.dispatch(addListContract(this.props.listContract.concat()));
                 }
             });
             this.props.dispatch(selectContract({...data}))
         })
     }
 
-    getEmployee() {
-        let obj = {};
-        const ID = this.props.contract.employeeId;
-        this.props.listEmployee.forEach((employee) => {
-            if (employee.id === ID) {
-                obj = employee;
-            }
-        });
-        return obj;
-    }
+
 
     render() {
-        if (!this.props.contract) {
+        if (!this.props.classData) {
             return <Card className="card-info"/>
         }
-        let {name} = this.props.contract;
+        let {name, teacher} = this.props.classData;
         return (
             <Card className="card-info">
-                <DialogAddContract modal={this.state.modal} toggle={this.toggle} addContract={this.updateContract}
-                                   listEmployee={this.props.listEmployee} contract={this.props.contract}/>
+                <DialogAddClass modal={this.state.modal} toggle={this.toggle} add={this.add}
+                                listTeacher={this.props.listTeacher} classData={this.props.classData}/>
                 {this.props.loadSelect && <Loading/>}
                 <div className="card-header card-header-custom justify-content-center">
-                    <h4>Đơn hàng : {name}</h4>
-                    <h5 className="m-0">Nhân viên : {this.getEmployee().name}</h5>
+                    <h4>Lớp : {name}</h4>
+                    <h5 className="m-0">Giáo viên : {teacher && teacher.name}</h5>
                     <Button className="button-cricle-custom" color="warning" onClick={this.toggle}><i
                         className="ti-pencil"/></Button>
                 </div>
@@ -119,12 +109,13 @@ class CardInfoContract extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        contract: state.contractSelected,
+        classData: state.classSelected,
         loadSelect: state.loadSelect,
         listEmployee: state.listEmployee,
-        listContract: state.listContract,
+        listClass: state.listClass,
+        listTeacher: state.listTeacher,
     }
 };
-CardInfoContract = connect(mapStateToProps)(CardInfoContract);
-export default CardInfoContract
+CardInfoClass = connect(mapStateToProps)(CardInfoClass);
+export default CardInfoClass
 

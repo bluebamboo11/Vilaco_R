@@ -11,6 +11,7 @@ export const ADD_LIST_CLASS = 'ADD_LIST_CLASS';
 export const ADD_LIST_EMPLOYEE = 'ADD_LIST_EMPLOYEE';
 export const IS_LOADING = 'IS_LOADING';
 export const IS_LOAD_SELECT = 'IS_LOAD_SELECT';
+export const ADD_LIST_TEACHER = 'ADD_LIST_TEACHER';
 
 export function setUser(user) {
     return {
@@ -92,6 +93,12 @@ export function addListClass(data) {
 export function addListEmployee(data) {
     return {
         type: ADD_LIST_EMPLOYEE,
+        data: data
+    }
+}
+export function addListTeacher(data) {
+    return {
+        type: ADD_LIST_TEACHER,
         data: data
     }
 }

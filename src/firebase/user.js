@@ -13,6 +13,9 @@ export const doUpdateUser = (id, user) =>
     db.collection("user").doc(id).update(user);
 
 export const getOneUser = (uid, callback) => {
+    if (!uid) {
+        return callback()
+    }
     db.collection("user").doc(uid).get().then(function (doc) {
         if (doc.exists) {
             callback(doc.data())
@@ -105,18 +108,32 @@ export const getAllUser = (next, type, validate, callback) => {
 };
 
 export const getAllStudentByContract = (contractId, callback) => {
-   db.collection("user").where('type', '==', 'student').where('contractId','==',contractId).orderBy("timestamp").get().then(function (documentSnapshots) {
+    db.collection("user").where('type', '==', 'student').where('contractId', '==', contractId).orderBy("timestamp").get().then(function (documentSnapshots) {
         let listUser = [];
         documentSnapshots.forEach(function (doc) {
             let user = doc.data();
             user.uid = doc.id;
             listUser.push(user);
         });
-            callback(listUser)
+        callback(listUser)
 
     });
 
 };
+export const getAllStudentByClass = (classId, callback) => {
+    db.collection("user").where('type', '==', 'student').where('classId', '==', classId).orderBy("timestamp").get().then(function (documentSnapshots) {
+        let listUser = [];
+        documentSnapshots.forEach(function (doc) {
+            let user = doc.data();
+            user.uid = doc.id;
+            listUser.push(user);
+        });
+        callback(listUser)
+
+    });
+
+};
+
 
 
 

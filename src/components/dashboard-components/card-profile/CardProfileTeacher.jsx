@@ -9,11 +9,16 @@ import {
 
 import img1 from 'assets/images/background/profile-bg.jpg';
 import {connect} from "react-redux";
-import {adminService, userService} from '../../../firebase'
+import {adminService, userService, classService} from '../../../firebase'
 import {addListUser, selectStudent} from "../../../redux/actions";
 import InfoTeacher from "./InfoTeacher";
 import ContractDialog from "../../ContractDialog/ContractDialog";
 import LongMenu from "../../menu/LongMenu";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import {withStyles} from "@material-ui/core";
+import ListClass from "./ListClass";
+import Loading from "../../Loading/Loading";
 
 
 class CardProfileTeacher extends React.Component {
@@ -29,7 +34,7 @@ class CardProfileTeacher extends React.Component {
         this.state = {
             value: 0,
             modal: false,
-            searchKey:''
+            searchKey: ''
         };
     }
 
@@ -52,8 +57,9 @@ class CardProfileTeacher extends React.Component {
             this.props.dispatch(selectStudent(null));
         })
     }
-    validateUser(){
-        adminService.validateUser(this.props.user.uid,this.props.user.type,()=>{
+
+    validateUser() {
+        adminService.validateUser(this.props.user.uid, this.props.user.type, () => {
             this.props.user.validate = true;
             const index = this.props.listUser.indexOf(this.props.user);
             let user = {...this.props.user};
@@ -62,14 +68,17 @@ class CardProfileTeacher extends React.Component {
             this.props.dispatch(addListUser(this.props.listUser.concat()));
         })
     }
+
     addClass(id) {
-        let listClass = this.props.user.classId||[];
-        listClass.push(id);
-        userService.doUpdateUser(this.props.user.uid, {classId: listClass}).then(() => {
-            let user = {...this.props.user};
-            user.classId = id;
-            this.updateUser(user)
-        })
+        classService.updateClass({teacherId: this.props.user.uid},id).then(() => {
+            this.props.listClass.forEach((value)=>{
+               if(value.id === id) {
+                   this.props.user.listClass.push(value);
+                   this.props.dispatch(selectStudent({...  this.props.user}));
+
+               }
+            })
+        });
     }
 
     renderValidate() {
@@ -78,14 +87,18 @@ class CardProfileTeacher extends React.Component {
         }
         return <Badge color="warning" style={{fontSize: 10}}> Chưa xác thực</Badge>
     }
-    openAddClass(){
+
+    openAddClass() {
         this.addClassDialog.handleClickOpen()
     }
+
     render() {
+        const {classes} = this.props;
+        const {value} = this.state;
         if (!this.props.user) {
             return <Card className="card-info"/>
         }
-        let {avatar, name,validate} = this.props.user;
+        let {avatar, name, validate} = this.props.user;
         let options = [
             {title: 'Xác nhận', onClick: this.validateUser},
             {title: 'Xóa', onClick: this.toggle},
@@ -100,8 +113,8 @@ class CardProfileTeacher extends React.Component {
             ];
         }
         return (
-
             <Card className="card-info">
+                {this.props.loadSelect&&<Loading/>}
                 <ContractDialog
                     options={this.props.listClass}
                     save={this.addClass}
@@ -124,29 +137,78 @@ class CardProfileTeacher extends React.Component {
                 <CardBody className="little-profile text-center " style={{height: 'calc(100% - 200px)'}}>
                     <div className="pro-img">
                         <img src={avatar} className="avatar" alt="user"/>
-
                     </div>
                     <h3 className="mb-3">{name} {this.renderValidate()}</h3>
                     <div className="menu-info">
                         <LongMenu options={options}/>
                     </div>
-                    <InfoTeacher/>
-                    {!validate&&<Button color="success" className="btn-rounded btn-custom-s" onClick={this.validateUser}>Xác nhận</Button>}
-                    <Button color="danger" className="btn-rounded btn-custom-s" onClick={this.toggle}>Xóa</Button>
+                    <Tabs
+                        classes={{root: classes.tabsRoot, indicator: classes.tabsIndicator}}
+                        value={value}
+                        onChange={this.handleChange}
+                    >
+                        <Tab
+                            classes={{root: classes.tabRoot, selected: classes.tabSelected}}
+                            disableRipple
+                            label="Thông tin"
+                        />
+                        <Tab
+                            classes={{root: classes.tabRoot, selected: classes.tabSelected}}
+                            disableRipple
+                            label="Lớp"
+                        />
+                    </Tabs>
+                    {value === 0 && <InfoTeacher/>}
+                    {value === 1 && <ListClass rows={this.props.user.listClass}/>}
                 </CardBody>
             </Card>
         );
     }
 }
 
+const styles = theme => ({
+    root: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.paper,
+    },
+    tabsRoot: {
+        borderBottom: '1px solid #e8e8e8',
+    },
+    tabsIndicator: {
+        backgroundColor: '#1890ff',
+    },
+    tabRoot: {
+        outline: 'none !important',
+        textTransform: 'initial',
+        minWidth: 72,
+        fontWeight: theme.typography.fontWeightRegular,
+        marginRight: theme.spacing.unit * 4,
+        '&:hover': {
+            color: '#40a9ff',
+            opacity: 1,
+        },
+        '&$tabSelected': {
+            color: '#1890ff',
+            fontWeight: theme.typography.fontWeightMedium,
+        },
+        '&:focus': {
+            color: '#40a9ff',
+        },
+    },
+    tabSelected: {},
+    typography: {
+        padding: theme.spacing.unit * 3,
+    },
+});
 
 const mapStateToProps = state => {
     return {
         user: state.student,
         listUser: state.listUser,
         listClass: state.listClass,
+        loadSelect: state.loadSelect,
     }
 };
 CardProfileTeacher = connect(mapStateToProps)(CardProfileTeacher);
-export default CardProfileTeacher;
+export default withStyles(styles)(CardProfileTeacher);
 

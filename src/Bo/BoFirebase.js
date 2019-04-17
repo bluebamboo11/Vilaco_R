@@ -47,6 +47,6 @@ export function contractBo(data) {
         departureDate: data.departureDate,
         examDay: data.examDay,
         timestamp: data.timestamp,
-        open: data.open == 'true'
+        open: data.open && JSON.parse(data.open)
     }
 }

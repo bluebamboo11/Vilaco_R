@@ -16,7 +16,7 @@ import {connect} from "react-redux";
 import {contractService} from '../../firebase'
 import MonthDataContract from "./MonthDataContract";
 import DialogAddContract from "./DialogAddContract";
-import {addListEmployee} from "../../redux/actions";
+import {addListContract, addListEmployee} from "../../redux/actions";
 
 
 class MonthTableContract extends React.Component {
@@ -57,7 +57,7 @@ class MonthTableContract extends React.Component {
     getAll() {
         contractService.getAllContract((listData, listEmployee) => {
             this.props.dispatch(addListEmployee(listEmployee));
-            this.setState({listContract: listData});
+            this.props.dispatch(addListContract(listData));
             this.listData = listData;
         })
     }
@@ -72,22 +72,18 @@ class MonthTableContract extends React.Component {
                 }
             }
         });
-        this.setState({listContract: listContract})
+        this.props.dispatch(addListContract(listContract));
     }
 
     addContract(data) {
         contractService.addNewContract(data).then((docRef) => {
             data.id = docRef.id;
-            this.setState((state) => {
-                return {
-                    listContract: state.listContract.concat([data])
-                }
-            })
+            this.props.dispatch(addListContract(this.props.listContract.concat([data])));
         })
     }
 
     exitSearch() {
-        this.setState({listContract: this.listData,searchKey:''});
+        this.props.dispatch(addListContract(this.listData));
     }
 
     changeKey(event) {
@@ -115,13 +111,14 @@ class MonthTableContract extends React.Component {
     }
 
     renderListData() {
-        return this.state.listContract.map((contract) => {
-            return <MonthDataContract
-                key={contract.id}
-                contract={contract}
-            />
-        })
-
+        if (this.props.listContract) {
+            return this.props.listContract.map((contract) => {
+                return <MonthDataContract
+                    key={contract.id}
+                    contract={contract}
+                />
+            })
+        }
     }
 
     render() {
