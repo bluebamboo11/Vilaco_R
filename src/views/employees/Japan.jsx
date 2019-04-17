@@ -2,6 +2,7 @@ import React from 'react';
 import {Row, Col} from 'reactstrap';
 import {connect} from "react-redux";
 import MonthTableJapan from "../../components/Employees/MonthTableJapan";
+import CardInfoJapan from "../../components/Employees/CardInfoJapan";
 
 
 
@@ -20,7 +21,9 @@ class Japan  extends React.Component {
                     <Col lg="8" style={{height: '100%'}}>
                         <MonthTableJapan />
                     </Col>
-
+                    <Col lg="4" className="h-100">
+                        <CardInfoJapan/>
+                    </Col>
                 </Row>
 
             </div>

@@ -15,15 +15,12 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 import {connect} from "react-redux";
 import DialogAddJapan from "./DialogAddJapan";
 import {employeeService} from '../../firebase'
-import Monthdata from "../dashboard-components/month-table/monthdata";
 import MonthdataJapan from "./MonthdataJapan";
 
 
 class MonthTableJapan extends React.Component {
     constructor(props) {
         super(props);
-
-        this.getData = this.getData.bind(this);
         this.searchAllUser = this.searchAllUser.bind(this);
         this.changeKey = this.changeKey.bind(this);
         this.exitSearch = this.exitSearch.bind(this);
@@ -64,7 +61,7 @@ class MonthTableJapan extends React.Component {
         let listEmployee = this.listData.filter((item) => {
             console.log(1);
             for (let key in item) {
-                if (item[key] && item[key].toUpperCase().indexOf(searchKey) >= 0) {
+                if (item[key]&& typeof item[key] === 'string' && item[key].toUpperCase().indexOf(searchKey) >= 0) {
                     return true
                 }
             }
@@ -73,13 +70,10 @@ class MonthTableJapan extends React.Component {
     }
 
     exitSearch() {
-        this.getAll();
-        this.setState({searchKey: ''});
+        this.setState({listEmployee: this.listData,searchKey:''});
     }
 
-    getData(type) {
 
-    }
 
     changeKey(event) {
         this.setState({
@@ -99,17 +93,13 @@ class MonthTableJapan extends React.Component {
             return <MonthdataJapan
                 key={employee.id}
                 employee={employee}
-
             />
         })
-
     }
 
     render() {
         return (
-            /*--------------------------------------------------------------------------------*/
-            /* Used In Dashboard-2 && Widget Page                                             */
-            /*--------------------------------------------------------------------------------*/
+
             <Card style={{height: '100%'}}>
                 <DialogAddJapan modal={this.state.modal} toggle={this.toggle} employee={this.state.employee}/>
                 <CardBody style={{height: '100%'}}>
@@ -118,13 +108,13 @@ class MonthTableJapan extends React.Component {
                         <Form className="search-user col-6 ml-auto" onSubmit={this.searchAllUser}>
                             <InputGroup>
                                 <InputGroupAddon addonType="append">
-                                    <Button outline color="info" onClick={this.exitSearch}><i
+                                    <Button onClick={this.exitSearch}><i
                                         className="ti-close"/></Button>
                                 </InputGroupAddon>
                                 <Input type="text" onChange={this.changeKey} value={this.state.searchKey}
                                        placeholder="Nhập bắt kỳ thông tin nào"/>
                                 <InputGroupAddon addonType="append">
-                                    <Button><i className="ti-search"/></Button>
+                                    <Button type="submit"><i className="ti-search"/></Button>
                                 </InputGroupAddon>
                             </InputGroup>
                         </Form>

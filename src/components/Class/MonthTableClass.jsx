@@ -62,7 +62,7 @@ class MonthTableClass extends React.Component {
         let searchKey = this.state.searchKey.toUpperCase();
         let listClass = this.listData.filter((item) => {
             for (let key in item) {
-                if (item[key] && item[key].toUpperCase().indexOf(searchKey) >= 0) {
+                if (item[key]&& typeof item[key] === 'string' && item[key].toUpperCase().indexOf(searchKey) >= 0) {
                     return true
                 }
             }
@@ -82,8 +82,7 @@ class MonthTableClass extends React.Component {
     }
 
     exitSearch() {
-        this.getAll();
-        this.setState({searchKey: ''});
+        this.setState({listClass: this.listData,searchKey:''});
     }
 
     changeKey(event) {

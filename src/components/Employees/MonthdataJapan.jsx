@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
-import { selectEmployee} from "../../redux/actions";
+import {isLoadSelect, selectEmployee} from "../../redux/actions";
+import {contractService} from "../../firebase";
 
 class MonthdataJapan extends React.Component {
     constructor(props) {
@@ -9,7 +10,13 @@ class MonthdataJapan extends React.Component {
     }
 
     select() {
-        this.props.dispatch(selectEmployee(this.props.employee))
+        this.props.dispatch(selectEmployee(this.props.employee));
+        this.props.dispatch(isLoadSelect(true));
+        contractService.getAllContractByEmployee(this.props.employee.id, (listData) => {
+            this.props.dispatch(isLoadSelect(false));
+            this.props.dispatch(selectEmployee({...this.props.employee, listContract: listData}));
+        });
+
     }
 
     render() {

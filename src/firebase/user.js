@@ -104,4 +104,19 @@ export const getAllUser = (next, type, validate, callback) => {
 
 };
 
+export const getAllStudentByContract = (contractId, callback) => {
+   db.collection("user").where('type', '==', 'student').where('contractId','==',contractId).orderBy("timestamp").get().then(function (documentSnapshots) {
+        let listUser = [];
+        documentSnapshots.forEach(function (doc) {
+            let user = doc.data();
+            user.uid = doc.id;
+            listUser.push(user);
+        });
+            callback(listUser)
+
+    });
+
+};
+
+
 

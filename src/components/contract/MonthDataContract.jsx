@@ -1,21 +1,26 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {selectContract} from "../../redux/actions";
+import {isLoadSelect, selectContract} from "../../redux/actions";
+import {userService} from "../../firebase";
 import {Badge} from "reactstrap";
-
 class MonthDataContract extends React.Component {
     constructor(props) {
         super(props);
-        this.select = this.select.bind(this)
+        this.select = this.select.bind(this);
         this.renderStatus = this.renderStatus.bind(this)
-
     }
 
     select() {
-        this.props.dispatch(selectContract(this.props.contract))
+        this.props.dispatch(selectContract(this.props.contract));
+        this.props.dispatch(isLoadSelect(true));
+        userService.getAllStudentByContract(this.props.contract.id,(listStudent)=>{
+            this.props.dispatch(selectContract({...this.props.contract,listStudent:listStudent}));
+            this.props.dispatch(isLoadSelect(false));
+        })
+
     }
     renderStatus() {
-        if (this.props.contract.open) {
+        if (this.props.contract.open == true) {
             return <Badge color="success">Hoạt động</Badge>
         }
         return <Badge color="danger"> Đóng</Badge>

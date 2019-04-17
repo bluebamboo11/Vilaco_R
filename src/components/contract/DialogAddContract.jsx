@@ -18,6 +18,7 @@ class DialogAddContract extends React.Component {
         this.renderExamDay = this.renderExamDay.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
         this.add = this.add.bind(this);
+        this.open = this.open.bind(this);
         this.renderOptionEmployee = this.renderOptionEmployee.bind(this);
         this.state = props.contract
     }
@@ -33,7 +34,7 @@ class DialogAddContract extends React.Component {
         });
     }
 
-    onDateChange(date,key) {
+    onDateChange(date, key) {
         this.setState({
             [key]: date.format('DD/MM/YYYY')
         });
@@ -45,25 +46,36 @@ class DialogAddContract extends React.Component {
     }
 
     renderExamDay(props) {
-        return <Input {...props}  value={this.state.examDay}
+        return <Input {...props} value={this.state.examDay}
                       placeholder="Ngày / Tháng / Năm" invalid={!this.state.examDay}/>
     }
 
     renderDepartureDate(props) {
-        return <Input {...props}  value={this.state.departureDate}
+        return <Input {...props} value={this.state.departureDate}
                       placeholder="Ngày / Tháng / Năm" invalid={!this.state.departureDate}/>
     }
-    renderOptionEmployee(){
-      return   this.props.listEmployee.map((employee)=>{
-          return  <option key={employee.id} value={employee.id}>{employee.name}</option>
-      })
-    }
 
+    renderOptionEmployee() {
+        if (this.props.listEmployee) {
+            return this.props.listEmployee.map((employee) => {
+                return <option key={employee.id} value={employee.id}>{employee.name}</option>
+            })
+        }
+        return null
+
+    }
+    open(){
+        this.setState(this.props.contract);
+    }
     render() {
-        let {name, employee, syndication, company, salary, city} = this.state;
+        let {name, employeeId, syndication, company, salary, city,open,id} = this.state;
+        let title = 'Thêm đơn hàng';
+        if(id){
+            title = 'Cập nhật đơn hàng';
+        }
         return (
-            <Modal isOpen={this.props.modal} toggle={this.props.toggle} className="modal-dialog-centered">
-                <ModalHeader toggle={this.toggle}> Thêm nhân viên phòng nhật </ModalHeader>
+            <Modal isOpen={this.props.modal} toggle={this.props.toggle}  onOpened={this.open} className="modal-dialog-centered">
+                <ModalHeader toggle={this.toggle}> {title} </ModalHeader>
                 <ModalBody>
                     <form onSubmit={this.doUpdate}>
                         <FormGroup>
@@ -73,8 +85,8 @@ class DialogAddContract extends React.Component {
                         </FormGroup>
                         <FormGroup>
                             <label>Nhân viên phòng nhật</label>
-                            <Input type="select" className="custom-select" value={employee} name="employee"
-                                   onChange={this.onInputChange} invalid={!employee}>
+                            <Input type="select" className="custom-select" value={employeeId} name="employeeId"
+                                   onChange={this.onInputChange} invalid={!employeeId}>
                                 <option value=''/>
                                 {this.renderOptionEmployee()}
                             </Input>
@@ -112,7 +124,9 @@ class DialogAddContract extends React.Component {
                         <FormGroup>
                             <label>Ngày thi tuyển</label>
                             <Datetime
-                                onChange={(date)=>{this.onDateChange(date,'examDay')}}
+                                onChange={(date) => {
+                                    this.onDateChange(date, 'examDay')
+                                }}
                                 locale="vi"
                                 timeFormat={false}
                                 closeOnSelect={true}
@@ -122,18 +136,28 @@ class DialogAddContract extends React.Component {
                         <FormGroup>
                             <label>Ngày dự kiến xuất cảnh</label>
                             <Datetime
-                                onChange={(date)=>{this.onDateChange(date,'departureDate')}}
+                                onChange={(date) => {
+                                    this.onDateChange(date, 'departureDate')
+                                }}
                                 locale="vi"
                                 timeFormat={false}
                                 closeOnSelect={true}
                                 renderInput={this.renderDepartureDate}
                             />
                         </FormGroup>
+                        <FormGroup>
+                            <label>Trạng thái</label>
+                            <Input type="select" className="custom-select" value={open} name="open"
+                                   onChange={this.onInputChange} >
+                                <option  value={false}>Đóng</option>
+                                <option  value={true}>Hoạt động</option>
+                            </Input>
+                        </FormGroup>
 
                     </form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="danger" onClick={this.add}>Thêm</Button>{' '}
+                    <Button color="danger" onClick={this.add}>Lưu</Button>{' '}
                     <Button color="secondary" onClick={this.props.toggle}>Hủy</Button>
                 </ModalFooter>
             </Modal>

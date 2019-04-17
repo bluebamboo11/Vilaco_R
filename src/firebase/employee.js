@@ -1,8 +1,9 @@
 import {db, firebase} from './firebase';
+import {employeeBo} from "../Bo/BoFirebase";
 
 export function addNewEmployee(data) {
     data.timestamp = firebase.firestore.FieldValue.serverTimestamp();
-    return db.collection('employees-japan').add(data)
+    return db.collection('employees-japan').add(employeeBo(data))
 }
 
 export function listenAllEmployee(callback) {
@@ -27,4 +28,8 @@ export function getAllEmployee(callback) {
         });
         callback(list);
     })
+}
+
+export  function updateEmployee(id,data) {
+    return db.collection('employees-japan').doc(id).update(employeeBo(data))
 }

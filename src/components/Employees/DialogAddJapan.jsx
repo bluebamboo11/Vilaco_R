@@ -8,14 +8,16 @@ import {
 
 import {connect} from "react-redux";
 import {employeeService} from '../../firebase'
+import {selectEmployee} from "../../redux/actions";
 
 
 class DialogAddJapan extends React.Component {
     constructor(props) {
         super(props);
         this.onInputChange = this.onInputChange.bind(this);
+        this.open = this.open.bind(this);
         this.add = this.add.bind(this);
-        this.state = props.employee
+         this.state = props.employee;
     }
 
 
@@ -31,14 +33,26 @@ class DialogAddJapan extends React.Component {
 
     add() {
         this.props.toggle();
-        employeeService.addNewEmployee(this.state).then()
+        if(this.state.id){
+            employeeService.updateEmployee(this.state.id,this.state).then(()=>{
+               this.props.dispatch(selectEmployee({...this.state}))
+            })
+        }else {
+            employeeService.addNewEmployee(this.state).then()
+        }
     }
-
+    open(){
+        this.setState(this.props.employee);
+    }
     render() {
-        let {name, gender, phone, skype} = this.state;
+        let {name, gender, phone, skype,id} = this.state;
+        let title = 'Thêm nhân viên phòng nhật';
+        if(id){
+            title = 'Cập nhật viên phòng nhật';
+        }
         return (
-            <Modal isOpen={this.props.modal} toggle={this.props.toggle} className="modal-dialog-centered">
-                <ModalHeader toggle={this.toggle}> Thêm nhân viên phòng nhật </ModalHeader>
+            <Modal isOpen={this.props.modal} toggle={this.props.toggle} className="modal-dialog-centered" onOpened={this.open}>
+                <ModalHeader toggle={this.toggle}>{title} </ModalHeader>
                 <ModalBody>
                     <form onSubmit={this.doUpdate}>
                         <FormGroup>
@@ -74,7 +88,7 @@ class DialogAddJapan extends React.Component {
                     </form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="danger" onClick={this.add}>Thêm</Button>{' '}
+                    <Button color="danger" onClick={this.add}>Lưu</Button>{' '}
                     <Button color="secondary" onClick={this.props.toggle}>Hủy</Button>
                 </ModalFooter>
             </Modal>

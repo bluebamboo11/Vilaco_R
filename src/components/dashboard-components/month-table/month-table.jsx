@@ -1,5 +1,16 @@
 import React from 'react';
-import {Button, Card, CardBody, CardTitle, Form, Input, InputGroup, InputGroupAddon, Table} from 'reactstrap';
+import {
+    Button,
+    ButtonGroup,
+    Card,
+    CardBody,
+    CardTitle,
+    Form,
+    Input,
+    InputGroup,
+    InputGroupAddon,
+    Table
+} from 'reactstrap';
 
 import Monthdata from './monthdata';
 import PerfectScrollbar from "react-perfect-scrollbar";
@@ -188,14 +199,14 @@ class MonthTable extends React.Component {
                         </div>
                         <Form className="search-user col-6 " onSubmit={this.searchAllUser}>
                             <InputGroup>
-                                <InputGroupAddon addonType="append">
-                                    <Button outline color="info" onClick={this.exitSearch} ><i
-                                        className="ti-close"/></Button>
-                                </InputGroupAddon>
                                 <Input type="text" onChange={this.changeKey} value={this.state.searchKey} required
                                        placeholder="Nhập chính xác tên, số điện thoại hoặc email"/>
                                 <InputGroupAddon addonType="append">
-                                    <Button><i className="ti-search"/></Button>
+                                    <ButtonGroup>
+                                        <Button type="submit"><i className="ti-search"/></Button>
+                                        <Button onClick={this.exitSearch} ><i className="ti-close"/></Button>
+                                    </ButtonGroup>
+
                                 </InputGroupAddon>
                             </InputGroup>
                         </Form>
