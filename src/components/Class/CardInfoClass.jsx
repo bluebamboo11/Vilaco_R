@@ -16,8 +16,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 import Table from "@material-ui/core/Table";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import {contractService} from "../../firebase";
-import {addListContract, selectContract} from "../../redux/actions";
+import {classService} from "../../firebase";
+import {addListClass, addListContract, selectClass, selectContract} from "../../redux/actions";
 import DialogAddClass from "./DialogAddClass";
 
 
@@ -26,7 +26,8 @@ class CardInfoClass extends React.Component {
         super(props);
         this.renderTable = this.renderTable.bind(this);
         this.toggle = this.toggle.bind(this);
-        this.updateContract = this.updateContract.bind(this);
+        this.updateClass = this.updateClass.bind(this);
+        this.getTeacherById = this.getTeacherById.bind(this);
         this.state = {modal: false}
 
     }
@@ -68,33 +69,43 @@ class CardInfoClass extends React.Component {
 
     }
 
-    updateContract(data) {
-        contractService.updateContract(data).then(() => {
-            this.props.listContract.forEach((contract, index) => {
-                if (contract.id === data.id) {
-                    this.props.listContract[index] = data;
-                    this.props.dispatch(addListContract(this.props.listContract.concat()));
+    updateClass(data) {
+        classService.updateClass(data).then(() => {
+            this.props.listClass.forEach((classData, index) => {
+                if (classData.id === data.id) {
+                    this.props.listClass[index] = data;
+                    this.props.dispatch(addListClass(this.props.listClass.concat()));
                 }
             });
-            this.props.dispatch(selectContract({...data}))
+            this.props.dispatch(selectClass({...data}))
         })
     }
 
-
+    getTeacherById(id) {
+        let teacher = {name: ''};
+        if (this.props.listTeacher) {
+            this.props.listTeacher.forEach((data) => {
+                if (data.id === id) {
+                    teacher = data;
+                }
+            });
+        }
+        return teacher;
+    }
 
     render() {
         if (!this.props.classData) {
             return <Card className="card-info"/>
         }
-        let {name, teacher} = this.props.classData;
+        let {name, teacherId} = this.props.classData;
         return (
             <Card className="card-info">
-                <DialogAddClass modal={this.state.modal} toggle={this.toggle} add={this.add}
+                <DialogAddClass modal={this.state.modal} toggle={this.toggle} add={this.updateClass}
                                 listTeacher={this.props.listTeacher} classData={this.props.classData}/>
                 {this.props.loadSelect && <Loading/>}
                 <div className="card-header card-header-custom justify-content-center">
                     <h4>Lớp : {name}</h4>
-                    <h5 className="m-0">Giáo viên : {teacher && teacher.name}</h5>
+                    <h5 className="m-0">Giáo viên : {this.getTeacherById(teacherId).name}</h5>
                     <Button className="button-cricle-custom" color="warning" onClick={this.toggle}><i
                         className="ti-pencil"/></Button>
                 </div>

@@ -200,3 +200,6 @@ button:focus {
     top: 10px;
     color: white;
 }
+.switch-custom>span:last-child{
+    color: rgb(103, 117, 124) !important;
+}

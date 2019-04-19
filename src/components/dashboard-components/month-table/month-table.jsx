@@ -16,7 +16,7 @@ import Monthdata from './monthdata';
 import PerfectScrollbar from "react-perfect-scrollbar";
 import {connect} from "react-redux";
 import {addListClass, addListContract, addListUser, selectStudent} from "../../../redux/actions";
-import {userService,contractService,classService} from "../../../firebase";
+import {userService, contractService, classService} from "../../../firebase";
 
 function getListUserNew(lisNew, listOld) {
     let list = [];
@@ -72,16 +72,19 @@ class MonthTable extends React.Component {
         }
 
     }
-   getAllContract(){
-       contractService.getAllContractOpen(true,(list)=>{
-           this.props.dispatch(addListContract(list))
-       })
-   }
-   getAllClass(){
-       classService.getAllClassOpen(true,(list)=>{
-           this.props.dispatch(addListClass(list))
-       })
-   }
+
+    getAllContract() {
+        contractService.getAllContractOpen(true, (list) => {
+            this.props.dispatch(addListContract(list))
+        })
+    }
+
+    getAllClass() {
+        classService.getAllClassOpen(true, (list) => {
+            this.props.dispatch(addListClass(list))
+        })
+    }
+
     exitSearch() {
         this.setState({searchKey: ''});
         this.getData(this.state.type)
@@ -199,14 +202,13 @@ class MonthTable extends React.Component {
                         </div>
                         <Form className="search-user col-6 " onSubmit={this.searchAllUser}>
                             <InputGroup>
+                                <InputGroupAddon addonType="append">
+                                    <Button onClick={this.exitSearch}><i className="ti-close"/></Button>
+                                </InputGroupAddon>
                                 <Input type="text" onChange={this.changeKey} value={this.state.searchKey} required
                                        placeholder="Nhập chính xác tên, số điện thoại hoặc email"/>
                                 <InputGroupAddon addonType="append">
-                                    <ButtonGroup>
-                                        <Button type="submit"><i className="ti-search"/></Button>
-                                        <Button onClick={this.exitSearch} ><i className="ti-close"/></Button>
-                                    </ButtonGroup>
-
+                                    <Button type="submit"><i className="ti-search"/></Button>
                                 </InputGroupAddon>
                             </InputGroup>
                         </Form>

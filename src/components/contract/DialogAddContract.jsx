@@ -8,6 +8,8 @@ import {
 
 import {connect} from "react-redux";
 import Datetime from "react-datetime";
+import Switch from "@material-ui/core/Switch";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 
 class DialogAddContract extends React.Component {
@@ -20,12 +22,13 @@ class DialogAddContract extends React.Component {
         this.add = this.add.bind(this);
         this.open = this.open.bind(this);
         this.renderOptionEmployee = this.renderOptionEmployee.bind(this);
+        this.handleChangeOpen = this.handleChangeOpen.bind(this);
         this.state = props.contract
     }
 
 
-    componentDidMount() {
-
+    handleChangeOpen(event){
+        this.setState({open: event.target.checked });
     }
 
     onInputChange(event) {
@@ -145,13 +148,19 @@ class DialogAddContract extends React.Component {
                                 renderInput={this.renderDepartureDate}
                             />
                         </FormGroup>
-                        <FormGroup>
-                            <label>Trạng thái</label>
-                            <Input type="select" className="custom-select" value={open} name="open"
-                                   onChange={this.onInputChange} >
-                                <option  value={false}>Đóng</option>
-                                <option  value={true}>Hoạt động</option>
-                            </Input>
+                        <FormGroup className="m-0">
+                            <FormControlLabel
+                                className="switch-custom"
+                                control={
+                                    <Switch
+                                        checked={open}
+                                        onChange={this.handleChangeOpen}
+                                        color="secondary"
+                                        value="open"
+                                    />
+                                }
+                                label="Hoạt động"
+                            />
                         </FormGroup>
 
                     </form>

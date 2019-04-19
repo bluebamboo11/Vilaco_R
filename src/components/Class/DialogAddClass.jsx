@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Button, FormGroup, Input,
+    Button,  FormGroup, Input,
     Modal, ModalBody, ModalFooter,
     ModalHeader
 
@@ -8,6 +8,10 @@ import {
 
 import {connect} from "react-redux";
 import Datetime from "react-datetime";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
+
+
 
 
 class DialogAddClass extends React.Component {
@@ -18,7 +22,9 @@ class DialogAddClass extends React.Component {
         this.renderStartDate = this.renderStartDate.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
         this.add = this.add.bind(this);
+        this.open = this.open.bind(this);
         this.renderOptionTeacher = this.renderOptionTeacher.bind(this);
+        this.handleChangeOpen = this.handleChangeOpen.bind(this);
         this.state = props.classData
     }
 
@@ -27,7 +33,9 @@ class DialogAddClass extends React.Component {
             [event.target.name]: event.target.value
         });
     }
-
+    handleChangeOpen(event){
+        this.setState({open: event.target.checked });
+    }
     onDateChange(date, key) {
         this.setState({
             [key]: date.format('DD/MM/YYYY')
@@ -56,12 +64,18 @@ class DialogAddClass extends React.Component {
             })
         }
     }
-
+    open(){
+        this.setState(this.props.classData);
+    }
     render() {
-        let {name, teacher} = this.state;
+        let {name, teacherId,id,open} = this.state;
+        let title = 'Thêm lớp học';
+        if(id){
+            title = 'Cập nhật lớp học';
+        }
         return (
-            <Modal isOpen={this.props.modal} toggle={this.props.toggle} className="modal-dialog-centered">
-                <ModalHeader toggle={this.toggle}> Thêm lớp học </ModalHeader>
+            <Modal isOpen={this.props.modal} toggle={this.props.toggle}  onOpened={this.open} className="modal-dialog-centered">
+                <ModalHeader toggle={this.toggle}>{title}</ModalHeader>
                 <ModalBody>
                     <form onSubmit={this.doUpdate}>
                         <FormGroup>
@@ -96,11 +110,25 @@ class DialogAddClass extends React.Component {
                         </FormGroup>
                         <FormGroup>
                             <label>Giáo viên phụ trách</label>
-                            <Input type="select" className="custom-select" value={teacher} name="teacher"
-                                   onChange={this.onInputChange} invalid={!teacher}>
+                            <Input type="select" className="custom-select" value={teacherId} name="teacherId"
+                                   onChange={this.onInputChange} invalid={!teacherId}>
                                 <option value=''/>
                                 {this.renderOptionTeacher()}
                             </Input>
+                        </FormGroup>
+                        <FormGroup className="m-0">
+                            <FormControlLabel
+                                className="switch-custom"
+                                control={
+                                    <Switch
+                                        checked={open}
+                                        onChange={this.handleChangeOpen}
+                                        color="secondary"
+                                        value="open"
+                                    />
+                                }
+                                label="Hoạt động"
+                            />
                         </FormGroup>
                     </form>
                 </ModalBody>

@@ -1,12 +1,13 @@
 import {db, firebase} from './firebase';
-import {getAllEmployee} from "./employee";
+import {classBo} from "../Bo/BoFirebase";
+
 
 export function addNewClass(data) {
     data.timestamp = firebase.firestore.FieldValue.serverTimestamp();
-    return db.collection('class').add(data)
+    return db.collection('class').add(classBo(data))
 }
-export function updateClass(data,id) {
-    return db.collection('class').doc(id).update(data)
+export function updateClass(data) {
+    return db.collection('class').doc(data.id).update(classBo(data))
 }
 function getAllTeacher(callback) {
     db.collection('user').where('type', '==', 'teacher').get().then((documentSnapshots) => {

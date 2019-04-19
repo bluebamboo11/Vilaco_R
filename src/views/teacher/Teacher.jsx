@@ -18,12 +18,11 @@ class Teacher extends React.Component {
     }
 
 
-
     render() {
         return (
             <div style={{height: '100%', width: '100%'}}>
-                <RevenueCards/>
-                <Row style={{height: 'calc(100% - 132px)'}}>
+                {/*<RevenueCards/>*/}
+                <Row className="h-100">
                     <Col lg="8" style={{height: '100%'}}>
                         <MonthTable type="teacher"/>
                     </Col>

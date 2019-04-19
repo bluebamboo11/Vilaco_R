@@ -16,10 +16,8 @@ class MonthDataClass extends React.Component {
         this.props.dispatch(selectClass(this.props.classData));
         this.props.dispatch(isLoadSelect(true));
         userService.getAllStudentByClass(this.props.classData.id, (listStudent) => {
-            userService.getOneUser(this.props.classData.teacherId, (teacher) => {
                 this.props.dispatch(isLoadSelect(false));
-                this.props.dispatch(selectClass({...this.props.classData, listStudent: listStudent, teacher: teacher}));
-            })
+                this.props.dispatch(selectClass({...this.props.classData, listStudent: listStudent}));
         })
     }
 

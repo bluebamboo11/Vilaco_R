@@ -22,7 +22,7 @@ class MonthDataContract extends React.Component {
     }
 
     renderStatus() {
-        if (this.props.contract.open && JSON.parse(this.props.contract.open)) {
+        if (this.props.contract.open) {
             return <Badge color="success">Hoạt động</Badge>
         }
         return <Badge color="danger"> Đóng</Badge>

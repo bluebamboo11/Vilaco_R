@@ -35,8 +35,8 @@ class MonthTableClass extends React.Component {
                 name: '',
                 startDate: '',
                 endDate: '',
-                teacher: '',
-                open:true
+                teacherId: '',
+                open: true
             },
             listClass: [],
             listTeacher: [],
@@ -63,7 +63,7 @@ class MonthTableClass extends React.Component {
         let searchKey = this.state.searchKey.toUpperCase();
         let listClass = this.listData.filter((item) => {
             for (let key in item) {
-                if (item[key]&& typeof item[key] === 'string' && item[key].toUpperCase().indexOf(searchKey) >= 0) {
+                if (item[key] && typeof item[key] === 'string' && item[key].toUpperCase().indexOf(searchKey) >= 0) {
                     return true
                 }
             }
@@ -79,8 +79,8 @@ class MonthTableClass extends React.Component {
     }
 
     exitSearch() {
-        this.props.dispatch(addListClass( this.listData));
-        this.setState({searchKey:''});
+        this.props.dispatch(addListClass(this.listData));
+        this.setState({searchKey: ''});
     }
 
     changeKey(event) {
@@ -97,11 +97,11 @@ class MonthTableClass extends React.Component {
     }
 
     renderListData() {
-        if(this.props.listClass){
+        if (this.props.listClass && this.props.listTeacher) {
             return this.props.listClass.map((data) => {
                 return <MonthDataClass
                     key={data.id}
-                    listTeacher={this.state.listTeacher}
+                    listTeacher={this.props.listTeacher}
                     classData={data}
                 />
             })
@@ -118,16 +118,16 @@ class MonthTableClass extends React.Component {
                         <CardTitle>Danh sách đơn hàng</CardTitle>
                         <Form className="search-user col-6 ml-auto" onSubmit={this.searchAllUser}>
                             <InputGroup>
-
+                                <InputGroupAddon addonType="append">
+                                    <Button onClick={this.exitSearch}><i
+                                        className="ti-close"/></Button>
+                                </InputGroupAddon>
                                 <Input type="text" onChange={this.changeKey} value={this.state.searchKey}
                                        placeholder="Nhập bắt kỳ thông tin nào"/>
                                 <InputGroupAddon addonType="append">
-                                    <Button><i className="ti-search"/></Button>
+                                    <Button type="submit"><i className="ti-search"/></Button>
                                 </InputGroupAddon>
-                                <InputGroupAddon addonType="append">
-                                    <Button   onClick={this.exitSearch}><i
-                                        className="ti-close"/></Button>
-                                </InputGroupAddon>
+
                             </InputGroup>
                         </Form>
                         <Button color="primary" onClick={this.toggle}><i className="ti-plus pr-2"/> Thêm</Button>
@@ -149,10 +149,10 @@ class MonthTableClass extends React.Component {
                                         Ngày kết thúc
                                     </th>
                                     <th className="text-muted font-medium border-top-0">
-                                       Giáo viên
+                                        Giáo viên
                                     </th>
                                     <th className="text-muted font-medium border-top-0">
-                                       Trạng thái
+                                        Trạng thái
                                     </th>
                                 </tr>
                                 </thead>

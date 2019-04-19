@@ -47,6 +47,17 @@ export function contractBo(data) {
         departureDate: data.departureDate,
         examDay: data.examDay,
         timestamp: data.timestamp,
-        open: data.open && JSON.parse(data.open)
+        open: data.open
+    }
+}
+
+export function classBo(data) {
+    return {
+        name: data.name,
+        startDate: data.startDate,
+        endDate: data.endDate,
+        teacherId:data.teacherId,
+        timestamp: data.timestamp,
+        open: data.open
     }
 }

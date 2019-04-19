@@ -5,6 +5,7 @@ import Japan from "../views/employees/Japan";
 import Contract from "../views/Contract/Contract";
 import LearningClass from "../views/class/LearningClass";
 import Profile from "../views/sample-pages/profile";
+import Transcript from "../views/Transcript/Transcript";
 
 
 var ThemeRoutes = [
@@ -63,6 +64,12 @@ var ThemeRoutes = [
     name: 'Lớp học',
     icon: 'mdi mdi-account-multiple',
     component: LearningClass
+  },
+  {
+    path: '/quan-ly-bang-diem',
+    name: 'Bảng điểm',
+    icon: 'mdi mdi-account-multiple',
+    component: Transcript
   },
   {
     path: '/',
