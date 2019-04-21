@@ -5,14 +5,6 @@ import jsonAni from '../../assets/animation/animation-w500-h500';
 
 
 class Loading extends React.Component {
-    constructor(props) {
-        super(props);
-
-
-    }
-
-
-
 
     render() {
         const defaultOptions = {

@@ -16,7 +16,10 @@ export const userBo = (data) => {
             city: data.city,
             town: data.town,
             type: data.type,
+            classId:data.classId||null,
+            contractId:data.contractId||null,
             validate: data.validate,
+            timestamp: data.timestamp,
         }
     }
     return {
@@ -28,6 +31,7 @@ export const userBo = (data) => {
         skype: data.skype,
         type: data.type,
         validate: data.validate,
+        timestamp: data.timestamp,
     }
 
 };
@@ -59,5 +63,23 @@ export function classBo(data) {
         teacherId:data.teacherId,
         timestamp: data.timestamp,
         open: data.open
+    }
+}
+
+export  function transcriptBo(data) {
+    return {
+        uid:data.uid||null,
+        classId:data.classId||null,
+        month:data.month||null,
+        listen:data.listen||null,
+        write:data.write||null,
+        conversation:data.conversation||null,
+        push:data.push||null,
+        bendBack:data.bendBack||null,
+        bellySticks:data.bellySticks||null,
+        squat:data.squat||null,
+        education:data.education||null,
+        japanese:data.japanese||null,
+        health:data.health||null,
     }
 }

@@ -27,7 +27,7 @@ class CardInfo extends React.Component {
                     <small className="text-muted pt-4 db">Số điện thoại</small>
                     <h6>{phone}</h6>
                     <small className="text-muted pt-4 db">Giới tính</small>
-                    <h6>{gender === 1 ? 'Nam' : 'Nữ'}</h6>
+                    <h6>{gender == 1 ? 'Nam' : 'Nữ'}</h6>
                     <br/>
                     <h4>
                         <Badge color="success" pill>

@@ -7,6 +7,7 @@ export function addNewClass(data) {
     return db.collection('class').add(classBo(data))
 }
 export function updateClass(data) {
+    console.log(data)
     return db.collection('class').doc(data.id).update(classBo(data))
 }
 function getAllTeacher(callback) {

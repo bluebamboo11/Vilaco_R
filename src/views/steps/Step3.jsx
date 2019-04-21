@@ -33,7 +33,7 @@ export default class Step3 extends Component {
                         <div className="text-center mt-4">
                             <img
                                 src={avatar}
-                                className="rounded-circle"
+                                className="rounded-circle avatar"
                                 width="200"
                                 height="200"
                                 alt="avatar"

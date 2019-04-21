@@ -5,7 +5,6 @@ import {
     Card,
     CardBody,
     CardTitle,
-    CardSubtitle,
     TabContent,
     TabPane,
     Nav,
@@ -14,7 +13,7 @@ import {
 } from 'reactstrap';
 import {storage, userService} from "../../firebase";
 import classnames from 'classnames';
-import img1 from '../../assets/images/users/avatar-default.jpg';
+
 
 import Setting from "../../components/profile/setting";
 import Info from "../../components/profile/info";
@@ -55,6 +54,9 @@ class Profile extends React.Component {
     }
 
     renderTabContent() {
+        if (!this.props.userData.type) {
+            return ''
+        }
         if (this.props.userData.type !== 'student') {
             return <TabContent activeTab={this.state.activeTab}>
                 <TabPane tabId="1">
@@ -152,7 +154,7 @@ class Profile extends React.Component {
     onDrop(picture) {
         this.setState({isUpAvatar: true});
         storage.upAvatar(this.props.user.uid, picture[this.index], (url) => {
-            if(url){
+            if (url) {
                 userService.doUpdateUser(this.props.user.uid, {avatar: url}).then(() => {
                     this.props.userData.avatar = url;
                     this.props.dispatch(setUserData({...this.props.userData}));
@@ -183,16 +185,14 @@ class Profile extends React.Component {
                                 <div className="text-center mt-4" style={{position: 'relative'}}>
                                     <img
                                         src={avatar}
-                                        className="rounded-circle"
+                                        className="rounded-circle avatar"
                                         width="150"
                                         height="150"
                                         alt=""
                                     />
                                     {this.renderLoadImg()}
                                     <CardTitle className="mt-2">{name}</CardTitle>
-                                    <CardSubtitle>
 
-                                    </CardSubtitle>
                                     <Row className="text-center justify-content-md-center">
 
                                         <Col xs="4">

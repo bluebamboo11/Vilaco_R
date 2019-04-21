@@ -7,5 +7,6 @@ import * as adminService from './admin';
 import * as employeeService from './employee';
 import * as contractService from './contract';
 import * as classService from './Class';
+import * as transcriptService from './Transcript';
 
-export {auth, firebase, userService, storage,adminService,employeeService,contractService,classService};
+export {auth, firebase, userService, storage,adminService,employeeService,contractService,classService,transcriptService};

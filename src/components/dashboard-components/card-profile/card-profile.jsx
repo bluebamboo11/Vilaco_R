@@ -21,7 +21,6 @@ import ContractDialog from "../../ContractDialog/ContractDialog";
 import Loading from "../../Loading/Loading";
 
 
-
 class CardProfile extends React.Component {
     constructor(props) {
         super(props);
@@ -80,28 +79,35 @@ class CardProfile extends React.Component {
     openPopupAddContract() {
         this.responsiveDialog.handleClickOpen()
     }
-    openAddClass(){
-        this.addClassDialog.handleClickOpen()
+
+    openAddClass() {
+        this.addClassDialog.handleClickOpen(this.props.user.classId)
     }
-    addContract(id) {
-        userService.doUpdateUser(this.props.user.uid, {contractId: id}).then(() => {
+
+    addContract(contract) {
+        userService.doUpdateUser(this.props.user.uid, {contractId:  contract.id}).then(() => {
             let user = {...this.props.user};
-            user.contractId = id;
+            user.contractId = contract.id;
+            user.contractName = contract.name;
             this.updateUser(user)
         })
     }
 
-    addClass(id) {
-        userService.doUpdateUser(this.props.user.uid, {classId: id}).then(() => {
+    addClass(classData) {
+        userService.doUpdateUser(this.props.user.uid, {classId: classData.id}).then(() => {
             let user = {...this.props.user};
-            user.classId = id;
+            user.classId = classData.id;
+            user.className = classData.name;
             this.updateUser(user)
         })
     }
 
     updateUser(newUser) {
-        const index = this.props.listUser.indexOf(this.props.user);
-        this.props.listUser[index] = newUser;
+        this.props.listUser.forEach((user, index) => {
+            if (user.uid === newUser.uid) {
+                this.props.listUser[index] = newUser;
+            }
+        });
         this.props.dispatch(selectStudent(newUser));
         this.props.dispatch(addListUser(this.props.listUser.concat()));
     }
@@ -130,7 +136,7 @@ class CardProfile extends React.Component {
         return (
 
             <Card className="card-info">
-                {this.props.loadSelect&&<Loading/>}
+                {this.props.loadSelect && <Loading/>}
                 <ContractDialog
                     options={this.props.listContract}
                     save={this.addContract}

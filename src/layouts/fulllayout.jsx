@@ -3,13 +3,11 @@ import {Route, Switch, Redirect} from 'react-router-dom';
 import Header from '../components/header/header.jsx';
 import Sidebar from '../components/sidebar/sidebar.jsx';
 import Footer from '../components/footer/footer.jsx';
-import Customizer from '../components/customizer/customizer';
 import ThemeRoutes from '../routes/routing.jsx';
 import {auth, userService} from "../firebase";
 import {connect} from "react-redux";
 import {isLoading, setUser, setUserData} from "../redux/actions";
-import PerfectScrollbar from "react-perfect-scrollbar";
-import {doCreateAutoUserTest} from "../firebase/test";
+
 
 
 class Fulllayout extends React.Component {
@@ -62,7 +60,7 @@ class Fulllayout extends React.Component {
     /*--------------------------------------------------------------------------------*/
     componentDidMount() {
         // doCreateAutoUserTest();
-        this.props.dispatch(isLoading(true))
+        this.props.dispatch(isLoading(true));
         window.addEventListener('load', this.updateDimensions);
         window.addEventListener('resize', this.updateDimensions);
         this.onChangeAuth = auth.checkLogin((use) => {
@@ -72,10 +70,9 @@ class Fulllayout extends React.Component {
             } else {
                 userService.getOneUser(use.uid, (data) => {
                     if (data) {
-                        data.email = use.email;
                         this.props.dispatch(setUserData(data));
-                        userService.getAccess(use.uid, data.type,(access) => {
-                            if (!access||!access.validate) {
+                        userService.getAccess(use.uid, data.type, (access) => {
+                            if (!access || !access.validate) {
                                 this.setState({registered: false});
                             }
                             this.props.dispatch(isLoading(false))

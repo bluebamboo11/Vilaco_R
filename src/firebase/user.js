@@ -133,6 +133,31 @@ export const getAllStudentByClass = (classId, callback) => {
     });
 
 };
+export const getAllStudent = (next,fieldPath,value,callback) => {
+    let first = db.collection("user").where('type', '==', 'student').where(fieldPath, '==', value).orderBy("timestamp").limit(25);
+    if (next) {
+        first = next
+    }
+    first.get().then(function (documentSnapshots) {
+        let listUser = [];
+        documentSnapshots.forEach(function (doc) {
+            let user = doc.data();
+            user.uid = doc.id;
+            listUser.push(user);
+        });
+        const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
+        if (lastVisible) {
+            let next = db.collection("user").where('type', '==', 'student').where(fieldPath, '==', value)
+                .orderBy("timestamp")
+                .startAfter(lastVisible)
+                .limit(25);
+            callback(listUser, next)
+        } else {
+            callback(listUser)
+        }
+    });
+
+};
 
 
 

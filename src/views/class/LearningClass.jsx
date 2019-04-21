@@ -4,12 +4,7 @@ import MonthTableClass from "../../components/Class/MonthTableClass";
 import CardInfoClass from "../../components/Class/CardInfoClass";
 
 
-
 class LearningClass  extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
 
     render() {
         return (

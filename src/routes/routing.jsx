@@ -6,6 +6,7 @@ import Contract from "../views/Contract/Contract";
 import LearningClass from "../views/class/LearningClass";
 import Profile from "../views/sample-pages/profile";
 import Transcript from "../views/Transcript/Transcript";
+import Ranking from "../views/ranking/Ranking";
 
 
 var ThemeRoutes = [
@@ -70,6 +71,12 @@ var ThemeRoutes = [
     name: 'Bảng điểm',
     icon: 'mdi mdi-account-multiple',
     component: Transcript
+  },
+  {
+    path: '/xep-hang-diem',
+    name: 'Xếp hạng điểm',
+    icon: 'mdi mdi-account-multiple',
+    component: Ranking
   },
   {
     path: '/',

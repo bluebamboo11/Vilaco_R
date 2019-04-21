@@ -10,9 +10,9 @@ import {
 } from 'reactstrap';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
-import profilephoto from '../../assets/images/users/1.jpg';
 import bgimage from '../../assets/images/background/user-info.jpg';
 import {auth} from "../../firebase";
+import {connect} from "react-redux";
 const sidebarBackground = {
     backgroundImage: 'url(' + bgimage + ')',
     backgroundRepeat: 'no-repeat'
@@ -77,27 +77,15 @@ class Sidebar extends React.Component {
                     <PerfectScrollbar className="sidebar-nav">
                         <div className="user-profile" style={sidebarBackground}>
                             <div className="profile-img">
-                                <img src={profilephoto} alt="user"/>
+                                <img src={this.props.user.avatar} alt="user"/>
                             </div>
 
                             <div className="profile-text hide-menu">
                                 <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                                    <DropdownToggle caret>Markarn Doe</DropdownToggle>
+                                    <DropdownToggle caret>{this.props.user.name}</DropdownToggle>
                                     <DropdownMenu>
-                                        <DropdownItem>
-                                            <i className="ti-user"></i> My Profile
-                                        </DropdownItem>
-                                        <DropdownItem>
-                                            <i className="ti-wallet"></i> My Balance
-                                        </DropdownItem>
-                                        <DropdownItem>
-                                            <i className="ti-email"></i> Inbox
-                                        </DropdownItem>
-                                        <DropdownItem>
-                                            <i className="ti-settings"></i> Account Setting
-                                        </DropdownItem>
                                         <DropdownItem onClick={this.logOut}>
-                                            <i className="fa fa-power-off"></i> Logout
+                                            <i className="fa fa-power-off"></i> Đăng xuất
                                         </DropdownItem>
                                     </DropdownMenu>
                                 </Dropdown>
@@ -259,5 +247,9 @@ class Sidebar extends React.Component {
         );
     }
 }
+const mapStateToProps = state => {
+    return {user: state.userData}
+};
 
+Sidebar = connect(mapStateToProps)(Sidebar);
 export default Sidebar;

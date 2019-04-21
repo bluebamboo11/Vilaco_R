@@ -49,6 +49,7 @@ class MonthTable extends React.Component {
         this.renderHeader = this.renderHeader.bind(this);
         this.getAllContract = this.getAllContract.bind(this);
         this.getAllClass = this.getAllClass.bind(this);
+        this.renderOption = this.renderOption.bind(this);
         this.state = {type: '0', searchKey: ''}
     }
 
@@ -92,12 +93,27 @@ class MonthTable extends React.Component {
     }
 
     getData(type) {
+
         let validate = null;
         if (type === '1') {
             validate = {value: false}
         }
         if (type === '2') {
             validate = {value: true}
+        }
+        if (type === '3') {
+            userService.getAllStudent(this.next, 'classId',null,(listData, next) => {
+                this.next = next;
+                this.props.dispatch(addListUser(getListUserNew(listData, this.props.listUser)))
+            });
+            return
+        }
+        if (type === '4') {
+            userService.getAllStudent(this.next, 'contractId',null, (listData, next) => {
+                this.next = next;
+                this.props.dispatch(addListUser(getListUserNew(listData, this.props.listUser)))
+            });
+            return;
         }
         userService.getAllUser(this.next, this.props.type, validate, (listData, next) => {
             this.next = next;
@@ -182,6 +198,24 @@ class MonthTable extends React.Component {
         });
         this.getData(event.target.value);
     }
+    renderOption(){
+        if(this.props.type === 'student'){
+            return  <Input type="select" className="custom-select" onChange={this.onTypeChange}
+                           value={this.state.type}>
+                <option value="0">Tất cả</option>
+                <option value="1">Chưa xác thực</option>
+                <option value="2">Đã xác thực</option>
+                <option value="3">Chưa có lớp</option>
+                <option value="4">Chưa có hợp đồng</option>
+            </Input>
+        }
+        return  <Input type="select" className="custom-select" onChange={this.onTypeChange}
+                       value={this.state.type}>
+            <option value="0">Tất cả</option>
+            <option value="1">Chưa xác thực</option>
+            <option value="2">Đã xác thực</option>
+        </Input>
+    }
 
     render() {
         return (
@@ -193,12 +227,7 @@ class MonthTable extends React.Component {
                     <div className="d-flex no-block">
                         <CardTitle>Danh sách học viên</CardTitle>
                         <div className="ml-auto">
-                            <Input type="select" className="custom-select" onChange={this.onTypeChange}
-                                   value={this.state.type}>
-                                <option value="0">Tất cả</option>
-                                <option value="1">Chưa xác thực</option>
-                                <option value="2">Đã xác thực</option>
-                            </Input>
+                            {this.renderOption()}
                         </div>
                         <Form className="search-user col-6 " onSubmit={this.searchAllUser}>
                             <InputGroup>

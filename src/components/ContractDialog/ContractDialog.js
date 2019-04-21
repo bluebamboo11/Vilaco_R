@@ -7,9 +7,8 @@ import Radio from '@material-ui/core/Radio';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import DialogContentText from "@material-ui/core/DialogContentText";
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import {Button} from "reactstrap";
-
 
 
 class ContractDialog extends React.Component {
@@ -27,8 +26,8 @@ class ContractDialog extends React.Component {
         this.props.refDialog(this)
     }
 
-    handleClickOpen = () => {
-        this.setState({open: true});
+    handleClickOpen = (value) => {
+        this.setState({open: true, value: value});
     };
 
     handleEntering = () => {
@@ -38,19 +37,26 @@ class ContractDialog extends React.Component {
         this.setState({open: false});
     };
     handleChange = (event, value) => {
-        this.setState({ value });
+        this.setState({value});
     };
-    handleSave(){
+
+    handleSave() {
         this.handleClose();
-        this.props.save(this.state.value)
+        this.props.options.forEach(option=>{
+            if(option.id ===this.state.value ){
+                this.props.save(option)
+            }
+
+        })
+
     }
+
     renderOptions() {
         if (this.props.options && this.props.options.length > 0) {
             return this.props.options.map(option => (
                 <FormControlLabel className="ra-dialog-add" value={option.id} key={option.id}
                                   control={<Radio/>} label={option.name}/>))
-        }
-        else {
+        } else {
             return <DialogContentText id="alert-dialog-description" className="ra-dialog-add">
                 {this.props.titleEmpty}
             </DialogContentText>
@@ -58,7 +64,7 @@ class ContractDialog extends React.Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
         return (
             <Dialog
                 onEntering={this.handleEntering}
@@ -84,10 +90,10 @@ class ContractDialog extends React.Component {
                     </RadioGroup>
                 </DialogContent>
                 <DialogActions>
-                    <Button color="danger"  onClick={this.handleClose} >
+                    <Button color="danger" onClick={this.handleClose}>
                         Hủy
                     </Button>
-                    <Button color="secondary" onClick={this.handleSave} s>
+                    <Button color="secondary" onClick={this.handleSave}>
                         Lưu
                     </Button>
                 </DialogActions>

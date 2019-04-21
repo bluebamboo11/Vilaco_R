@@ -6,13 +6,6 @@ import {connect} from "react-redux";
 
 
 class LoadingAll extends React.Component {
-    constructor(props) {
-        super(props);
-
-
-    }
-
-
 
     render() {
         const defaultOptions = {

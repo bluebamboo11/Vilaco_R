@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {isLoadSelect, selectStudent} from "../../../redux/actions";
 import {Badge} from "reactstrap";
-import {contractService, classService} from "../../../firebase";
-
+import {contractService, classService ,transcriptService} from "../../../firebase";
+import * as moment from 'moment';
 class Monthdata extends React.Component {
     constructor(props) {
         super(props);
@@ -14,7 +14,6 @@ class Monthdata extends React.Component {
     }
 
     selectStudent() {
-        console.log(1);
         this.props.dispatch(selectStudent({...this.props.user}));
         let listPromise = [null, null];
         if (this.props.user.contractId) {
@@ -24,9 +23,8 @@ class Monthdata extends React.Component {
         if (this.props.user.classId) {
             listPromise[1] = classService.getClassById(this.props.user.classId);
         }
-        if (listPromise[1] && listPromise[0]) {
+        if (listPromise[1] || listPromise[0]) {
             this.props.dispatch(isLoadSelect(true));
-            listPromise.push(contractService.getContractById(this.props.user.contractId));
             Promise.all(listPromise).then((listDoc) => {
                 const user = {...this.props.user};
                 if (listDoc[0] && listDoc[0].exists) {
@@ -35,8 +33,14 @@ class Monthdata extends React.Component {
                 if (listDoc[1] && listDoc[1].exists) {
                     user.className = listDoc[1].data().name;
                 }
-                this.props.dispatch(isLoadSelect(false));
-                this.props.dispatch(selectStudent(user));
+                listPromise[3] = transcriptService.getAllDatabyUser(this.props.user.uid,(listTranscript)=>{
+                    listTranscript.sort((a, b) => {
+                        return moment(a, 'MM-YYYY').diff(moment(b, 'MM-YYYY'))
+                    });
+                    user.listTranscript = listTranscript;
+                    this.props.dispatch(isLoadSelect(false));
+                    this.props.dispatch(selectStudent(user));
+                })
             });
 
         }

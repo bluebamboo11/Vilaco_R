@@ -177,7 +177,7 @@ class Register extends React.Component {
                                         </Col>
                                     </Row>
                                     <div className="text-center">
-                                        Đã có tài khoản? <a href="#/authentication/login"
+                                        Đã có tài khoản? <a href="/authentication/login"
                                                             className="text-info ml-1"><b>Đăng nhập</b></a>
                                     </div>
                                 </Form>
