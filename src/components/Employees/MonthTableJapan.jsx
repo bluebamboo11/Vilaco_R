@@ -29,7 +29,7 @@ class MonthTableJapan extends React.Component {
         this.getAll = this.getAll.bind(this);
         this.state = {
             modal: false,
-            employee: {name: '', gender: '', phone: '', skype: ''},
+            employee: {name: '', gender: '', phone: '', skype: '',email:'',facebook:''},
             listEmployee: [],
             searchKey: ''
         };
@@ -99,7 +99,6 @@ class MonthTableJapan extends React.Component {
 
     render() {
         return (
-
             <Card style={{height: '100%'}}>
                 <DialogAddJapan modal={this.state.modal} toggle={this.toggle} employee={this.state.employee}/>
                 <CardBody style={{height: '100%'}}>
@@ -137,7 +136,16 @@ class MonthTableJapan extends React.Component {
                                         Số điện thoại
                                     </th>
                                     <th className="text-muted font-medium border-top-0">
+                                        Email
+                                    </th>
+                                    <th className="text-muted font-medium border-top-0">
+                                        Facebook
+                                    </th>
+                                    <th className="text-muted font-medium border-top-0">
                                         Giới tính
+                                    </th>
+                                    <th className="text-muted font-medium border-top-0">
+                                        Năm sinh
                                     </th>
                                 </tr>
                                 </thead>

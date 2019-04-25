@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {userService} from "../../firebase";
 import * as moment from 'moment';
 import {setUserData} from "../../redux/actions";
+import Datetime from "react-datetime";
 
 require('moment/locale/vi');
 
@@ -28,9 +29,9 @@ class SettingTeacher extends React.Component {
         });
     }
 
-    onDateChange(date) {
+    onDateChange(date, key) {
         this.setState({
-            birthday: date
+            [key]: date.format('DD/MM/YYYY')
         });
     }
 
@@ -58,7 +59,7 @@ class SettingTeacher extends React.Component {
         this.setState({ visibleWarning: false });
     }
     render() {
-        let {name, phone, gender, skype} = this.state;
+        let {name, phone, gender, skype,facebook,startDay} = this.state;
         return (
             <Row>
                 <Col sm="12">
@@ -114,6 +115,33 @@ class SettingTeacher extends React.Component {
                                                invalid={!skype}
                                                className="form-control"
                                         />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label">
+                                        Facebook
+                                    </label>
+                                    <div className="col-sm-10">
+                                        <Input value={facebook} name="facebook" onChange={this.onInputChange}
+                                               invalid={!facebook}
+                                               className="form-control"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label">
+                                        Ngày vào làm
+                                    </label>
+                                    <div className="col-sm-10">
+                                            <Datetime
+                                                locale="vi"
+                                                onChange={(date) => {
+                                                    this.onDateChange(date, 'startDay')
+                                                }}
+                                                timeFormat={false}
+                                                closeOnSelect={true}
+                                                renderInput={(props)=><Input {...props} name="startDay"  value={startDay} onChange={this.onInputChange} placeholder="Ngày / Tháng / Năm" invalid={!startDay}/>}
+                                            />
                                     </div>
                                 </div>
                                 <Button color="primary" disabled={this.state.isUpdate}>{this.state.isUpdate ?

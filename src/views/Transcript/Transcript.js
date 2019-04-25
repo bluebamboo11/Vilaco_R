@@ -157,7 +157,7 @@ class Transcript extends React.Component {
                     listMonth.push(moment().format('MM-YYYY'))
                 } else {
                     let month = listMonth[listMonth.length - 1];
-                    month = moment(month, 'MM-YY').add(1, 'M').format('MM-YYYY');
+                    month = moment(month, 'MM-YYYY').add(1, 'months').format('MM-YYYY');
                     listMonth.push(month)
                 }
                 return {listMonth: listMonth}

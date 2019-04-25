@@ -29,7 +29,7 @@ class MonthDataContract extends React.Component {
     }
 
     render() {
-        let {name, syndication, company, salary, city, departureDate, examDay} = this.props.contract;
+        let {name, syndication, company, salary, city, departureDate, examDay,job} = this.props.contract;
         let classTr = "row-use";
         if (this.props.select && this.props.select.id === this.props.contract.id) {
             classTr = classTr + ' select-row'
@@ -38,6 +38,9 @@ class MonthDataContract extends React.Component {
             <tr className={classTr} onClick={this.select}>
                 <td>
                     <h6 className="font-medium mb-0">{name}</h6>
+                </td>
+                <td>
+                    <div>{job}</div>
                 </td>
                 <td>
                     <div>{syndication}</div>

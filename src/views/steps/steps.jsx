@@ -24,7 +24,7 @@ class formSteps extends Component {
                 name: '',
                 phone: '',
                 address: '',
-                gender: 'nam',
+                gender: '1',
                 code: '',
                 hobby: '',
                 forte: '',
@@ -35,7 +35,9 @@ class formSteps extends Component {
                 town: '',
                 avatar: '',
                 type: 'student',
-                skype: ''
+                skype: '',
+                phoneFamily:'',
+                blood:''
             }, showStep: false, uid: '', user: null, isLoad: true, active: '', isLoadSave: true
         };
         this.onStepChange = this.onStepChange.bind(this);
@@ -99,10 +101,11 @@ class formSteps extends Component {
         if (userData.birthday) {
             userData.birthday = userData.birthday.format('DD/MM/YYYY');
         }
+        const user = this.state.user;
         storage.upAvatar(this.state.user.uid, userData.avatar, (url) => {
             userData.avatar = url;
-            userData.email = this.state.user.email;
-            userService.doCreateUser(this.state.user.uid, userData).then(() => {
+            userData.email = user.email;
+            userService.doCreateUser(user.uid, userData).then(() => {
                 this.setState({isLoadSave: false})
             })
         })

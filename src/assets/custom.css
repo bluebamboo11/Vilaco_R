@@ -247,7 +247,10 @@ button:focus {
     height: 50px;
     object-fit: cover;
 }
-
+.mont-input-ranking{
+    width: 400px;
+    float: right;
+}
 /* width */
 ::-webkit-scrollbar {
     width: 8px;

@@ -28,7 +28,11 @@ const initialState = {
         district: '',
         city: '',
         skype: '',
-        town: ''
+        town: '',
+        phoneFamily:'',
+        blood:'',
+        facebook:'',
+        startDay:'',
     },
     listUser: [],
     loadAll: false,

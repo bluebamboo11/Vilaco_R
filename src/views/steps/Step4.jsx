@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Datetime from "react-datetime";
 
-import {FormFeedback, Input} from "reactstrap";
+import { Input} from "reactstrap";
 
 export default class Step4 extends Component {
     constructor(props) {
@@ -19,8 +19,8 @@ export default class Step4 extends Component {
     }
 
     isValidated() {
-        let {name, phone, gender, address, district, city, code, birthday, town} = this.props.userData;
-        return name && phone && gender && address && district && city && code && birthday && town
+        let {name, phone, gender, address, district, city, code, birthday, town,phoneFamily} = this.props.userData;
+        return name && phone && gender && address && district && city && code && birthday && town&&phoneFamily
     }
 
     onDateChange(date) {
@@ -34,7 +34,7 @@ export default class Step4 extends Component {
     }
 
     render() {
-        let {name, phone, gender, address, district, city, code, hobby, forte, weakness, birthday, town} = this.props.userData;
+        let {name, phone, gender, address, district, city, code, hobby, forte, weakness, birthday, town,phoneFamily,blood} = this.props.userData;
         return (
             <div className="step step2 mt-5">
                 <div className="row justify-content-md-center">
@@ -115,6 +115,17 @@ export default class Step4 extends Component {
                             </div>
                             <div className="form-group row">
                                 <label className="col-sm-2 col-form-label">
+                                    Số điện thoại gia đình
+                                </label>
+                                <div className="col-sm-10">
+                                    <Input value={phoneFamily} name="phoneFamily" onChange={this.onInputChange}
+                                           type="number" invalid={!phoneFamily}
+                                           className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label className="col-sm-2 col-form-label">
                                     Ngày sinh
                                 </label>
                                 <div className="col-sm-10">
@@ -137,6 +148,21 @@ export default class Step4 extends Component {
                                            type="number" invalid={!code}
                                            className="form-control"
                                     />
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label className="col-sm-2 col-form-label">
+                                    Nhóm máu
+                                </label>
+                                <div className="col-sm-10">
+                                    <Input type="select" className="custom-select" value={blood} name="blood"
+                                           onChange={this.onInputChange} >
+                                        <option value=""/>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="AB">AB</option>
+                                        <option value="O">O</option>
+                                    </Input>
                                 </div>
                             </div>
                             <div className="form-group row">

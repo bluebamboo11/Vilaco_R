@@ -1,20 +1,15 @@
 import React from 'react';
-import {Row, Col, CardTitle, CardBody, Card, Button} from 'reactstrap';
-
+import {Row, Col, CardTitle, CardBody, Card, Button, Table} from 'reactstrap';
+import {transcriptService} from "../../firebase";
 import {connect} from "react-redux";
-
-import ReactTable from "react-table";
 import "react-table/react-table.css";
-
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import {withStyles} from "@material-ui/core";
-
-import {classService, userService, transcriptService} from "../../firebase";
 import Loading from "../../components/Loading/Loading";
-import {columns} from "./DataConfig"
 import Datetime from "react-datetime";
 import moment from "moment";
+import CellRanking from "./CellRanking";
 
 
 class Ranking extends React.Component {
@@ -29,87 +24,42 @@ class Ranking extends React.Component {
             listStudent: [],
             listTranscript: [],
             loading: false,
-            classSelect: '1',
-            searchKey: '',
             month: moment()
         };
-        this.toggle = this.toggle.bind(this);
-        this.renderData = this.renderData.bind(this);
-        this.renderButtonEdit = this.renderButtonEdit.bind(this);
-        this.showPopupEdit = this.showPopupEdit.bind(this);
+
         this.renderTab = this.renderTab.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.onClassChange = this.onClassChange.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
+        this.renderHeader = this.renderHeader.bind(this);
+        this.renderListData = this.renderListData.bind(this);
+        this.getTopTranscript = this.getTopTranscript.bind(this);
 
     }
-
-    listData = [];
 
     componentDidMount() {
-
+        this.getTopTranscript(this.state.tab,this.state.month)
     }
 
-    onClassChange(event) {
-        this.setState({
-            classSelect: event.target.value
-        });
+    getTopTranscript(tab,month) {
+        let type = 'japanese';
+        switch (tab) {
+            case 1:
+                type = 'health';
+                break;
+            case 2:
+                type = 'education';
+                break
 
-    }
-
-
-    toggle() {
-        this.setState(prevState => ({
-            modal: !prevState.modal
-        }));
-    }
-
-    showPopupEdit(student) {
-        return () => {
-            this.setState({studentEdit: student});
-            this.toggle();
         }
-
-    }
-
-    renderButtonEdit(student) {
-        return (
-            <div className="center-item ">
-                <Button
-                    onClick={this.showPopupEdit(student)}
-                    color="info"
-                    size="sm"
-                    className="btn-edit-point"
-                    style={{borderRadius: '100%', width: 30, height: 30}}
-                >
-                    <i className=" ti-pencil"/>
-                </Button>
-
-            </div>)
-    }
-
-    renderData() {
-        return this.state.listStudent.map(student => {
-            let obj = {
-                uid: student.uid,
-                name: student.name,
-                birthday: student.birthday,
-
-            };
-            obj.actions = this.renderButtonEdit({uid: student.uid});
-            this.state.listTranscript.forEach((data) => {
-                if (data.uid === obj.uid && this.state.listMonth[this.state.tab] === data.month) {
-                    obj = {...data, ...obj};
-                    obj.actions = this.renderButtonEdit(data);
-                }
-            });
-
-            return obj
-        });
+        this.setState({loading:true});
+        transcriptService.getTop(month.format('MM-YYYY'), type, (list) => {
+            this.setState({listTranscript: list,loading:false})
+        })
     }
 
     handleChange = (event, value) => {
-        this.setState({tab: value});
+        this.setState({tab: value,listTranscript:[]});
+        this.getTopTranscript(value,this.state.month);
     };
 
     renderTab() {
@@ -139,14 +89,95 @@ class Ranking extends React.Component {
     }
 
     onDateChange(date) {
+        this.getTopTranscript(this.state.tab,date);
         this.setState({
-            month: date
+            month: date,
+            listTranscript:[]
         });
+    }
+
+    renderHeader() {
+        if (this.state.tab === 0) {
+            return (<tr>
+                <th
+                    colSpan="2"
+                    className="text-muted font-medium border-top-0"
+                >
+                    Học viên
+                </th>
+                <th className="text-muted font-medium border-top-0 text-center">
+                    Nghe
+                </th>
+                <th className="text-muted font-medium border-top-0 text-center">
+                    Viết
+                </th>
+                <th className="text-muted font-medium border-top-0 text-center">
+                    Hội thoại
+                </th>
+                <th className="text-muted font-medium border-top-0 text-center">
+                    Trung bình
+                </th>
+                <th className="border-top-0"/>
+                <th className="border-top-0"/>
+            </tr>)
+        }
+        if (this.state.tab === 1) {
+            return (<tr>
+                <th
+                    colSpan="2"
+                    className="text-muted font-medium border-top-0 "
+                >
+                    Học viên
+                </th>
+                <th className="text-muted font-medium border-top-0 text-center">
+                    Chống đẩy
+                </th>
+                <th className="text-muted font-medium border-top-0 text-center">
+                    ĐLNX
+                </th>
+                <th className="text-muted font-medium border-top-0 text-center">
+                    Gập lưng
+                </th>
+                <th className="text-muted font-medium border-top-0 text-center">
+                    Gập bụng
+                </th>
+                <th className="text-muted font-medium border-top-0 text-center">
+                    Trung bình
+                </th>
+                <th className="border-top-0"/>
+                <th className="border-top-0"/>
+            </tr>)
+        }
+        return (<tr>
+            <th
+                colSpan="2"
+                className="text-muted font-medium border-top-0"
+            >
+                Học viên
+            </th>
+            <th className="text-muted font-medium border-top-0 text-center">
+                Giáo dục định hướng
+            </th>
+            <th className="border-top-0"/>
+            <th className="border-top-0"/>
+
+        </tr>)
+
+    }
+
+    renderListData() {
+        return this.state.listTranscript.map((transcript) => {
+            return <CellRanking
+                type={this.state.tab}
+                data={transcript}
+                key={transcript.id}
+            />
+        })
+
     }
 
     render() {
 
-        let data = this.renderData();
         return (
             <div style={{height: '100%', width: '100%'}}>
                 <Row className="h-100 ">
@@ -155,11 +186,14 @@ class Ranking extends React.Component {
                             <CardBody style={{height: '100%'}} style={{position: "relative"}}>
                                 <div className="d-flex no-block mb-3">
                                     <CardTitle><h4 className="m-0">Bảng xếp hạng điểm</h4></CardTitle>
-                                    <div className="ml-auto col-3">
+                                    <div className="mont-input-ranking row ml-auto">
+                                        <div className="pr-3 font-medium" style={{lineHeight:'35px'}}>Chọn tháng</div>
+                                        <div>
                                         <Datetime
                                             className="text-center"
                                             onChange={this.onDateChange}
                                             value={this.state.month}
+                                            inputProps={{style:{textAlign:'center'}}}
                                             dateFormat="MM/YYYY"
                                             renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
                                             locale="vi"
@@ -167,6 +201,7 @@ class Ranking extends React.Component {
                                             closeOnSelect={true}
                                             viewMode="months"
                                         />
+                                        </div>
                                     </div>
 
                                 </div>
@@ -178,19 +213,14 @@ class Ranking extends React.Component {
                                     left: 0,
                                     width: '100%'
                                 }}><Loading/></div>}
-                                <ReactTable
-                                    columns={columns}
-                                    showPagination={false}
-                                    className="-striped -highlight"
-                                    data={data}
-                                    pageSize={data.length}
-                                    showPageSizeOptions={false}
-                                    loadingText="Đang tải dữ liệu ..."
-                                    noDataText="Chưa có học viên"
-                                    style={{
-                                        height: "calc(100% - 105px - 1rem)"
-                                    }}
-                                />
+                                <Table className="stylish-table mb-0" responsive>
+                                    <thead>
+                                    {this.renderHeader()}
+                                    </thead>
+                                    <tbody>
+                                    {this.renderListData()}
+                                    </tbody>
+                                </Table>
 
                             </CardBody>
                         </Card>
@@ -201,9 +231,6 @@ class Ranking extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {}
-};
 
 const styles = theme => ({
     root: {
@@ -241,6 +268,6 @@ const styles = theme => ({
     },
 });
 
-Ranking = connect(mapStateToProps)(Ranking);
+
 Ranking = withStyles(styles)(Ranking);
 export default Ranking;

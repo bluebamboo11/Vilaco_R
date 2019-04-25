@@ -3,7 +3,7 @@ import {Route, Switch, Redirect} from 'react-router-dom';
 import Header from '../components/header/header.jsx';
 import Sidebar from '../components/sidebar/sidebar.jsx';
 import Footer from '../components/footer/footer.jsx';
-import ThemeRoutes from '../routes/routing.jsx';
+import {ThemeRoutes,studentRoutes} from '../routes/routing.jsx';
 import {auth, userService} from "../firebase";
 import {connect} from "react-redux";
 import {isLoading, setUser, setUserData} from "../redux/actions";
@@ -18,7 +18,9 @@ class Fulllayout extends React.Component {
     constructor(props) {
         super(props);
         this.updateDimensions = this.updateDimensions.bind(this);
+        this.setRouter = this.setRouter.bind(this);
         this.state = {
+            routes:[],
             isOpen: false,
             isLogin: true,
             width: window.innerWidth,
@@ -70,6 +72,7 @@ class Fulllayout extends React.Component {
             } else {
                 userService.getOneUser(use.uid, (data) => {
                     if (data) {
+                        this.setRouter(data);
                         this.props.dispatch(setUserData(data));
                         userService.getAccess(use.uid, data.type, (access) => {
                             if (!access || !access.validate) {
@@ -89,7 +92,13 @@ class Fulllayout extends React.Component {
         });
 
     }
-
+     setRouter(user){
+       if(user.type ==='student'){
+           this.setState({routes:studentRoutes})
+       } else {
+           this.setState({routes:ThemeRoutes})
+       }
+     }
     /*--------------------------------------------------------------------------------*/
     /*Function that handles sidebar, changes when resizing App                        */
 
@@ -130,21 +139,7 @@ class Fulllayout extends React.Component {
 
             default:
         }
-        // if (this.state.settings[0].sidebarpos === 'fixed') {
-        //     document.getElementById('sidebar-position').setAttribute('checked', '');
-        // }
-        // if (this.state.settings[0].headerpos === 'fixed') {
-        //     document.getElementById('header-position').setAttribute('checked', '');
-        // }
-        // if (this.state.settings[0].theme === 'dark') {
-        //     document.getElementById('theme-view').setAttribute('checked', '');
-        // }
-        // if (this.state.settings[0].boxed === 'boxed') {
-        //     document.getElementById('boxed-layout').setAttribute('checked', '');
-        // }
-        // if (this.state.settings[0].dir === 'rtl') {
-        //     document.getElementById('rtl').setAttribute('checked', '');
-        // }
+
     }
 
     /*--------------------------------------------------------------------------------*/
@@ -199,76 +194,18 @@ class Fulllayout extends React.Component {
             this.setState({settings: ltr});
         }
     };
-    /*--------------------------------------------------------------------------------*/
-    /*Theme Setting && Changes Default(FIXED) POSITION of HEADER to ABSOLUTE POSITION */
-    /*--------------------------------------------------------------------------------*/
-    headerPosition = c => {
-        if (c.target.checked) {
-            let fixedpos = JSON.parse(JSON.stringify(this.state.settings));
-            fixedpos[0].headerpos = 'fixed';
-            this.setState({settings: fixedpos});
-        } else {
-            let absolutepos = JSON.parse(JSON.stringify(this.state.settings));
-            absolutepos[0].headerpos = 'absolute';
-            this.setState({settings: absolutepos});
-        }
-    };
-    /*--------------------------------------------------------------------------------*/
-    /*Theme Setting && Changes Default(FIXED) POSITION of SIDEBAR to ABSOLUTE POSITION*/
-    /*--------------------------------------------------------------------------------*/
-    sidebarPosition = d => {
-        if (d.target.checked) {
-            let sidebarfixedpos = JSON.parse(JSON.stringify(this.state.settings));
-            sidebarfixedpos[0].sidebarpos = 'fixed';
-            this.setState({settings: sidebarfixedpos});
-        } else {
-            let sidebarabsolutepos = JSON.parse(JSON.stringify(this.state.settings));
-            sidebarabsolutepos[0].sidebarpos = 'absolute';
-            this.setState({settings: sidebarabsolutepos});
-        }
-    };
-    /*--------------------------------------------------------------------------------*/
-    /*Theme Setting && Changes NAVBAR BACKGROUND-COLOR from given options             */
-    /*--------------------------------------------------------------------------------*/
-    navbarbgChange = e => {
-        let navskin = e.currentTarget.dataset.navbarbg;
-        let newsettings = JSON.parse(JSON.stringify(this.state.settings));
-        newsettings[0].navbarbg = navskin;
-        this.setState({
-            settings: newsettings
-        });
-    };
-    /*--------------------------------------------------------------------------------*/
-    /*Theme Setting && Changes SIDEBAR-MENU BACKGROUND-COLOR from given options       */
-    /*--------------------------------------------------------------------------------*/
-    sidebarbgChange = f => {
-        let sidebarskin = f.currentTarget.dataset.sidebarbg;
-        let newsettings = JSON.parse(JSON.stringify(this.state.settings));
-        newsettings[0].sidebarbg = sidebarskin;
-        this.setState({
-            settings: newsettings
-        });
-    };
-    /*--------------------------------------------------------------------------------*/
-    /*Theme Setting && Changes LOGO BACKGROUND-COLOR from given options               */
-    /*--------------------------------------------------------------------------------*/
-    logobgChange = g => {
-        let logoskin = g.currentTarget.dataset.logobg;
-        let newsettings = JSON.parse(JSON.stringify(this.state.settings));
-        newsettings[0].logobg = logoskin;
-        this.setState({
-            settings: newsettings
-        });
-    };
+
+
 
     render() {
-
+        const {routes} = this.state;
         if (!this.state.registered) {
             return <Redirect to={'/authentication/mau-dang-ky'}/>
         }
         if (!this.state.isLogin) {
             return <Redirect to={'/authentication/login'}/>
         }
+
         /*--------------------------------------------------------------------------------*/
         /* Theme Setting && Layout Options wiil be Change From Here                       */
         /*--------------------------------------------------------------------------------*/
@@ -290,14 +227,14 @@ class Fulllayout extends React.Component {
                 {/*--------------------------------------------------------------------------------*/}
                 {/* Sidebar                                                                        */}
                 {/*--------------------------------------------------------------------------------*/}
-                <Sidebar data={this.state} {...this.props} routes={ThemeRoutes}/>
+                <Sidebar data={this.state} {...this.props} routes={routes}/>
                 {/*--------------------------------------------------------------------------------*/}
                 {/* Page Main-Content                                                              */}
                 {/*--------------------------------------------------------------------------------*/}
                 <div className="page-wrapper d-block">
                     <div className="page-content container-fluid">
-                        <Switch>
-                            {ThemeRoutes.map((prop, key) => {
+                        {this.props.user.name&&<Switch>
+                            {routes.map((prop, key) => {
                                 if (prop.navlabel) {
                                     return null;
                                 } else if (prop.collapse) {
@@ -335,27 +272,18 @@ class Fulllayout extends React.Component {
                                     );
                                 }
                             })}
-                        </Switch>
+                        </Switch>}
                     </div>
                     <Footer/>
                 </div>
-                {/*--------------------------------------------------------------------------------*/}
-                {/* Customizer from which you can set all the Layout Settings                      */}
-                {/*--------------------------------------------------------------------------------*/}
-                {/*<Customizer*/}
-                {/*    darkTheme={this.darkTheme}*/}
-                {/*    boxedTheme={this.boxedTheme}*/}
-                {/*    rtl={this.rtl}*/}
-                {/*    headerPosition={this.headerPosition}*/}
-                {/*    sidebarPosition={this.sidebarPosition}*/}
-                {/*    navbarbgChange={this.navbarbgChange}*/}
-                {/*    sidebarbgChange={this.sidebarbgChange}*/}
-                {/*    logobgChange={this.logobgChange}*/}
-                {/*/>*/}
+
             </div>
         );
     }
 }
+const mapStateToProps = state => {
+    return {user: state.userData}
+};
 
-Fulllayout = connect()(Fulllayout);
+Fulllayout = connect(mapStateToProps)(Fulllayout);
 export default Fulllayout;

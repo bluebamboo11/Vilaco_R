@@ -47,7 +47,7 @@ class CardInfoContract extends React.Component {
                         <TableRow>
                             <TableCell>Tên </TableCell>
                             <TableCell>Ngày sinh</TableCell>
-                            <TableCell>email</TableCell>
+                            <TableCell>Số điện thoại</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -57,7 +57,7 @@ class CardInfoContract extends React.Component {
                                     {row.name}
                                 </TableCell>
                                 <TableCell>{row.birthday}</TableCell>
-                                <TableCell>{row.email}</TableCell>
+                                <TableCell>{row.phone}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

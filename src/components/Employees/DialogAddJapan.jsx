@@ -9,6 +9,7 @@ import {
 import {connect} from "react-redux";
 import {employeeService} from '../../firebase'
 import {selectEmployee} from "../../redux/actions";
+import Datetime from "react-datetime";
 
 
 class DialogAddJapan extends React.Component {
@@ -16,13 +17,15 @@ class DialogAddJapan extends React.Component {
         super(props);
         this.onInputChange = this.onInputChange.bind(this);
         this.open = this.open.bind(this);
+        this.onDateChange = this.onDateChange.bind(this);
         this.add = this.add.bind(this);
          this.state = props.employee;
     }
 
-
-    componentDidMount() {
-
+    onDateChange(date, key) {
+        this.setState({
+            [key]: date.format('YYYY')
+        });
     }
 
     onInputChange(event) {
@@ -45,7 +48,7 @@ class DialogAddJapan extends React.Component {
         this.setState(this.props.employee);
     }
     render() {
-        let {name, gender, phone, skype,id} = this.state;
+        let {name, gender, phone, skype,id,facebook,email,old} = this.state;
         let title = 'Thêm nhân viên phòng nhật';
         if(id){
             title = 'Cập nhật viên phòng nhật';
@@ -84,6 +87,36 @@ class DialogAddJapan extends React.Component {
                                    invalid={!skype}
                                    className="form-control"
                             />
+                        </FormGroup>
+                        <FormGroup>
+                            <label>Facebook</label>
+                            <Input value={facebook} name="facebook" onChange={this.onInputChange}
+                                   invalid={!facebook}
+                                   className="form-control"
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <label>Email</label>
+                            <Input value={email} name="email" onChange={this.onInputChange}
+                                   invalid={!email}
+                                   className="form-control"
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <label>Năm sinh</label>
+                            <Datetime
+                                onChange={(date) => {
+                                    this.onDateChange(date, 'old')
+                                }}
+                                value={old}
+                                viewMode="years"
+                                locale="vi"
+                                dateFormat="YYYY"
+                                timeFormat={false}
+                                closeOnSelect={true}
+                                renderInput={(props)=><Input {...props}  name="old" onChange={this.onInputChange}  invalid={!old}/>}
+                            />
+
                         </FormGroup>
                     </form>
                 </ModalBody>

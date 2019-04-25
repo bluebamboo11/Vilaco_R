@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import Datetime from "react-datetime";
 
-import {FormFeedback, Input} from "reactstrap";
+import { Input} from "reactstrap";
 
 export default class StepsTeacher extends Component {
     constructor(props) {
         super(props);
         this.onInputChange = this.onInputChange.bind(this);
-        this.isValidated = this.isValidated.bind(this)
+        this.isValidated = this.isValidated.bind(this);
+        this.onDateChange = this.onDateChange.bind(this)
     }
 
     onInputChange(event) {
@@ -21,11 +22,15 @@ export default class StepsTeacher extends Component {
         return name && phone && gender && skype
     }
 
-
+    onDateChange(date, key) {
+        let userData = {...this.props.userData};
+        userData[key] =date.format('DD/MM/YYYY');
+        this.props.updateStore(userData)
+    }
 
 
     render() {
-        let {name, phone, gender, skype} = this.props.userData;
+        let {name, phone, gender, skype,facebook,startDay} = this.props.userData;
         return (
             <div className="step step2 mt-5">
                 <div className="row justify-content-md-center">
@@ -71,9 +76,34 @@ export default class StepsTeacher extends Component {
                                 </label>
                                 <div className="col-sm-10">
                                     <Input value={skype} name="skype" onChange={this.onInputChange}
-                                           invalid={!skype}
                                            className="form-control"
                                     />
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label className="col-sm-2 col-form-label">
+                                    Facebook
+                                </label>
+                                <div className="col-sm-10">
+                                    <Input value={facebook} name="facebook" onChange={this.onInputChange}
+                                           className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label className="col-sm-2 col-form-label">
+                                    Ngày vào làm
+                                </label>
+                                <div className="col-sm-10">
+                                        <Datetime
+                                            onChange={(date) => {
+                                                this.onDateChange(date, 'startDay')
+                                            }}
+                                            locale="vi"
+                                            timeFormat={false}
+                                            closeOnSelect={true}
+                                            renderInput={(props)=><Input {...props} value={startDay} name="startDay" onChange={this.onInputChange} placeholder="Ngày / Tháng / Năm" invalid={!startDay}/>}
+                                        />
                                 </div>
                             </div>
                         </form>

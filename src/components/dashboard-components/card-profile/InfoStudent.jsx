@@ -3,14 +3,13 @@ import {connect} from "react-redux";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
 
-
 class InfoStudent extends React.Component {
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
             activeTab: '1',
-            contractName:''
+            contractName: ''
         };
     }
 
@@ -23,16 +22,14 @@ class InfoStudent extends React.Component {
     }
 
 
-
     render() {
-
-        let { phone, gender, address, district, city, code, hobby, forte, weakness, birthday, town,contractName,className} = this.props.user;
+        let {phone, gender, address, district, city, code, hobby, forte, weakness, birthday, town, contractName, className, phoneFamily, status, blood} = this.props.user;
         return (
             <div className="text-left pt-4 p-2 content-info-st">
-                <PerfectScrollbar  option={{suppressScrollX:true}}>
+                <PerfectScrollbar option={{suppressScrollX: true}}>
                     <div className="info-group row">
                         <div className="col-sm-3 col-form-div pt-2">
-                           Đơn hàng
+                            Đơn hàng
                         </div>
                         <div className="col-sm-9 pb-2">
                             <div className="form-control form-control-custom">{contractName}</div>
@@ -78,6 +75,14 @@ class InfoStudent extends React.Component {
                     </div>
                     <div className="info-group row">
                         <div className="col-sm-3 col-form-div pt-2">
+                            Số điện thoại gia đình
+                        </div>
+                        <div className="col-sm-9 pb-2">
+                            <div className="form-control form-control-custom">{phoneFamily}</div>
+                        </div>
+                    </div>
+                    <div className="info-group row">
+                        <div className="col-sm-3 col-form-div pt-2">
                             Ngày sinh
                         </div>
                         <div className="col-sm-9 pb-2">
@@ -90,6 +95,14 @@ class InfoStudent extends React.Component {
                         </div>
                         <div className="col-sm-9 pb-2">
                             <div className="form-control form-control-custom">{code}</div>
+                        </div>
+                    </div>
+                    <div className="info-group row">
+                        <div className="col-sm-3 col-form-div pt-2">
+                            Nhóm máu
+                        </div>
+                        <div className="col-sm-9 pb-2">
+                            <div className="form-control form-control-custom">{blood}</div>
                         </div>
                     </div>
                     <div className="info-group row">
@@ -116,6 +129,14 @@ class InfoStudent extends React.Component {
                             <div className="form-control form-control-custom">{weakness}</div>
                         </div>
                     </div>
+                    <div className="info-group row">
+                        <div className="col-sm-3 col-form-div pt-2">
+                            Trạng thái
+                        </div>
+                        <div className="col-sm-9 pb-2">
+                            <div className="form-control form-control-custom">{status}</div>
+                        </div>
+                    </div>
                 </PerfectScrollbar>
             </div>
 
@@ -126,7 +147,7 @@ class InfoStudent extends React.Component {
 const mapStateToProps = state => {
     return {
         user: state.student,
-        listContract:state.listContract
+        listContract: state.listContract
     }
 };
 InfoStudent = connect(mapStateToProps)(InfoStudent);

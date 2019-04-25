@@ -21,7 +21,7 @@ class InfoTeacher extends React.Component {
     }
 
     render() {
-        let { phone, gender, skype} = this.props.user;
+        let { phone, gender, skype,facebook,startDay} = this.props.user;
         return (
             <div className="text-left pt-4 p-2 content-info-st">
                 <PerfectScrollbar option={{suppressScrollX:true}}>
@@ -33,7 +33,20 @@ class InfoTeacher extends React.Component {
                             <div className="row ">
                                 <div className="col-sm-12">
                                     <div
-                                        className="form-control">{skype}</div>
+                                        className="form-control form-control-custom">{skype}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="info-group row">
+                        <div className="col-sm-3 col-form-div pt-2 pt-2">
+                            Facebook
+                        </div>
+                        <div className="col-sm-9 pb-2">
+                            <div className="row ">
+                                <div className="col-sm-12">
+                                    <div
+                                        className="form-control form-control-custom">{facebook}</div>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +56,7 @@ class InfoTeacher extends React.Component {
                             Giới tính
                         </div>
                         <div className="col-sm-9 pb-2">
-                            <div className="form-control">{gender === 1 ? 'Nam' : 'Nữ'}</div>
+                            <div className="form-control form-control-custom">{gender === 1 ? 'Nam' : 'Nữ'}</div>
 
                         </div>
                     </div>
@@ -52,10 +65,17 @@ class InfoTeacher extends React.Component {
                             Số điện thoại
                         </div>
                         <div className="col-sm-9 pb-2">
-                            <div className="form-control">{phone}</div>
+                            <div className="form-control form-control-custom">{phone}</div>
                         </div>
                     </div>
-
+                    <div className="info-group row">
+                        <div className="col-sm-3 col-form-div pt-2">
+                           Ngày vào làm
+                        </div>
+                        <div className="col-sm-9 pb-2">
+                            <div className="form-control form-control-custom">{startDay}</div>
+                        </div>
+                    </div>
                 </PerfectScrollbar>
             </div>
 

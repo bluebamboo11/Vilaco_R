@@ -16,11 +16,11 @@ class MonthdataJapan extends React.Component {
             this.props.dispatch(isLoadSelect(false));
             this.props.dispatch(selectEmployee({...this.props.employee, listContract: listData}));
         });
-
     }
 
+
     render() {
-        let {name, skype, phone, gender} = this.props.employee;
+        let {name, skype, phone, gender,email,facebook,old} = this.props.employee;
         let classTr = "row-use";
         if (this.props.select && this.props.select.id === this.props.employee.id) {
             classTr = classTr + ' select-row'
@@ -37,9 +37,17 @@ class MonthdataJapan extends React.Component {
                     <div>{phone}</div>
                 </td>
                 <td>
+                    <div>{email}</div>
+                </td>
+                <td>
+                    <div>{facebook}</div>
+                </td>
+                <td>
                     <div>{gender === '1' ? 'Nam' : 'Nữ'}</div>
                 </td>
-
+                <td>
+                    <div>{old}</div>
+                </td>
             </tr>
         );
 

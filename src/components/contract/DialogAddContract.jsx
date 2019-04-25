@@ -71,7 +71,7 @@ class DialogAddContract extends React.Component {
         this.setState(this.props.contract);
     }
     render() {
-        let {name, employeeId, syndication, company, salary, city,open,id} = this.state;
+        let {name, employeeId, syndication, company, salary, city,open,id,job} = this.state;
         let title = 'Thêm đơn hàng';
         if(id){
             title = 'Cập nhật đơn hàng';
@@ -85,6 +85,11 @@ class DialogAddContract extends React.Component {
                             <label>Tên đơn hàng</label>
                             <Input type="text" className="form-control" value={name} name="name"
                                    onChange={this.onInputChange} invalid={!name}/>
+                        </FormGroup>
+                        <FormGroup>
+                            <label>Nghề nghiệp</label>
+                            <Input type="text" className="form-control" value={job} name="job"
+                                   onChange={this.onInputChange} invalid={!job}/>
                         </FormGroup>
                         <FormGroup>
                             <label>Nhân viên phòng nhật</label>

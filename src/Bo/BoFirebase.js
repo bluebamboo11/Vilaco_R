@@ -8,16 +8,19 @@ export const userBo = (data) => {
             address: data.address,
             gender: data.gender,
             code: data.code,
-            hobby: data.hobby,
-            forte: data.forte,
-            weakness: data.weakness,
+            hobby: data.hobby || '',
+            forte: data.forte || '',
+            weakness: data.weakness || '',
             birthday: data.birthday,
             district: data.district,
             city: data.city,
             town: data.town,
             type: data.type,
-            classId:data.classId||null,
-            contractId:data.contractId||null,
+            phoneFamily: data.phoneFamily,
+            status: data.status || '',
+            classId: data.classId || '',
+            contractId: data.contractId || '',
+            blood: data.blood || '',
             validate: data.validate,
             timestamp: data.timestamp,
         }
@@ -31,13 +34,24 @@ export const userBo = (data) => {
         skype: data.skype,
         type: data.type,
         validate: data.validate,
+        startDay: data.startDay,
+        facebook: data.facebook,
         timestamp: data.timestamp,
     }
 
 };
 
 export function employeeBo(data) {
-    return {name: data.name, gender: data.gender, phone: data.phone, skype: data.skype, timestamp: data.timestamp}
+    return {
+        name: data.name,
+        gender: data.gender,
+        phone: data.phone,
+        skype: data.skype,
+        facebook: data.facebook,
+        email: data.email,
+        old: data.old,
+        timestamp: data.timestamp
+    }
 }
 
 export function contractBo(data) {
@@ -51,7 +65,8 @@ export function contractBo(data) {
         departureDate: data.departureDate,
         examDay: data.examDay,
         timestamp: data.timestamp,
-        open: data.open
+        open: data.open,
+        job: data.job
     }
 }
 
@@ -60,26 +75,27 @@ export function classBo(data) {
         name: data.name,
         startDate: data.startDate,
         endDate: data.endDate,
-        teacherId:data.teacherId,
+        teacherId: data.teacherId,
         timestamp: data.timestamp,
         open: data.open
     }
 }
 
-export  function transcriptBo(data) {
+export function transcriptBo(data) {
     return {
-        uid:data.uid||null,
-        classId:data.classId||null,
-        month:data.month||null,
-        listen:data.listen||null,
-        write:data.write||null,
-        conversation:data.conversation||null,
-        push:data.push||null,
-        bendBack:data.bendBack||null,
-        bellySticks:data.bellySticks||null,
-        squat:data.squat||null,
-        education:data.education||null,
-        japanese:data.japanese||null,
-        health:data.health||null,
+        uid: data.uid || null,
+        classId: data.classId || null,
+        month: data.month || null,
+        listen: data.listen || null,
+        write: data.write || null,
+        conversation: data.conversation || null,
+        push: data.push || null,
+        bendBack: data.bendBack || null,
+        bellySticks: data.bellySticks || null,
+        squat: data.squat || null,
+        education: data.education || null,
+        japanese: data.japanese || null,
+        health: data.health || null,
+        scholarship: data.scholarship || null,
     }
 }

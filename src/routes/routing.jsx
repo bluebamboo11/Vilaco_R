@@ -7,20 +7,23 @@ import LearningClass from "../views/class/LearningClass";
 import Profile from "../views/sample-pages/profile";
 import Transcript from "../views/Transcript/Transcript";
 import Ranking from "../views/ranking/Ranking";
+import MyContract from "../views/MyContract/MyContract";
+import MyClass from "../views/MyClass/MyClass";
 
 
-var ThemeRoutes = [
+export const ThemeRoutes = [
   {
     navlabel: true,
     name: 'Cá nhân',
     icon: 'mdi mdi-dots-horizontal'
   },
   {
-    path: '/profile',
+    path: '/ca-nhan',
     name: 'Thông tin cá nhân',
     icon: 'mdi mdi-account',
     component: Profile
   },
+
   {
     navlabel: true,
     name: 'Quản lý tài khoản',
@@ -80,9 +83,54 @@ var ThemeRoutes = [
   },
   {
     path: '/',
-    pathTo: '/profile',
+    pathTo: '/ca-nhan',
     name: 'Cá nhân',
     redirect: true
   }
 ];
-export default ThemeRoutes;
+
+export const studentRoutes =
+    [
+      {
+        navlabel: true,
+        name: 'Cá nhân',
+        icon: 'mdi mdi-dots-horizontal'
+      },
+      {
+        path: '/ca-nhan',
+        name: 'Thông tin cá nhân',
+        icon: 'mdi mdi-account',
+        component: Profile
+      },
+      {
+        path: '/don-hang-cua-toi',
+        name: 'Đơn hàng của tôi',
+        icon: 'mdi mdi-account',
+        component: MyContract
+      },
+      {
+        navlabel: true,
+        name: 'Lớp học',
+        icon: 'mdi mdi-dots-horizontal'
+      },
+      {
+        path: '/lop-cua-toi',
+        name: 'Lớp của tôi',
+        icon: 'mdi mdi-account-multiple',
+        component: MyClass
+      },
+      {
+        path: '/xep-hang-diem',
+        name: 'Xếp hạng điểm',
+        icon: 'mdi mdi-account-multiple',
+        component: Ranking
+      },
+      {
+        path: '/',
+        pathTo: '/ca-nhan',
+        name: 'Cá nhân',
+        redirect: true
+      }
+    ];
+
+

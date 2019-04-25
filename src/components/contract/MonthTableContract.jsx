@@ -105,6 +105,7 @@ class MonthTableContract extends React.Component {
                 city: '',
                 departureDate: '',
                 examDay: '',
+                job:'',
                 open: true
             }
         }));
@@ -158,6 +159,9 @@ class MonthTableContract extends React.Component {
                                         className="text-muted font-medium border-top-0"
                                     >
                                         Tên đơn hàng
+                                    </th>
+                                    <th className="text-muted font-medium border-top-0">
+                                       Nghề nghiệp
                                     </th>
                                     <th className="text-muted font-medium border-top-0">
                                         Tên nghiệp đoàn

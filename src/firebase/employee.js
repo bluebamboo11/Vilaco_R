@@ -29,7 +29,9 @@ export function getAllEmployee(callback) {
         callback(list);
     })
 }
-
+export  function getOneEmployee(id) {
+    return db.collection('employees-japan').doc(id).get()
+}
 export  function updateEmployee(id,data) {
     return db.collection('employees-japan').doc(id).update(employeeBo(data))
 }
