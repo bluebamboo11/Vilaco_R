@@ -62,6 +62,7 @@ class Fulllayout extends React.Component {
     /*--------------------------------------------------------------------------------*/
     componentDidMount() {
         // doCreateAutoUserTest();
+        console.log(1)
         this.props.dispatch(isLoading(true));
         window.addEventListener('load', this.updateDimensions);
         window.addEventListener('resize', this.updateDimensions);
@@ -72,6 +73,7 @@ class Fulllayout extends React.Component {
             } else {
                 userService.getOneUser(use.uid, (data) => {
                     if (data) {
+                        data.uid = use.uid;
                         this.setRouter(data);
                         this.props.dispatch(setUserData(data));
                         userService.getAccess(use.uid, data.type, (access) => {

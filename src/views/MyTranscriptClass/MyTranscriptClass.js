@@ -17,7 +17,7 @@ import {columns} from "./DataConfig"
 
 
 
-class Transcript extends React.Component {
+class MyTranscriptClass extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -39,8 +39,6 @@ class Transcript extends React.Component {
         this.showPopupEdit = this.showPopupEdit.bind(this);
         this.renderTab = this.renderTab.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.renderListClass = this.renderListClass.bind(this);
-        this.onClassChange = this.onClassChange.bind(this);
         this.save = this.save.bind(this);
         this.setTabMonth = this.setTabMonth.bind(this);
         this.changeKey = this.changeKey.bind(this);
@@ -51,30 +49,19 @@ class Transcript extends React.Component {
     listData = [];
 
     componentDidMount() {
-        classService.getAllClassOpen(true, (listClass) => {
-            if (listClass.length > 0) {
-                this.setState({listClass: listClass, loading: false})
-            }
-        })
-    }
-
-    onClassChange(event) {
-        this.setState({
-            classSelect: event.target.value
-        });
-        if (event.target.value) {
-            this.setState({loading: true, listMonth: []});
-            const value = event.target.value;
-            userService.getAllStudentByClass(value, (listStudent) => {
-                transcriptService.getAllbyClass(value, (listTranscript) => {
+        if(this.props.user.classId){
+            userService.getAllStudentByClass(this.props.user.classId, (listStudent) => {
+                transcriptService.getAllbyClass(this.props.user.classId, (listTranscript) => {
                     this.setState({listTranscript: listTranscript, listStudent: listStudent, loading: false});
                     this.listData = listStudent;
                     this.setTabMonth(listTranscript)
                 });
             });
-
         }
+
     }
+
+
 
     setTabMonth(listTranscript) {
         let listMonth = [];
@@ -145,9 +132,7 @@ class Transcript extends React.Component {
     }
 
     handleChange = (event, value) => {
-        if (this.state.classSelect === '1') {
-            return
-        }
+
         if (value !== this.state.listMonth.length) {
             this.setState({tab: value});
         } else {
@@ -170,9 +155,6 @@ class Transcript extends React.Component {
     renderTab() {
         const {classes} = this.props;
         const {tab} = this.state;
-        if (this.state.classSelect === '1') {
-            return ''
-        }
         return (
             <Tabs
                 classes={{root: classes.tabsRoot, indicator: classes.tabsIndicator}}
@@ -186,20 +168,11 @@ class Transcript extends React.Component {
                         label={month}
                     />
                 })}
-                <Tab
-                    classes={{root: classes.tabRoot, selected: classes.tabSelected}}
-                    icon={<Add/>}
-                />
+
             </Tabs>
         )
     }
 
-
-    renderListClass() {
-        return this.state.listClass.map(data => {
-            return <option key={data.id} value={data.id}>{data.name}</option>
-        })
-    }
 
     save(data) {
         data.classId = this.state.classSelect;
@@ -260,14 +233,8 @@ class Transcript extends React.Component {
                             <CardBody style={{height: '100%'}}>
                                 <div className="d-flex no-block mb-3">
                                     <CardTitle><h4 className="m-0">Bảng điểm lớp học</h4></CardTitle>
-                                    <div className="ml-auto col-3">
-                                        <Input type="select" className="custom-select" onChange={this.onClassChange}
-                                               value={this.state.classSelect}>
-                                            <option value="1" style={{display: "none"}}>Chọn lớp</option>
-                                            {this.renderListClass()}
-                                        </Input>
-                                    </div>
-                                    <Form className="search-user col-6 pr-0 " onSubmit={this.searchAllUser}>
+
+                                    <Form className="search-user col-6 pr-0 ml-auto" onSubmit={this.searchAllUser}>
                                         <InputGroup>
                                             <InputGroupAddon addonType="append">
                                                 <Button onClick={this.exitSearch}><i className="ti-close"/></Button>
@@ -308,7 +275,7 @@ class Transcript extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return {}
+    return {user:state.userData}
 };
 
 const styles = theme => ({
@@ -347,6 +314,6 @@ const styles = theme => ({
     },
 });
 
-Transcript = connect(mapStateToProps)(Transcript);
-Transcript = withStyles(styles)(Transcript);
-export default Transcript;
+MyTranscriptClass = connect(mapStateToProps)(MyTranscriptClass);
+MyTranscriptClass = withStyles(styles)(MyTranscriptClass);
+export default MyTranscriptClass;

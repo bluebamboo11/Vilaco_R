@@ -9,6 +9,8 @@ import Transcript from "../views/Transcript/Transcript";
 import Ranking from "../views/ranking/Ranking";
 import MyContract from "../views/MyContract/MyContract";
 import MyClass from "../views/MyClass/MyClass";
+import MyTranscript from "../views/MyTranscript/MyTranscript";
+import MyTranscriptClass from "../views/MyTranscriptClass/MyTranscriptClass";
 
 
 export const ThemeRoutes = [
@@ -98,15 +100,21 @@ export const studentRoutes =
       },
       {
         path: '/ca-nhan',
-        name: 'Thông tin cá nhân',
+        name: 'Thông tin',
         icon: 'mdi mdi-account',
         component: Profile
       },
       {
         path: '/don-hang-cua-toi',
-        name: 'Đơn hàng của tôi',
+        name: 'Đơn hàng',
         icon: 'mdi mdi-account',
         component: MyContract
+      },
+      {
+        path: '/bang-diem-cua-toi',
+        name: 'Bảng điểm',
+        icon: 'mdi mdi-account',
+        component: MyTranscript
       },
       {
         navlabel: true,
@@ -118,6 +126,12 @@ export const studentRoutes =
         name: 'Lớp của tôi',
         icon: 'mdi mdi-account-multiple',
         component: MyClass
+      },
+      {
+        path: '/bang-diem-lop',
+        name: 'Bảng điểm lớp',
+        icon: 'mdi mdi-account-multiple',
+        component: MyTranscriptClass
       },
       {
         path: '/xep-hang-diem',

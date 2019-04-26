@@ -223,7 +223,7 @@ button:focus {
 }
 
 .color-red {
-    color: red;
+    color: red !important;
 }
 
 .cell-center {

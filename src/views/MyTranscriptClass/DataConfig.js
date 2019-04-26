@@ -75,12 +75,8 @@ export const columns = [
         Header: "GD định hướng",
         accessor: 'education',
         className: 'text-center color-red cell-center'
-    },
-    {
-        Header: "",
-        accessor: "actions",
-        width: 60,
     }
+
 ];
 
 export function medium(list) {
