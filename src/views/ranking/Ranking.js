@@ -1,7 +1,6 @@
 import React from 'react';
-import {Row, Col, CardTitle, CardBody, Card, Button, Table} from 'reactstrap';
+import {Row, Col, CardTitle, CardBody, Card, Table} from 'reactstrap';
 import {transcriptService} from "../../firebase";
-import {connect} from "react-redux";
 import "react-table/react-table.css";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -10,6 +9,7 @@ import Loading from "../../components/Loading/Loading";
 import Datetime from "react-datetime";
 import moment from "moment";
 import CellRanking from "./CellRanking";
+import PerfectScrollbar from "react-perfect-scrollbar";
 
 
 class Ranking extends React.Component {
@@ -37,10 +37,10 @@ class Ranking extends React.Component {
     }
 
     componentDidMount() {
-        this.getTopTranscript(this.state.tab,this.state.month)
+        this.getTopTranscript(this.state.tab, this.state.month)
     }
 
-    getTopTranscript(tab,month) {
+    getTopTranscript(tab, month) {
         let type = 'japanese';
         switch (tab) {
             case 1:
@@ -51,15 +51,15 @@ class Ranking extends React.Component {
                 break
 
         }
-        this.setState({loading:true});
+        this.setState({loading: true});
         transcriptService.getTop(month.format('MM-YYYY'), type, (list) => {
-            this.setState({listTranscript: list,loading:false})
+            this.setState({listTranscript: list, loading: false})
         })
     }
 
     handleChange = (event, value) => {
-        this.setState({tab: value,listTranscript:[]});
-        this.getTopTranscript(value,this.state.month);
+        this.setState({tab: value, listTranscript: []});
+        this.getTopTranscript(value, this.state.month);
     };
 
     renderTab() {
@@ -89,10 +89,10 @@ class Ranking extends React.Component {
     }
 
     onDateChange(date) {
-        this.getTopTranscript(this.state.tab,date);
+        this.getTopTranscript(this.state.tab, date);
         this.setState({
             month: date,
-            listTranscript:[]
+            listTranscript: []
         });
     }
 
@@ -183,24 +183,25 @@ class Ranking extends React.Component {
                 <Row className="h-100 ">
                     <Col lg="12" style={{height: '100%'}}>
                         <Card style={{height: '100%'}}>
-                            <CardBody style={{height: '100%'}} style={{position: "relative"}}>
+                            <CardBody style={{position: "relative",height: '100%'}}>
+                                <PerfectScrollbar>
                                 <div className="d-flex no-block mb-3">
                                     <CardTitle><h4 className="m-0">Bảng xếp hạng điểm</h4></CardTitle>
                                     <div className="mont-input-ranking row ml-auto">
-                                        <div className="pr-3 font-medium" style={{lineHeight:'35px'}}>Chọn tháng</div>
+                                        <div className="pr-3 font-medium" style={{lineHeight: '35px'}}>Chọn tháng</div>
                                         <div>
-                                        <Datetime
-                                            className="text-center"
-                                            onChange={this.onDateChange}
-                                            value={this.state.month}
-                                            inputProps={{style:{textAlign:'center'}}}
-                                            dateFormat="MM/YYYY"
-                                            renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
-                                            locale="vi"
-                                            timeFormat={false}
-                                            closeOnSelect={true}
-                                            viewMode="months"
-                                        />
+                                            <Datetime
+                                                className="text-center"
+                                                onChange={this.onDateChange}
+                                                value={this.state.month}
+                                                inputProps={{style: {textAlign: 'center'}}}
+                                                dateFormat="MM/YYYY"
+                                                renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
+                                                locale="vi"
+                                                timeFormat={false}
+                                                closeOnSelect={true}
+                                                viewMode="months"
+                                            />
                                         </div>
                                     </div>
 
@@ -213,15 +214,16 @@ class Ranking extends React.Component {
                                     left: 0,
                                     width: '100%'
                                 }}><Loading/></div>}
-                                <Table className="stylish-table mb-0" responsive>
-                                    <thead>
-                                    {this.renderHeader()}
-                                    </thead>
-                                    <tbody>
-                                    {this.renderListData()}
-                                    </tbody>
-                                </Table>
 
+                                    <Table className="stylish-table mb-0" >
+                                        <thead>
+                                        {this.renderHeader()}
+                                        </thead>
+                                        <tbody>
+                                        {this.renderListData()}
+                                        </tbody>
+                                    </Table>
+                                </PerfectScrollbar>
                             </CardBody>
                         </Card>
                     </Col>

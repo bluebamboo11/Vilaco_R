@@ -53,8 +53,8 @@ class CardProfile extends React.Component {
 
     removeUser() {
         this.toggle();
-        adminService.removeUser(this.props.user.uid).then(() => {
-            const index = this.props.listUser.indexOf(this.props.user);
+        adminService.removeUser(this.props.userSelect.uid).then(() => {
+            const index = this.props.listUser.indexOf(this.props.userSelect);
             this.props.listUser.splice(index, 1);
             this.props.dispatch(addListUser(this.props.listUser.concat()));
             this.props.dispatch(selectStudent(null));
@@ -62,15 +62,15 @@ class CardProfile extends React.Component {
     }
 
     validateUser() {
-        adminService.validateUser(this.props.user.uid, this.props.user.type, () => {
-            let user = {...this.props.user};
+        adminService.validateUser(this.props.userSelect.uid, this.props.userSelect.type, () => {
+            let user = {...this.props.userSelect};
             user.validate = true;
             this.updateUser(user)
         })
     }
 
     renderValidate() {
-        if (this.props.user.validate) {
+        if (this.props.userSelect.validate) {
             return <Badge color="success" style={{fontSize: 10}}>Xác thực</Badge>
         }
         return <Badge color="warning" style={{fontSize: 10}}> Chưa xác thực</Badge>
@@ -81,12 +81,12 @@ class CardProfile extends React.Component {
     }
 
     openAddClass() {
-        this.addClassDialog.handleClickOpen(this.props.user.classId)
+        this.addClassDialog.handleClickOpen(this.props.userSelect.classId)
     }
 
     addContract(contract) {
-        userService.doUpdateUser(this.props.user.uid, {contractId:  contract.id}).then(() => {
-            let user = {...this.props.user};
+        userService.doUpdateUser(this.props.userSelect.uid, {contractId:  contract.id}).then(() => {
+            let user = {...this.props.userSelect};
             user.contractId = contract.id;
             user.contractName = contract.name;
             this.updateUser(user)
@@ -94,8 +94,8 @@ class CardProfile extends React.Component {
     }
 
     addClass(classData) {
-        userService.doUpdateUser(this.props.user.uid, {classId: classData.id}).then(() => {
-            let user = {...this.props.user};
+        userService.doUpdateUser(this.props.userSelect.uid, {classId: classData.id}).then(() => {
+            let user = {...this.props.userSelect};
             user.classId = classData.id;
             user.className = classData.name;
             this.updateUser(user)
@@ -113,12 +113,12 @@ class CardProfile extends React.Component {
     }
 
     render() {
-        if (!this.props.user) {
+        if (!this.props.userSelect) {
             return <Card className="card-info"/>
         }
         const {classes} = this.props;
         const {value} = this.state;
-        let {avatar, name, validate} = this.props.user;
+        let {avatar, name, validate} = this.props.userSelect;
         let options = [
             {title: 'Xác nhận', onClick: this.validateUser},
             {title: 'Xóa', onClick: this.toggle},
@@ -168,9 +168,10 @@ class CardProfile extends React.Component {
                     <div className="pro-img">
                         <img src={avatar} className="avatar" alt="user"/>
                     </div>
-                    <h3 className="mb-3">{name} {this.renderValidate()}</h3>
+                    <h3 >{name}</h3>
+                    <div className="mb-3">{this.renderValidate()}</div>
                     <div className="menu-info">
-                        <LongMenu options={options}/>
+                        {(this.props.user.admin||this.props.user.superAdmin)&&<LongMenu options={options}/>}
                     </div>
 
                     <Tabs
@@ -235,7 +236,8 @@ const styles = theme => ({
 });
 const mapStateToProps = state => {
     return {
-        user: state.student,
+        user:state.userData,
+        userSelect: state.student,
         listUser: state.listUser,
         listContract: state.listContract,
         listClass: state.listClass,

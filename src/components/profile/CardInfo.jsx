@@ -7,15 +7,22 @@ class CardInfo extends React.Component {
     constructor(props) {
         super(props);
         this.renderTeacher = this.renderTeacher.bind(this)
+        this.renderAdmin = this.renderAdmin.bind(this)
 
     }
 
-    componentDidMount() {
-
+    renderAdmin() {
+        let {admin, superAdmin} = this.props.userData;
+        if (superAdmin) {
+            return <Badge color="warning" style={{color:'white',marginLeft:10}} pill>Quản trị viên</Badge>
+        }
+        if (admin) {
+            return <Badge color="danger" style={{marginLeft:10}} pill>Quản lý</Badge>
+        }
     }
 
     renderTeacher() {
-        let {skype, phone, gender, email} = this.props.userData;
+        let {skype, phone, gender, email, admin, superAdmin} = this.props.userData;
         return (
 
             <CardBody className="border-top">
@@ -33,6 +40,7 @@ class CardInfo extends React.Component {
                         <Badge color="success" pill>
                             Giáo viên
                         </Badge>
+                        {this.renderAdmin()}
                     </h4>
                 </div>
             </CardBody>

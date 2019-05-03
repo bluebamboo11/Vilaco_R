@@ -37,7 +37,6 @@ const initialState = {
     listUser: [],
     loadAll: false,
     student: null,
-
 };
 
 export function todoApp(state = initialState, action) {

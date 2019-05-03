@@ -14,3 +14,11 @@ export const validateUser = (uid, type, callback) => {
         console.log(err);
     })
 };
+export const setAdmin = (id) => {
+    return db.collection("security").doc('role').collection('admin').doc(id).set({validate: true})
+};
+
+export const removeAdmin = (id) => {
+    return db.collection("security").doc('role').collection('admin').doc(id).delete();
+};
+

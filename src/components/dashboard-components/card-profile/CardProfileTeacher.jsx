@@ -21,6 +21,7 @@ import ListClass from "./ListClass";
 import Loading from "../../Loading/Loading";
 
 
+
 class CardProfileTeacher extends React.Component {
     constructor(props) {
         super(props);
@@ -31,6 +32,8 @@ class CardProfileTeacher extends React.Component {
         this.validateUser = this.validateUser.bind(this);
         this.openAddClass = this.openAddClass.bind(this);
         this.addClass = this.addClass.bind(this);
+        this.setAdmin = this.setAdmin.bind(this);
+        this.renderAdmin = this.renderAdmin.bind(this);
         this.state = {
             value: 0,
             modal: false,
@@ -50,8 +53,8 @@ class CardProfileTeacher extends React.Component {
 
     removeUser() {
         this.toggle();
-        adminService.removeUser(this.props.user.uid).then(() => {
-            const index = this.props.listUser.indexOf(this.props.user);
+        adminService.removeUser(this.props.userSelect.uid).then(() => {
+            const index = this.props.listUser.indexOf(this.props.userSelect);
             this.props.listUser.splice(index, 1);
             this.props.dispatch(addListUser(this.props.listUser.concat()));
             this.props.dispatch(selectStudent(null));
@@ -59,46 +62,82 @@ class CardProfileTeacher extends React.Component {
     }
 
     validateUser() {
-        adminService.validateUser(this.props.user.uid, this.props.user.type, () => {
-            this.props.user.validate = true;
-            const index = this.props.listUser.indexOf(this.props.user);
-            let user = {...this.props.user};
-            this.props.listUser[index] = user;
+        adminService.validateUser(this.props.userSelect.uid, this.props.userSelect.type, () => {
+            this.props.userSelect.validate = true;
+            let user = {...this.props.userSelect};
+            for (let i = 0; i < this.props.listUser.length; i++) {
+                if (this.props.listUser[i].uid === this.props.userSelect.uid) {
+                    this.props.listUser[i] = user;
+                    break;
+                }
+            }
+
             this.props.dispatch(selectStudent(user));
             this.props.dispatch(addListUser(this.props.listUser.concat()));
         })
     }
 
     addClass(id) {
-        classService.updateClass({teacherId: this.props.user.uid},id).then(() => {
-            this.props.listClass.forEach((value)=>{
-               if(value.id === id) {
-                   this.props.user.listClass.push(value);
-                   this.props.dispatch(selectStudent({...  this.props.user}));
+        classService.updateClass({teacherId: this.props.userSelect.uid}, id).then(() => {
+            this.props.listClass.forEach((value) => {
+                if (value.id === id) {
+                    this.props.userSelect.listClass.push(value);
+                    this.props.dispatch(selectStudent({...this.props.userSelect}));
 
-               }
+                }
             })
         });
     }
 
     renderValidate() {
-        if (this.props.user.validate) {
+        if (this.props.userSelect.validate) {
             return <Badge color="success" style={{fontSize: 10}}>Xác thực</Badge>
         }
         return <Badge color="warning" style={{fontSize: 10}}> Chưa xác thực</Badge>
     }
 
+    renderAdmin() {
+        if (this.props.userSelect.superAdmin) {
+            return <Badge color="warning"  style={{fontSize: 10, marginLeft: 10,color:'white'}}>Quản trị viên</Badge>
+        }
+
+        if (this.props.userSelect.admin) {
+            return <Badge color="danger" style={{fontSize: 10, marginLeft: 10}}>Quản lý</Badge>
+        }
+        return ''
+    }
+
+
     openAddClass() {
         this.addClassDialog.handleClickOpen()
+    }
+
+    setAdmin() {
+        const admin = this.props.userSelect.admin;
+        if (admin) {
+            adminService.removeAdmin(this.props.userSelect.uid).then();
+        } else {
+            adminService.setAdmin(this.props.userSelect.uid).then();
+        }
+        userService.doUpdateUser(this.props.userSelect.uid, {admin: !admin}).then(() => {
+            this.props.dispatch(selectStudent({...this.props.userSelect, admin: !admin}));
+            for (let i = 0; i < this.props.listUser.length; i++) {
+                if (this.props.listUser[i].uid === this.props.userSelect.uid) {
+                    this.props.listUser[i].admin = !admin;
+                    break;
+                }
+            }
+            this.props.dispatch(addListUser(this.props.listUser.concat()))
+        })
     }
 
     render() {
         const {classes} = this.props;
         const {value} = this.state;
-        if (!this.props.user) {
+        if (!this.props.userSelect) {
             return <Card className="card-info"/>
         }
-        let {avatar, name, validate} = this.props.user;
+        let {avatar, name, validate, admin} = this.props.userSelect;
         let options = [
             {title: 'Xác nhận', onClick: this.validateUser},
             {title: 'Xóa', onClick: this.toggle},
@@ -109,12 +148,14 @@ class CardProfileTeacher extends React.Component {
             options = [
                 {title: 'Xóa', onClick: this.toggle},
                 {title: 'Thêm lớp', onClick: this.openAddClass},
-
             ];
+        }
+        if (this.props.user.superAdmin) {
+            options.push({title: admin ? 'Hủy quản lý' : 'Thêm quản lý', onClick: this.setAdmin})
         }
         return (
             <Card className="card-info">
-                {this.props.loadSelect&&<Loading/>}
+                {this.props.loadSelect && <Loading/>}
                 <ContractDialog
                     options={this.props.listClass}
                     save={this.addClass}
@@ -129,7 +170,7 @@ class CardProfileTeacher extends React.Component {
                         Bạn chắc chắn muốn xóa tài khoản <span style={{color: 'blue',}}>{name}</span>
                     </ModalBody>
                     <ModalFooter className="border-0">
-                        <Button color="danger" onClick={this.removeUser}>Xóa</Button>{' '}
+                        <Button color="danger" onClick={this.removeUser}>Xóa</Button>
                         <Button color="secondary" onClick={this.toggle}>Hủy</Button>
                     </ModalFooter>
                 </Modal>
@@ -138,9 +179,10 @@ class CardProfileTeacher extends React.Component {
                     <div className="pro-img">
                         <img src={avatar} className="avatar" alt="user"/>
                     </div>
-                    <h3 className="mb-3">{name} {this.renderValidate()}</h3>
+                    <h3>{name}</h3>
+                    <div className="mb-3"> {this.renderValidate()}{this.renderAdmin()}</div>
                     <div className="menu-info">
-                        <LongMenu options={options}/>
+                        {(this.props.user.admin||this.props.user.superAdmin) && <LongMenu options={options}/>}
                     </div>
                     <Tabs
                         classes={{root: classes.tabsRoot, indicator: classes.tabsIndicator}}
@@ -159,7 +201,7 @@ class CardProfileTeacher extends React.Component {
                         />
                     </Tabs>
                     {value === 0 && <InfoTeacher/>}
-                    {value === 1 && <ListClass rows={this.props.user.listClass}/>}
+                    {value === 1 && <ListClass rows={this.props.userSelect.listClass}/>}
                 </CardBody>
             </Card>
         );
@@ -203,10 +245,11 @@ const styles = theme => ({
 
 const mapStateToProps = state => {
     return {
-        user: state.student,
+        userSelect: state.student,
         listUser: state.listUser,
         listClass: state.listClass,
         loadSelect: state.loadSelect,
+        user: state.userData
     }
 };
 CardProfileTeacher = connect(mapStateToProps)(CardProfileTeacher);
