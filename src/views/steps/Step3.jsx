@@ -6,7 +6,7 @@ import ImageUploader from 'react-images-upload';
 export default class Step3 extends Component {
     constructor(props) {
         super(props);
-        this.onDrop = this.onDrop.bind(this)
+        this.onDrop = this.onDrop.bind(this);
         this.isValidated = this.isValidated.bind(this)
     }
 
@@ -15,10 +15,12 @@ export default class Step3 extends Component {
        return  !!this.props.userData.avatar
     }
     onDrop(picture) {
-        let userData = {...this.props.userData};
-        userData['avatar'] = picture[this.index];
-        this.props.updateStore(userData);
-        this.index = this.index + 1;
+        if(picture[this.index]){
+            let userData = {...this.props.userData};
+            userData['avatar'] = picture[this.index];
+            this.props.updateStore(userData);
+            this.index = this.index + 1;
+        }
     }
 
     render() {

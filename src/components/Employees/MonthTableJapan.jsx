@@ -29,7 +29,7 @@ class MonthTableJapan extends React.Component {
         this.getAll = this.getAll.bind(this);
         this.state = {
             modal: false,
-            employee: {name: '', gender: '', phone: '', skype: '',email:'',facebook:''},
+            employee: {name: '', gender: '', phone: '', skype: '', email: '', facebook: ''},
             listEmployee: [],
             searchKey: ''
         };
@@ -61,7 +61,7 @@ class MonthTableJapan extends React.Component {
         let listEmployee = this.listData.filter((item) => {
             console.log(1);
             for (let key in item) {
-                if (item[key]&& typeof item[key] === 'string' && item[key].toUpperCase().indexOf(searchKey) >= 0) {
+                if (item[key] && typeof item[key] === 'string' && item[key].toUpperCase().indexOf(searchKey) >= 0) {
                     return true
                 }
             }
@@ -70,9 +70,8 @@ class MonthTableJapan extends React.Component {
     }
 
     exitSearch() {
-        this.setState({listEmployee: this.listData,searchKey:''});
+        this.setState({listEmployee: this.listData, searchKey: ''});
     }
-
 
 
     changeKey(event) {
@@ -98,6 +97,7 @@ class MonthTableJapan extends React.Component {
     }
 
     render() {
+        const admin = this.props.user.admin || this.props.user.superAdmin;
         return (
             <Card style={{height: '100%'}}>
                 <DialogAddJapan modal={this.state.modal} toggle={this.toggle} employee={this.state.employee}/>
@@ -117,7 +117,7 @@ class MonthTableJapan extends React.Component {
                                 </InputGroupAddon>
                             </InputGroup>
                         </Form>
-                        <Button color="primary" onClick={this.toggle}><i className="ti-plus pr-2"/> Thêm</Button>
+                        {admin && <Button color="primary" onClick={this.toggle}><i className="ti-plus pr-2"/> Thêm</Button>}
                     </div>
                     <div className="mt-3" style={{height: 'calc(100% - 35px)'}}>
                         <PerfectScrollbar suppressScrollX={true}>
@@ -163,7 +163,8 @@ class MonthTableJapan extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        listUser: state.listUser
+        listUser: state.listUser,
+        user: state.userData
     }
 };
 MonthTableJapan = connect(mapStateToProps)(MonthTableJapan);

@@ -34,7 +34,7 @@ export const columns = [
                 className: 'text-center cell-center'
             },
             {
-                Header: "Trung bình",
+                Header: "Điểm",
                 id: 'medium',
                 accessor:"japanese",
                 className: 'text-center color-red cell-center'
@@ -65,7 +65,7 @@ export const columns = [
                 className: 'text-center cell-center'
             },
             {
-                Header: "Trung bình",
+                Header: "Điểm",
                 id: 'medium2',
                 accessor: "health",
                 className: 'text-center color-red cell-center'
@@ -92,4 +92,14 @@ export function medium(list) {
         rs = rs + list[i]
     }
     return Math.round(rs / list.length);
+}
+export function total(list) {
+    let rs = 0;
+    for (let i = 0; i < list.length; i++) {
+        if (!list[i]) {
+            return null
+        }
+        rs = rs + list[i]
+    }
+   return rs
 }

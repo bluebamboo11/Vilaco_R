@@ -2,6 +2,8 @@ import React from 'react';
 
 import {Badge, Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import {userService, transcriptService} from "../../firebase";
+import {connect} from "react-redux";
+
 
 
 class CellRanking extends React.Component {
@@ -17,7 +19,8 @@ class CellRanking extends React.Component {
     componentDidMount() {
         userService.getOneUser(this.props.data.uid, (user) => {
             this.setState({...user, ...this.props.data});
-        })
+        });
+
     }
 
     toggle() {
@@ -27,34 +30,40 @@ class CellRanking extends React.Component {
     }
 
     renderButtonEdit() {
+        const admin = this.props.user.admin || this.props.user.superAdmin;
+        if(this.props.user.type === 'student'||!admin){
+            return ''
+        }
         return (
-            <div className="center-item ">
-                <Button
-                    onClick={this.toggle}
-                    color="info"
-                    size="sm"
-                    className="btn-edit-point"
-                    style={{borderRadius: '100%', width: 30, height: 30}}
-                >
-                    <i className=" ti-pencil"/>
-                </Button>
-
-            </div>)
+            <td>
+                <div className="center-item ">
+                    <Button
+                        onClick={this.toggle}
+                        color="info"
+                        size="sm"
+                        className="btn-edit-point"
+                        style={{borderRadius: '100%', width: 30, height: 30}}
+                    >
+                        <i className=" ti-pencil"/>
+                    </Button>
+                </div>
+            </td>)
     }
 
     setScholarship() {
         this.toggle();
-        transcriptService.update(this.state.id,{scholarship: !this.state.scholarship}).then(() => {
-            this.setState({scholarship: !this.state.scholarship})
+        transcriptService.update(this.state.id, {[this.scholarship]: !this.state[this.scholarship]}).then(() => {
+            this.setState({[this.scholarship]: !this.state[this.scholarship]})
         })
     }
 
     renderDialog() {
+        const  scholarship = this.state[this.scholarship];
         return <Modal isOpen={this.state.modal} toggle={this.toggle}
                       className="modal-dialog-centered">
             <ModalHeader toggle={this.toggle}>Học bổng</ModalHeader>
             <ModalBody>
-                {this.state.scholarship ? 'Hủy cấp học bổng cho học viên ' : 'Xác nhận cấp học bổng cho học viên '}
+                {scholarship ? 'Hủy cấp học bổng cho học viên ' : 'Xác nhận cấp học bổng cho học viên '}
                 <span style={{color: 'blue'}} className="font-medium">{this.state.name}</span>
             </ModalBody>
             <ModalFooter>
@@ -65,10 +74,18 @@ class CellRanking extends React.Component {
     }
 
     render() {
+        switch (this.props.type) {
+            case 0:this.scholarship ='scholarshipJapan';break;
+            case 1:this.scholarship ='scholarshipHealth';break;
+            case 2:this.scholarship ='scholarshipEducation';break;
+            default: break
+
+        }
         if (!this.state.avatar) {
             return <tr/>
         }
-        let {avatar, name, email, listen, write, conversation, japanese, push, bendBack, bellySticks, squat, health, education, scholarship} = this.state;
+        let {avatar, name, email, listen, write, conversation, japanese, push, bendBack, bellySticks, squat, health, education} = this.state;
+        const  scholarship = this.state[this.scholarship];
         const {type} = this.props;
         if (type === 0) {
             return (
@@ -96,7 +113,7 @@ class CellRanking extends React.Component {
                     <td>
                         {scholarship && <Badge color="danger">Học bổng</Badge>}
                     </td>
-                    <td>{this.renderButtonEdit()}</td>
+                    {this.renderButtonEdit()}
                 </tr>
             );
         }
@@ -130,7 +147,7 @@ class CellRanking extends React.Component {
                     <td>
                         {scholarship && <Badge color="danger">Học bổng</Badge>}
                     </td>
-                    <td>{this.renderButtonEdit()}</td>
+                    {this.renderButtonEdit()}
                 </tr>
             );
         }
@@ -151,12 +168,15 @@ class CellRanking extends React.Component {
                 <td>
                     {scholarship && <Badge color="danger">Học bổng</Badge>}
                 </td>
-                <td>{this.renderButtonEdit()}</td>
+                {this.renderButtonEdit()}
             </tr>
         );
 
     }
 }
 
-
+const mapStateToProps = state => {
+    return {user: state.userData}
+};
+CellRanking = connect(mapStateToProps)(CellRanking);
 export default CellRanking;

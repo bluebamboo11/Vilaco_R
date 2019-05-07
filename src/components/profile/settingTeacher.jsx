@@ -138,6 +138,7 @@ class SettingTeacher extends React.Component {
                                                 onChange={(date) => {
                                                     this.onDateChange(date, 'startDay')
                                                 }}
+                                                renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
                                                 timeFormat={false}
                                                 closeOnSelect={true}
                                                 renderInput={(props)=><Input {...props} name="startDay"  value={startDay} onChange={this.onInputChange} placeholder="Ngày / Tháng / Năm" invalid={!startDay}/>}

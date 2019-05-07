@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import EditDialogPoint from "../../components/Transcript/EditDialogPoint";
+import EditDialogPoint from "../../components/transcript/EditDialogPoint";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import {withStyles} from "@material-ui/core";
@@ -14,7 +14,6 @@ import * as moment from 'moment';
 import {classService, userService, transcriptService} from "../../firebase";
 import Loading from "../../components/Loading/Loading";
 import {columns} from "./DataConfig"
-
 
 
 class Transcript extends React.Component {
@@ -69,15 +68,22 @@ class Transcript extends React.Component {
                 transcriptService.getAllbyClass(value, (listTranscript) => {
                     this.setState({listTranscript: listTranscript, listStudent: listStudent, loading: false});
                     this.listData = listStudent;
-                    this.setTabMonth(listTranscript)
+                    this.setTabMonth(listTranscript,value)
                 });
             });
 
         }
     }
 
-    setTabMonth(listTranscript) {
+    setTabMonth(listTranscript, classId) {
         let listMonth = [];
+        let startDate = '';
+        this.state.listClass.forEach(classData => {
+            if (classData.id === classId) {
+                startDate = classData.startDate;
+            }
+        });
+        const month = moment(startDate, 'MM/DD/YYYY');
         listTranscript.forEach(data => {
             if (data.month && listMonth.indexOf(data.month) < 0) {
                 listMonth.push(data.month)
@@ -87,7 +93,7 @@ class Transcript extends React.Component {
             return moment(a, 'MM-YYYY').diff(moment(b, 'MM-YYYY'))
         });
         if (listMonth.length === 0) {
-            listMonth.push(moment().format('MM-YYYY'))
+            listMonth.push(month.format('MM-YYYY'))
         }
         this.setState({listMonth: listMonth, tab: listMonth.length - 1})
     }
@@ -107,6 +113,10 @@ class Transcript extends React.Component {
     }
 
     renderButtonEdit(student) {
+        const admin = this.props.user.admin || this.props.user.superAdmin;
+        if (!admin) {
+            return ''
+        }
         return (
             <div className="center-item ">
                 <Button
@@ -240,9 +250,10 @@ class Transcript extends React.Component {
         this.setState({listStudent: listStudent});
     }
 
-    exitSearch(){
-        this.setState({listStudent: this.listData,searchKey:''});
+    exitSearch() {
+        this.setState({listStudent: this.listData, searchKey: ''});
     }
+
     render() {
         if (this.state.loading) {
             return (<div className="w-100 h-100" style={{position: "relative"}}>
@@ -308,7 +319,7 @@ class Transcript extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return {}
+    return {user: state.userData}
 };
 
 const styles = theme => ({

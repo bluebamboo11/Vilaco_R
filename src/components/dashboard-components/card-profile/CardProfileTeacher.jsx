@@ -10,7 +10,7 @@ import {
 import img1 from 'assets/images/background/profile-bg.jpg';
 import {connect} from "react-redux";
 import {adminService, userService, classService} from '../../../firebase'
-import {addListUser, selectStudent} from "../../../redux/actions";
+import {addListUser, isProcessAll, selectStudent, setUserData} from "../../../redux/actions";
 import InfoTeacher from "./InfoTeacher";
 import ContractDialog from "../../ContractDialog/ContractDialog";
 import LongMenu from "../../menu/LongMenu";
@@ -19,7 +19,7 @@ import Tab from "@material-ui/core/Tab";
 import {withStyles} from "@material-ui/core";
 import ListClass from "./ListClass";
 import Loading from "../../Loading/Loading";
-
+import ConfirmDialogSuperAdmin from "../../Dialog/ConfirmDialogSuperAdmin";
 
 
 class CardProfileTeacher extends React.Component {
@@ -34,6 +34,8 @@ class CardProfileTeacher extends React.Component {
         this.addClass = this.addClass.bind(this);
         this.setAdmin = this.setAdmin.bind(this);
         this.renderAdmin = this.renderAdmin.bind(this);
+        this.setSuperAdmin = this.setSuperAdmin.bind(this);
+        this.openDialogSuperAdmin = this.openDialogSuperAdmin.bind(this);
         this.state = {
             value: 0,
             modal: false,
@@ -52,8 +54,10 @@ class CardProfileTeacher extends React.Component {
     }
 
     removeUser() {
+        this.props.dispatch(isProcessAll(true));
         this.toggle();
         adminService.removeUser(this.props.userSelect.uid).then(() => {
+            this.props.dispatch(isProcessAll(false));
             const index = this.props.listUser.indexOf(this.props.userSelect);
             this.props.listUser.splice(index, 1);
             this.props.dispatch(addListUser(this.props.listUser.concat()));
@@ -62,7 +66,9 @@ class CardProfileTeacher extends React.Component {
     }
 
     validateUser() {
+        this.props.dispatch(isProcessAll(true));
         adminService.validateUser(this.props.userSelect.uid, this.props.userSelect.type, () => {
+            this.props.dispatch(isProcessAll(false));
             this.props.userSelect.validate = true;
             let user = {...this.props.userSelect};
             for (let i = 0; i < this.props.listUser.length; i++) {
@@ -78,7 +84,9 @@ class CardProfileTeacher extends React.Component {
     }
 
     addClass(id) {
+        this.props.dispatch(isProcessAll(true));
         classService.updateClass({teacherId: this.props.userSelect.uid}, id).then(() => {
+            this.props.dispatch(isProcessAll(false));
             this.props.listClass.forEach((value) => {
                 if (value.id === id) {
                     this.props.userSelect.listClass.push(value);
@@ -98,7 +106,7 @@ class CardProfileTeacher extends React.Component {
 
     renderAdmin() {
         if (this.props.userSelect.superAdmin) {
-            return <Badge color="warning"  style={{fontSize: 10, marginLeft: 10,color:'white'}}>Quản trị viên</Badge>
+            return <Badge color="warning" style={{fontSize: 10, marginLeft: 10, color: 'white'}}>Quản trị viên</Badge>
         }
 
         if (this.props.userSelect.admin) {
@@ -112,7 +120,12 @@ class CardProfileTeacher extends React.Component {
         this.addClassDialog.handleClickOpen()
     }
 
+    openDialogSuperAdmin() {
+        this.confirmDialogSuperAdmin.handleClickOpen()
+    }
+
     setAdmin() {
+        this.props.dispatch(isProcessAll(true));
         const admin = this.props.userSelect.admin;
         if (admin) {
             adminService.removeAdmin(this.props.userSelect.uid).then();
@@ -120,6 +133,7 @@ class CardProfileTeacher extends React.Component {
             adminService.setAdmin(this.props.userSelect.uid).then();
         }
         userService.doUpdateUser(this.props.userSelect.uid, {admin: !admin}).then(() => {
+            this.props.dispatch(isProcessAll(false));
             this.props.dispatch(selectStudent({...this.props.userSelect, admin: !admin}));
             for (let i = 0; i < this.props.listUser.length; i++) {
                 if (this.props.listUser[i].uid === this.props.userSelect.uid) {
@@ -128,6 +142,24 @@ class CardProfileTeacher extends React.Component {
                 }
             }
             this.props.dispatch(addListUser(this.props.listUser.concat()))
+        })
+    }
+
+    setSuperAdmin() {
+        this.props.dispatch(isProcessAll(true));
+        adminService.setSuperAdmin(this.props.userSelect.uid, this.props.user.uid, () => {
+            this.props.dispatch(isProcessAll(false));
+            this.props.dispatch(selectStudent({...this.props.userSelect, superAdmin: true}));
+            for (let i = 0; i < this.props.listUser.length; i++) {
+                if (this.props.listUser[i].uid === this.props.userSelect.uid) {
+                    this.props.listUser[i].superAdmin = true;
+                }
+                if (this.props.listUser[i].uid === this.props.user.uid) {
+                    this.props.listUser[i].superAdmin = false;
+                }
+            }
+            this.props.dispatch(addListUser(this.props.listUser.concat()));
+            this.props.dispatch(setUserData({...this.props.user, superAdmin: false}))
         })
     }
 
@@ -141,7 +173,6 @@ class CardProfileTeacher extends React.Component {
         let options = [
             {title: 'Xác nhận', onClick: this.validateUser},
             {title: 'Xóa', onClick: this.toggle},
-            {title: 'Thêm lớp', onClick: this.openAddClass},
 
         ];
         if (validate) {
@@ -150,8 +181,9 @@ class CardProfileTeacher extends React.Component {
                 {title: 'Thêm lớp', onClick: this.openAddClass},
             ];
         }
-        if (this.props.user.superAdmin) {
-            options.push({title: admin ? 'Hủy quản lý' : 'Thêm quản lý', onClick: this.setAdmin})
+        if (this.props.user.superAdmin && this.props.userSelect.uid !== this.props.user.uid) {
+            options.push({title: admin ? 'Hủy quản lý' : 'Thêm quản lý', onClick: this.setAdmin});
+            options.push({title: 'Quản trị viên', onClick: this.openDialogSuperAdmin})
         }
         return (
             <Card className="card-info">
@@ -163,6 +195,12 @@ class CardProfileTeacher extends React.Component {
                     title="Chọn một lớp học"
                     refDialog={ref => {
                         this.addClassDialog = ref;
+                    }}/>
+                <ConfirmDialogSuperAdmin
+                    userSelect={this.props.userSelect}
+                    save={this.setSuperAdmin}
+                    refDialog={ref => {
+                        this.confirmDialogSuperAdmin = ref;
                     }}/>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="modal-dialog-centered">
                     <ModalHeader className="border-0" toggle={this.toggle}>Xóa tài khoản</ModalHeader>
@@ -182,7 +220,7 @@ class CardProfileTeacher extends React.Component {
                     <h3>{name}</h3>
                     <div className="mb-3"> {this.renderValidate()}{this.renderAdmin()}</div>
                     <div className="menu-info">
-                        {(this.props.user.admin||this.props.user.superAdmin) && <LongMenu options={options}/>}
+                        {(this.props.user.admin || this.props.user.superAdmin) && <LongMenu options={options}/>}
                     </div>
                     <Tabs
                         classes={{root: classes.tabsRoot, indicator: classes.tabsIndicator}}

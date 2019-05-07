@@ -14,7 +14,6 @@ import {
 import img1 from '../../assets/images/logo-icon.png';
 import img2 from '../../assets/images/background/login-register.jpg';
 import {auth} from "../../firebase";
-import {Redirect} from "react-router-dom";
 import validators from "./validators";
 
 const sidebarBackground = {
@@ -123,7 +122,7 @@ class Login extends React.Component {
             console.log(this.state.isKeepLogin);
             auth.doSignInWithEmailAndPassword(this.state.email, this.state.password,this.state.isKeepLogin).then((user) => {
                 if (user) {
-                    this.setState({isLogin: true,isLoadLogin:false})
+                   window.location.href = '/ca-nhan'
                 }
             }).catch((error) => {
                 this.setState({isLoadLogin:false});
@@ -151,9 +150,7 @@ class Login extends React.Component {
         });
     }
     render() {
-        if (this.state.isLogin) {
-            return <Redirect to={'/profile'}/>
-        }
+
         return <div className="">
             {/* --------------------------------------------------------------------------------*/}
             {/* Login Cards*/}
@@ -208,7 +205,7 @@ class Login extends React.Component {
                                     </Row>
 
                                     <div className="text-center">
-                                        Không có tài khoản <a href="/authentication/register"
+                                        Không có tài khoản <a href="/xac-thuc/dang-ky"
                                                               className="text-info ml-1"><b>Đăng Ký</b></a>
                                     </div>
                                 </Form>

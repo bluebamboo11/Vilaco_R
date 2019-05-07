@@ -49,7 +49,7 @@ class CardInfo extends React.Component {
     }
 
     render() {
-        let {phone, town, district, city, address, email, type} = this.props.userData;
+        let {phone, town, district, city, address, email, type,status} = this.props.userData;
         if (type !== 'student') {
             return this.renderTeacher();
         }
@@ -66,6 +66,9 @@ class CardInfo extends React.Component {
                     <h4>
                         <Badge color="success" pill>
                             Học viên
+                        </Badge>
+                        <Badge color="info" className="ml-2" pill>
+                            {status}
                         </Badge>
                     </h4>
 

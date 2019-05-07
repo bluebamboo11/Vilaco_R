@@ -62,13 +62,12 @@ class Fulllayout extends React.Component {
     /*--------------------------------------------------------------------------------*/
     componentDidMount() {
         // doCreateAutoUserTest();
-        console.log(1)
         this.props.dispatch(isLoading(true));
         window.addEventListener('load', this.updateDimensions);
         window.addEventListener('resize', this.updateDimensions);
         this.onChangeAuth = auth.checkLogin((use) => {
             if (!use) {
-                this.setState({isLogin: false});
+                window.location.href = '/xac-thuc/dang-nhap';
                 this.props.dispatch(isLoading(false))
             } else {
                 userService.getOneUser(use.uid, (data) => {
@@ -78,12 +77,12 @@ class Fulllayout extends React.Component {
                         this.props.dispatch(setUserData(data));
                         userService.getAccess(use.uid, data.type, (access) => {
                             if (!access || !access.validate) {
-                                this.setState({registered: false});
+                               window.location.href = '/xac-thuc/mau-dang-ky'
                             }
                             this.props.dispatch(isLoading(false))
                         })
                     } else {
-                        this.setState({registered: false});
+                        window.location.href = '/xac-thuc/mau-dang-ky';
                         this.props.dispatch(isLoading(false))
                     }
                     this.props.dispatch(setUser(use))

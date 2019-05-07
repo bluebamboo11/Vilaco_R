@@ -1,11 +1,10 @@
 import React from 'react';
 import {
     Card,
-    CardImg,
     CardBody,
     CardTitle,
     Row,
-    Col
+    Col, Badge
 } from 'reactstrap';
 
 
@@ -53,6 +52,7 @@ class MyTranscript extends React.Component {
                 <TableCell className="p-0 text-center">{row.write}</TableCell>
                 <TableCell className="p-0 text-center">{row.conversation}</TableCell>
                 <TableCell className="p-0 text-center color-red">{row.japanese}</TableCell>
+                <TableCell className="p-0 text-center color-red">  {row.scholarshipJapan && <Badge color="danger">Học bổng</Badge>}</TableCell>
             </TableRow>))
     }
 
@@ -67,6 +67,7 @@ class MyTranscript extends React.Component {
                 <TableCell className="p-0 text-center">{row.bendBack}</TableCell>
                 <TableCell className="p-0 text-center">{row.bellySticks}</TableCell>
                 <TableCell className="p-0 text-center color-red">{row.health}</TableCell>
+                <TableCell className="p-0 text-center color-red">  {row.scholarshipHealth && <Badge color="danger">Học bổng</Badge>}</TableCell>
             </TableRow>))
     }
 
@@ -77,6 +78,7 @@ class MyTranscript extends React.Component {
                     {row.month}
                 </TableCell>
                 <TableCell className="p-0 text-center color-red">{row.education}</TableCell>
+                <TableCell className="p-0 text-center color-red">  {row.scholarshipEducation && <Badge color="danger">Học bổng</Badge>}</TableCell>
             </TableRow>))
     }
 
@@ -87,7 +89,6 @@ class MyTranscript extends React.Component {
             <Row>
                 <Col xs="12">
                     <Card>
-
                         <CardBody>
                             <CardTitle><h5>Bảng điểm tiếng nhật</h5></CardTitle>
                             <Table>
@@ -98,6 +99,7 @@ class MyTranscript extends React.Component {
                                         <TableCell className="p-0 text-center">viết</TableCell>
                                         <TableCell className="p-0 text-center">hội thoại</TableCell>
                                         <TableCell className="p-0 text-center">Trung bình</TableCell>
+                                        <TableCell className="p-0 text-center">Thành tích</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -120,6 +122,7 @@ class MyTranscript extends React.Component {
                                         <TableCell className="p-0 text-center">Gập lưng</TableCell>
                                         <TableCell className="p-0 text-center">Gập bụng</TableCell>
                                         <TableCell className="p-0 text-center">Trung Bình</TableCell>
+                                        <TableCell className="p-0 text-center">Thành tích</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -138,6 +141,7 @@ class MyTranscript extends React.Component {
                                     <TableRow>
                                         <TableCell className="p-0 pl-2 ">Tháng</TableCell>
                                         <TableCell className="p-0 text-center">Điểm</TableCell>
+                                        <TableCell className="p-0 text-center">Thành tích</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>

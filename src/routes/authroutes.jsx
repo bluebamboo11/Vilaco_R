@@ -1,20 +1,12 @@
 import Login from '../views/authentication/login.jsx';
-import Login2 from '../views/authentication/login2.jsx';
 import Register from '../views/authentication/register.jsx';
-import Register2 from '../views/authentication/register2.jsx';
-import Lockscreen from '../views/authentication/lockscreen.jsx';
-import Recoverpwd from '../views/authentication/recover-pwd.jsx';
-import Maintanance from '../views/authentication/maintanance.jsx';
 import RegistrationForm from "../views/authentication/registrationForm";
+import RegistrationFormTest from "../views/authentication/RegistrationFormTest";
 
-var authRoutes = [
-    { path: '/authentication/login', name: 'Login', icon: 'mdi mdi-account-key', component: Login },
-    { path: '/authentication/login2', name: 'Firebase Login', icon: 'mdi mdi-account-key', component: Login2 },
-    { path: '/authentication/register', name: 'Register', icon: 'mdi mdi-account-plus', component: Register },
-    { path: '/authentication/register2', name: 'Firebase Register', icon: 'mdi mdi-account-plus', component: Register2 },
-    { path: '/authentication/lockscreen', name: 'Lockscreen', icon: 'mdi mdi-account-off', component: Lockscreen },
-    { path: '/authentication/recover-pwd', name: 'Recover Password', icon: 'mdi mdi-account-convert', component: Recoverpwd },
-    { path: '/authentication/maintanance', name: 'Maintanance', icon: 'mdi mdi-pencil-box-outline', component: Maintanance },
-    { path: '/authentication/mau-dang-ky', name: 'RegistrationForm', icon: 'mdi mdi-account-key', component: RegistrationForm }
+let authRoutes = [
+    { path: '/xac-thuc/dang-nhap', name: 'Login', icon: 'mdi mdi-account-key', component: Login },
+    { path: '/xac-thuc/dang-ky', name: 'Register', icon: 'mdi mdi-account-plus', component: Register },
+    { path: '/xac-thuc/dang-ky-test', name: 'Register', icon: 'mdi mdi-account-plus', component: RegistrationFormTest },
+    { path: '/xac-thuc/mau-dang-ky', name: 'RegistrationForm', icon: 'mdi mdi-account-key', component: RegistrationForm }
 ];
 export default authRoutes; 

@@ -109,6 +109,7 @@ class MonthTableClass extends React.Component {
     }
 
     render() {
+        const admin = this.props.user.admin || this.props.user.superAdmin;
         return (
             <Card style={{height: '100%'}}>
                 <DialogAddClass modal={this.state.modal} toggle={this.toggle} add={this.add}
@@ -130,7 +131,7 @@ class MonthTableClass extends React.Component {
 
                             </InputGroup>
                         </Form>
-                        <Button color="primary" onClick={this.toggle}><i className="ti-plus pr-2"/> Thêm</Button>
+                        {admin&&<Button color="primary" onClick={this.toggle}><i className="ti-plus pr-2"/> Thêm</Button>}
                     </div>
                     <div className="mt-3" style={{height: 'calc(100% - 35px)'}}>
                         <PerfectScrollbar suppressScrollX={true}>
@@ -173,6 +174,7 @@ const mapStateToProps = state => {
         listUser: state.listUser,
         listClass: state.listClass,
         listTeacher: state.listTeacher,
+        user:state.userData
     }
 };
 MonthTableClass = connect(mapStateToProps)(MonthTableClass);

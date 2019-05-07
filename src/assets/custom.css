@@ -151,11 +151,17 @@ button:focus {
 .ra-dialog-add {
     min-width: 500px;
 }
-
+.ra-dialog-status{
+    min-width: 300px;
+}
 .form-control-custom {
     min-height: 35px;
 }
-
+.text-inline{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
 .load-page {
     overflow: hidden;
     background: white;
@@ -182,7 +188,9 @@ button:focus {
     background-color: #ebebeb;
     z-index: 100;
 }
-
+.nav-item{
+    cursor: pointer;
+}
 .card-header-custom {
     background-color: #f2f2f2;
     display: flex;
@@ -250,6 +258,13 @@ button:focus {
 .mont-input-ranking{
     width: 400px;
     float: right;
+}
+.process-all{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 /* width */
 ::-webkit-scrollbar {

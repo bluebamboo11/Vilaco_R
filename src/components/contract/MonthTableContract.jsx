@@ -78,7 +78,7 @@ class MonthTableContract extends React.Component {
     addContract(data) {
         contractService.addNewContract(data).then((docRef) => {
             data.id = docRef.id;
-            this.props.dispatch(addListContract(this.props.listContract.concat([data])));
+            this.props.dispatch(addListContract([data].concat(this.props.listContract)));
         })
     }
 
@@ -123,7 +123,7 @@ class MonthTableContract extends React.Component {
     }
 
     render() {
-
+        const admin = this.props.user.admin || this.props.user.superAdmin;
         return (
             /*--------------------------------------------------------------------------------*/
             /* Used In Dashboard-2 && Widget Page                                             */
@@ -147,7 +147,7 @@ class MonthTableContract extends React.Component {
                                 </InputGroupAddon>
                             </InputGroup>
                         </Form>
-                        <Button color="primary" onClick={this.toggle}><i className="ti-plus pr-2"/> Thêm</Button>
+                        {admin&& <Button color="primary" onClick={this.toggle}><i className="ti-plus pr-2"/> Thêm</Button>}
                     </div>
                     <div className="mt-3" style={{height: 'calc(100% - 35px)'}}>
 
@@ -203,6 +203,7 @@ const mapStateToProps = state => {
         listUser: state.listUser,
         listContract: state.listContract,
         listEmployee: state.listEmployee,
+        user:state.userData
     }
 };
 MonthTableContract = connect(mapStateToProps)(MonthTableContract);

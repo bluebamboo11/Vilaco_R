@@ -11,23 +11,22 @@ import {withStyles} from '@material-ui/core/styles';
 import {Button} from "reactstrap";
 
 
-class ContractDialog extends React.Component {
+class StatusDialog extends React.Component {
     constructor(props) {
         super(props);
         this.handleClickOpen = this.handleClickOpen.bind(this);
         this.handleEntering = this.handleEntering.bind(this);
         this.handleClose = this.handleClose.bind(this);
-        this.renderOptions = this.renderOptions.bind(this);
         this.handleSave = this.handleSave.bind(this);
         this.state = {
-            value: props.value,
+            value: '',
             open: false,
         };
         this.props.refDialog(this)
     }
 
-    handleClickOpen = (value) => {
-        this.setState({open: true, value: value});
+    handleClickOpen = () => {
+        this.setState({open: true});
     };
 
     handleEntering = () => {
@@ -42,40 +41,23 @@ class ContractDialog extends React.Component {
 
     handleSave() {
         this.handleClose();
-        this.props.options.forEach(option=>{
-            if(option.id ===this.state.value ){
-                this.props.save(option)
-            }
-
-        })
+        this.props.save(this.state.value)
 
     }
 
-    renderOptions() {
-        if (this.props.options && this.props.options.length > 0) {
-            return this.props.options.map(option => (
-                <FormControlLabel className="ra-dialog-add" value={option.id} key={option.id}
-                                  control={<Radio/>} label={option.name}/>))
-        } else {
-            return <DialogContentText id="alert-dialog-description" className="ra-dialog-add">
-                {this.props.titleEmpty}
-            </DialogContentText>
-        }
-    }
+
 
     render() {
-        const {classes} = this.props;
+
         return (
             <Dialog
                 onEntering={this.handleEntering}
                 open={this.state.open}
                 onClose={this.handleClose}
                 aria-labelledby="confirmation-dialog-title"
-                classes={{
-                    paper: classes.paper,
-                }}
+
             >
-                <DialogTitle id="confirmation-dialog-title">{this.props.title}</DialogTitle>
+                <DialogTitle id="confirmation-dialog-title">Cập nhật trạng thái</DialogTitle>
                 <DialogContent>
                     <RadioGroup
                         ref={ref => {
@@ -86,7 +68,14 @@ class ContractDialog extends React.Component {
                         value={this.state.value}
                         onChange={this.handleChange}
                     >
-                        {this.renderOptions()}
+                        <FormControlLabel className="ra-dialog-status" value="Đang học"
+                                          control={<Radio/>} label="Đang học"/>
+                        <FormControlLabel className="ra-dialog-status" value="Xuất cảnh"
+                                          control={<Radio/>} label="Xuất cảnh"/>
+                        <FormControlLabel className="ra-dialog-status" value="Thôi học"
+                                          control={<Radio/>} label="Thôi học"/>
+                        <FormControlLabel className="ra-dialog-status" value="Bảo lưu"
+                                          control={<Radio/>} label="Bảo lưu"/>
                     </RadioGroup>
                 </DialogContent>
                 <DialogActions>
@@ -104,10 +93,4 @@ class ContractDialog extends React.Component {
 }
 
 
-const styles = () => ({
-    paper: {
-        width: '80%',
-        maxHeight: 600,
-    },
-});
-export default withStyles(styles)(ContractDialog);
+export default StatusDialog;

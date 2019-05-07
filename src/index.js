@@ -14,11 +14,13 @@ import {createStore} from "redux";
 import {todoApp} from "./redux/reducers";
 import {Provider} from "react-redux";
 import LoadingAll from "./components/Loading/LoadingAll";
+import ProcessAll from "./components/Loading/ProcessAll";
 
 //const hist = createBrowserHistory();
 export const store = createStore(todoApp);
 ReactDOM.render(
     <Provider store={store}>
+       <ProcessAll/>
         <BrowserRouter>
             <Switch>
                 {indexRoutes.map((prop, key) => {

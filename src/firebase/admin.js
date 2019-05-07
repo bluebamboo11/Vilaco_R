@@ -1,5 +1,5 @@
-import {db, firebase} from './firebase';
-import {userBo} from "../Bo/BoFirebase";
+import {db} from './firebase';
+import {userService} from "./index";
 
 export const removeUser = (uid) => {
     return db.collection("user").doc(uid).delete()
@@ -20,5 +20,12 @@ export const setAdmin = (id) => {
 
 export const removeAdmin = (id) => {
     return db.collection("security").doc('role').collection('admin').doc(id).delete();
+};
+export const setSuperAdmin = (id, myId, callback) => {
+    console.log(1);
+    Promise.all([db.collection("security").doc('role').collection('superAdmin').doc(id).set({validate: true}),
+        db.collection("security").doc('role').collection('superAdmin').doc(myId).delete(),
+        userService.doUpdateUser(id,{superAdmin: true,admin:true}),
+        userService.doUpdateUser(myId,{superAdmin: false,admin: false})]).then(callback)
 };
 

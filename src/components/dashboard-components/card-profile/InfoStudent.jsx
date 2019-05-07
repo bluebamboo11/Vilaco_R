@@ -61,7 +61,7 @@ class InfoStudent extends React.Component {
                             Giới tính
                         </div>
                         <div className="col-sm-9 pb-2">
-                            <div className="form-control form-control-custom">{gender === 1 ? 'Nam' : 'Nữ'}</div>
+                            <div className="form-control form-control-custom">{Number(gender) === 1 ? 'Nam' : 'Nữ'}</div>
 
                         </div>
                     </div>

@@ -1,5 +1,7 @@
 import {db, firebase} from './firebase';
 import {classBo} from "../Bo/BoFirebase";
+import {store} from "../index";
+import {isProcessAll} from "../redux/actions";
 
 
 export function addNewClass(data) {
@@ -23,8 +25,10 @@ function getAllTeacher(callback) {
 }
 
 export function getAllClass(callback) {
+    store.dispatch(isProcessAll(true));
     getAllTeacher((listTeacher) => {
         db.collection('class').orderBy("timestamp").get().then((documentSnapshots) => {
+            store.dispatch(isProcessAll(false));
             let list = [];
             documentSnapshots.forEach(function (doc) {
                 let data = doc.data();

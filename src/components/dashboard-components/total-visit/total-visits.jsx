@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardBody, CardTitle } from 'reactstrap';
 
 import { VectorMap } from 'react-jvectormap';
-import '../../../views/maps/vectormap.css';
+
 
 var mapData = {
   FR: 540,

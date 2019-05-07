@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Button,
     Card,
-    CardBody,
+    CardBody, Modal, ModalBody, ModalFooter, ModalHeader,
 
 
 } from 'reactstrap';
@@ -17,6 +17,8 @@ import TableBody from "@material-ui/core/TableBody";
 import Table from "@material-ui/core/Table";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import DialogAddJapan from "./DialogAddJapan";
+import {employeeService} from "../../firebase";
+import {addListEmployee, selectEmployee} from "../../redux/actions";
 
 
 class CardInfoJapan extends React.Component {
@@ -24,7 +26,9 @@ class CardInfoJapan extends React.Component {
         super(props);
         this.renderTable = this.renderTable.bind(this);
         this.toggle = this.toggle.bind(this);
-        this.state = {modal: false}
+        this.toggleRemove = this.toggleRemove.bind(this);
+        this.removeEmployee = this.removeEmployee.bind(this);
+        this.state = {modal: false,modalRemove:false}
 
     }
 
@@ -64,21 +68,44 @@ class CardInfoJapan extends React.Component {
         </div>)
 
     }
-
+    toggleRemove(){
+        this.setState(prevState => ({
+            modalRemove: !prevState.modalRemove
+        }));
+    }
+    removeEmployee(){
+        this.toggleRemove();
+        employeeService.removeEmployee(this.props.employee.id).then(()=>{
+            this.props.dispatch(selectEmployee(null))
+        })
+    }
     render() {
+        const admin = this.props.user.admin||this.props.user.superAdmin;
         if (!this.props.employee) {
             return <Card className="card-info"/>
         }
         let {name, skype} = this.props.employee;
+        const isRemove = !this.props.employee.listContract || this.props.employee.listContract.length === 0;
         return (
             <Card className="card-info">
-                <DialogAddJapan modal={this.state.modal} toggle={this.toggle} employee={this.props.employee}/>
+                <Modal isOpen={this.state.modalRemove} toggle={this.toggleRemove} className="modal-dialog-centered">
+                    <ModalHeader className="border-0" toggle={this.toggleRemove}>Xóa nhân viên</ModalHeader>
+                    <ModalBody>
+                        {isRemove?<span>Bạn chắc chắn muốn xóa nhân viên  <span style={{color: 'blue',}}>{name}</span></span>:'Không thể xóa nhân viên đang có đơn hàng phụ trách'}
+                    </ModalBody>
+                    <ModalFooter className="border-0">
+                        {isRemove&& <Button color="danger" onClick={this.removeEmployee}>Xóa</Button>}
+                        <Button color="secondary" onClick={this.toggleRemove}>Hủy</Button>
+                    </ModalFooter>
+                </Modal>
+                <DialogAddJapan modal={this.state.modal} toggle={this.toggle} onRemove={this.toggleRemove} employee={this.props.employee}/>
                 {this.props.loadSelect && <Loading/>}
                 <div className="card-header-custom  text-center align-items-center justify-content-center">
                     <h3>{name}</h3>
                     <p className="m-0">{skype}</p>
-                    <Button className="button-cricle-custom" color="warning" onClick={this.toggle}><i
-                        className="ti-pencil"/></Button>
+                    {admin&& <Button className="button-cricle-custom" color="warning" onClick={this.toggle}><i
+                        className="ti-pencil"/></Button>}
+
                 </div>
                 <CardBody className="little-profile" style={{height: 'calc(100% - 77px)'}}>
                         {this.renderTable()}
@@ -92,6 +119,7 @@ class CardInfoJapan extends React.Component {
 const mapStateToProps = state => {
     return {
         employee: state.employeeSelected,
+        user:state.userData,
         loadSelect: state.loadSelect,
     }
 };

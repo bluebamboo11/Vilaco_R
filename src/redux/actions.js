@@ -12,6 +12,7 @@ export const ADD_LIST_EMPLOYEE = 'ADD_LIST_EMPLOYEE';
 export const IS_LOADING = 'IS_LOADING';
 export const IS_LOAD_SELECT = 'IS_LOAD_SELECT';
 export const ADD_LIST_TEACHER = 'ADD_LIST_TEACHER';
+export const IS_PROCESS = 'IS_PROCESS';
 
 export function setUser(user) {
     return {
@@ -113,6 +114,12 @@ export function isLoading(data) {
 export function isLoadSelect(data) {
     return {
         type: IS_LOAD_SELECT,
+        data: data
+    }
+}
+export function isProcessAll(data) {
+    return {
+        type: IS_PROCESS,
         data: data
     }
 }

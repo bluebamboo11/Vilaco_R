@@ -1,13 +1,19 @@
 import {db, firebase} from './firebase';
 import {employeeBo} from "../Bo/BoFirebase";
+import {store} from "../index";
+import {isProcessAll} from "../redux/actions";
 
 export function addNewEmployee(data) {
     data.timestamp = firebase.firestore.FieldValue.serverTimestamp();
     return db.collection('employees-japan').add(employeeBo(data))
 }
-
+export function removeEmployee(id) {
+    return db.collection('employees-japan').doc(id).delete()
+}
 export function listenAllEmployee(callback) {
-    return db.collection('employees-japan').orderBy("timestamp").onSnapshot((querySnapshot) => {
+    store.dispatch(isProcessAll(true));
+    return db.collection('employees-japan').orderBy("timestamp",'desc').onSnapshot((querySnapshot) => {
+        store.dispatch(isProcessAll(false));
         let list = [];
         querySnapshot.forEach(function (doc) {
             let employees = doc.data();

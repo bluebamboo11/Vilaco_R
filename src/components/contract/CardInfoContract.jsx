@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Button,
     Card,
-    CardBody,
+    CardBody, Modal, ModalBody, ModalFooter, ModalHeader,
 
 
 } from 'reactstrap';
@@ -18,7 +18,7 @@ import Table from "@material-ui/core/Table";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import DialogAddContract from "./DialogAddContract";
 import {contractService} from "../../firebase";
-import {addListContract, selectContract} from "../../redux/actions";
+import {addListContract, selectContract, selectEmployee} from "../../redux/actions";
 
 
 class CardInfoContract extends React.Component {
@@ -28,7 +28,9 @@ class CardInfoContract extends React.Component {
         this.toggle = this.toggle.bind(this);
         this.updateContract = this.updateContract.bind(this);
         this.getEmployee = this.getEmployee.bind(this);
-        this.state = {modal: false}
+        this.removeContract = this.removeContract.bind(this);
+        this.toggleRemove = this.toggleRemove.bind(this);
+        this.state = {modal: false, modalRemove: false}
 
     }
 
@@ -52,7 +54,7 @@ class CardInfoContract extends React.Component {
                     </TableHead>
                     <TableBody>
                         {this.props.contract.listStudent.map((row, index) => (
-                            <TableRow key={row.id} className={index % 2 === 0 ? 'cell-c' : ''}>
+                            <TableRow key={row.uid} className={index % 2 === 0 ? 'cell-c' : ''}>
                                 <TableCell component="th" scope="row">
                                     {row.name}
                                 </TableCell>
@@ -74,10 +76,23 @@ class CardInfoContract extends React.Component {
             this.props.listContract.forEach((contract, index) => {
                 if (contract.id === data.id) {
                     this.props.listContract[index] = data;
-                    this.props.dispatch(addListContract( this.props.listContract.concat()));
+                    this.props.dispatch(addListContract(this.props.listContract.concat()));
                 }
             });
             this.props.dispatch(selectContract({...data}))
+        })
+    }
+
+    removeContract() {
+        this.toggleRemove();
+        contractService.removeContract(this.props.contract.id).then(() => {
+            this.props.listContract.forEach((contract, index) => {
+                if (this.props.contract && contract.id === this.props.contract.id) {
+                    this.props.listContract.splice(index, 1);
+                    this.props.dispatch(addListContract(this.props.listContract.concat()));
+                    this.props.dispatch(selectContract(null))
+                }
+            });
         })
     }
 
@@ -92,21 +107,40 @@ class CardInfoContract extends React.Component {
         return obj;
     }
 
+    toggleRemove() {
+        this.setState(prevState => ({
+            modalRemove: !prevState.modalRemove
+        }));
+    }
+
     render() {
+        const admin = this.props.user.admin || this.props.user.superAdmin;
         if (!this.props.contract) {
             return <Card className="card-info"/>
         }
+        const isRemove = !this.props.contract.listStudent || this.props.contract.listStudent.length === 0;
         let {name} = this.props.contract;
         return (
             <Card className="card-info">
+                <Modal isOpen={this.state.modalRemove} toggle={this.toggleRemove} className="modal-dialog-centered">
+                    <ModalHeader className="border-0" toggle={this.toggleRemove}>Xóa Đơn hàng</ModalHeader>
+                    <ModalBody>
+                        {isRemove ? <span>Bạn chắc chắn muốn xóa Đơn hàng  <span style={{color: 'blue',}}>{name}</span></span> : 'Không thể xóa đơn hàng đang có học viên'}
+                    </ModalBody>
+                    <ModalFooter className="border-0">
+                        {isRemove && <Button color="danger" onClick={this.removeContract}>Xóa</Button>}
+                        <Button color="secondary" onClick={this.toggleRemove}>Hủy</Button>
+                    </ModalFooter>
+                </Modal>
                 <DialogAddContract modal={this.state.modal} toggle={this.toggle} addContract={this.updateContract}
-                                   listEmployee={this.props.listEmployee} contract={this.props.contract}/>
+                                   listEmployee={this.props.listEmployee} contract={this.props.contract}
+                                   onRemove={this.toggleRemove}/>
                 {this.props.loadSelect && <Loading/>}
                 <div className="card-header card-header-custom justify-content-center">
                     <h4>Đơn hàng : {name}</h4>
                     <h5 className="m-0">Nhân viên : {this.getEmployee().name}</h5>
-                    <Button className="button-cricle-custom" color="warning" onClick={this.toggle}><i
-                        className="ti-pencil"/></Button>
+                    {admin&& <Button className="button-cricle-custom" color="warning" onClick={this.toggle}><i
+                        className="ti-pencil"/></Button>}
                 </div>
                 <CardBody className="little-profile" style={{height: 'calc(100% - 77px)'}}>
                     {this.renderTable()}
@@ -123,6 +157,7 @@ const mapStateToProps = state => {
         loadSelect: state.loadSelect,
         listEmployee: state.listEmployee,
         listContract: state.listContract,
+        user:state.userData
     }
 };
 CardInfoContract = connect(mapStateToProps)(CardInfoContract);

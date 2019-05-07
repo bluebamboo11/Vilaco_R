@@ -130,6 +130,7 @@ export default class Step4 extends Component {
                                 </label>
                                 <div className="col-sm-10">
                                     <Datetime
+                                        renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
                                         onChange={this.onDateChange}
                                         value={birthday}
                                         locale="vi"

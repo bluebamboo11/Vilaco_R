@@ -90,6 +90,7 @@ class DialogAddClass extends React.Component {
                                 onChange={(date) => {
                                     this.onDateChange(date, 'startDate')
                                 }}
+                                renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
                                 locale="vi"
                                 timeFormat={false}
                                 closeOnSelect={true}
@@ -102,6 +103,7 @@ class DialogAddClass extends React.Component {
                                 onChange={(date) => {
                                     this.onDateChange(date, 'endDate')
                                 }}
+                                renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
                                 locale="vi"
                                 timeFormat={false}
                                 closeOnSelect={true}

@@ -39,6 +39,7 @@ class CardInfoClass extends React.Component {
     }
 
     renderTable() {
+
         if (this.props.classData.listStudent && this.props.classData.listStudent.length > 0) {
             return (
                 <PerfectScrollbar option={{suppressScrollX: true}}>
@@ -94,6 +95,7 @@ class CardInfoClass extends React.Component {
     }
 
     render() {
+        const admin = this.props.user.admin || this.props.user.superAdmin;
         if (!this.props.classData) {
             return <Card className="card-info"/>
         }
@@ -106,8 +108,8 @@ class CardInfoClass extends React.Component {
                 <div className="card-header card-header-custom justify-content-center">
                     <h4>Lớp : {name}</h4>
                     <h5 className="m-0">Giáo viên : {this.getTeacherById(teacherId).name}</h5>
-                    <Button className="button-cricle-custom" color="warning" onClick={this.toggle}><i
-                        className="ti-pencil"/></Button>
+                    {admin&&<Button className="button-cricle-custom" color="warning" onClick={this.toggle}><i
+                        className="ti-pencil"/></Button>}
                 </div>
                 <CardBody className="little-profile" style={{height: 'calc(100% - 77px)'}}>
                     {this.renderTable()}
@@ -125,6 +127,7 @@ const mapStateToProps = state => {
         listEmployee: state.listEmployee,
         listClass: state.listClass,
         listTeacher: state.listTeacher,
+        user:state.userData
     }
 };
 CardInfoClass = connect(mapStateToProps)(CardInfoClass);

@@ -166,6 +166,7 @@ class Setting extends React.Component {
                                     <div className="col-sm-10">
                                         <Datetime
                                             onChange={this.onDateChange}
+                                            renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
                                             value={birthday}
                                             locale="vi"
                                             timeFormat={false}

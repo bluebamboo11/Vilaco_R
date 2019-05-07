@@ -12,7 +12,7 @@ import {auth} from "../../firebase";
 import img1 from '../../assets/images/logo-icon.png';
 import img2 from '../../assets/images/background/login-register.jpg';
 import validators from "./validators";
-import {Redirect} from "react-router-dom";
+
 
 const sidebarBackground = {
     'backgroundImage': `url(${img2})`,
@@ -30,16 +30,15 @@ class Register extends React.Component {
         this.singUp = this.singUp.bind(this);
         this.onCheckBoxChange = this.onCheckBoxChange.bind(this);
         this.validators = validators;
-        this.state = {email: '', password: '', password2: '', isCreate: false, isShow: false}
+        this.state = {email: '', password: '', password2: '',  isShow: false}
     }
 
     singUp(event) {
         event.preventDefault();
         auth.doCreateUserWithEmailAndPassword(this.state.email, this.state.password).then(() => {
-            this.setState({isCreate: true})
+           window.location.href ='/xac-thuc/mau-dang-ky'
         }).catch((error) => {
             const textError = Register.getError(error.code);
-            console.log(textError);
             if (textError.email) {
                 this.validators['email'].errors = [textError.email];
                 this.validators['email'].valid = false;
@@ -60,7 +59,7 @@ class Register extends React.Component {
     }
 
     onCheckBoxChange() {
-        this.setState((state, props) => {
+        this.setState((state) => {
             return {...state, isShow: !state.isShow};
         });
     }
@@ -94,7 +93,6 @@ class Register extends React.Component {
                 }
             }
         });
-
         return status;
     }
 
@@ -104,15 +102,12 @@ class Register extends React.Component {
         if (validator && !validator.valid) {
             const errors = validator.errors.map((info, index) => <span className="error"
                                                                        key={index}>* {info}<br/></span>);
-
             return (
                 <div className="error mb-2">
                     {errors}
                 </div>
             );
-
         }
-
         return result;
 
     }
@@ -133,9 +128,7 @@ class Register extends React.Component {
     }
 
     render() {
-        if (this.state.isCreate) {
-            return <Redirect to={'/dashboards'}/>
-        }
+
         return <div className="">
             {/* --------------------------------------------------------------------------------*/}
             {/* Register Cards*/}
@@ -177,7 +170,7 @@ class Register extends React.Component {
                                         </Col>
                                     </Row>
                                     <div className="text-center">
-                                        Đã có tài khoản? <a href="/authentication/login"
+                                        Đã có tài khoản? <a href="/xac-thuc/dang-nhap"
                                                             className="text-info ml-1"><b>Đăng nhập</b></a>
                                     </div>
                                 </Form>

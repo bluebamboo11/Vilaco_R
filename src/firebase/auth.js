@@ -1,13 +1,17 @@
 import {auth} from './firebase';
 import firebase from 'firebase/app';
 // Sign Up
-export const doCreateUserWithEmailAndPassword = (email, password) =>
-    auth.createUserWithEmailAndPassword(email, password);
+export const doCreateUserWithEmailAndPassword = (email, password) =>{
+    return auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+        .then(function () {
+            return auth.createUserWithEmailAndPassword(email, password);
+        })
+};
+
 // Sign In
 export const doSignInWithEmailAndPassword = (email, password, keep) => {
     let Persistence = firebase.auth.Auth.Persistence.SESSION;
     if (keep) {
-        console.log(1);
         Persistence = firebase.auth.Auth.Persistence.LOCAL;
     }
     return auth.setPersistence(Persistence)

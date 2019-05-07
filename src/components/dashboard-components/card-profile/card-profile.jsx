@@ -15,10 +15,11 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import {withStyles} from '@material-ui/core/styles';
 import InfoStudent from "./InfoStudent";
-import {addListUser, selectStudent} from "../../../redux/actions";
+import {addListUser, isProcessAll, selectStudent} from "../../../redux/actions";
 import LongMenu from "../../menu/LongMenu";
 import ContractDialog from "../../ContractDialog/ContractDialog";
 import Loading from "../../Loading/Loading";
+import StatusDialog from "../../Dialog/StatusDialog";
 
 
 class CardProfile extends React.Component {
@@ -34,6 +35,8 @@ class CardProfile extends React.Component {
         this.addClass = this.addClass.bind(this);
         this.updateUser = this.updateUser.bind(this);
         this.openAddClass = this.openAddClass.bind(this);
+        this.updateStatus = this.updateStatus.bind(this);
+        this.openStatusDialog = this.openStatusDialog.bind(this);
         this.state = {
             value: 0,
             modal: false,
@@ -53,7 +56,9 @@ class CardProfile extends React.Component {
 
     removeUser() {
         this.toggle();
+        this.props.dispatch(isProcessAll(true));
         adminService.removeUser(this.props.userSelect.uid).then(() => {
+            this.props.dispatch(isProcessAll(false));
             const index = this.props.listUser.indexOf(this.props.userSelect);
             this.props.listUser.splice(index, 1);
             this.props.dispatch(addListUser(this.props.listUser.concat()));
@@ -83,9 +88,13 @@ class CardProfile extends React.Component {
     openAddClass() {
         this.addClassDialog.handleClickOpen(this.props.userSelect.classId)
     }
-
+    openStatusDialog(){
+        this.statusDialog.handleClickOpen()
+    }
     addContract(contract) {
-        userService.doUpdateUser(this.props.userSelect.uid, {contractId:  contract.id}).then(() => {
+        this.props.dispatch(isProcessAll(true));
+        userService.doUpdateUser(this.props.userSelect.uid, {contractId: contract.id}).then(() => {
+            this.props.dispatch(isProcessAll(false));
             let user = {...this.props.userSelect};
             user.contractId = contract.id;
             user.contractName = contract.name;
@@ -94,7 +103,9 @@ class CardProfile extends React.Component {
     }
 
     addClass(classData) {
+        this.props.dispatch(isProcessAll(true));
         userService.doUpdateUser(this.props.userSelect.uid, {classId: classData.id}).then(() => {
+            this.props.dispatch(isProcessAll(false));
             let user = {...this.props.userSelect};
             user.classId = classData.id;
             user.className = classData.name;
@@ -112,6 +123,14 @@ class CardProfile extends React.Component {
         this.props.dispatch(addListUser(this.props.listUser.concat()));
     }
 
+    updateStatus(value) {
+        userService.doUpdateUser(this.props.userSelect.uid, {status: value}).then(() => {
+            let user = {...this.props.userSelect};
+            user.status = value;
+            this.updateUser(user)
+        })
+    }
+
     render() {
         if (!this.props.userSelect) {
             return <Card className="card-info"/>
@@ -122,13 +141,12 @@ class CardProfile extends React.Component {
         let options = [
             {title: 'Xác nhận', onClick: this.validateUser},
             {title: 'Xóa', onClick: this.toggle},
-            {title: 'Thêm lớp', onClick: this.openAddClass},
-            {title: 'Thêm đơn hàng', onClick: this.openPopupAddContract},
         ];
         if (validate) {
             options = [
                 {title: 'Xóa', onClick: this.toggle},
                 {title: 'Thêm lớp', onClick: this.openAddClass},
+                {title: 'Trạng thái', onClick: this.openStatusDialog},
                 {title: 'Thêm đơn hàng', onClick: this.openPopupAddContract},
             ];
         }
@@ -153,6 +171,11 @@ class CardProfile extends React.Component {
                     refDialog={ref => {
                         this.addClassDialog = ref;
                     }}/>
+                <StatusDialog
+                    save={this.updateStatus}
+                    refDialog={ref => {
+                        this.statusDialog = ref;
+                    }}/>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="modal-dialog-centered">
                     <ModalHeader className="border-0" toggle={this.toggle}>Xóa tài khoản</ModalHeader>
                     <ModalBody>
@@ -168,10 +191,10 @@ class CardProfile extends React.Component {
                     <div className="pro-img">
                         <img src={avatar} className="avatar" alt="user"/>
                     </div>
-                    <h3 >{name}</h3>
+                    <h3>{name}</h3>
                     <div className="mb-3">{this.renderValidate()}</div>
                     <div className="menu-info">
-                        {(this.props.user.admin||this.props.user.superAdmin)&&<LongMenu options={options}/>}
+                        {(this.props.user.admin || this.props.user.superAdmin) && <LongMenu options={options}/>}
                     </div>
 
                     <Tabs
@@ -236,7 +259,7 @@ const styles = theme => ({
 });
 const mapStateToProps = state => {
     return {
-        user:state.userData,
+        user: state.userData,
         userSelect: state.student,
         listUser: state.listUser,
         listContract: state.listContract,

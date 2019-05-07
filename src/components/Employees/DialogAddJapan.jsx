@@ -19,6 +19,7 @@ class DialogAddJapan extends React.Component {
         this.open = this.open.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
         this.add = this.add.bind(this);
+        this.remove = this.remove.bind(this);
          this.state = props.employee;
     }
 
@@ -47,6 +48,10 @@ class DialogAddJapan extends React.Component {
     open(){
         this.setState(this.props.employee);
     }
+    remove(){
+        this.props.toggle();
+        this.props.onRemove();
+    }
     render() {
         let {name, gender, phone, skype,id,facebook,email,old} = this.state;
         let title = 'Thêm nhân viên phòng nhật';
@@ -55,7 +60,7 @@ class DialogAddJapan extends React.Component {
         }
         return (
             <Modal isOpen={this.props.modal} toggle={this.props.toggle} className="modal-dialog-centered" onOpened={this.open}>
-                <ModalHeader toggle={this.toggle}>{title} </ModalHeader>
+                <ModalHeader toggle={this.props.toggle}>{title} </ModalHeader>
                 <ModalBody>
                     <form onSubmit={this.doUpdate}>
                         <FormGroup>
@@ -108,6 +113,7 @@ class DialogAddJapan extends React.Component {
                                 onChange={(date) => {
                                     this.onDateChange(date, 'old')
                                 }}
+                                renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
                                 value={old}
                                 viewMode="years"
                                 locale="vi"
@@ -121,7 +127,8 @@ class DialogAddJapan extends React.Component {
                     </form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="danger" onClick={this.add}>Lưu</Button>{' '}
+                    {id&& <Button color="danger" className="mr-auto"  onClick={this.remove}>Xóa</Button>}
+                    <Button color="success" onClick={this.add}>Lưu</Button>
                     <Button color="secondary" onClick={this.props.toggle}>Hủy</Button>
                 </ModalFooter>
             </Modal>

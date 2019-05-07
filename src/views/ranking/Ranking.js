@@ -10,6 +10,7 @@ import Datetime from "react-datetime";
 import moment from "moment";
 import CellRanking from "./CellRanking";
 import PerfectScrollbar from "react-perfect-scrollbar";
+import {connect} from "react-redux";
 
 
 class Ranking extends React.Component {
@@ -97,6 +98,7 @@ class Ranking extends React.Component {
     }
 
     renderHeader() {
+        const admin = this.props.user.admin || this.props.user.superAdmin;
         if (this.state.tab === 0) {
             return (<tr>
                 <th
@@ -117,8 +119,8 @@ class Ranking extends React.Component {
                 <th className="text-muted font-medium border-top-0 text-center">
                     Trung bình
                 </th>
-                <th className="border-top-0"/>
-                <th className="border-top-0"/>
+                {this.props.user.type === 'teacher' && <th className="border-top-0"/>}
+                {admin&& <th className="border-top-0"/>}
             </tr>)
         }
         if (this.state.tab === 1) {
@@ -144,8 +146,8 @@ class Ranking extends React.Component {
                 <th className="text-muted font-medium border-top-0 text-center">
                     Trung bình
                 </th>
-                <th className="border-top-0"/>
-                <th className="border-top-0"/>
+                {this.props.user.type === 'teacher' && <th className="border-top-0"/>}
+                {admin&& <th className="border-top-0"/>}
             </tr>)
         }
         return (<tr>
@@ -158,9 +160,8 @@ class Ranking extends React.Component {
             <th className="text-muted font-medium border-top-0 text-center">
                 Giáo dục định hướng
             </th>
-            <th className="border-top-0"/>
-            <th className="border-top-0"/>
-
+            {this.props.user.type === 'teacher' && <th className="border-top-0"/>}
+            {admin&& <th className="border-top-0"/>}
         </tr>)
 
     }
@@ -168,6 +169,7 @@ class Ranking extends React.Component {
     renderListData() {
         return this.state.listTranscript.map((transcript) => {
             return <CellRanking
+                user={this.props.user}
                 type={this.state.tab}
                 data={transcript}
                 key={transcript.id}
@@ -270,6 +272,9 @@ const styles = theme => ({
     },
 });
 
-
+const mapStateToProps = state => {
+    return {user: state.userData}
+};
+Ranking = connect(mapStateToProps)(Ranking);
 Ranking = withStyles(styles)(Ranking);
 export default Ranking;

@@ -5,7 +5,7 @@ import {
     ModalHeader
 
 } from 'reactstrap';
-import {medium} from "../../views/Transcript/DataConfig";
+import {medium, total} from "../../views/Transcript/DataConfig";
 
 
 class EditDialogPoint extends React.Component {
@@ -42,7 +42,7 @@ class EditDialogPoint extends React.Component {
         this.props.toggle();
         const data = {...this.state};
         data.japanese = medium([data.listen, data.write, data.conversation]);
-        data.health = medium([data.push, data.squat, data.bendBack, data.bellySticks]);
+        data.health = total([data.push, data.squat, data.bendBack, data.bellySticks]);
         this.props.save(data)
     }
 

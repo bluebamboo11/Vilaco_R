@@ -5,13 +5,11 @@ import {connect} from "react-redux";
 
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import EditDialogPoint from "../../components/Transcript/EditDialogPoint";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import {withStyles} from "@material-ui/core";
-import Add from '@material-ui/icons/Add';
 import * as moment from 'moment';
-import {classService, userService, transcriptService} from "../../firebase";
+import {userService, transcriptService} from "../../firebase";
 import Loading from "../../components/Loading/Loading";
 import {columns} from "./DataConfig"
 
@@ -57,6 +55,8 @@ class MyTranscriptClass extends React.Component {
                     this.setTabMonth(listTranscript)
                 });
             });
+        }else {
+            this.setState({ loading: false});
         }
 
     }
@@ -225,8 +225,6 @@ class MyTranscriptClass extends React.Component {
         let data = this.renderData();
         return (
             <div style={{height: '100%', width: '100%'}}>
-                <EditDialogPoint data={this.state.studentEdit} toggle={this.toggle} modal={this.state.modal}
-                                 save={this.save}/>
                 <Row className="h-100 ">
                     <Col lg="12" style={{height: '100%'}}>
                         <Card style={{height: '100%'}}>

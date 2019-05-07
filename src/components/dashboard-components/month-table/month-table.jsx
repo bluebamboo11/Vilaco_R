@@ -102,10 +102,18 @@ class MonthTable extends React.Component {
             validate = {value: true}
         }
         if (type === '3') {
-            userService.getAllStudent(this.next, 'classId',null,(listData, next) => {
-                this.next = next;
-                this.props.dispatch(addListUser(getListUserNew(listData, this.props.listUser)))
-            });
+            if(this.props.type === 'student'){
+                userService.getAllStudent(this.next, 'classId',null,(listData, next) => {
+                    this.next = next;
+                    this.props.dispatch(addListUser(getListUserNew(listData, this.props.listUser)))
+                });
+            }else {
+                userService.getAllAdmin((listData, next) => {
+                    this.next = next;
+                    this.props.dispatch(addListUser(getListUserNew(listData, this.props.listUser)))
+                })
+            }
+
             return
         }
         if (type === '4') {
@@ -214,14 +222,13 @@ class MonthTable extends React.Component {
             <option value="0">Tất cả</option>
             <option value="1">Chưa xác thực</option>
             <option value="2">Đã xác thực</option>
+            <option value="3">Quản lý</option>
         </Input>
     }
 
     render() {
         return (
-            /*--------------------------------------------------------------------------------*/
-            /* Used In Dashboard-2 && Widget Page                                             */
-            /*--------------------------------------------------------------------------------*/
+
             <Card style={{height: '100%'}}>
                 <CardBody style={{height: '100%'}}>
                     <div className="d-flex no-block">

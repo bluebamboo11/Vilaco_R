@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Button, FormGroup, Input,
     Modal, ModalBody, ModalFooter,
-    ModalHeader
+    ModalHeader, Tooltip
 
 } from 'reactstrap';
 
@@ -23,7 +23,9 @@ class DialogAddContract extends React.Component {
         this.open = this.open.bind(this);
         this.renderOptionEmployee = this.renderOptionEmployee.bind(this);
         this.handleChangeOpen = this.handleChangeOpen.bind(this);
-        this.state = props.contract
+        this.remove = this.remove.bind(this);
+        this.toggleTooltip = this.toggleTooltip.bind(this);
+        this.state = {...props.contract,tooltipOpen:true}
     }
 
 
@@ -47,7 +49,10 @@ class DialogAddContract extends React.Component {
         this.props.toggle();
         this.props.addContract(this.state)
     }
-
+    remove(){
+        this.props.toggle();
+        this.props.onRemove()
+    }
     renderExamDay(props) {
         return <Input {...props} value={this.state.examDay}
                       placeholder="Ngày / Tháng / Năm" invalid={!this.state.examDay}/>
@@ -69,6 +74,11 @@ class DialogAddContract extends React.Component {
     }
     open(){
         this.setState(this.props.contract);
+    }
+    toggleTooltip() {
+        this.setState({
+            tooltipOpen: !this.state.tooltipOpen
+        });
     }
     render() {
         let {name, employeeId, syndication, company, salary, city,open,id,job} = this.state;
@@ -135,6 +145,7 @@ class DialogAddContract extends React.Component {
                                 onChange={(date) => {
                                     this.onDateChange(date, 'examDay')
                                 }}
+                                renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
                                 locale="vi"
                                 timeFormat={false}
                                 closeOnSelect={true}
@@ -147,6 +158,7 @@ class DialogAddContract extends React.Component {
                                 onChange={(date) => {
                                     this.onDateChange(date, 'departureDate')
                                 }}
+                                renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
                                 locale="vi"
                                 timeFormat={false}
                                 closeOnSelect={true}
@@ -171,7 +183,8 @@ class DialogAddContract extends React.Component {
                     </form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="danger" onClick={this.add}>Lưu</Button>{' '}
+                    {id&& <Button color="danger" className="mr-auto"  onClick={this.remove}>Xóa</Button>}
+                    <Button color="success" onClick={this.add}>Lưu</Button>
                     <Button color="secondary" onClick={this.props.toggle}>Hủy</Button>
                 </ModalFooter>
             </Modal>

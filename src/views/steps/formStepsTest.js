@@ -5,17 +5,24 @@ import {
     CardBody,
     CardTitle
 } from 'reactstrap';
-import Step1 from './Step1';
+
 import Step4 from './Step4';
 import Step2 from './Step2';
 import Step3 from "./Step3";
 import Step5 from "./Step5";
-import {checkLogin} from "../../firebase/auth";
 import {storage, userService} from "../../firebase";
 import {checkActive} from "../../firebase/user";
 import StepsTeacher from "./StepsTeacher";
-
-class formSteps extends Component {
+function makeid(length) {
+    let result           = '';
+    let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+class FormStepsTest extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,11 +44,10 @@ class formSteps extends Component {
                 skype: '',
                 phoneFamily: '',
                 blood: ''
-            }, showStep: false, uid: '', user: null, isLoad: true, active: '', isLoadSave: true
+            }, showStep: true, uid: '', user: null, isLoad: true, active: '', isLoadSave: true
         };
         this.onStepChange = this.onStepChange.bind(this);
         this.updateStore = this.updateStore.bind(this);
-        this.onChangeUse = this.onChangeUse.bind(this);
         this.save = this.save.bind(this);
         this.check = this.check.bind(this);
     }
@@ -54,37 +60,12 @@ class formSteps extends Component {
     }
 
     onStepChange(step) {
-        if (step === 0 || step === 4) {
-            this.setState({showStep: false})
-        } else {
-            this.setState({showStep: true})
-        }
-        if (step === 4 && this.state.active !== 'unActive') {
+        if (step === 3 && this.state.active !== 'unActive') {
             this.save();
         }
     }
 
-    componentDidMount() {
-        this.onChangeUse()
-    }
 
-    onChangeUse() {
-        this.onAuth = checkLogin((user) => {
-            if (!user) {
-                window.location.href = '/xac-thuc/dang-nhap'
-            }
-            this.setState({user: user});
-            this.check(user);
-            if (user) {
-                if (!user.emailVerified) {
-                    user.sendEmailVerification().then(() => {
-                    }).catch(function (error) {
-                        console.log(error)
-                    });
-                }
-            }
-        })
-    }
 
     check(user) {
         checkActive(user.uid, (type) => {
@@ -103,11 +84,10 @@ class formSteps extends Component {
         if (userData.birthday) {
             userData.birthday = userData.birthday.format('DD/MM/YYYY');
         }
-        const user = this.state.user;
-        storage.upAvatar(this.state.user.uid, userData.avatar, (url) => {
+        storage.upAvatar(makeid(10), userData.avatar, (url) => {
             userData.avatar = url;
-            userData.email = user.email;
-            userService.doCreateUser(user.uid, userData).then(() => {
+            userData.email = 'test_user@mail.com';
+            userService.doCreateUserTest( userData).then(() => {
                 this.setState({isLoadSave: false})
             })
         })
@@ -118,12 +98,7 @@ class formSteps extends Component {
     }
 
     render() {
-        if (this.state.active === 'active') {
-            window.location.href = '/ca-nhan'
-        }
-        if (this.state.isLoad) {
-            return <div/>
-        }
+
         let componentInfo = {
             'component': <Step4 userData={this.state.data} updateStore={this.updateStore}/>,
             'name': 'Thông tin cá nhân'
@@ -136,12 +111,7 @@ class formSteps extends Component {
         }
         const steps =
             [
-                {
-                    'component': <Step1 userData={this.state.data} active={this.state.active}
-                                        updateStore={this.updateStore}
-                                        user={this.state.user}/>,
-                    'name': 'Xác nhận'
-                },
+
                 {
                     'component': <Step2 userData={this.state.data} updateStore={this.updateStore}/>,
                     'name': 'Tài khoản'
@@ -188,4 +158,4 @@ class formSteps extends Component {
     }
 }
 
-export default formSteps;
+export default FormStepsTest;

@@ -38,7 +38,7 @@ class Info extends React.Component {
                                 <Col md="3" xs="6" className="border-right">
                                     <strong>Giới tính</strong>
                                     <br />
-                                    <p className="text-muted">{gender}</p>
+                                    <p className="text-muted">{Number(gender)===1?'Nam':'Nữ'}</p>
                                 </Col>
                             </Row>
                             <div className="mt-4"/>

@@ -105,15 +105,15 @@ class MyClass extends React.Component {
                     <CardTitle className="mb-3"><h4>Lớp : {name}</h4></CardTitle>
                     <Row>
                         <Col sm="6">
-                            <CardText>Bắt đầu : <span className="font-medium">{startDate}</span></CardText>
-                            <CardText>Kết thúc : <span className="font-medium">{endDate}</span></CardText>
+                            <CardText className="text-inline">Bắt đầu : <span className="font-medium text-inline">{startDate}</span></CardText>
+                            <CardText className="text-inline">Kết thúc : <span className="font-medium text-inline" >{endDate}</span></CardText>
 
                         </Col>
                         <Col sm="6">
-                            <CardText>Sỹ số : <span
-                                className="font-medium">{this.state.listUser.length}</span></CardText>
-                            <CardText>Trạng thái : <span
-                                className="font-medium">{open ? 'Hoạt động' : 'Đóng'}</span></CardText>
+                            <CardText className="text-inline">Sỹ số : <span
+                                className="font-medium text-inline">{this.state.listUser.length}</span></CardText>
+                            <CardText className="text-inline">Trạng thái : <span
+                                className="font-medium text-inline">{open ? 'Hoạt động' : 'Đóng'}</span></CardText>
 
                         </Col>
                     </Row>
@@ -134,17 +134,17 @@ class MyClass extends React.Component {
                                 <img src={avatar} className="avatar rounded-circle" alt="user" width="80" height="80"/>
                         </Col>
                         <Col sm="9">
-                            <CardTitle className="mb-3"><h4>Tên giáo viên: {name}</h4></CardTitle>
+                            <CardTitle className="mb-3"><h4>Tên giáo viên : {name}</h4></CardTitle>
                             <Row>
-                                <Col sm="6">
-                                    <CardText>SDT : <span className="font-medium">{phone}</span></CardText>
-                                    <CardText>Giới tính : <span
-                                        className="font-medium">{gender === 1 ? 'Nam' : 'Nữ'}</span></CardText>
+                                <Col sm="4">
+                                    <CardText className="text-inline">SDT : <span className="font-medium text-inline">{phone}</span></CardText>
+                                    <CardText className="text-inline">Giới tính : <span
+                                        className="font-medium text-inline">{gender === 1 ? 'Nam' : 'Nữ'}</span></CardText>
                                 </Col>
-                                <Col sm="6">
-                                    <CardText>Skype : <span className="font-medium">{skype}</span></CardText>
-                                    <CardText>Facebook : <span
-                                        className="font-medium">{facebook}</span></CardText>
+                                <Col sm="8">
+                                    <CardText className="text-inline">Skype : <span className="font-medium text-inline">{skype}</span></CardText>
+                                    <CardText className="text-inline">Facebook : <span
+                                        className="font-medium text-inline">{facebook}</span></CardText>
                                 </Col>
                             </Row>
                         </Col>

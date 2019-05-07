@@ -34,13 +34,13 @@ export const ThemeRoutes = [
   {
     path: '/quan-ly-hoc-vien',
     name: 'Học viên',
-    icon: 'mdi mdi-account-multiple',
+    icon: 'mdi mdi-account-edit',
     component: Student
   },
   {
     path: '/quan-ly-giao-vien',
     name: 'Giáo viên',
-    icon: 'mdi mdi-account-multiple',
+    icon: 'mdi mdi-account-network',
     component: Teacher
   },
   {
@@ -51,13 +51,13 @@ export const ThemeRoutes = [
   {
     path: '/nhan-vien-nhat',
     name: 'NV phòng nhật',
-    icon: 'mdi mdi-account-multiple',
+    icon: 'mdi mdi-contact-mail',
     component: Japan
   },
   {
     path: '/quan-ly-don-hang',
     name: 'Đơn hàng',
-    icon: 'mdi mdi-account-multiple',
+    icon: 'mdi mdi-file-document-box',
     component: Contract
   },
   {
@@ -68,19 +68,19 @@ export const ThemeRoutes = [
   {
     path: '/quan-ly-lop',
     name: 'Lớp học',
-    icon: 'mdi mdi-account-multiple',
+    icon: 'mdi mdi-book-open-page-variant',
     component: LearningClass
   },
   {
     path: '/quan-ly-bang-diem',
     name: 'Bảng điểm',
-    icon: 'mdi mdi-account-multiple',
+    icon: 'mdi mdi-table-edit',
     component: Transcript
   },
   {
     path: '/xep-hang-diem',
     name: 'Xếp hạng điểm',
-    icon: 'mdi mdi-account-multiple',
+    icon: 'mdi mdi-star',
     component: Ranking
   },
   {
@@ -107,13 +107,13 @@ export const studentRoutes =
       {
         path: '/don-hang-cua-toi',
         name: 'Đơn hàng',
-        icon: 'mdi mdi-account',
+        icon: 'mdi mdi-file-document-box',
         component: MyContract
       },
       {
         path: '/bang-diem-cua-toi',
         name: 'Bảng điểm',
-        icon: 'mdi mdi-account',
+        icon: 'mdi mdi-table',
         component: MyTranscript
       },
       {
@@ -124,19 +124,19 @@ export const studentRoutes =
       {
         path: '/lop-cua-toi',
         name: 'Lớp của tôi',
-        icon: 'mdi mdi-account-multiple',
+        icon: 'mdi mdi-book-open-variant',
         component: MyClass
       },
       {
         path: '/bang-diem-lop',
         name: 'Bảng điểm lớp',
-        icon: 'mdi mdi-account-multiple',
+        icon: 'mdi mdi-book-open',
         component: MyTranscriptClass
       },
       {
         path: '/xep-hang-diem',
         name: 'Xếp hạng điểm',
-        icon: 'mdi mdi-account-multiple',
+        icon: 'mdi mdi-star',
         component: Ranking
       },
       {

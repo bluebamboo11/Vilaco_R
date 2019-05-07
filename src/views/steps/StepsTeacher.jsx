@@ -75,7 +75,7 @@ export default class StepsTeacher extends Component {
                                    Skype
                                 </label>
                                 <div className="col-sm-10">
-                                    <Input value={skype} name="skype" onChange={this.onInputChange}
+                                    <Input value={skype} name="skype" invalid={!skype} onChange={this.onInputChange}
                                            className="form-control"
                                     />
                                 </div>
@@ -85,7 +85,7 @@ export default class StepsTeacher extends Component {
                                     Facebook
                                 </label>
                                 <div className="col-sm-10">
-                                    <Input value={facebook} name="facebook" onChange={this.onInputChange}
+                                    <Input value={facebook} name="facebook"  invalid={!facebook}onChange={this.onInputChange}
                                            className="form-control"
                                     />
                                 </div>
@@ -99,6 +99,7 @@ export default class StepsTeacher extends Component {
                                             onChange={(date) => {
                                                 this.onDateChange(date, 'startDay')
                                             }}
+                                            renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
                                             locale="vi"
                                             timeFormat={false}
                                             closeOnSelect={true}

@@ -1,5 +1,7 @@
 import {db, firebase} from './firebase';
 import {userBo} from "../Bo/BoFirebase";
+import {store} from "../index";
+import {isProcessAll} from "../redux/actions";
 
 // User API
 
@@ -8,7 +10,11 @@ export const doCreateUser = (id, user) => {
     user.validate = false;
     return db.collection("user").doc(id).set(userBo(user));
 };
-
+export const doCreateUserTest = (user) => {
+    user.timestamp = firebase.firestore.FieldValue.serverTimestamp();
+    user.validate = false;
+    return db.collection("user").add(userBo(user));
+};
 export const doUpdateUser = (id, user) =>
     db.collection("user").doc(id).update(user);
 
@@ -54,11 +60,13 @@ export const checkActive = (uid, callback) => {
 
 export const searchAllUser = (searchKey, type, callback) => {
     if (searchKey) {
+        store.dispatch(isProcessAll(true));
         let allPromise = [];
         allPromise.push(db.collection("user").where('type', '==', type).where('email', '==', searchKey).get());
         allPromise.push(db.collection("user").where('type', '==', type).where('name', '==', searchKey).get());
         allPromise.push(db.collection("user").where('type', '==', type).where('phone', '==', searchKey).get());
         Promise.all(allPromise).then((listData) => {
+            store.dispatch(isProcessAll(false));
             let listUser = [];
             if (listData) {
                 listData.forEach((data) => {
@@ -76,7 +84,8 @@ export const searchAllUser = (searchKey, type, callback) => {
 };
 
 export const getAllUser = (next, type, validate, callback) => {
-    let first = db.collection("user").where('type', '==', type).orderBy("timestamp").limit(25);
+    store.dispatch(isProcessAll(true));
+    let first = db.collection("user").where('type', '==', type).orderBy("timestamp", 'desc').limit(25);
     if (validate) {
         first = first.where('validate', '==', validate.value);
     }
@@ -84,6 +93,7 @@ export const getAllUser = (next, type, validate, callback) => {
         first = next
     }
     first.get().then(function (documentSnapshots) {
+        store.dispatch(isProcessAll(false));
         let listUser = [];
         documentSnapshots.forEach(function (doc) {
             let user = doc.data();
@@ -93,7 +103,7 @@ export const getAllUser = (next, type, validate, callback) => {
         const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
         if (lastVisible) {
             let next = db.collection("user").where('type', '==', type)
-                .orderBy("timestamp")
+                .orderBy("timestamp", 'desc')
                 .startAfter(lastVisible)
                 .limit(25);
             if (validate) {
@@ -133,8 +143,23 @@ export const getAllStudentByClass = (classId, callback) => {
     });
 
 };
-export const getAllStudent = (next,fieldPath,value,callback) => {
-    let first = db.collection("user").where('type', '==', 'student').where(fieldPath, '==', value).orderBy("timestamp").limit(25);
+export const getAllAdmin = ( callback) => {
+    store.dispatch(isProcessAll(true));
+    db.collection("user").where('type', '==', 'teacher').where('admin', '==', true).orderBy("timestamp").get().then(function (documentSnapshots) {
+        let listUser = [];
+        store.dispatch(isProcessAll(false));
+        documentSnapshots.forEach(function (doc) {
+            let user = doc.data();
+            user.uid = doc.id;
+            listUser.push(user);
+        });
+        callback(listUser)
+
+    });
+
+};
+export const getAllStudent = (next, fieldPath, value, callback) => {
+    let first = db.collection("user").where('type', '==', 'student').where(fieldPath, '==', value).orderBy("timestamp", 'desc').limit(25);
     if (next) {
         first = next
     }
@@ -148,7 +173,7 @@ export const getAllStudent = (next,fieldPath,value,callback) => {
         const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
         if (lastVisible) {
             let next = db.collection("user").where('type', '==', 'student').where(fieldPath, '==', value)
-                .orderBy("timestamp")
+                .orderBy("timestamp", 'desc')
                 .startAfter(lastVisible)
                 .limit(25);
             callback(listUser, next)
