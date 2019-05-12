@@ -7,10 +7,6 @@ import CardInfoContract from "../../components/contract/CardInfoContract";
 
 
 class Contract  extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
 
     render() {
         return (

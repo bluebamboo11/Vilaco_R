@@ -11,11 +11,6 @@ import {connect} from "react-redux";
 
 
 class Student extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-
 
     render() {
         return (

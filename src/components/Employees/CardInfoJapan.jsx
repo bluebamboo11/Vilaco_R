@@ -18,7 +18,7 @@ import Table from "@material-ui/core/Table";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import DialogAddJapan from "./DialogAddJapan";
 import {employeeService} from "../../firebase";
-import {addListEmployee, selectEmployee} from "../../redux/actions";
+import { selectEmployee} from "../../redux/actions";
 
 
 class CardInfoJapan extends React.Component {

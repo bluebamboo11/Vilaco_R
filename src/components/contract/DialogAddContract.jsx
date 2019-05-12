@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Button, FormGroup, Input,
     Modal, ModalBody, ModalFooter,
-    ModalHeader, Tooltip
+    ModalHeader
 
 } from 'reactstrap';
 
@@ -183,7 +183,7 @@ class DialogAddContract extends React.Component {
                     </form>
                 </ModalBody>
                 <ModalFooter>
-                    {id&& <Button color="danger" className="mr-auto"  onClick={this.remove}>Xóa</Button>}
+                    {id&&this.props.user.superAdmin&& <Button color="danger" className="mr-auto"  onClick={this.remove}>Xóa</Button>}
                     <Button color="success" onClick={this.add}>Lưu</Button>
                     <Button color="secondary" onClick={this.props.toggle}>Hủy</Button>
                 </ModalFooter>
@@ -195,7 +195,8 @@ class DialogAddContract extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        listUser: state.listUser
+        listUser: state.listUser,
+        user:state.userData
     }
 };
 DialogAddContract = connect(mapStateToProps)(DialogAddContract);

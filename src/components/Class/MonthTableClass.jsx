@@ -67,6 +67,7 @@ class MonthTableClass extends React.Component {
                     return true
                 }
             }
+            return false
         });
         this.props.dispatch(addListClass(listClass));
     }

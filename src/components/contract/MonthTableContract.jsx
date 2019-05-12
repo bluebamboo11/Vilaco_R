@@ -71,6 +71,7 @@ class MonthTableContract extends React.Component {
                     return true
                 }
             }
+            return false
         });
         this.props.dispatch(addListContract(listContract));
     }

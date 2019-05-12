@@ -1,8 +1,6 @@
 import React from 'react';
 import {Row, Col} from 'reactstrap';
 import {
-    RevenueCards,
-    CardProfile,
     MonthTable,
 
 } from 'components/dashboard-components';
@@ -13,10 +11,6 @@ import CardProfileTeacher from "../../components/dashboard-components/card-profi
 
 
 class Teacher extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
 
     render() {
         return (

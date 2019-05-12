@@ -8,9 +8,6 @@ import TableBody from "@material-ui/core/TableBody";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
 class ListClass extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         let {rows} = this.props;

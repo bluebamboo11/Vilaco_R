@@ -1,6 +1,4 @@
 import React from 'react';
-
-import img1 from '../../assets/images/logo-icon.png';
 import FormSteps from '../steps/steps.jsx';
 import img2 from '../../assets/images/background/login-register.jpg';
 import {Row} from "reactstrap";
@@ -12,11 +10,6 @@ const sidebarBackground = {
 };
 
 class RegistrationForm extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
-
 
     render() {
 

@@ -65,7 +65,7 @@ class MyClass extends React.Component {
                     <div>{user.birthday}</div>
                 </td>
                 <td>
-                    <div>{user.gender == 1 ? 'Nam' : 'Nữ'}</div>
+                    <div>{Number(user.gender) === 1 ? 'Nam' : 'Nữ'}</div>
                 </td>
             </tr>
         })

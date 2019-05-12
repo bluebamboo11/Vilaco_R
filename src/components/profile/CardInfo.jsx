@@ -1,5 +1,5 @@
 import React from 'react';
-import {Badge, Button, CardBody, CardSubtitle} from "reactstrap";
+import {Badge, CardBody} from "reactstrap";
 import {connect} from "react-redux";
 
 
@@ -22,7 +22,7 @@ class CardInfo extends React.Component {
     }
 
     renderTeacher() {
-        let {skype, phone, gender, email, admin, superAdmin} = this.props.userData;
+        let {skype, phone, gender, email} = this.props.userData;
         return (
 
             <CardBody className="border-top">
@@ -34,7 +34,7 @@ class CardInfo extends React.Component {
                     <small className="text-muted pt-4 db">Số điện thoại</small>
                     <h6>{phone}</h6>
                     <small className="text-muted pt-4 db">Giới tính</small>
-                    <h6>{gender == 1 ? 'Nam' : 'Nữ'}</h6>
+                    <h6>{Number(gender) === 1 ? 'Nam' : 'Nữ'}</h6>
                     <br/>
                     <h4>
                         <Badge color="success" pill>

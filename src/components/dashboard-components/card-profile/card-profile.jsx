@@ -139,16 +139,18 @@ class CardProfile extends React.Component {
         const {value} = this.state;
         let {avatar, name, validate} = this.props.userSelect;
         let options = [
-            {title: 'Xác nhận', onClick: this.validateUser},
-            {title: 'Xóa', onClick: this.toggle},
+            {title: 'Xác nhận', onClick: this.validateUser}
+
         ];
         if (validate) {
             options = [
-                {title: 'Xóa', onClick: this.toggle},
                 {title: 'Thêm lớp', onClick: this.openAddClass},
                 {title: 'Trạng thái', onClick: this.openStatusDialog},
-                {title: 'Thêm đơn hàng', onClick: this.openPopupAddContract},
+                {title: 'Thêm đơn hàng', onClick: this.openPopupAddContract}
             ];
+        }
+        if(this.props.user.superAdmin){
+            options.push({title: 'Xóa', onClick: this.toggle})
         }
 
         return (

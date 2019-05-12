@@ -3,11 +3,7 @@ import {
     Button,
     Card,
     CardBody,
-
-
 } from 'reactstrap';
-
-
 import {connect} from "react-redux";
 import Loading from "../Loading/Loading";
 import TableHead from "@material-ui/core/TableHead";
@@ -17,7 +13,7 @@ import TableBody from "@material-ui/core/TableBody";
 import Table from "@material-ui/core/Table";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import {classService} from "../../firebase";
-import {addListClass, addListContract, selectClass, selectContract} from "../../redux/actions";
+import {addListClass, selectClass} from "../../redux/actions";
 import DialogAddClass from "./DialogAddClass";
 
 

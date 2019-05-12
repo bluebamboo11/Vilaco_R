@@ -172,18 +172,19 @@ class CardProfileTeacher extends React.Component {
         let {avatar, name, validate, admin} = this.props.userSelect;
         let options = [
             {title: 'Xác nhận', onClick: this.validateUser},
-            {title: 'Xóa', onClick: this.toggle},
 
         ];
         if (validate) {
             options = [
-                {title: 'Xóa', onClick: this.toggle},
                 {title: 'Thêm lớp', onClick: this.openAddClass},
             ];
         }
         if (this.props.user.superAdmin && this.props.userSelect.uid !== this.props.user.uid) {
             options.push({title: admin ? 'Hủy quản lý' : 'Thêm quản lý', onClick: this.setAdmin});
             options.push({title: 'Quản trị viên', onClick: this.openDialogSuperAdmin})
+        }
+        if(this.props.user.superAdmin&&this.props.userSelect.uid !== this.props.user.uid){
+            options.push({title: 'Xóa', onClick: this.toggle})
         }
         return (
             <Card className="card-info">

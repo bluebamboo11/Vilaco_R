@@ -52,7 +52,7 @@ class MyContract extends React.Component {
         if (this.state.isLoadContract) {
             return ''
         }
-        const {name, syndication, company, departureDate, examDay, salary, city,job} = this.state.contract;
+        const {name, syndication, company, departureDate, examDay, salary, city, job} = this.state.contract;
         if (!this.props.user.contractId) {
             return <Card>
                 <CardImg top width="100%" src={img1}/>
@@ -81,7 +81,7 @@ class MyContract extends React.Component {
         if (this.state.isLoadEmployee) {
             return ''
         }
-        const {name, gender, phone, skype,facebook,old,email} = this.state.employee;
+        const {name, gender, phone, skype, facebook, old, email} = this.state.employee;
         if (!this.props.user.contractId || (this.props.user.contractId && !this.state.contract.employeeId)) {
             return <Card>
                 <CardImg top width="100%" src={img2}/>
@@ -100,7 +100,8 @@ class MyContract extends React.Component {
                 <CardText>Facebook : <span className="font-medium">{facebook}</span></CardText>
                 <CardText>Email : <span className="font-medium">{email}</span></CardText>
                 <CardText>Năm sinh : <span className="font-medium">{old}</span></CardText>
-                <CardText>Giới tính : <span className="font-medium">{gender == '1' ? 'Nam' : 'Nữ'}</span></CardText>
+                <CardText>Giới tính : <span
+                    className="font-medium">{Number(gender) === 1 ? 'Nam' : 'Nữ'}</span></CardText>
                 <CardText>&nbsp;</CardText>
             </CardBody>
         </Card>

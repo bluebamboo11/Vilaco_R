@@ -9,12 +9,13 @@ import {
     Form,
     Row,
     Col,
-    Button, Spinner
+    Button, Spinner, Alert
 } from 'reactstrap';
 import img1 from '../../assets/images/logo-icon.png';
 import img2 from '../../assets/images/background/login-register.jpg';
 import {auth} from "../../firebase";
 import validators from "./validators";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const sidebarBackground = {
     'backgroundImage': `url(${img2})`,
@@ -33,13 +34,15 @@ class Login extends React.Component {
         this.formValidators = this.formValidators.bind(this);
         this.validForm = this.validForm.bind(this);
         this.changeKeepLogin = this.changeKeepLogin.bind(this);
-        this.state = {isLogin: false, email: '', password: '',isLoadLogin:false,isKeepLogin:true}
+        this.onDismissAlert = this.onDismissAlert.bind(this);
+        this.recoverPassword = this.recoverPassword.bind(this);
+        this.state = {isLogin: false, email: '', password: '',isLoadLogin:false,isKeepLogin:true,visibleAlert:false}
     }
 
 
     onInputChange(event) {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,visibleAlert:false
         });
         this.formValidators([event.target.name], event.target.value);
     }
@@ -119,7 +122,6 @@ class Login extends React.Component {
     login(event) {
         if (this.validForm()&&!this.state.isLoadLogin) {
             this.setState({isLoadLogin: true});
-            console.log(this.state.isKeepLogin);
             auth.doSignInWithEmailAndPassword(this.state.email, this.state.password,this.state.isKeepLogin).then((user) => {
                 if (user) {
                    window.location.href = '/ca-nhan'
@@ -149,9 +151,22 @@ class Login extends React.Component {
            isKeepLogin: !this.state.isKeepLogin
         });
     }
+    recoverPassword(event){
+        event.preventDefault();
+        this.setState({isLoadLogin:true,visibleAlert:false});
+        auth.doPasswordReset(this.state.email).then(()=>{
+            this.setState({visibleAlert:true,isLoadLogin:false})
+        })
+    }
+    onDismissAlert(){
+        this.setState({ visibleAlert: false });
+    }
     render() {
 
         return <div className="">
+            {this.state.isLoadLogin&& <div className="process-all">
+                <LinearProgress/>
+            </div>}
             {/* --------------------------------------------------------------------------------*/}
             {/* Login Cards*/}
             {/* --------------------------------------------------------------------------------*/}
@@ -215,22 +230,33 @@ class Login extends React.Component {
                     <div id="recoverform">
                         <div className="logo">
                             <span className="db"><img src={img1} alt="logo"/></span>
-                            <h5 className="font-medium mb-3">Recover Password</h5>
-                            <span>Enter your Email and instructions will be sent to you!</span>
+                            <h5 className="font-medium mb-3">Khôi phục mật khẩu</h5>
+                            <span>Nhập Email của bạn và hướng dẫn sẽ được gửi tới email của bạn!</span>
                         </div>
                         <Row className="mt-3">
                             <Col xs="12">
-                                <Form action="/dashbaord">
+                                <Alert color="success" isOpen={this.state.visibleAlert} toggle={this.onDismissAlert}>
+                                    Một email khôi phục đã được gửi tới địa chỉ email của bạn
+                                </Alert>
+                                <Form onSubmit={this.recoverPassword}>
                                     <FormGroup>
-                                        <Input type="text" name="uname" bsSize="lg" id="Name" placeholder="Username"
+                                        <Input type="text" name="email" bsSize="lg" placeholder="Email"
+                                               value={this.state.email}
+                                               onChange={this.onInputChange}
                                                required/>
+                                        {this.showErrors('email')}
                                     </FormGroup>
-                                    <Row className="mt-3">
+                                    <Row className="mt-3 mb-3">
                                         <Col xs="12">
-                                            <Button color="danger" size="lg" type="submit" block>Reset</Button>
+                                            <Button color="danger" size="lg" type="submit" block>Đặt lại</Button>
                                         </Col>
                                     </Row>
+                                    <div className="text-center">
+                                       Quay lại <a href="/xac-thuc/dang-nhap"
+                                           className="text-info ml-1"><b>Đăng nhập</b></a>
+                                    </div>
                                 </Form>
+
                             </Col>
                         </Row>
                     </div>

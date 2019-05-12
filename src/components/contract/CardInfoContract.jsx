@@ -18,7 +18,7 @@ import Table from "@material-ui/core/Table";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import DialogAddContract from "./DialogAddContract";
 import {contractService} from "../../firebase";
-import {addListContract, selectContract, selectEmployee} from "../../redux/actions";
+import {addListContract, selectContract} from "../../redux/actions";
 
 
 class CardInfoContract extends React.Component {

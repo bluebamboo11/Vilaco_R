@@ -206,9 +206,8 @@ class MyTranscriptClass extends React.Component {
         event.preventDefault();
         let searchKey = this.state.searchKey.toUpperCase();
         let listStudent = this.listData.filter((item) => {
-            if (item.name.toUpperCase().indexOf(searchKey) >= 0) {
-                return true
-            }
+            return item.name.toUpperCase().indexOf(searchKey) >= 0;
+
         });
         this.setState({listStudent: listStudent});
     }

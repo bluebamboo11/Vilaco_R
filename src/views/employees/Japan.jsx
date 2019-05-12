@@ -8,11 +8,6 @@ import CardInfoJapan from "../../components/Employees/CardInfoJapan";
 
 
 class Japan  extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-
 
     render() {
         return (

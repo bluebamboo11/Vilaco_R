@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, Button, Card, CardBody, Col, Form, FormGroup, Input, Label, Row, Spinner} from "reactstrap";
+import {Alert, Button, Card, CardBody, Col,  Input, Row, Spinner} from "reactstrap";
 import {connect} from "react-redux";
 import {userService} from "../../firebase";
 import Datetime from 'react-datetime';

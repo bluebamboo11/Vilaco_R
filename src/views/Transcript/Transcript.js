@@ -246,6 +246,7 @@ class Transcript extends React.Component {
             if (item.name.toUpperCase().indexOf(searchKey) >= 0) {
                 return true
             }
+            return false
         });
         this.setState({listStudent: listStudent});
     }

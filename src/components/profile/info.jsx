@@ -1,16 +1,8 @@
 import React from 'react';
-import {Card, CardBody, Col, Progress, Row} from "reactstrap";
+import {Card, CardBody, Col, Row} from "reactstrap";
 import {connect} from "react-redux";
 
 class Info extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
-    componentDidMount() {
-
-    }
-
 
     render() {
         let { gender, code, hobby, forte, weakness,birthday,email} = this.props.userData;

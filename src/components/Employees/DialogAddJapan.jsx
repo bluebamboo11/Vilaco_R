@@ -54,6 +54,7 @@ class DialogAddJapan extends React.Component {
     }
     render() {
         let {name, gender, phone, skype,id,facebook,email,old} = this.state;
+        const superAdmin = this.props.user.superAdmin;
         let title = 'Thêm nhân viên phòng nhật';
         if(id){
             title = 'Cập nhật viên phòng nhật';
@@ -127,7 +128,7 @@ class DialogAddJapan extends React.Component {
                     </form>
                 </ModalBody>
                 <ModalFooter>
-                    {id&& <Button color="danger" className="mr-auto"  onClick={this.remove}>Xóa</Button>}
+                    {id&&superAdmin&& <Button color="danger" className="mr-auto"  onClick={this.remove}>Xóa</Button>}
                     <Button color="success" onClick={this.add}>Lưu</Button>
                     <Button color="secondary" onClick={this.props.toggle}>Hủy</Button>
                 </ModalFooter>
@@ -139,7 +140,8 @@ class DialogAddJapan extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        listUser: state.listUser
+        listUser: state.listUser,
+        user:state.userData
     }
 };
 DialogAddJapan = connect(mapStateToProps)(DialogAddJapan);

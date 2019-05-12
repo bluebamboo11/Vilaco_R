@@ -59,12 +59,12 @@ class MonthTableJapan extends React.Component {
         let searchKey = this.state.searchKey.toUpperCase();
         this.listen();
         let listEmployee = this.listData.filter((item) => {
-            console.log(1);
             for (let key in item) {
                 if (item[key] && typeof item[key] === 'string' && item[key].toUpperCase().indexOf(searchKey) >= 0) {
                     return true
                 }
             }
+            return false
         });
         this.setState({listEmployee: listEmployee})
     }

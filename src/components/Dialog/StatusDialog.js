@@ -6,8 +6,6 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import DialogContentText from "@material-ui/core/DialogContentText";
-import {withStyles} from '@material-ui/core/styles';
 import {Button} from "reactstrap";
 
 

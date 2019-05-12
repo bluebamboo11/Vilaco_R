@@ -49,6 +49,8 @@ class Ranking extends React.Component {
                 break;
             case 2:
                 type = 'education';
+                break;
+            default:
                 break
 
         }
@@ -120,7 +122,7 @@ class Ranking extends React.Component {
                     Trung bình
                 </th>
                 {this.props.user.type === 'teacher' && <th className="border-top-0"/>}
-                {admin&& <th className="border-top-0"/>}
+                {admin && <th className="border-top-0"/>}
             </tr>)
         }
         if (this.state.tab === 1) {
@@ -147,7 +149,7 @@ class Ranking extends React.Component {
                     Trung bình
                 </th>
                 {this.props.user.type === 'teacher' && <th className="border-top-0"/>}
-                {admin&& <th className="border-top-0"/>}
+                {admin && <th className="border-top-0"/>}
             </tr>)
         }
         return (<tr>
@@ -161,7 +163,7 @@ class Ranking extends React.Component {
                 Giáo dục định hướng
             </th>
             {this.props.user.type === 'teacher' && <th className="border-top-0"/>}
-            {admin&& <th className="border-top-0"/>}
+            {admin && <th className="border-top-0"/>}
         </tr>)
 
     }
@@ -185,39 +187,40 @@ class Ranking extends React.Component {
                 <Row className="h-100 ">
                     <Col lg="12" style={{height: '100%'}}>
                         <Card style={{height: '100%'}}>
-                            <CardBody style={{position: "relative",height: '100%'}}>
+                            <CardBody style={{position: "relative", height: '100%'}}>
                                 <PerfectScrollbar>
-                                <div className="d-flex no-block mb-3">
-                                    <CardTitle><h4 className="m-0">Bảng xếp hạng điểm</h4></CardTitle>
-                                    <div className="mont-input-ranking row ml-auto">
-                                        <div className="pr-3 font-medium" style={{lineHeight: '35px'}}>Chọn tháng</div>
-                                        <div>
-                                            <Datetime
-                                                className="text-center"
-                                                onChange={this.onDateChange}
-                                                value={this.state.month}
-                                                inputProps={{style: {textAlign: 'center'}}}
-                                                dateFormat="MM/YYYY"
-                                                renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
-                                                locale="vi"
-                                                timeFormat={false}
-                                                closeOnSelect={true}
-                                                viewMode="months"
-                                            />
+                                    <div className="d-flex no-block mb-3">
+                                        <CardTitle><h4 className="m-0">Bảng xếp hạng điểm</h4></CardTitle>
+                                        <div className="mont-input-ranking row ml-auto">
+                                            <div className="pr-3 font-medium" style={{lineHeight: '35px'}}>Chọn tháng
+                                            </div>
+                                            <div>
+                                                <Datetime
+                                                    className="text-center"
+                                                    onChange={this.onDateChange}
+                                                    value={this.state.month}
+                                                    inputProps={{style: {textAlign: 'center'}}}
+                                                    dateFormat="MM/YYYY"
+                                                    renderMonth={(props, month) => <td {...props}>Th {month + 1}</td>}
+                                                    locale="vi"
+                                                    timeFormat={false}
+                                                    closeOnSelect={true}
+                                                    viewMode="months"
+                                                />
+                                            </div>
                                         </div>
+
                                     </div>
+                                    {this.renderTab()}
+                                    {this.state.loading && <div style={{
+                                        height: "calc(100% - 105px - 1rem)",
+                                        bottom: 0,
+                                        position: 'absolute',
+                                        left: 0,
+                                        width: '100%'
+                                    }}><Loading/></div>}
 
-                                </div>
-                                {this.renderTab()}
-                                {this.state.loading && <div style={{
-                                    height: "calc(100% - 105px - 1rem)",
-                                    bottom: 0,
-                                    position: 'absolute',
-                                    left: 0,
-                                    width: '100%'
-                                }}><Loading/></div>}
-
-                                    <Table className="stylish-table mb-0" >
+                                    <Table className="stylish-table mb-0">
                                         <thead>
                                         {this.renderHeader()}
                                         </thead>
