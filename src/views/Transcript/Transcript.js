@@ -78,12 +78,9 @@ class Transcript extends React.Component {
     setTabMonth(listTranscript, classId) {
         let listMonth = [];
         let startDate = '';
-        console.log(this.state.listClass);
-        console.log(classId);
         this.state.listClass.forEach(classData => {
 
             if (classData.id === classId) {
-                console.log(classData)
                 startDate = classData.startDate;
             }
         });
