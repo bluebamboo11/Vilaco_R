@@ -79,11 +79,12 @@ class Transcript extends React.Component {
         let listMonth = [];
         let startDate = '';
         this.state.listClass.forEach(classData => {
+
             if (classData.id === classId) {
                 startDate = classData.startDate;
             }
         });
-        const month = moment(startDate, 'MM/DD/YYYY');
+        const month = moment(startDate, 'DD/MM/YYYY');
         listTranscript.forEach(data => {
             if (data.month && listMonth.indexOf(data.month) < 0) {
                 listMonth.push(data.month)
