@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
-
+//Hiệu ứng khi load dữ liệu
 class ProcessAll extends React.Component {
 
     render() {

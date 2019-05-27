@@ -1,3 +1,4 @@
+//cài đặt bảng hiển thị điểm
 export const columns = [
     {
         Header: "Học viên",

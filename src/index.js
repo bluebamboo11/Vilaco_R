@@ -17,6 +17,7 @@ import LoadingAll from "./components/Loading/LoadingAll";
 import ProcessAll from "./components/Loading/ProcessAll";
 
 //const hist = createBrowserHistory();
+//file chính chưa tất cả các file khác. điều khiển giao diện
 export const store = createStore(todoApp);
 ReactDOM.render(
     <Provider store={store}>

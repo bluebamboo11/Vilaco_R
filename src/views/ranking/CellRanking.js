@@ -5,7 +5,7 @@ import {userService, transcriptService} from "../../firebase";
 import {connect} from "react-redux";
 
 
-
+//Tạo giao diện một hàng của bảng điểm
 class CellRanking extends React.Component {
     constructor(props) {
         super(props);
@@ -15,20 +15,20 @@ class CellRanking extends React.Component {
         this.renderDialog = this.renderDialog.bind(this);
         this.setScholarship = this.setScholarship.bind(this);
     }
-
+    //Lấy dữ liệu học viên
     componentDidMount() {
         userService.getOneUser(this.props.data.uid, (user) => {
             this.setState({...user, ...this.props.data});
         });
 
     }
-
+    //Hiện thị của sổ chỉnh sửa học bổng
     toggle() {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
     }
-
+    // Tạo nút chỉnh sửa
     renderButtonEdit() {
         const admin = this.props.user.admin || this.props.user.superAdmin;
         if(this.props.user.type === 'student'||!admin){
@@ -50,13 +50,14 @@ class CellRanking extends React.Component {
             </td>)
     }
 
+    //xác nhận cho học viên học bổng
     setScholarship() {
         this.toggle();
         transcriptService.update(this.state.id, {[this.scholarship]: !this.state[this.scholarship]}).then(() => {
             this.setState({[this.scholarship]: !this.state[this.scholarship]})
         })
     }
-
+    //Tạo giao diện của sổ
     renderDialog() {
         const  scholarship = this.state[this.scholarship];
         return <Modal isOpen={this.state.modal} toggle={this.toggle}
@@ -72,7 +73,7 @@ class CellRanking extends React.Component {
             </ModalFooter>
         </Modal>
     }
-
+    //Tạo giao diện hàng của bảng điểm
     render() {
         switch (this.props.type) {
             case 0:this.scholarship ='scholarshipJapan';break;

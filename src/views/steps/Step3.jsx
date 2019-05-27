@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import img1 from "../../assets/images/users/avatar-default.jpg";
 import {Row} from "reactstrap";
 import ImageUploader from 'react-images-upload';
-
+//Bược 3 upload avatar
 export default class Step3 extends Component {
     constructor(props) {
         super(props);
@@ -14,6 +14,7 @@ export default class Step3 extends Component {
     isValidated(){
        return  !!this.props.userData.avatar
     }
+    //Lây thông tin ảnh avatar
     onDrop(picture) {
         if(picture[this.index]){
             let userData = {...this.props.userData};

@@ -17,7 +17,7 @@ import DialogAddJapan from "./DialogAddJapan";
 import {employeeService} from '../../firebase'
 import MonthdataJapan from "./MonthdataJapan";
 
-
+//Bảng danh sách nhân viên phòng nhật
 class MonthTableJapan extends React.Component {
     constructor(props) {
         super(props);
@@ -40,20 +40,20 @@ class MonthTableJapan extends React.Component {
     componentDidMount() {
         this.getAll()
     }
-
+//Lấy dữ liệu nhân viên khi load trang
     componentWillUnmount() {
         if (this.listen) {
             this.listen();
         }
     }
-
+    //Lấy toàn bộ dữ liệu
     getAll() {
         this.listen = employeeService.listenAllEmployee((listData) => {
             this.setState({listEmployee: listData});
             this.listData = listData;
         })
     }
-
+    //Tìm kiểm nhân viên
     searchAllUser(event) {
         event.preventDefault();
         let searchKey = this.state.searchKey.toUpperCase();
@@ -68,25 +68,25 @@ class MonthTableJapan extends React.Component {
         });
         this.setState({listEmployee: listEmployee})
     }
-
+    //Thoát tìm kiếm
     exitSearch() {
         this.setState({listEmployee: this.listData, searchKey: ''});
     }
 
-
+    //Thay đổi giá trị tìm kiếm
     changeKey(event) {
         this.setState({
             searchKey: event.target.value
         });
     }
 
-
+    //Đóng mở của sổ thêm mới nhân viên
     toggle() {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
     }
-
+    //Tạo danh sách nhân viên
     renderListData() {
         return this.state.listEmployee.map((employee) => {
             return <MonthdataJapan

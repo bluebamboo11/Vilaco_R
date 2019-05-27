@@ -7,7 +7,7 @@ import * as moment from 'moment';
 import {setUserData} from "../../redux/actions";
 
 require('moment/locale/vi');
-
+//Tab cập nhật thông tin cá nhân học viên
 class Setting extends React.Component {
     constructor(props) {
         super(props);
@@ -22,24 +22,27 @@ class Setting extends React.Component {
         }
     }
 
-
+    //Thay đổi giá trị
     onInputChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
-
+    //Thay đổi giá trị thời gian
     onDateChange(date) {
         this.setState({
             birthday: date
         });
     }
+    //Đóng thông báo
     onDismiss(){
         this.setState({ visibleAlert: false });
     }
+    //Đóng thonog báo cảnh bảo
     onDismissWarning(){
         this.setState({ visibleWarning: false });
     }
+    //Cập nhật
     doUpdate(event) {
         event.preventDefault();
        this.setState({isUpdate:true,visibleAlert: false});

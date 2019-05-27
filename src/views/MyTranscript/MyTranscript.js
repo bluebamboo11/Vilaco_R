@@ -17,7 +17,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableBody from "@material-ui/core/TableBody";
 
-
+//Trang quản lý bảng điểm của học viên
 class MyTranscript extends React.Component {
     constructor(props) {
         super(props);
@@ -31,9 +31,8 @@ class MyTranscript extends React.Component {
         this.renderTranscriptEducation = this.renderTranscriptEducation.bind(this);
 
     }
-
+    //Lấy danh sách bảng diểm của học viên
     componentDidMount() {
-        console.log(this.props.user.uid);
         transcriptService.getAllDatabyUser(this.props.user.uid,  (listTranscript) =>{
             listTranscript.sort((a, b) => {
                 return moment(a.month, 'MM-YYYY').diff(moment(b.month, 'MM-YYYY'))
@@ -42,6 +41,7 @@ class MyTranscript extends React.Component {
         })
 
     }
+    //Tạo giao diện bảng điểm tiếng nhật
     renderTranscriptJapanese() {
         return this.state.listTranscript.map((row, index) => (
             <TableRow key={row.month} className={index % 2 === 0 ? 'cell-c' : ''}>
@@ -55,7 +55,7 @@ class MyTranscript extends React.Component {
                 <TableCell className="p-0 text-center color-red">  {row.scholarshipJapan && <Badge color="danger">Học bổng</Badge>}</TableCell>
             </TableRow>))
     }
-
+    //Tạo giao diện điểm thể chất
     renderTranscriptHealth() {
         return this.state.listTranscript.map((row, index) => (
             <TableRow key={row.month} className={index % 2 === 0 ? 'cell-c' : ''}>
@@ -70,7 +70,7 @@ class MyTranscript extends React.Component {
                 <TableCell className="p-0 text-center color-red">  {row.scholarshipHealth && <Badge color="danger">Học bổng</Badge>}</TableCell>
             </TableRow>))
     }
-
+    //Tạo giao diện điểm giáo dục định hướng
     renderTranscriptEducation() {
         return this.state.listTranscript.map((row, index) => (
             <TableRow key={row.month} className={index % 2 === 0 ? 'cell-c' : ''}>
@@ -82,7 +82,7 @@ class MyTranscript extends React.Component {
             </TableRow>))
     }
 
-
+    //Tọa giao diện toàn trang
     render() {
 
         return <div>

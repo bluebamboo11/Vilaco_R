@@ -2,24 +2,9 @@ import React from 'react';
 import {connect} from "react-redux";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
-
+//Thông tin giáo viên trong CardProfileTeacher.jsx
 class InfoTeacher extends React.Component {
-    constructor(props) {
-        super(props);
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-            activeTab: '1'
-        };
-    }
-
-    toggle(tab) {
-        if (this.state.activeTab !== tab) {
-            this.setState({
-                activeTab: tab
-            });
-        }
-    }
-
+    
     render() {
         let { phone, gender, skype,facebook,startDay} = this.props.user;
         return (

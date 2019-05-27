@@ -12,7 +12,7 @@ import MyClass from "../views/MyClass/MyClass";
 import MyTranscript from "../views/MyTranscript/MyTranscript";
 import MyTranscriptClass from "../views/MyTranscriptClass/MyTranscriptClass";
 
-
+//Cấu hình đường dẫn của menu quán lý, giáo viên
 export const ThemeRoutes = [
   {
     navlabel: true,
@@ -90,7 +90,7 @@ export const ThemeRoutes = [
     redirect: true
   }
 ];
-
+//Cấu hình đường dẫn menu hoc viên
 export const studentRoutes =
     [
       {

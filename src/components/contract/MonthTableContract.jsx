@@ -18,7 +18,7 @@ import MonthDataContract from "./MonthDataContract";
 import DialogAddContract from "./DialogAddContract";
 import {addListContract, addListEmployee} from "../../redux/actions";
 
-
+//Tạo bảng danh sách đơn hàng
 class MonthTableContract extends React.Component {
     constructor(props) {
         super(props);
@@ -48,12 +48,12 @@ class MonthTableContract extends React.Component {
 
     }
 
-
+    //Lây dữ liệu đơn hàng ngay khi load trang
     componentDidMount() {
         this.getAll()
     }
 
-
+    //Lây dữ liệu
     getAll() {
         contractService.getAllContract((listData, listEmployee) => {
             this.props.dispatch(addListEmployee(listEmployee));
@@ -61,7 +61,7 @@ class MonthTableContract extends React.Component {
             this.listData = listData;
         })
     }
-
+    //Tìm kiểm đơn hàng
     searchAllUser(event) {
         event.preventDefault();
         let searchKey = this.state.searchKey.toUpperCase();
@@ -75,25 +75,25 @@ class MonthTableContract extends React.Component {
         });
         this.props.dispatch(addListContract(listContract));
     }
-
+    //Thêm mới đơn hàng
     addContract(data) {
         contractService.addNewContract(data).then((docRef) => {
             data.id = docRef.id;
             this.props.dispatch(addListContract([data].concat(this.props.listContract)));
         })
     }
-
+    //Thoát tim kiếm
     exitSearch() {
         this.props.dispatch(addListContract(this.listData));
     }
-
+    //Thay đổi giá trị tìm kiếm
     changeKey(event) {
         this.setState({
             searchKey: event.target.value
         });
     }
 
-
+    //Đóng mởi của sổ thêm mới
     toggle() {
         this.setState(prevState => ({
             modal: !prevState.modal,
@@ -111,7 +111,7 @@ class MonthTableContract extends React.Component {
             }
         }));
     }
-
+    //Tạo danh sách đơn hàng
     renderListData() {
         if (this.props.listContract) {
             return this.props.listContract.map((contract) => {

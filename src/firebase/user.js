@@ -4,20 +4,22 @@ import {store} from "../index";
 import {isProcessAll} from "../redux/actions";
 
 // User API
-
+//Tạo mới thông tin một tài khoản
 export const doCreateUser = (id, user) => {
     user.timestamp = firebase.firestore.FieldValue.serverTimestamp();
     user.validate = false;
     return db.collection("user").doc(id).set(userBo(user));
 };
+//Tạo tài khoản test
 export const doCreateUserTest = (user) => {
     user.timestamp = firebase.firestore.FieldValue.serverTimestamp();
     user.validate = false;
     return db.collection("user").add(userBo(user));
 };
+//Cập nhật tài khoản
 export const doUpdateUser = (id, user) =>
     db.collection("user").doc(id).update(user);
-
+//Lấy thông tin một tài khoản theo id
 export const getOneUser = (uid, callback) => {
     if (!uid) {
         return callback()
@@ -33,6 +35,7 @@ export const getOneUser = (uid, callback) => {
         callback()
     });
 };
+//Kiểm tra quyền của tài khoản
 export const getAccess = (uid, type, callback) => {
     db.collection("security").doc('role').collection(type).doc(uid).get().then((doc) => {
         if (doc.exists) {
@@ -42,6 +45,7 @@ export const getAccess = (uid, type, callback) => {
         }
     })
 };
+//Kiểm tra tài khoản xác thực
 export const checkActive = (uid, callback) => {
     getOneUser(uid, (data) => {
         if (data) {
@@ -57,7 +61,7 @@ export const checkActive = (uid, callback) => {
         }
     })
 };
-
+//Tìm kiếm tài khoản
 export const searchAllUser = (searchKey, type, callback) => {
     if (searchKey) {
         store.dispatch(isProcessAll(true));
@@ -82,7 +86,7 @@ export const searchAllUser = (searchKey, type, callback) => {
     }
 
 };
-
+//Lấy tất cả tài khoản
 export const getAllUser = (next, type, validate, callback) => {
     store.dispatch(isProcessAll(true));
     let first = db.collection("user").where('type', '==', type).orderBy("timestamp", 'desc').limit(25);
@@ -116,7 +120,7 @@ export const getAllUser = (next, type, validate, callback) => {
     });
 
 };
-
+//Lấy học viên theo hợp đồng
 export const getAllStudentByContract = (contractId, callback) => {
     db.collection("user").where('type', '==', 'student').where('contractId', '==', contractId).orderBy("timestamp").get().then(function (documentSnapshots) {
         let listUser = [];
@@ -130,6 +134,7 @@ export const getAllStudentByContract = (contractId, callback) => {
     });
 
 };
+// lấy học viên theo lớp học
 export const getAllStudentByClass = (classId, callback) => {
     db.collection("user").where('type', '==', 'student').where('classId', '==', classId).orderBy("timestamp").get().then(function (documentSnapshots) {
         let listUser = [];
@@ -143,6 +148,7 @@ export const getAllStudentByClass = (classId, callback) => {
     });
 
 };
+//Lây tất cả tài khoản admin
 export const getAllAdmin = ( callback) => {
     store.dispatch(isProcessAll(true));
     db.collection("user").where('type', '==', 'teacher').where('admin', '==', true).orderBy("timestamp").get().then(function (documentSnapshots) {
@@ -158,6 +164,7 @@ export const getAllAdmin = ( callback) => {
     });
 
 };
+//Lấy tất cả học viên
 export const getAllStudent = (next, fieldPath, value, callback) => {
     let first = db.collection("user").where('type', '==', 'student').where(fieldPath, '==', value).orderBy("timestamp", 'desc').limit(25);
     if (next) {

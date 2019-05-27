@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import authRoutes from '../routes/authroutes.jsx';
-
+//quản lý đường dẫn đăng nhập ,đăng ký
 class Blanklayout extends React.Component {
     render() {
       return (

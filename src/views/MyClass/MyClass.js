@@ -10,7 +10,7 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 import {connect} from "react-redux";
 import {userService, classService} from "../../firebase";
 
-
+//Trang lọp hoc của học viên
 class MyClass extends React.Component {
     constructor(props) {
         super(props);
@@ -21,7 +21,7 @@ class MyClass extends React.Component {
         this.state = {listUser: []}
     }
 
-
+    //Lấy dữ liệu lóp học và các thành viên tronng lóp
     componentDidMount() {
         if (this.props.user.classId) {
             userService.getAllStudentByClass(this.props.user.classId, (listUser) => {
@@ -43,7 +43,7 @@ class MyClass extends React.Component {
 
     }
 
-
+    //Tạo các hàng trong bảng lớp hoc
     renderListData() {
         return this.state.listUser.map((user) => {
             return <tr className="row-use" key={user.uid}>
@@ -71,7 +71,7 @@ class MyClass extends React.Component {
         })
 
     }
-
+    //Tiêu đề của bảng
     renderHeader() {
         return (<tr>
             <th
@@ -96,7 +96,7 @@ class MyClass extends React.Component {
 
 
     }
-
+    //Giao diện về thông tin lớp học như 'Bắt đầu' , 'Kết thúc'...
     renderCardClass() {
         if (this.state.class) {
             const {name, startDate, endDate, open} = this.state.class;
@@ -123,7 +123,7 @@ class MyClass extends React.Component {
         return ''
 
     }
-
+//Giao diện về thông tin giáo viên quản lý lóp học...
     renderCardTeacher() {
         if (this.state.teacher) {
             const {name, avatar, phone, gender,skype,facebook} = this.state.teacher;
@@ -153,7 +153,7 @@ class MyClass extends React.Component {
             </Card>
         }
     }
-
+    //Tạo giao diện toàn trang
     render() {
         return (
             <div>

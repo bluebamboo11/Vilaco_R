@@ -13,7 +13,7 @@ import img1 from '../../assets/images/big/anh-dao.jpg';
 import img2 from '../../assets/images/big/kimono.jpg';
 import {contractService, employeeService} from "../../firebase";
 import {connect} from "react-redux";
-
+//Trang học viên kiểm tra hợp đông của mình
 class MyContract extends React.Component {
     constructor(props) {
         super(props);
@@ -26,13 +26,12 @@ class MyContract extends React.Component {
         this.renderCardContract = this.renderCardContract.bind(this);
         this.renderEmployee = this.renderEmployee.bind(this);
     }
-
+    //Lấy thông tin hợp đống và nhân viên phụ trách
     componentDidMount() {
         if (this.props.user.contractId) {
             contractService.getContractById(this.props.user.contractId).then((doc) => {
                 const contract = doc.data();
                 this.setState({contract: contract, isLoadContract: false});
-                console.log(contract);
                 if (contract.employeeId) {
                     employeeService.getOneEmployee(contract.employeeId).then((doc2) => {
                         this.setState({employee: doc2.data(), isLoadEmployee: false});
@@ -47,7 +46,7 @@ class MyContract extends React.Component {
         }
 
     }
-
+    //Tạo giao diện thông tin hợp đồng
     renderCardContract() {
         if (this.state.isLoadContract) {
             return ''
@@ -76,7 +75,7 @@ class MyContract extends React.Component {
             </CardBody>
         </Card>
     }
-
+    //Tạo giao diện thông tin nhân viên quản lý
     renderEmployee() {
         if (this.state.isLoadEmployee) {
             return ''
@@ -106,7 +105,7 @@ class MyContract extends React.Component {
             </CardBody>
         </Card>
     }
-
+    //Tạo giao diện toàn trang
     render() {
 
 

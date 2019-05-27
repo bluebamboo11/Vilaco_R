@@ -9,7 +9,7 @@ import {connect} from "react-redux";
 import CardProfileTeacher from "../../components/dashboard-components/card-profile/CardProfileTeacher";
 
 
-
+//Trang quản lý giáo viên gồm 2 thành phần  <MonthTable type="teacher"/> và   <CardProfileTeacher/>
 class Teacher extends React.Component {
 
     render() {

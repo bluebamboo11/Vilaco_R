@@ -8,7 +8,7 @@ export default class Avatar extends Component {
 
     }
 
-
+    //tạo giao diên avatar
     render() {
         return (
             <div

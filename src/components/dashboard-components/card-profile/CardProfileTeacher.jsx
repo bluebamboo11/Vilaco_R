@@ -21,7 +21,7 @@ import ListClass from "./ListClass";
 import Loading from "../../Loading/Loading";
 import ConfirmDialogSuperAdmin from "../../Dialog/ConfirmDialogSuperAdmin";
 
-
+//Thông tin giáo viên trong trang quản lý giáo viên
 class CardProfileTeacher extends React.Component {
     constructor(props) {
         super(props);
@@ -46,13 +46,13 @@ class CardProfileTeacher extends React.Component {
     handleChange = (event, value) => {
         this.setState({value});
     };
-
+    //Đóng mở của sổ xóa giáo viên
     toggle() {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
     }
-
+    //Xóa giáo viên
     removeUser() {
         this.props.dispatch(isProcessAll(true));
         this.toggle();
@@ -64,7 +64,7 @@ class CardProfileTeacher extends React.Component {
             this.props.dispatch(selectStudent(null));
         })
     }
-
+    //xác nhận giáo viên
     validateUser() {
         this.props.dispatch(isProcessAll(true));
         adminService.validateUser(this.props.userSelect.uid, this.props.userSelect.type, () => {
@@ -82,7 +82,7 @@ class CardProfileTeacher extends React.Component {
             this.props.dispatch(addListUser(this.props.listUser.concat()));
         })
     }
-
+    //Thêm giáo viên vào lớp học
     addClass(id) {
         this.props.dispatch(isProcessAll(true));
         classService.updateClass({teacherId: this.props.userSelect.uid}, id).then(() => {
@@ -96,14 +96,14 @@ class CardProfileTeacher extends React.Component {
             })
         });
     }
-
+    //Tạo trạng thái xác thực
     renderValidate() {
         if (this.props.userSelect.validate) {
             return <Badge color="success" style={{fontSize: 10}}>Xác thực</Badge>
         }
         return <Badge color="warning" style={{fontSize: 10}}> Chưa xác thực</Badge>
     }
-
+    //Tạo tag admin
     renderAdmin() {
         if (this.props.userSelect.superAdmin) {
             return <Badge color="warning" style={{fontSize: 10, marginLeft: 10, color: 'white'}}>Quản trị viên</Badge>
@@ -115,15 +115,15 @@ class CardProfileTeacher extends React.Component {
         return ''
     }
 
-
+    //Mở của sổ thêm lớp học
     openAddClass() {
         this.addClassDialog.handleClickOpen()
     }
-
+    //Mở của sổ xác nhận quển siêu quản trị
     openDialogSuperAdmin() {
         this.confirmDialogSuperAdmin.handleClickOpen()
     }
-
+    //xác nhận giáo viên là admin
     setAdmin() {
         this.props.dispatch(isProcessAll(true));
         const admin = this.props.userSelect.admin;
@@ -144,7 +144,7 @@ class CardProfileTeacher extends React.Component {
             this.props.dispatch(addListUser(this.props.listUser.concat()))
         })
     }
-
+    //Xác nhận giáo viên là quản trị viên cao cấp
     setSuperAdmin() {
         this.props.dispatch(isProcessAll(true));
         adminService.setSuperAdmin(this.props.userSelect.uid, this.props.user.uid, () => {

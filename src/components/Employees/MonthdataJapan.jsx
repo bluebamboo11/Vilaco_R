@@ -2,13 +2,13 @@ import React from 'react';
 import {connect} from "react-redux";
 import {isLoadSelect, selectEmployee} from "../../redux/actions";
 import {contractService} from "../../firebase";
-
+// hàng trong Bảng danh sách nhân viên phòng nhật
 class MonthdataJapan extends React.Component {
     constructor(props) {
         super(props);
         this.select = this.select.bind(this);
     }
-
+    //Chọn một nhân viên
     select() {
         this.props.dispatch(selectEmployee(this.props.employee));
         this.props.dispatch(isLoadSelect(true));

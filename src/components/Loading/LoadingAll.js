@@ -4,7 +4,7 @@ import jsonAni from '../../assets/animation/4251-plant-office-desk';
 import {connect} from "react-redux";
 
 
-
+//Hiệu ứng chờ tải trang
 class LoadingAll extends React.Component {
 
     render() {

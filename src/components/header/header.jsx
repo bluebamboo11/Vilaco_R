@@ -12,12 +12,16 @@ import {
 /*--------------------------------------------------------------------------------*/
 /* Import images which are need for the HEADER                                    */
 /*--------------------------------------------------------------------------------*/
+//logo bình thường
 import logodarkicon from '../../assets/images/logo-icon.png';
+//logo mode dark
 import logolighticon from '../../assets/images/logo-light-icon.png';
+//logo dạng text tên công ty
 import logodarktext from '../../assets/images/logo-text.png';
+//logo dạng text tên công ty mode dark
 import logolighttext from '../../assets/images/logo-light-text.png';
 
-
+//Đầu trang web gồm logo tên
 class Header extends React.Component {
   constructor(props) {
     super(props);

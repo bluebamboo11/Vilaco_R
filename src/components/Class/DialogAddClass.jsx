@@ -13,7 +13,7 @@ import Switch from "@material-ui/core/Switch";
 
 
 
-
+//Cửa sổ chỉnh sửa thêm mới lớp học
 class DialogAddClass extends React.Component {
     constructor(props) {
         super(props);
@@ -27,36 +27,39 @@ class DialogAddClass extends React.Component {
         this.handleChangeOpen = this.handleChangeOpen.bind(this);
         this.state = props.classData
     }
-
+    //đặt lại giá trị của lớp học khi chỉnh sửa
     onInputChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
+
+    //
     handleChangeOpen(event){
         this.setState({open: event.target.checked });
     }
+    //Đặt lại giá trị ngày tháng
     onDateChange(date, key) {
         this.setState({
             [key]: date.format('DD/MM/YYYY')
         });
     }
-
+    //Thêm mới lớp học
     add() {
         this.props.toggle();
         this.props.add(this.state)
     }
-
+    //Tạo giao diên ô nhập ngày kết thúc
     renderEndDate(props) {
         return <Input {...props} value={this.state.endDate}
                       placeholder="Ngày / Tháng / Năm" invalid={!this.state.endDate}/>
     }
-
+    //Tạp giao diên ô nhập ngay bắt đầu
     renderStartDate(props) {
         return <Input {...props} value={this.state.startDate}
                       placeholder="Ngày / Tháng / Năm" invalid={!this.state.startDate}/>
     }
-
+    //Tạo giao diện ô chon giáo viên
     renderOptionTeacher() {
         if (this.props.listTeacher) {
             return this.props.listTeacher.map((teacher) => {
@@ -64,9 +67,11 @@ class DialogAddClass extends React.Component {
             })
         }
     }
+    //chọn lớp học khi mở của sổ
     open(){
         this.setState(this.props.classData);
     }
+    //Tạo giao diện của sổ
     render() {
         let {name, teacherId,id,open} = this.state;
         let title = 'Thêm lớp học';

@@ -6,20 +6,20 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 
 
-
+//Menu chon các tính năng chỉnh sửa trong trang quản lý học viên, giáo viên
 class LongMenu extends React.Component {
     state = {
         anchorEl: null,
     };
-
+    //Click chọn một chức năng
     handleClick = event => {
         this.setState({anchorEl: event.currentTarget});
     };
-
+    //Đóng menu
     handleClose = () => {
         this.setState({anchorEl: null});
     };
-
+    //Tạo menu
     render() {
         const {anchorEl} = this.state;
         const open = Boolean(anchorEl);

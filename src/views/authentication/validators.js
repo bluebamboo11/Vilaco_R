@@ -1,3 +1,5 @@
+//Hàm kiểm tra các mẫu đăng ký(email.pass)
+
 const validator = {
 
   'email': {

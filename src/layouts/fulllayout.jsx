@@ -9,7 +9,7 @@ import {connect} from "react-redux";
 import {isLoading, setUser, setUserData} from "../redux/actions";
 
 
-
+//quản lý đường dẫn của menu các chức năng
 class Fulllayout extends React.Component {
     /*--------------------------------------------------------------------------------*/
     /*Change the layout settings [HEADER,SIDEBAR && DARK LAYOUT] from here            */
@@ -22,7 +22,7 @@ class Fulllayout extends React.Component {
         this.state = {
             routes:[],
             isOpen: false,
-            isLogin: true,
+            isLogin: false,
             width: window.innerWidth,
             isLoad: true,
             registered: true,
@@ -78,6 +78,8 @@ class Fulllayout extends React.Component {
                         userService.getAccess(use.uid, data.type, (access) => {
                             if (!access || !access.validate) {
                                window.location.href = '/xac-thuc/mau-dang-ky'
+                            }else {
+                                this.setState({isLogin:true})
                             }
                             this.props.dispatch(isLoading(false))
                         })
@@ -200,13 +202,10 @@ class Fulllayout extends React.Component {
 
     render() {
         const {routes} = this.state;
-        if (!this.state.registered) {
-            return <Redirect to={'/authentication/mau-dang-ky'}/>
-        }
-        if (!this.state.isLogin) {
-            return <Redirect to={'/authentication/login'}/>
-        }
 
+        if (!this.state.isLogin) {
+            return ''
+        }
         /*--------------------------------------------------------------------------------*/
         /* Theme Setting && Layout Options wiil be Change From Here                       */
         /*--------------------------------------------------------------------------------*/

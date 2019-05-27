@@ -10,7 +10,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import {withStyles} from '@material-ui/core/styles';
 import {Button} from "reactstrap";
 
-
+//của sổ thêm lớp học,đơn hàng cho học viên,
 class ContractDialog extends React.Component {
     constructor(props) {
         super(props);
@@ -25,7 +25,7 @@ class ContractDialog extends React.Component {
         };
         this.props.refDialog(this)
     }
-
+    //Mở của sổ
     handleClickOpen = (value) => {
         this.setState({open: true, value: value});
     };
@@ -33,13 +33,15 @@ class ContractDialog extends React.Component {
     handleEntering = () => {
         this.radioGroupRef.focus();
     };
+    //Đóng của sổ
     handleClose = () => {
         this.setState({open: false});
     };
+    //Thay đổi giá trị chọn
     handleChange = (event, value) => {
         this.setState({value});
     };
-
+    //Lưu
     handleSave() {
         this.handleClose();
         this.props.options.forEach(option=>{
@@ -50,7 +52,7 @@ class ContractDialog extends React.Component {
         })
 
     }
-
+    //Tạo danh sách lựa chọn
     renderOptions() {
         if (this.props.options && this.props.options.length > 0) {
             return this.props.options.map(option => (

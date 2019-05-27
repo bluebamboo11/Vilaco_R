@@ -8,7 +8,7 @@ import TableBody from "@material-ui/core/TableBody";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
 
-
+//bảng điểm trong card-prpfile.jsx
 class Transcript extends React.Component {
     constructor(props) {
         super(props);

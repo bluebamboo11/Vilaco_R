@@ -2,7 +2,7 @@ import React from 'react';
 import {Alert, Button, Card, CardBody, Col, Form, FormGroup, Input, Label, Row, Spinner} from "reactstrap";
 import validators from "../../views/authentication/validators";
 import {auth} from "../../firebase";
-
+//Tab thay đổi mật khẩu
 class ChangePassword extends React.Component {
     constructor(props) {
         super(props);
@@ -16,21 +16,19 @@ class ChangePassword extends React.Component {
         this.validators = validators;
     }
 
-    componentDidMount() {
 
-    }
-
+    //Tắt thông báo
     onDismiss() {
         this.setState({visibleAlert: false});
     }
-
+    //Thay đổi dữ liệu
     onInputChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
         this.formValidators([event.target.name], event.target.value);
     }
-
+    //Kiểm tra nhập chính xác định dạng hay không
     formValidators(fieldName, value) {
         this.validators[fieldName].errors = [];
         this.validators[fieldName].state = value;
@@ -50,7 +48,7 @@ class ChangePassword extends React.Component {
         });
     }
 
-
+    //Kiểm tra nhập chính xác tất cả chưa
     validForm() {
         let status = true;
         Object.keys(this.validators).forEach(field => {
@@ -63,7 +61,7 @@ class ChangePassword extends React.Component {
 
         return status;
     }
-
+    //Hiển thị thông báo lỗi
     showErrors(fieldName) {
         const result = '',
             validator = this.validators[fieldName];
@@ -82,7 +80,7 @@ class ChangePassword extends React.Component {
         return result;
 
     }
-
+    //Lây thông báo lỗi khi lưu thay đổi mật khẩu. server trả lại
     getError(code) {
         switch (code) {
             case 'auth/wrong-password':
@@ -95,7 +93,7 @@ class ChangePassword extends React.Component {
                 return;
         }
     }
-
+    //Đổi mật khẩu
     onChange(event) {
         event.preventDefault();
         this.setState({isUpdate: true, visibleAlert: false});

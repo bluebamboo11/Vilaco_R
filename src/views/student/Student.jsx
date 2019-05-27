@@ -9,7 +9,7 @@ import {
 import {connect} from "react-redux";
 
 
-
+//Trang quản lý học viên gồm 2 thành phần    <MonthTable type="student"/> và   <CardProfile/>
 class Student extends React.Component {
 
     render() {

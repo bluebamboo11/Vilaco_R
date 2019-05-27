@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {FormGroup, Input, Label} from "reactstrap";
-
+//Bước 2 chọn lọa tài khoản
 export default class Step2 extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
 		this.onInputChange = this.onInputChange.bind(this);
 	}
-
+	//đặt lại tài khoản khi người dùng chòn
 	onInputChange(event) {
 		let userData = {...this.props.userData};
 		userData['type'] = event.target.value;

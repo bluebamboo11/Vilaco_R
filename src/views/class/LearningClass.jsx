@@ -3,7 +3,8 @@ import {Row, Col} from 'reactstrap';
 import MonthTableClass from "../../components/Class/MonthTableClass";
 import CardInfoClass from "../../components/Class/CardInfoClass";
 
-
+//Trang quản lý lợp học
+//Gồm 2 thành phần  <MonthTableClass /> nằm trong ../components/Class/MonthTableClass và   <CardInfoClass/> nằm trong /../components/Class/CardInfoClass"
 class LearningClass  extends React.Component {
 
     render() {

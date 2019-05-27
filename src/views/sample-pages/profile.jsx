@@ -25,8 +25,9 @@ import ImageUploader from "react-images-upload";
 import Spinner from "reactstrap/es/Spinner";
 import {setUserData} from "../../redux/actions";
 
+//Trang thông tin cá nhân của người dùng
 class Profile extends React.Component {
-    // Tabs
+
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
@@ -39,7 +40,7 @@ class Profile extends React.Component {
             isUpAvatar: false
         };
     }
-
+    //Chọn các tab
     toggle(tab) {
         if (this.state.activeTab !== tab) {
             this.setState({
@@ -48,15 +49,12 @@ class Profile extends React.Component {
         }
     }
 
-
-    componentDidMount() {
-
-    }
-
+    //Tạo giao diện nội dung cho mỗi tab
     renderTabContent() {
         if (!this.props.userData.type) {
             return ''
         }
+        //nếu là học viên
         if (this.props.userData.type !== 'student') {
             return <TabContent activeTab={this.state.activeTab}>
                 <TabPane tabId="1">
@@ -67,6 +65,7 @@ class Profile extends React.Component {
                 </TabPane>
             </TabContent>
         }
+        //Nếu là giáo viên
         return <TabContent activeTab={this.state.activeTab}>
             <TabPane tabId="1">
                 <Info/>
@@ -79,7 +78,7 @@ class Profile extends React.Component {
             </TabPane>
         </TabContent>
     }
-
+    //Tạo giao diên tab
     renderTab() {
         if (this.props.userData.type !== 'student') {
             return <Nav tabs>
@@ -150,7 +149,7 @@ class Profile extends React.Component {
     }
 
     index = 0;
-
+    // Up ảnh avatar người dùng thay đổi
     onDrop(picture) {
         this.setState({isUpAvatar: true});
         storage.upAvatar(this.props.user.uid, picture[this.index], (url) => {
@@ -165,6 +164,7 @@ class Profile extends React.Component {
 
     }
 
+    //Tạo giao diện chờ khi đang up ảnh
     renderLoadImg() {
         if (!this.state.isUpAvatar) {
             return ''
@@ -172,7 +172,7 @@ class Profile extends React.Component {
         return <div className="mark-avatar justify-content-center align-items-center"><Spinner
             style={{width: '3rem', height: '3rem'}} color="warning"/></div>
     }
-
+    //Tạo giao diện toàn trang
     render() {
         let {name, avatar} = this.props.userData;
 

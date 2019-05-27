@@ -20,7 +20,7 @@ import DialogAddJapan from "./DialogAddJapan";
 import {employeeService} from "../../firebase";
 import { selectEmployee} from "../../redux/actions";
 
-
+//Thông tin của nhân viên trong trang quản lý nhân viên phòng nhật
 class CardInfoJapan extends React.Component {
     constructor(props) {
         super(props);
@@ -31,13 +31,13 @@ class CardInfoJapan extends React.Component {
         this.state = {modal: false,modalRemove:false}
 
     }
-
+    //Đóng mở của sổ chỉnh sủa
     toggle() {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
     }
-
+    //Tạo bảng danh sách đơn hàng nhân viên quản lý
     renderTable() {
         if (this.props.employee.listContract && this.props.employee.listContract.length > 0) {
             return (
@@ -68,17 +68,20 @@ class CardInfoJapan extends React.Component {
         </div>)
 
     }
+    //Mở của sổ xác nhận xóa nhân viên
     toggleRemove(){
         this.setState(prevState => ({
             modalRemove: !prevState.modalRemove
         }));
     }
+    //Xóa nhân viên
     removeEmployee(){
         this.toggleRemove();
         employeeService.removeEmployee(this.props.employee.id).then(()=>{
             this.props.dispatch(selectEmployee(null))
         })
     }
+    //Tạo giao diện tổng
     render() {
         const admin = this.props.user.admin||this.props.user.superAdmin;
         if (!this.props.employee) {

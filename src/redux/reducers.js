@@ -38,7 +38,7 @@ const initialState = {
     loadAll: false,
     student: null,
 };
-
+//QUan lý dữ liệu toàn trang
 export function todoApp(state = initialState, action) {
     switch (action.type) {
         case SET_USER:

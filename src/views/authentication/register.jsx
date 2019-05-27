@@ -19,7 +19,7 @@ const sidebarBackground = {
     'backgroundPosition': 'bottom center',
     'backgroundRepeat': 'no-repeat'
 };
-
+//Trang đăng ký
 class Register extends React.Component {
     constructor(props) {
         super(props);
@@ -32,7 +32,7 @@ class Register extends React.Component {
         this.validators = validators;
         this.state = {email: '', password: '', password2: '',  isShow: false}
     }
-
+    //Gủi thông tin đăng ký
     singUp(event) {
         event.preventDefault();
         auth.doCreateUserWithEmailAndPassword(this.state.email, this.state.password).then(() => {
@@ -50,20 +50,20 @@ class Register extends React.Component {
         });
 
     }
-
+    //Đặt giá trị cho ô input
     onInputChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
         this.formValidators([event.target.name], event.target.value);
     }
-
+    //Đặt giá trị cho checkbox
     onCheckBoxChange() {
         this.setState((state) => {
             return {...state, isShow: !state.isShow};
         });
     }
-
+    //Kiểm tra email ,pass hợp lệ hay không
     formValidators(fieldName, value) {
         this.validators[fieldName].errors = [];
         this.validators[fieldName].state = value;
@@ -83,7 +83,7 @@ class Register extends React.Component {
         });
     }
 
-
+    // kiểm tra trạng thái có thể đăng nhập hay không (Check email,pass)
     validForm() {
         let status = true;
         Object.keys(this.validators).forEach(field => {
@@ -95,7 +95,7 @@ class Register extends React.Component {
         });
         return status;
     }
-
+//Hiện thị thông báo lỗi
     showErrors(fieldName) {
         const result = '',
             validator = this.validators[fieldName];
@@ -111,7 +111,7 @@ class Register extends React.Component {
         return result;
 
     }
-
+    // trả lại thông báo khi lỗi đăng ký
     static getError(code) {
         switch (code) {
             case 'auth/email-already-in-use':
@@ -126,7 +126,7 @@ class Register extends React.Component {
                 return;
         }
     }
-
+    //Tạo giao diện đăng ký
     render() {
 
         return <div className="">

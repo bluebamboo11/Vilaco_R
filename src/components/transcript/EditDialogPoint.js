@@ -7,7 +7,7 @@ import {
 } from 'reactstrap';
 import {medium, total} from "../../views/Transcript/DataConfig";
 
-
+//Cửa sổ câp nhật điểm
 class EditDialogPoint extends React.Component {
     constructor(props) {
         super(props);
@@ -30,14 +30,14 @@ class EditDialogPoint extends React.Component {
         uid:'',
         id:''
     };
-
+    //Thay đổi giá trị
     onInputChange(event) {
         this.setState({
             [event.target.name]: Number(event.target.value)
         });
     }
 
-
+    //Cập nhật
     update() {
         this.props.toggle();
         const data = {...this.state};
@@ -46,7 +46,7 @@ class EditDialogPoint extends React.Component {
         this.props.save(data)
     }
 
-
+    //Mở của sổ
     open() {
         let data = {...this.defauvalue};
         for (let key in data) {

@@ -14,7 +14,7 @@ import Loading from "../../components/Loading/Loading";
 import {columns} from "./DataConfig"
 
 
-
+//Bảng điểm theo lớp học của học viên
 class MyTranscriptClass extends React.Component {
     constructor(props) {
         super(props);
@@ -31,13 +31,9 @@ class MyTranscriptClass extends React.Component {
             classSelect: '1',
             searchKey: ''
         };
-        this.toggle = this.toggle.bind(this);
         this.renderData = this.renderData.bind(this);
-        this.renderButtonEdit = this.renderButtonEdit.bind(this);
-        this.showPopupEdit = this.showPopupEdit.bind(this);
         this.renderTab = this.renderTab.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.save = this.save.bind(this);
         this.setTabMonth = this.setTabMonth.bind(this);
         this.changeKey = this.changeKey.bind(this);
         this.searchAllUser = this.searchAllUser.bind(this);
@@ -45,7 +41,7 @@ class MyTranscriptClass extends React.Component {
     }
 
     listData = [];
-
+    //Lấy dữ liệu học viên của lơp học và  bảng điểm
     componentDidMount() {
         if(this.props.user.classId){
             userService.getAllStudentByClass(this.props.user.classId, (listStudent) => {
@@ -62,7 +58,7 @@ class MyTranscriptClass extends React.Component {
     }
 
 
-
+    //Tạo các tab tháng của bảng điểm
     setTabMonth(listTranscript) {
         let listMonth = [];
         listTranscript.forEach(data => {
@@ -79,36 +75,8 @@ class MyTranscriptClass extends React.Component {
         this.setState({listMonth: listMonth, tab: listMonth.length - 1})
     }
 
-    toggle() {
-        this.setState(prevState => ({
-            modal: !prevState.modal
-        }));
-    }
 
-    showPopupEdit(student) {
-        return () => {
-            this.setState({studentEdit: student});
-            this.toggle();
-        }
-
-    }
-
-    renderButtonEdit(student) {
-        return (
-            <div className="center-item ">
-                <Button
-                    onClick={this.showPopupEdit(student)}
-                    color="info"
-                    size="sm"
-                    className="btn-edit-point"
-                    style={{borderRadius: '100%', width: 30, height: 30}}
-                >
-                    <i className=" ti-pencil"/>
-                </Button>
-
-            </div>)
-    }
-
+    //Tạo các dữ liệ cho bảng điểm
     renderData() {
         let list = this.state.listStudent.map(student => {
             let obj = {
@@ -117,11 +85,9 @@ class MyTranscriptClass extends React.Component {
                 birthday: student.birthday,
 
             };
-            obj.actions = this.renderButtonEdit({uid: student.uid});
             this.state.listTranscript.forEach((data) => {
                 if (data.uid === obj.uid && this.state.listMonth[this.state.tab] === data.month) {
                     obj = {...data, ...obj};
-                    obj.actions = this.renderButtonEdit(data);
                 }
             });
 
@@ -131,6 +97,7 @@ class MyTranscriptClass extends React.Component {
         return list
     }
 
+    //Thay đổi tab tháng của bảng điểm
     handleChange = (event, value) => {
 
         if (value !== this.state.listMonth.length) {
@@ -151,7 +118,7 @@ class MyTranscriptClass extends React.Component {
         }
 
     };
-
+    //Tạo các tab giao diện
     renderTab() {
         const {classes} = this.props;
         const {tab} = this.state;
@@ -174,34 +141,13 @@ class MyTranscriptClass extends React.Component {
     }
 
 
-    save(data) {
-        data.classId = this.state.classSelect;
-        data.month = this.state.listMonth[this.state.tab];
-        transcriptService.save(data).then((docRef) => {
-            if (docRef) {
-                data.id = docRef.id;
-                this.setState(state => {
-                    return {listTranscript: state.listTranscript.concat([data])}
-                })
-            } else {
-                this.state.listTranscript.forEach((transcript, index) => {
-                    if (transcript.id === data.id) {
-                        const listTranscript = this.state.listTranscript.concat();
-                        listTranscript[index] = data;
-                        this.setState({listTranscript: listTranscript})
-                    }
-                })
-            }
-
-        })
-    }
-
+    //đặt giá trị ô tìm kiếm khi thay đổi
     changeKey(event) {
         this.setState({
             searchKey: event.target.value
         });
     }
-
+    //Tìm kiểm học viên
     searchAllUser(event) {
         event.preventDefault();
         let searchKey = this.state.searchKey.toUpperCase();
@@ -211,10 +157,11 @@ class MyTranscriptClass extends React.Component {
         });
         this.setState({listStudent: listStudent});
     }
-
+    //Thoát tìm kiểm
     exitSearch(){
         this.setState({listStudent: this.listData,searchKey:''});
     }
+    //Tọa giao diện toàn trang
     render() {
         if (this.state.loading) {
             return (<div className="w-100 h-100" style={{position: "relative"}}>

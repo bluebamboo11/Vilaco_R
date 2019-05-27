@@ -12,7 +12,7 @@ import CellRanking from "./CellRanking";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import {connect} from "react-redux";
 
-
+//Bẳng xếp hạng điểm
 class Ranking extends React.Component {
     constructor(props) {
         super(props);
@@ -36,11 +36,11 @@ class Ranking extends React.Component {
         this.getTopTranscript = this.getTopTranscript.bind(this);
 
     }
-
+    //Hàm được gọi ngay khi vào trang, gọi đến hàm getTopTranscript
     componentDidMount() {
         this.getTopTranscript(this.state.tab, this.state.month)
     }
-
+    //Lấy dữ liệu 16 người cao điểm nhất theo môn và tháng
     getTopTranscript(tab, month) {
         let type = 'japanese';
         switch (tab) {
@@ -59,12 +59,12 @@ class Ranking extends React.Component {
             this.setState({listTranscript: list, loading: false})
         })
     }
-
+    //Thay đổi các tab
     handleChange = (event, value) => {
         this.setState({tab: value, listTranscript: []});
         this.getTopTranscript(value, this.state.month);
     };
-
+    //Tạo giao diện các tab
     renderTab() {
         const {classes} = this.props;
         const {tab} = this.state;
@@ -90,7 +90,7 @@ class Ranking extends React.Component {
             </Tabs>
         )
     }
-
+    //Thay đổi tháng
     onDateChange(date) {
         this.getTopTranscript(this.state.tab, date);
         this.setState({
@@ -98,7 +98,7 @@ class Ranking extends React.Component {
             listTranscript: []
         });
     }
-
+    //Tạo giao diện tiêu để của bảng
     renderHeader() {
         const admin = this.props.user.admin || this.props.user.superAdmin;
         if (this.state.tab === 0) {
@@ -167,7 +167,7 @@ class Ranking extends React.Component {
         </tr>)
 
     }
-
+    // Tạo danh sách bảng điểm
     renderListData() {
         return this.state.listTranscript.map((transcript) => {
             return <CellRanking
@@ -179,7 +179,7 @@ class Ranking extends React.Component {
         })
 
     }
-
+    //Tạo giao diện toàn trang
     render() {
 
         return (

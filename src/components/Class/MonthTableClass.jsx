@@ -18,7 +18,7 @@ import MonthDataClass from "./MonthDataClass";
 import DialogAddClass from "./DialogAddClass";
 import {addListClass, addListTeacher} from "../../redux/actions";
 
-
+//Bảng các lớp học
 class MonthTableClass extends React.Component {
     constructor(props) {
         super(props);
@@ -44,12 +44,12 @@ class MonthTableClass extends React.Component {
         };
 
     }
-
+    //Lấy thông tin các lớp học ngay khi vừa load trang
     componentDidMount() {
         this.getAll()
     }
 
-
+    //Hàm lấy thông tin
     getAll() {
         classService.getAllClass((listClass, listTeacher) => {
             this.props.dispatch(addListClass(listClass));
@@ -57,7 +57,7 @@ class MonthTableClass extends React.Component {
             this.listData = listClass;
         })
     }
-
+    //Tìm kiểm lớp học
     searchAllUser(event) {
         event.preventDefault();
         let searchKey = this.state.searchKey.toUpperCase();
@@ -71,32 +71,32 @@ class MonthTableClass extends React.Component {
         });
         this.props.dispatch(addListClass(listClass));
     }
-
+    //Thêm lớp học
     add(data) {
         classService.addNewClass(data).then((docRef) => {
             data.id = docRef.id;
             this.props.dispatch(addListClass(this.props.listClass.concat([data])))
         })
     }
-
+    //Thoát tìm kiểm
     exitSearch() {
         this.props.dispatch(addListClass(this.listData));
         this.setState({searchKey: ''});
     }
-
+    //Thay đổi giá trị tìm kiếm
     changeKey(event) {
         this.setState({
             searchKey: event.target.value
         });
     }
 
-
+    //đóng mở cửa sổ thêm mới
     toggle() {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
     }
-
+    //Tạo danh sách lớp học
     renderListData() {
         if (this.props.listClass && this.props.listTeacher) {
             return this.props.listClass.map((data) => {
@@ -108,7 +108,7 @@ class MonthTableClass extends React.Component {
             })
         }
     }
-
+    //Hàm tạo giao diện
     render() {
         const admin = this.props.user.admin || this.props.user.superAdmin;
         return (

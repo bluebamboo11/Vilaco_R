@@ -2,24 +2,8 @@ import React from 'react';
 import {connect} from "react-redux";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
-
+//Thông tin hoc viên trong card-prpfile.jsx
 class InfoStudent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-            activeTab: '1',
-            contractName: ''
-        };
-    }
-
-    toggle(tab) {
-        if (this.state.activeTab !== tab) {
-            this.setState({
-                activeTab: tab
-            });
-        }
-    }
 
 
     render() {

@@ -21,7 +21,7 @@ import ContractDialog from "../../ContractDialog/ContractDialog";
 import Loading from "../../Loading/Loading";
 import StatusDialog from "../../Dialog/StatusDialog";
 
-
+//Thông tin học viên trong trang quản lý học viên
 class CardProfile extends React.Component {
     constructor(props) {
         super(props);
@@ -47,13 +47,13 @@ class CardProfile extends React.Component {
     handleChange = (event, value) => {
         this.setState({value});
     };
-
+    //Đóng mở của sổ xóa tài khoản
     toggle() {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
     }
-
+    //xóa tài khoản
     removeUser() {
         this.toggle();
         this.props.dispatch(isProcessAll(true));
@@ -65,7 +65,7 @@ class CardProfile extends React.Component {
             this.props.dispatch(selectStudent(null));
         })
     }
-
+    //Xác nhận tài khoản
     validateUser() {
         adminService.validateUser(this.props.userSelect.uid, this.props.userSelect.type, () => {
             let user = {...this.props.userSelect};
@@ -73,24 +73,26 @@ class CardProfile extends React.Component {
             this.updateUser(user)
         })
     }
-
+    //Tạo trạng thái xác nhận
     renderValidate() {
         if (this.props.userSelect.validate) {
             return <Badge color="success" style={{fontSize: 10}}>Xác thực</Badge>
         }
         return <Badge color="warning" style={{fontSize: 10}}> Chưa xác thực</Badge>
     }
-
+    //Mở của sổ thêm hợp đồng
     openPopupAddContract() {
         this.responsiveDialog.handleClickOpen()
     }
-
+    //Mở của sổ thêm lớp học
     openAddClass() {
         this.addClassDialog.handleClickOpen(this.props.userSelect.classId)
     }
+    //Mở của sổ thêm trạng thái học viên
     openStatusDialog(){
         this.statusDialog.handleClickOpen()
     }
+    //THêm hợp đồng vào học viên
     addContract(contract) {
         this.props.dispatch(isProcessAll(true));
         userService.doUpdateUser(this.props.userSelect.uid, {contractId: contract.id}).then(() => {
@@ -101,7 +103,7 @@ class CardProfile extends React.Component {
             this.updateUser(user)
         })
     }
-
+    //Thêm học viên vào lớp học
     addClass(classData) {
         this.props.dispatch(isProcessAll(true));
         userService.doUpdateUser(this.props.userSelect.uid, {classId: classData.id}).then(() => {
@@ -112,7 +114,7 @@ class CardProfile extends React.Component {
             this.updateUser(user)
         })
     }
-
+    //cập nhật giao diện khi chỉnh sửa
     updateUser(newUser) {
         this.props.listUser.forEach((user, index) => {
             if (user.uid === newUser.uid) {
@@ -122,7 +124,7 @@ class CardProfile extends React.Component {
         this.props.dispatch(selectStudent(newUser));
         this.props.dispatch(addListUser(this.props.listUser.concat()));
     }
-
+    //Cập nhật trạng thái học viên
     updateStatus(value) {
         userService.doUpdateUser(this.props.userSelect.uid, {status: value}).then(() => {
             let user = {...this.props.userSelect};

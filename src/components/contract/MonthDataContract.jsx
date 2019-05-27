@@ -3,14 +3,14 @@ import {connect} from "react-redux";
 import {isLoadSelect, selectContract} from "../../redux/actions";
 import {userService} from "../../firebase";
 import {Badge} from "reactstrap";
-
+//Tạo một hàng trong bảng đơn hàng
 class MonthDataContract extends React.Component {
     constructor(props) {
         super(props);
         this.select = this.select.bind(this);
         this.renderStatus = this.renderStatus.bind(this)
     }
-
+    //Chọn một đơn hàng
     select() {
         this.props.dispatch(selectContract(this.props.contract));
         this.props.dispatch(isLoadSelect(true));
@@ -20,7 +20,7 @@ class MonthDataContract extends React.Component {
         })
 
     }
-
+    //Tạo trạng thái đơn hàng
     renderStatus() {
         if (this.props.contract.open) {
             return <Badge color="success">Hoạt động</Badge>

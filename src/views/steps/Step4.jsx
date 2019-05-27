@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Datetime from "react-datetime";
 
 import { Input} from "reactstrap";
-
+//Bược 4 học viên nhập thông tin đăng ký
 export default class Step4 extends Component {
     constructor(props) {
         super(props);
@@ -11,24 +11,24 @@ export default class Step4 extends Component {
         this.renderBirthday = this.renderBirthday.bind(this);
         this.isValidated = this.isValidated.bind(this)
     }
-
+    //đạt giá trị khi người dùng thay đổi
     onInputChange(event) {
         let userData = {...this.props.userData};
         userData[event.target.name] = event.target.value;
         this.props.updateStore(userData)
     }
-
+    // kiểm tra người dùng đã nhập các trường bắt buộc hay chưa
     isValidated() {
         let {name, phone, gender, address, district, city, code, birthday, town,phoneFamily} = this.props.userData;
         return name && phone && gender && address && district && city && code && birthday && town&&phoneFamily
     }
-
+    //đặt ngày sinh khi người dùng chọn
     onDateChange(date) {
         let userData = {...this.props.userData};
         userData['birthday'] = date;
         this.props.updateStore(userData)
     }
-
+    // tạo input ngáy sinh
     renderBirthday(props) {
         return <Input {...props} placeholder="Ngày/Tháng/Năm" invalid={!this.props.userData.birthday}/>
     }

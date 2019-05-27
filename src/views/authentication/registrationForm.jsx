@@ -8,9 +8,10 @@ const sidebarBackground = {
     'backgroundPosition': 'bottom center',
     'backgroundRepeat': 'no-repeat'
 };
+//Trang người dùng nhập thông tin tài khoản khi đăng ký xong
 
 class RegistrationForm extends React.Component {
-
+    // nội dung nằm trong file ..src\views\steps\steps.jsx là thành phần   <FormSteps/>
     render() {
 
         return <div className="auth-wrapper   d-flex" style={sidebarBackground}>

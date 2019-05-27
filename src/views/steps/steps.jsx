@@ -14,7 +14,7 @@ import {checkLogin} from "../../firebase/auth";
 import {storage, userService} from "../../firebase";
 import {checkActive} from "../../firebase/user";
 import StepsTeacher from "./StepsTeacher";
-
+//Các bược đăng ký thông tin của người dùng
 class formSteps extends Component {
     constructor(props) {
         super(props);
@@ -45,14 +45,14 @@ class formSteps extends Component {
         this.save = this.save.bind(this);
         this.check = this.check.bind(this);
     }
-
+    // Cập nhật thông tin sau mỗi bước
     updateStore(update) {
         this.setState((state) => {
             return {...state, data: {...state.data, ...update}}
         });
 
     }
-
+    //theo dõi người dùng hoàn thành mỗi bước
     onStepChange(step) {
         if (step === 0 || step === 4) {
             this.setState({showStep: false})
@@ -60,14 +60,15 @@ class formSteps extends Component {
             this.setState({showStep: true})
         }
         if (step === 4 && this.state.active !== 'unActive') {
+            //Lưu khi tới bược cuối cùng
             this.save();
         }
     }
-
+    //Hàm gọi ra đầu tiên khi load trang
     componentDidMount() {
         this.onChangeUse()
     }
-
+    // kiểm tra người dùng đã đăng ký hay chưa
     onChangeUse() {
         this.onAuth = checkLogin((user) => {
             if (!user) {
@@ -85,13 +86,13 @@ class formSteps extends Component {
             }
         })
     }
-
+    //Kiểm tra xem người dùng đã được xác thực hay chưa. nếu có thì chuyển đến trang cá nhân
     check(user) {
         checkActive(user.uid, (type) => {
             this.setState({active: type, isLoad: false, isLoadSave: type !== 'unActive'})
         })
     }
-
+    //Lưu thông tin đăng ký
     save() {
         const userData = {...this.state.data};
         for (let key in userData) {

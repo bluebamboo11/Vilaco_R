@@ -11,7 +11,7 @@ import {employeeService} from '../../firebase'
 import {selectEmployee} from "../../redux/actions";
 import Datetime from "react-datetime";
 
-
+//Cửa sở thêm mới chỉnh sửa nhân viên
 class DialogAddJapan extends React.Component {
     constructor(props) {
         super(props);
@@ -22,19 +22,19 @@ class DialogAddJapan extends React.Component {
         this.remove = this.remove.bind(this);
          this.state = props.employee;
     }
-
+    //Thay dổi giá trị thời gian
     onDateChange(date, key) {
         this.setState({
             [key]: date.format('YYYY')
         });
     }
-
+    //Thay đổi các giá trị khác
     onInputChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
-
+    //Thêm mới nhân viên
     add() {
         this.props.toggle();
         if(this.state.id){
@@ -45,9 +45,11 @@ class DialogAddJapan extends React.Component {
             employeeService.addNewEmployee(this.state).then()
         }
     }
+    //Chọn một nhân viên khi mớ
     open(){
         this.setState(this.props.employee);
     }
+    //Xóa nhân viên
     remove(){
         this.props.toggle();
         this.props.onRemove();

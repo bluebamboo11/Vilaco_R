@@ -17,7 +17,7 @@ const sidebarBackground = {
     backgroundImage: 'url(' + bgimage + ')',
     backgroundRepeat: 'no-repeat'
 };
-
+//Menu bên trái lựa chọn các trang
 class Sidebar extends React.Component {
     constructor(props) {
         super(props);
@@ -35,11 +35,11 @@ class Sidebar extends React.Component {
         };
         this.toggle = this.toggle.bind(this);
     }
-
+    //Đăng xuất
     logOut() {
         auth.doSignOut();
     }
-
+    //Mở menu đăng xuất
     toggle() {
         this.setState(prevState => ({
             dropdownOpen: !prevState.dropdownOpen
@@ -50,6 +50,7 @@ class Sidebar extends React.Component {
     /*To Expand SITE_LOGO With Sidebar-Menu on Hover                                  */
 
     /*--------------------------------------------------------------------------------*/
+    //Hiện logo
     expandLogo() {
         document.getElementById('logobg').classList.toggle('expand-logo');
     }

@@ -20,7 +20,7 @@ import DialogAddContract from "./DialogAddContract";
 import {contractService} from "../../firebase";
 import {addListContract, selectContract} from "../../redux/actions";
 
-
+//Thông tin đơn hàng
 class CardInfoContract extends React.Component {
     constructor(props) {
         super(props);
@@ -33,13 +33,13 @@ class CardInfoContract extends React.Component {
         this.state = {modal: false, modalRemove: false}
 
     }
-
+    //Đỏng mới của sổ chỉnh sửa đơn hàng
     toggle() {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
     }
-
+    //Tạo danh sách học viên trong đơn hàng
     renderTable() {
         if (this.props.contract.listStudent && this.props.contract.listStudent.length > 0) {
             return (
@@ -70,7 +70,7 @@ class CardInfoContract extends React.Component {
         </div>)
 
     }
-
+    //Cập nhật đơn hàng gửi thông tin lên server
     updateContract(data) {
         contractService.updateContract(data).then(() => {
             this.props.listContract.forEach((contract, index) => {
@@ -82,7 +82,7 @@ class CardInfoContract extends React.Component {
             this.props.dispatch(selectContract({...data}))
         })
     }
-
+    //Xóa đơn hàng
     removeContract() {
         this.toggleRemove();
         contractService.removeContract(this.props.contract.id).then(() => {
@@ -95,7 +95,7 @@ class CardInfoContract extends React.Component {
             });
         })
     }
-
+    //Lây dữ liệu nhân viên quản lý đơn hàng
     getEmployee() {
         let obj = {};
         const ID = this.props.contract.employeeId;
@@ -106,7 +106,7 @@ class CardInfoContract extends React.Component {
         });
         return obj;
     }
-
+    //đống mở của sổ xác nhận xóa đơn hàng
     toggleRemove() {
         this.setState(prevState => ({
             modalRemove: !prevState.modalRemove

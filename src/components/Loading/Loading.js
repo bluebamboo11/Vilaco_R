@@ -3,7 +3,7 @@ import Lottie from 'react-lottie';
 import jsonAni from '../../assets/animation/animation-w500-h500';
 
 
-
+//Hiệu ứng khi chờ tải trang dữ liệu
 class Loading extends React.Component {
 
     render() {

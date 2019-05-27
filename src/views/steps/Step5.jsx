@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Spinner from "reactstrap/es/Spinner";
-
+//Bước 5 lưu thông tin đăng ký
 export default class Step4 extends Component {
     constructor(props) {
         super(props);
@@ -10,10 +10,12 @@ export default class Step4 extends Component {
     }
 
     renderContent() {
+        //Khi đăng upload
         if (this.props.isLoad) {
             return <div style={{height: '6rem'}} className="col-12 row justify-content-center align-content-center">
                 <Spinner style={{width: '3rem', height: '3rem'}} color="primary"/></div>
         }
+        //khi đăng ký hoàn tất
         return <form id="Form" className="form-horizontal">
             <div className="form-group">
                 <label className="col-md-12 control-label">

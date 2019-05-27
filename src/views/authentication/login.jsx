@@ -39,7 +39,7 @@ class Login extends React.Component {
         this.state = {isLogin: false, email: '', password: '',isLoadLogin:false,isKeepLogin:true,visibleAlert:false}
     }
 
-
+    //Đặt giá trị cho input(email,pass..)
     onInputChange(event) {
         this.setState({
             [event.target.name]: event.target.value,visibleAlert:false
@@ -47,7 +47,7 @@ class Login extends React.Component {
         this.formValidators([event.target.name], event.target.value);
     }
 
-
+    //Kiểm tra email ,pass hợp lệ hay không
     formValidators(fieldName, value) {
         this.validators[fieldName].errors = [];
         this.validators[fieldName].state = value;
@@ -66,7 +66,7 @@ class Login extends React.Component {
             }
         });
     }
-
+    // trả lại thông báo khi lỗi đăng nhập
     getError(code) {
         switch (code) {
             case 'auth/invalid-email':
@@ -79,7 +79,7 @@ class Login extends React.Component {
                 return;
         }
     }
-
+    // kiểm tra trạng thái có thể đăng nhập hay không (Check email,pass)
     validForm() {
         let status = true;
         Object.keys(this.validators).forEach(field => {
@@ -92,7 +92,7 @@ class Login extends React.Component {
 
         return status;
     }
-
+    //Hiện thị thông báo lỗi
     showErrors(fieldName) {
         const result = '',
             validator = this.validators[fieldName];
@@ -111,14 +111,14 @@ class Login extends React.Component {
         return result;
 
     }
-
+    //Chuyển sang mẫu lấy lại mật khẩu
     handleClick() {
         const elem = document.getElementById('loginform');
         elem.style.transition = 'all 2s ease-in-out';
         elem.style.display = 'none';
         document.getElementById('recoverform').style.display = 'block';
     }
-
+    //Đăng nhập
     login(event) {
         if (this.validForm()&&!this.state.isLoadLogin) {
             this.setState({isLoadLogin: true});
@@ -146,11 +146,13 @@ class Login extends React.Component {
 
         event.preventDefault();
     }
+    //chọn duy trì đăng nhập hoặc không
     changeKeepLogin(){
         this.setState({
            isKeepLogin: !this.state.isKeepLogin
         });
     }
+    //Lấy lại mật khẩu. gửi thông bảo lên server lấy lại mật khẩu
     recoverPassword(event){
         event.preventDefault();
         this.setState({isLoadLogin:true,visibleAlert:false});
@@ -158,9 +160,11 @@ class Login extends React.Component {
             this.setState({visibleAlert:true,isLoadLogin:false})
         })
     }
+    //Tắt thông báo lỗi
     onDismissAlert(){
         this.setState({ visibleAlert: false });
     }
+    // Tạo giao diện đăng nhập
     render() {
 
         return <div className="">

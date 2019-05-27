@@ -4,7 +4,8 @@ import {connect} from "react-redux";
 import MonthTableContract from "../../components/contract/MonthTableContract";
 import CardInfoContract from "../../components/contract/CardInfoContract";
 
-
+//Trang quản lý đơn hàng
+//Gồm 2 thành phần  <MonthTableContract /> nằm trong ../components/contract/MonthTableContract và   <CardInfoContract/> nằm trong /../components/contract/CardInfoContract"
 
 class Contract  extends React.Component {
 

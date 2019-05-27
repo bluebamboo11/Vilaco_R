@@ -5,6 +5,7 @@ import {isLoadSelect, selectStudent} from "../../../redux/actions";
 import {Badge} from "reactstrap";
 import {contractService, classService ,transcriptService} from "../../../firebase";
 import * as moment from 'moment';
+//Tạo một hàng thông tin tài khoản
 class Monthdata extends React.Component {
     constructor(props) {
         super(props);
@@ -12,7 +13,7 @@ class Monthdata extends React.Component {
         this.renderValidate = this.renderValidate.bind(this);
         this.selectTeacher = this.selectTeacher.bind(this)
     }
-
+    //Chọn một tài khoản học viên
     selectStudent() {
         this.props.dispatch(selectStudent({...this.props.user}));
         let listPromise = [null, null];
@@ -46,7 +47,7 @@ class Monthdata extends React.Component {
         }
 
     }
-
+    //Chọn một tài khoản giáo viên
     selectTeacher() {
         this.props.dispatch(selectStudent({...this.props.user}));
         this.props.dispatch(isLoadSelect(true));
@@ -60,7 +61,7 @@ class Monthdata extends React.Component {
     }
 
 
-
+    //Tạo thông tin xác thực
     renderValidate() {
         if (this.props.user.validate) {
             return <Badge color="success">Xác thực</Badge>

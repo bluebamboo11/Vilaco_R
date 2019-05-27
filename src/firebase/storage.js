@@ -1,5 +1,5 @@
 import {storage} from './firebase';
-
+//up ảnh avatar
 export const upAvatar = (uid, file,call) => {
     let ref = storage.ref();
      ref.child('avatar/' + uid).put(file).then(()=>{

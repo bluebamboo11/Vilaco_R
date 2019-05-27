@@ -8,7 +8,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import {Button} from "reactstrap";
 
-
+//Cửa sổ thay đổi trạng thái tài khoản
 class StatusDialog extends React.Component {
     constructor(props) {
         super(props);
@@ -22,21 +22,22 @@ class StatusDialog extends React.Component {
         };
         this.props.refDialog(this)
     }
-
+    //Mở
     handleClickOpen = () => {
         this.setState({open: true});
     };
-
+    //Chọn
     handleEntering = () => {
         this.radioGroupRef.focus();
     };
+    //Đóng
     handleClose = () => {
         this.setState({open: false});
     };
     handleChange = (event, value) => {
         this.setState({value});
     };
-
+    //Lưu
     handleSave() {
         this.handleClose();
         this.props.save(this.state.value)

@@ -8,7 +8,7 @@ const sidebarBackground = {
     'backgroundPosition': 'bottom center',
     'backgroundRepeat': 'no-repeat'
 };
-
+//Trang đăng ký tài khoản test
 class RegistrationFormTest extends React.Component {
 
     render() {

@@ -2,7 +2,7 @@ import React from 'react';
 import {Badge, CardBody} from "reactstrap";
 import {connect} from "react-redux";
 
-
+//Thông tin tài khoản trong trang cá nhân
 class CardInfo extends React.Component {
     constructor(props) {
         super(props);
@@ -10,7 +10,7 @@ class CardInfo extends React.Component {
         this.renderAdmin = this.renderAdmin.bind(this)
 
     }
-
+    //Tạo tag admin
     renderAdmin() {
         let {admin, superAdmin} = this.props.userData;
         if (superAdmin) {
@@ -20,7 +20,7 @@ class CardInfo extends React.Component {
             return <Badge color="danger" style={{marginLeft:10}} pill>Quản lý</Badge>
         }
     }
-
+    //Tạo thông tin giáo viên
     renderTeacher() {
         let {skype, phone, gender, email} = this.props.userData;
         return (
@@ -47,7 +47,7 @@ class CardInfo extends React.Component {
 
         );
     }
-
+    //Tạo thông tin học viên
     render() {
         let {phone, town, district, city, address, email, type,status} = this.props.userData;
         if (type !== 'student') {

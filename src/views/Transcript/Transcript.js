@@ -15,7 +15,7 @@ import {classService, userService, transcriptService} from "../../firebase";
 import Loading from "../../components/Loading/Loading";
 import {columns} from "./DataConfig"
 
-
+//Bảng điên của hoc viên
 class Transcript extends React.Component {
     constructor(props) {
         super(props);
@@ -48,7 +48,7 @@ class Transcript extends React.Component {
     }
 
     listData = [];
-
+    //Lây danh sách lớp học còn hoạt động
     componentDidMount() {
         classService.getAllClassOpen(true, (listClass) => {
             if (listClass.length > 0) {
@@ -56,7 +56,7 @@ class Transcript extends React.Component {
             }
         })
     }
-
+    //Lấy dữ liệu bẳng điểm khi chọn lớp học
     onClassChange(event) {
         this.setState({
             classSelect: event.target.value
@@ -74,7 +74,7 @@ class Transcript extends React.Component {
 
         }
     }
-
+    // Tọa dữ liệu các tháng của lớp học
     setTabMonth(listTranscript, classId) {
         let listMonth = [];
         let startDate = '';
@@ -97,13 +97,13 @@ class Transcript extends React.Component {
         }
         this.setState({listMonth: listMonth, tab: listMonth.length - 1})
     }
-
+    //ẩn hiện của số chỉnh sửa bảng điểm
     toggle() {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
     }
-
+    // chọn hiển thị của sổ bảng điểm theo học viên
     showPopupEdit(student) {
         return () => {
             this.setState({studentEdit: student});
@@ -111,7 +111,7 @@ class Transcript extends React.Component {
         }
 
     }
-
+    //Tạo giao diện nut sửa
     renderButtonEdit(student) {
         const admin = this.props.user.admin || this.props.user.superAdmin;
         if (!admin) {
@@ -131,7 +131,7 @@ class Transcript extends React.Component {
 
             </div>)
     }
-
+    //Tạo dữ liệ bảng điểm
     renderData() {
         let list = this.state.listStudent.map(student => {
             let obj = {
@@ -150,10 +150,9 @@ class Transcript extends React.Component {
 
             return obj
         });
-        console.log(list);
         return list
     }
-
+    // sự kiện khi người dùng thay đổi tab hoặc thêm tab
     handleChange = (event, value) => {
         if (this.state.classSelect === '1') {
             return
@@ -176,7 +175,7 @@ class Transcript extends React.Component {
         }
 
     };
-
+    //Tạo giao diện các tab
     renderTab() {
         const {classes} = this.props;
         const {tab} = this.state;
@@ -204,13 +203,13 @@ class Transcript extends React.Component {
         )
     }
 
-
+    //Tạo giao diện danh sách lóp học
     renderListClass() {
         return this.state.listClass.map(data => {
             return <option key={data.id} value={data.id}>{data.name}</option>
         })
     }
-
+    //Lưu chỉnh sửa bảng điểm
     save(data) {
         data.classId = this.state.classSelect;
         data.month = this.state.listMonth[this.state.tab];
@@ -232,13 +231,13 @@ class Transcript extends React.Component {
 
         })
     }
-
+    //Thay đổi ký tự tìm kiếm
     changeKey(event) {
         this.setState({
             searchKey: event.target.value
         });
     }
-
+    //Tìm kiểm học viên
     searchAllUser(event) {
         event.preventDefault();
         let searchKey = this.state.searchKey.toUpperCase();
@@ -250,7 +249,7 @@ class Transcript extends React.Component {
         });
         this.setState({listStudent: listStudent});
     }
-
+    //Thoát tìm kiểm
     exitSearch() {
         this.setState({listStudent: this.listData, searchKey: ''});
     }

@@ -16,7 +16,7 @@ import {classService} from "../../firebase";
 import {addListClass, selectClass} from "../../redux/actions";
 import DialogAddClass from "./DialogAddClass";
 
-
+//Phần thông tin của lớp học
 class CardInfoClass extends React.Component {
     constructor(props) {
         super(props);
@@ -27,13 +27,13 @@ class CardInfoClass extends React.Component {
         this.state = {modal: false}
 
     }
-
+    //đỏng mở cửa sổ chỉnh sửa
     toggle() {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
     }
-
+    //Tạo giao diện bảng học viên trong lớp học
     renderTable() {
 
         if (this.props.classData.listStudent && this.props.classData.listStudent.length > 0) {
@@ -65,7 +65,7 @@ class CardInfoClass extends React.Component {
         </div>)
 
     }
-
+    //chỉnh sửa thông tin lớp học gửi lên sever để lưu
     updateClass(data) {
         classService.updateClass(data).then(() => {
             this.props.listClass.forEach((classData, index) => {
@@ -77,7 +77,7 @@ class CardInfoClass extends React.Component {
             this.props.dispatch(selectClass({...data}))
         })
     }
-
+    //Lấy thông tin giao viên của lớp
     getTeacherById(id) {
         let teacher = {name: ''};
         if (this.props.listTeacher) {
@@ -89,7 +89,7 @@ class CardInfoClass extends React.Component {
         }
         return teacher;
     }
-
+    //Tạo giao diên thong tin lớp học
     render() {
         const admin = this.props.user.admin || this.props.user.superAdmin;
         if (!this.props.classData) {

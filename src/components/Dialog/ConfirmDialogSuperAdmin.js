@@ -6,7 +6,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import {Button} from "reactstrap";
 import Input from "reactstrap/es/Input";
 
-
+//của sổ chuyển quản quản trị cao cấp
 class ConfirmDialogSuperAdmin extends React.Component {
     constructor(props) {
         super(props);
@@ -22,24 +22,24 @@ class ConfirmDialogSuperAdmin extends React.Component {
         };
         this.props.refDialog(this)
     }
-
+    //mở của sổ
     handleClickOpen = () => {
         this.setState({open: true});
     };
 
-
+    //Đóng của sổ
     handleClose = () => {
         this.setState({open: false});
     };
     handleChange = (event, value) => {
         this.setState({value});
     };
-
+    //Lưu thay đổi
     handleSave() {
         this.handleClose();
         this.props.save()
     }
-
+    //đặt lại giá trị ổ nhập
     handleChangeInput(event) {
         this.setState({
             email: event.target.value, validate: event.target.value === this.props.userSelect.email

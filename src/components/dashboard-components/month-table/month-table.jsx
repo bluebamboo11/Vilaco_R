@@ -34,7 +34,7 @@ function getListUserNew(lisNew, listOld) {
     return listOld.concat(list);
 }
 
-
+//Bảng danh sách tài khoản trong trang quản lý học viên và giáo viên
 class MonthTable extends React.Component {
     constructor(props) {
         super(props);
@@ -52,7 +52,7 @@ class MonthTable extends React.Component {
         this.state = {type: '0', searchKey: ''}
     }
 
-
+    //Lấy tất cả dữ liệu khi load trang
     componentDidMount() {
         this.next = null;
         this.props.dispatch(selectStudent(this.props.user));
@@ -61,7 +61,7 @@ class MonthTable extends React.Component {
         this.getAllContract();
         this.getAllClass();
     }
-
+    //Tìm kiểm tài khoản
     searchAllUser(event) {
         event.preventDefault();
         if (this.state.searchKey) {
@@ -72,25 +72,25 @@ class MonthTable extends React.Component {
         }
 
     }
-
+    //Lấy danh sách đơn hàng
     getAllContract() {
         contractService.getAllContractOpen(true, (list) => {
             this.props.dispatch(addListContract(list))
         })
     }
-
+    //Lây danh sách lớp học
     getAllClass() {
         classService.getAllClassOpen(true, (list) => {
             this.props.dispatch(addListClass(list))
         })
     }
-
+    //Thoát tìm kiếm
     exitSearch() {
         this.setState({searchKey: ''});
         this.getData(this.state.type)
 
     }
-
+    //Lấy dữ liệu thào các tùy chon khác nhau. Như xác thực, chưa xác thưc...
     getData(type) {
 
         let validate = null;
@@ -127,13 +127,13 @@ class MonthTable extends React.Component {
             this.props.dispatch(addListUser(getListUserNew(listData, this.props.listUser)))
         })
     }
-
+    //Lấy dữ liệu khi cuộn xuống cuối
     getNextUser() {
         if (this.next) {
             this.getData(this.state.type);
         }
     }
-
+    //Tạo danh sách tài khoản
     renderListData() {
         if (this.props.type === 'teacher') {
             return this.props.listUser.map((user) => {
@@ -151,7 +151,7 @@ class MonthTable extends React.Component {
         })
 
     }
-
+    //Tao tiêu đề bảng
     renderHeader() {
         if (this.props.type === 'student') {
             return (<tr>
@@ -196,7 +196,7 @@ class MonthTable extends React.Component {
             searchKey: event.target.value
         });
     }
-
+    //CHọn lại nhóm tài khoản
     onTypeChange(event) {
         this.next = null;
         this.props.dispatch(addListUser([]));
@@ -205,6 +205,7 @@ class MonthTable extends React.Component {
         });
         this.getData(event.target.value);
     }
+    //Tạo danh sách nhóm tài khoản
     renderOption(){
         if(this.props.type === 'student'){
             return  <Input type="select" className="custom-select" onChange={this.onTypeChange}

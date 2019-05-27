@@ -22,6 +22,7 @@ function makeid(length) {
     }
     return result;
 }
+//Các bước đăng ký tài khoản test. Tương tự steps.js
 class FormStepsTest extends Component {
     constructor(props) {
         super(props);

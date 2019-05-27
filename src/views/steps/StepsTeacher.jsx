@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Datetime from "react-datetime";
 
 import { Input} from "reactstrap";
-
+//Bước 4 của đăng ký giáo viên
 export default class StepsTeacher extends Component {
     constructor(props) {
         super(props);
@@ -10,18 +10,18 @@ export default class StepsTeacher extends Component {
         this.isValidated = this.isValidated.bind(this);
         this.onDateChange = this.onDateChange.bind(this)
     }
-
+    //đặt lại giá trị khi có thay đổi
     onInputChange(event) {
         let userData = {...this.props.userData};
         userData[event.target.name] = event.target.value;
         this.props.updateStore(userData)
     }
-
+    //Kiểm tra các trược bắt buộc đã được nhập đầy đủ chưa
     isValidated() {
         let {name, phone, gender, skype} = this.props.userData;
         return name && phone && gender && skype
     }
-
+    // đặt lại giá trị khi thay đổi ngày tháng
     onDateChange(date, key) {
         let userData = {...this.props.userData};
         userData[key] =date.format('DD/MM/YYYY');

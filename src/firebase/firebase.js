@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
-
+//file cấu hình để sử dụng firebase
 var config = {
     apiKey: "AIzaSyAvpiP1YkPW0jtQogJhb70zCo1j2tkzrxA",
     authDomain: "dev1-f8dbd.firebaseapp.com",

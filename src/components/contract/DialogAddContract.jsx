@@ -11,7 +11,7 @@ import Datetime from "react-datetime";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
-
+//Của số chỉnh sủa đơn hàng
 class DialogAddContract extends React.Component {
     constructor(props) {
         super(props);
@@ -28,41 +28,43 @@ class DialogAddContract extends React.Component {
         this.state = {...props.contract,tooltipOpen:true}
     }
 
-
+    //đóng mở trạng thái đơn hàng
     handleChangeOpen(event){
         this.setState({open: event.target.checked });
     }
-
+    //Đặ lại giá trị khi chỉnh sửa
     onInputChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
-
+    //Đặt lại giá tri thời gian
     onDateChange(date, key) {
         this.setState({
             [key]: date.format('DD/MM/YYYY')
         });
     }
-
+    //Thêm mưới đơn hàng
     add() {
         this.props.toggle();
         this.props.addContract(this.state)
     }
+    //Xóa đơn hàng
     remove(){
         this.props.toggle();
         this.props.onRemove()
     }
+    //Tạo ngày thi tuyển
     renderExamDay(props) {
         return <Input {...props} value={this.state.examDay}
                       placeholder="Ngày / Tháng / Năm" invalid={!this.state.examDay}/>
     }
-
+    //Tạo ngày xuất cảnh
     renderDepartureDate(props) {
         return <Input {...props} value={this.state.departureDate}
                       placeholder="Ngày / Tháng / Năm" invalid={!this.state.departureDate}/>
     }
-
+    //tạo danh sách lưa chọn nhân viên
     renderOptionEmployee() {
         if (this.props.listEmployee) {
             return this.props.listEmployee.map((employee) => {
@@ -72,9 +74,11 @@ class DialogAddContract extends React.Component {
         return null
 
     }
+    //Chọn một đơn hàng khi mới
     open(){
         this.setState(this.props.contract);
     }
+    //Đóng mở thông báo
     toggleTooltip() {
         this.setState({
             tooltipOpen: !this.state.tooltipOpen

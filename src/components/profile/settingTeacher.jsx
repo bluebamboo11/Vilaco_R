@@ -7,7 +7,7 @@ import {setUserData} from "../../redux/actions";
 import Datetime from "react-datetime";
 
 require('moment/locale/vi');
-
+//Tab cập nhật thông tin cá nhân giáo viên
 class SettingTeacher extends React.Component {
     constructor(props) {
         super(props);
@@ -34,7 +34,7 @@ class SettingTeacher extends React.Component {
             [key]: date.format('DD/MM/YYYY')
         });
     }
-
+    //Cập nhật
     doUpdate(event) {
         event.preventDefault();
         this.setState({isUpdate:true,visibleAlert: false});

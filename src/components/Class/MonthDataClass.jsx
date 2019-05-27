@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {Badge} from "reactstrap";
 import {isLoadSelect, selectClass} from "../../redux/actions";
 import {userService} from "../../firebase";
-
+//Tạo một hàng trỏng bảng các lớp học
 class MonthDataClass extends React.Component {
     constructor(props) {
         super(props);
@@ -11,7 +11,7 @@ class MonthDataClass extends React.Component {
         this.renderStatus = this.renderStatus.bind(this);
         this.select = this.select.bind(this)
     }
-
+    //CHọn một lớp học
     select() {
         this.props.dispatch(selectClass(this.props.classData));
         this.props.dispatch(isLoadSelect(true));
@@ -20,7 +20,7 @@ class MonthDataClass extends React.Component {
                 this.props.dispatch(selectClass({...this.props.classData, listStudent: listStudent}));
         })
     }
-
+    //Lấy thông tin giáo viên của lớp
     getTeacherById(id) {
         let teacher = {name:''};
         this.props.listTeacher.forEach((data) => {
@@ -30,14 +30,14 @@ class MonthDataClass extends React.Component {
         });
         return teacher;
     }
-
+    //Tạo giao diện trạng thái lớp học
     renderStatus() {
         if (this.props.classData.open) {
             return <Badge color="success">Hoạt động</Badge>
         }
         return <Badge color="danger"> Đóng</Badge>
     }
-
+    //Hàm tạo giao diện tổng
     render() {
         let {name, startDate, endDate, teacherId} = this.props.classData;
         let classTr = "row-use";

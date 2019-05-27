@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, CardBody, Col, Row} from "reactstrap";
 import {connect} from "react-redux";
-
+//tab thông tin cá nhân
 class Info extends React.Component {
 
     render() {

@@ -13,7 +13,7 @@ export const IS_LOADING = 'IS_LOADING';
 export const IS_LOAD_SELECT = 'IS_LOAD_SELECT';
 export const ADD_LIST_TEACHER = 'ADD_LIST_TEACHER';
 export const IS_PROCESS = 'IS_PROCESS';
-
+//Các hàm quản lý dữ liệu
 export function setUser(user) {
     return {
         type: SET_USER,

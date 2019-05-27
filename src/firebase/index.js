@@ -10,3 +10,4 @@ import * as classService from './Class';
 import * as transcriptService from './Transcript';
 
 export {auth, firebase, userService, storage,adminService,employeeService,contractService,classService,transcriptService};
+//Khai báo các file để sử dụng
