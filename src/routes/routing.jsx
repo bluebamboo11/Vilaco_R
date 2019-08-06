@@ -11,6 +11,7 @@ import MyContract from "../views/MyContract/MyContract";
 import MyClass from "../views/MyClass/MyClass";
 import MyTranscript from "../views/MyTranscript/MyTranscript";
 import MyTranscriptClass from "../views/MyTranscriptClass/MyTranscriptClass";
+import Admin from "../views/admin/Admin";
 
 //Cấu hình đường dẫn của menu quán lý, giáo viên
 export const ThemeRoutes = [
@@ -30,6 +31,12 @@ export const ThemeRoutes = [
     navlabel: true,
     name: 'Quản lý tài khoản',
     icon: 'mdi mdi-dots-horizontal'
+  },
+  {
+    path: '/quan-ly',
+    name: 'Quản lý',
+    icon: 'mdi mdi-account-key',
+    component: Admin
   },
   {
     path: '/quan-ly-hoc-vien',

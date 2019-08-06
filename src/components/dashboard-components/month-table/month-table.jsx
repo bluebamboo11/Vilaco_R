@@ -66,12 +66,28 @@ class MonthTable extends React.Component {
         event.preventDefault();
         if (this.state.searchKey) {
             this.next = null;
-            userService.searchAllUser(this.state.searchKey, this.props.type, (listData) => {
-                this.props.dispatch(addListUser(listData))
+            userService.searchAllUser(this.state.searchKey,this.props.type, (listData) => {
+                if(this.props.isAdmin){
+                    this.props.dispatch(addListUser(this.getListAdmin(listData)))
+                }else {
+                    this.props.dispatch(addListUser(listData))
+                }
             })
         }
 
     }
+
+    getListAdmin(listData){
+        let listAdmin =[];
+        listData.forEach(function (data) {
+            if(data.admin){
+                listAdmin.push(data)
+            }
+        });
+        return listAdmin;
+    }
+
+
     //Lấy danh sách đơn hàng
     getAllContract() {
         contractService.getAllContractOpen(true, (list) => {
@@ -94,6 +110,13 @@ class MonthTable extends React.Component {
     getData(type) {
 
         let validate = null;
+        if(this.props.isAdmin){
+            userService.getAllAdmin((listData, next) => {
+                this.next = next;
+                this.props.dispatch(addListUser(getListUserNew(listData, this.props.listUser)))
+            });
+            return
+        }
         if (type === '1') {
             validate = {value: false}
         }
@@ -207,6 +230,9 @@ class MonthTable extends React.Component {
     }
     //Tạo danh sách nhóm tài khoản
     renderOption(){
+        if(this.props.isAdmin){
+            return''
+        }
         if(this.props.type === 'student'){
             return  <Input type="select" className="custom-select" onChange={this.onTypeChange}
                            value={this.state.type}>

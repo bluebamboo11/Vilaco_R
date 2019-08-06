@@ -46,12 +46,14 @@ class CardProfileTeacher extends React.Component {
     handleChange = (event, value) => {
         this.setState({value});
     };
+
     //Đóng mở của sổ xóa giáo viên
     toggle() {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
     }
+
     //Xóa giáo viên
     removeUser() {
         this.props.dispatch(isProcessAll(true));
@@ -64,6 +66,7 @@ class CardProfileTeacher extends React.Component {
             this.props.dispatch(selectStudent(null));
         })
     }
+
     //xác nhận giáo viên
     validateUser() {
         this.props.dispatch(isProcessAll(true));
@@ -82,6 +85,7 @@ class CardProfileTeacher extends React.Component {
             this.props.dispatch(addListUser(this.props.listUser.concat()));
         })
     }
+
     //Thêm giáo viên vào lớp học
     addClass(id) {
         this.props.dispatch(isProcessAll(true));
@@ -96,6 +100,7 @@ class CardProfileTeacher extends React.Component {
             })
         });
     }
+
     //Tạo trạng thái xác thực
     renderValidate() {
         if (this.props.userSelect.validate) {
@@ -103,6 +108,7 @@ class CardProfileTeacher extends React.Component {
         }
         return <Badge color="warning" style={{fontSize: 10}}> Chưa xác thực</Badge>
     }
+
     //Tạo tag admin
     renderAdmin() {
         if (this.props.userSelect.superAdmin) {
@@ -119,10 +125,12 @@ class CardProfileTeacher extends React.Component {
     openAddClass() {
         this.addClassDialog.handleClickOpen()
     }
+
     //Mở của sổ xác nhận quển siêu quản trị
     openDialogSuperAdmin() {
         this.confirmDialogSuperAdmin.handleClickOpen()
     }
+
     //xác nhận giáo viên là admin
     setAdmin() {
         this.props.dispatch(isProcessAll(true));
@@ -144,6 +152,7 @@ class CardProfileTeacher extends React.Component {
             this.props.dispatch(addListUser(this.props.listUser.concat()))
         })
     }
+
     //Xác nhận giáo viên là quản trị viên cao cấp
     setSuperAdmin() {
         this.props.dispatch(isProcessAll(true));
@@ -179,11 +188,14 @@ class CardProfileTeacher extends React.Component {
                 {title: 'Thêm lớp', onClick: this.openAddClass},
             ];
         }
+        if (this.props.isAdmin) {
+            options = []
+        }
         if (this.props.user.superAdmin && this.props.userSelect.uid !== this.props.user.uid) {
             options.push({title: admin ? 'Hủy quản lý' : 'Thêm quản lý', onClick: this.setAdmin});
             options.push({title: 'Quản trị viên', onClick: this.openDialogSuperAdmin})
         }
-        if(this.props.user.superAdmin&&this.props.userSelect.uid !== this.props.user.uid){
+        if (this.props.user.superAdmin && this.props.userSelect.uid !== this.props.user.uid) {
             options.push({title: 'Xóa', onClick: this.toggle})
         }
         return (
@@ -221,7 +233,7 @@ class CardProfileTeacher extends React.Component {
                     <h3>{name}</h3>
                     <div className="mb-3"> {this.renderValidate()}{this.renderAdmin()}</div>
                     <div className="menu-info">
-                        {(this.props.user.admin || this.props.user.superAdmin) && <LongMenu options={options}/>}
+                        {(this.props.user.admin || this.props.user.superAdmin)&&options.length>0 && <LongMenu options={options}/>}
                     </div>
                     <Tabs
                         classes={{root: classes.tabsRoot, indicator: classes.tabsIndicator}}
