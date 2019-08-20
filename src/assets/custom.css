@@ -42,7 +42,7 @@
 }
 
 .page-wrapper > .page-content {
-    height: calc(100% - 51px);
+    height: calc(100% - 32px);
     min-height: auto;
     padding: 30px 30px 0 30px;
 }

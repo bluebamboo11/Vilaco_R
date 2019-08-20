@@ -33,7 +33,7 @@ export const ThemeRoutes = [
     icon: 'mdi mdi-dots-horizontal'
   },
   {
-    path: '/quan-ly',
+    path: '/quan-ly-admin',
     name: 'Quản lý',
     icon: 'mdi mdi-account-key',
     component: Admin

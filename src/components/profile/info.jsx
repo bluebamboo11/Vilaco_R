@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 class Info extends React.Component {
 
     render() {
-        let { gender, code, hobby, forte, weakness,birthday,email} = this.props.userData;
+        let { gender, code, hobby, relativeName, familyAddress,birthday,email} = this.props.userData;
         return (
             <Row>
                 <Col sm="12">
@@ -38,13 +38,13 @@ class Info extends React.Component {
                             <p >
                                 {hobby}
                             </p>
-                            <strong>Sở trường</strong>
+                            <strong>Tên người thân</strong>
                             <p>
-                                {forte}
+                                {relativeName}
                             </p>
-                            <strong>Sở đoản</strong>
+                            <strong>Địa chỉ gia đình</strong>
                             <p>
-                                {weakness}
+                                {familyAddress}
                             </p>
 
                         </CardBody>

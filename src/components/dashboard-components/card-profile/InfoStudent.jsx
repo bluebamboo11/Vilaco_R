@@ -7,7 +7,7 @@ class InfoStudent extends React.Component {
 
 
     render() {
-        let {phone, gender, address, district, city, code, hobby, forte, weakness, birthday, town, contractName, className, phoneFamily, status, blood} = this.props.user;
+        let {phone, gender, address, district, city, code, hobby, relativeName, familyAddress, birthday, town, contractName, className, phoneFamily, status, blood} = this.props.user;
         return (
             <div className="text-left pt-4 p-2 content-info-st">
                 <PerfectScrollbar option={{suppressScrollX: true}}>
@@ -102,7 +102,7 @@ class InfoStudent extends React.Component {
                             Sở trường
                         </div>
                         <div className="col-sm-9 pb-2">
-                            <div className="form-control form-control-custom">{forte}</div>
+                            <div className="form-control form-control-custom">{relativeName}</div>
                         </div>
                     </div>
                     <div className="info-group row">
@@ -110,7 +110,7 @@ class InfoStudent extends React.Component {
                             Sở đoản
                         </div>
                         <div className="col-sm-9 pb-2">
-                            <div className="form-control form-control-custom">{weakness}</div>
+                            <div className="form-control form-control-custom">{familyAddress}</div>
                         </div>
                     </div>
                     <div className="info-group row">

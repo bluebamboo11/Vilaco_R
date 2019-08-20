@@ -145,6 +145,34 @@ class MonthTable extends React.Component {
             });
             return;
         }
+        if (type === '5') {
+            userService.getAllStudent(this.next, 'status','Đang học', (listData, next) => {
+                this.next = next;
+                this.props.dispatch(addListUser(getListUserNew(listData, this.props.listUser)))
+            });
+            return;
+        }
+        if (type === '6') {
+            userService.getAllStudent(this.next, 'status','Xuất cảnh', (listData, next) => {
+                this.next = next;
+                this.props.dispatch(addListUser(getListUserNew(listData, this.props.listUser)))
+            });
+            return;
+        }
+        if (type === '7') {
+            userService.getAllStudent(this.next, 'status','Thôi học', (listData, next) => {
+                this.next = next;
+                this.props.dispatch(addListUser(getListUserNew(listData, this.props.listUser)))
+            });
+            return;
+        }
+        if (type === '8') {
+            userService.getAllStudent(this.next, 'status','Bảo lưu', (listData, next) => {
+                this.next = next;
+                this.props.dispatch(addListUser(getListUserNew(listData, this.props.listUser)))
+            });
+            return;
+        }
         userService.getAllUser(this.next, this.props.type, validate, (listData, next) => {
             this.next = next;
             this.props.dispatch(addListUser(getListUserNew(listData, this.props.listUser)))
@@ -241,6 +269,10 @@ class MonthTable extends React.Component {
                 <option value="2">Đã xác thực</option>
                 <option value="3">Chưa có lớp</option>
                 <option value="4">Chưa có hợp đồng</option>
+                <option value="5">Đang học</option>
+                <option value="6">Xuất cảnh</option>
+                <option value="7">Thôi học</option>
+                <option value="8">Bảo lưu</option>
             </Input>
         }
         return  <Input type="select" className="custom-select" onChange={this.onTypeChange}

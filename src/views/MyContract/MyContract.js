@@ -11,8 +11,10 @@ import {
 
 import img1 from '../../assets/images/big/anh-dao.jpg';
 import img2 from '../../assets/images/big/kimono.jpg';
+import logo from '../../assets/images/logo.jpg';
 import {contractService, employeeService} from "../../firebase";
 import {connect} from "react-redux";
+
 //Trang học viên kiểm tra hợp đông của mình
 class MyContract extends React.Component {
     constructor(props) {
@@ -26,6 +28,7 @@ class MyContract extends React.Component {
         this.renderCardContract = this.renderCardContract.bind(this);
         this.renderEmployee = this.renderEmployee.bind(this);
     }
+
     //Lấy thông tin hợp đống và nhân viên phụ trách
     componentDidMount() {
         if (this.props.user.contractId) {
@@ -46,6 +49,7 @@ class MyContract extends React.Component {
         }
 
     }
+
     //Tạo giao diện thông tin hợp đồng
     renderCardContract() {
         if (this.state.isLoadContract) {
@@ -75,6 +79,7 @@ class MyContract extends React.Component {
             </CardBody>
         </Card>
     }
+
     //Tạo giao diện thông tin nhân viên quản lý
     renderEmployee() {
         if (this.state.isLoadEmployee) {
@@ -105,11 +110,12 @@ class MyContract extends React.Component {
             </CardBody>
         </Card>
     }
+
     //Tạo giao diện toàn trang
     render() {
 
 
-        return <div>
+        return <div style={{'overflow-x': 'hidden','overflow-y': 'auto',height:'100%'}}>
             <Row>
                 <Col xs="12" md="6">
                     {this.renderCardContract()}
@@ -118,6 +124,24 @@ class MyContract extends React.Component {
                     {this.renderEmployee()}
                 </Col>
             </Row>
+            <Card>
+                <Row>
+                    <Col xs="3"  md="2" className="center-item">
+                        <CardImg left width="100%" src={logo} className="pl-4"/>
+                    </Col>
+                    <Col xs="9"  md="10">
+                        <CardBody>
+                            <CardTitle>Công ty cổ phần nhân lực quốc tế Việt</CardTitle>
+                            <CardText className="m-0">Giám đốc: <span className="font-medium">Lưu Thị Ngọc Túy</span></CardText>
+                            <CardText className="m-0">Điện thoại : <span className="font-medium">0328.56.56.56   -   02433.545.233</span></CardText>
+                            <CardText className="m-0">Website : <span className="font-medium">vilacojsc.com.vn</span></CardText>
+                            <CardText className="m-0">Facebook : <span className="font-medium">Công ty Vilaco</span></CardText>
+                            <CardText className="m-0">Văn Phòng : <span className="font-medium">Lô A7, Vạn Phúc, Hà Đông, Hà Nội</span></CardText>
+                            <CardText className="m-0">Địa chỉ : <span className="font-medium">16B – TT10, KĐT Văn Quán, Phường Văn Quán, Quận Hà Đông, Hà Nội</span></CardText>
+                        </CardBody>
+                    </Col>
+                </Row>
+            </Card>
 
         </div>;
     }

@@ -65,7 +65,7 @@ class Setting extends React.Component {
     }
 
     render() {
-        let {name, phone, gender, address, district, city, code, hobby, forte, weakness, birthday, town,phoneFamily,blood} = this.state;
+        let {name, phone, gender, address, district, city, code, hobby, relativeName, familyAddress, birthday, town,phoneFamily,blood} = this.state;
         return (
             <Row>
                 <Col sm="12">
@@ -217,10 +217,10 @@ class Setting extends React.Component {
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-2 col-form-label">
-                                        Sở trường
+                                        Tên người thân
                                     </label>
                                     <div className="col-sm-10">
-                                        <Input value={forte} name="forte" onChange={this.onInputChange}
+                                        <Input value={relativeName} name="relativeName" onChange={this.onInputChange}
                                                type="textarea"
                                                className="form-control"
                                         />
@@ -228,10 +228,10 @@ class Setting extends React.Component {
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-2 col-form-label">
-                                        Sở đoản
+                                       Địa chỉ gia đình
                                     </label>
                                     <div className="col-sm-10">
-                                        <Input value={weakness} name="weakness" onChange={this.onInputChange}
+                                        <Input value={familyAddress} name="familyAddress" onChange={this.onInputChange}
                                                type="textarea"
                                                className="form-control"
                                         />
