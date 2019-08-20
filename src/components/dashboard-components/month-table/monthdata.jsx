@@ -70,7 +70,7 @@ class Monthdata extends React.Component {
     }
 
     render() {
-        let {avatar, name, email, city, phone, type, skype} = this.props.user;
+        let {avatar, name, email, city, phone, type, skype, birthday} = this.props.user;
         if (type === 'student') {
             return (
                 <tr className="row-use" onClick={this.selectStudent}>
@@ -80,6 +80,9 @@ class Monthdata extends React.Component {
                     <td>
                         <h6 className="font-medium mb-0">{name}</h6>
                         <small className="text-muted">{email}</small>
+                    </td>
+                    <td>
+                        <div>{birthday}</div>
                     </td>
                     <td>
                         <div>{city}</div>

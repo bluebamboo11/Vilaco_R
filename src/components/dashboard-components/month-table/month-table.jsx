@@ -213,6 +213,9 @@ class MonthTable extends React.Component {
                     Tên
                 </th>
                 <th className="text-muted font-medium border-top-0">
+                    Ngày sinh
+                </th>
+                <th className="text-muted font-medium border-top-0">
                     Quê quán
                 </th>
                 <th className="text-muted font-medium border-top-0">

@@ -117,7 +117,7 @@ class MonthTableClass extends React.Component {
                                 listTeacher={this.props.listTeacher} classData={this.state.class}/>
                 <CardBody style={{height: '100%'}}>
                     <div className="d-flex no-block">
-                        <CardTitle>Danh sách đơn hàng</CardTitle>
+                        <CardTitle>Danh sách lớp học</CardTitle>
                         <Form className="search-user col-6 ml-auto" onSubmit={this.searchAllUser}>
                             <InputGroup>
                                 <InputGroupAddon addonType="append">

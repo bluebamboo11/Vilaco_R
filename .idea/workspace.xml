@@ -2,63 +2,429 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6862ac3-03e2-45c7-a3db-5da20d697784" name="Default Changelist" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/components/Dialog/StatusDialog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Loading/ProcessAll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/authentication/RegistrationFormTest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/steps/formStepsTest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bo/BoFirebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bo/BoFirebase.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/logo-light-text.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/logo-light-text.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/logo-text.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/logo-text.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/tooltip/shape1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/tooltip/shape1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/tooltip/shape2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/tooltip/shape2.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/tooltip/shape3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/tooltip/shape3.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/tooltip/tooltip1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/tooltip/tooltip1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/tooltip/tooltip2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/tooltip/tooltip2.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/tooltip/tooltip3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/tooltip/tooltip3.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_activity-timeline.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_activity-timeline.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_badge.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_badge.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_card.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_chat-widget.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_chat-widget.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_comments.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_comments.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_custom.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_feeds.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_feeds.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_globle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_globle.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_input-group.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_input-group.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_navs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_navs.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_perfect-scrollbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_perfect-scrollbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_progress.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_progress.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_reboot.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_reboot.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_spinner.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_spinner.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_text.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_text.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_to-do-list.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_to-do-list.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_topbar-dd.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_topbar-dd.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_type.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_type.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/core/customizer/_customizer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/core/customizer/_customizer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/core/layout/_layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/core/layout/_layout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/core/sidebar/_sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/core/sidebar/_sidebar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/core/theme-colors/_dark-theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/core/theme-colors/_dark-theme.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/core/theme-colors/_theme-colors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/core/theme-colors/_theme-colors.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/core/topbar/_topbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/core/topbar/_topbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/mixins/_background-variant.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/mixins/_background-variant.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/authentication/_authentication.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/authentication/_authentication.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/calendar/_calendar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/calendar/_calendar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/dashboards/_dashboard1.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/dashboards/_dashboard1.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/dashboards/_dashboard2.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/dashboards/_dashboard2.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/dashboards/_dashboard3.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/dashboards/_dashboard3.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/forms/_form-material.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/forms/_form-material.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/forms/_typeahead.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/forms/_typeahead.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/gallery-usercard/_gal-card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/gallery-usercard/_gal-card.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/inbox/_emails.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/inbox/_emails.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/timeline/_timeline.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/pages/timeline/_timeline.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/rtl/_rtl.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/rtl/_rtl.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/rtl/_spacing-rtl.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/rtl/_spacing-rtl.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/utilities/_backgrounds.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/utilities/_backgrounds.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/custom/utilities/_floating.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/custom/utilities/_floating.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/crypto-icons/cryptocoins-colors.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/crypto-icons/cryptocoins-colors.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/crypto-icons/cryptocoins.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/crypto-icons/cryptocoins.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ad.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ad.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ae.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ae.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/af.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/af.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ag.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ag.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ai.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ai.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/al.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/al.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/am.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/am.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ao.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ao.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/aq.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/aq.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ar.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ar.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/as.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/as.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/at.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/at.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/au.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/au.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/aw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/aw.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ax.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ax.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/az.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/az.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ba.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ba.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bb.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bb.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bd.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bd.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/be.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/be.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bf.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bh.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bh.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bi.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bi.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bj.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bj.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bl.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bm.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bn.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bq.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bq.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/br.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/br.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bs.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bs.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bt.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bv.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bv.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bw.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/by.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/by.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/bz.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ca.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ca.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cd.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cd.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cf.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ch.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ch.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ci.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ci.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ck.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ck.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cl.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cm.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cn.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/co.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/co.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cu.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cv.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cv.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cw.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cx.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cx.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cy.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cy.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/cz.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/de.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/de.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/dj.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/dj.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/dk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/dk.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/dm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/dm.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/do.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/do.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/dz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/dz.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ec.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ec.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ee.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ee.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/eg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/eg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/eh.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/eh.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/er.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/er.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/es.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/es.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/et.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/et.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/fi.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/fi.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/fj.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/fj.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/fk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/fk.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/fm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/fm.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/fo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/fo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/fr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/fr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ga.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ga.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gb.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gb.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gd.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gd.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ge.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ge.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gf.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gh.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gh.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gi.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gi.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gl.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gm.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gn.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gp.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gp.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gq.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gq.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gs.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gs.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gt.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gu.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gw.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gy.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/gy.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/hk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/hk.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/hm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/hm.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/hn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/hn.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/hr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/hr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ht.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ht.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/hu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/hu.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/id.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/id.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ie.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ie.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/il.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/il.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/im.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/im.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/in.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/in.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/io.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/io.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/iq.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/iq.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ir.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ir.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/is.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/is.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/it.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/it.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/je.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/je.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/jm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/jm.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/jo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/jo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/jp.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/jp.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ke.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ke.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kh.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kh.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ki.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ki.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/km.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/km.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kn.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kp.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kp.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kw.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ky.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ky.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/kz.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/la.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/la.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lb.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lb.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/li.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/li.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lk.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ls.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ls.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lt.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lu.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lv.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/lv.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ly.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ly.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ma.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ma.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/md.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/md.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/me.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/me.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mf.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mh.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mh.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mk.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ml.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ml.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mm.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mn.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mp.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mp.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mq.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mq.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ms.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ms.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mt.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mu.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mv.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mv.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mw.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mx.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mx.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/my.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/my.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/mz.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/na.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/na.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/nc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/nc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ne.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ne.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/nf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/nf.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ng.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ng.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ni.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ni.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/nl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/nl.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/no.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/no.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/np.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/np.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/nr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/nr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/nu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/nu.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/nz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/nz.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/om.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/om.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pa.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pe.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pe.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pf.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ph.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ph.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pk.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pl.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pm.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pn.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ps.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ps.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pt.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/pw.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/py.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/py.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/qa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/qa.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/re.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/re.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ro.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ro.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/rs.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/rs.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ru.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ru.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/rw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/rw.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sa.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sb.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sb.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sd.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sd.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/se.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/se.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sh.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sh.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/si.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/si.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sj.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sj.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sk.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sl.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sm.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sn.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/so.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/so.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ss.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ss.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/st.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/st.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sv.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sv.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sx.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sx.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sy.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sy.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/sz.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/td.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/td.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tf.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/th.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/th.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tj.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tj.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tk.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tl.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tm.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tn.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/to.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/to.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tt.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tv.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tv.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tw.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/tz.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ua.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ua.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ug.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ug.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/um.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/um.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/us.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/us.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/uy.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/uy.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/uz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/uz.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/va.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/va.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/vc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/vc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ve.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ve.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/vg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/vg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/vi.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/vi.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/vn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/vn.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/vu.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/vu.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/wf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/wf.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ws.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ws.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ye.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/ye.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/yt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/yt.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/za.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/za.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/zm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/zm.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/zw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/flag-icon-css/flags/zw.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fa-brands.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fa-brands.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fa-brands.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fa-brands.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fa-regular.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fa-regular.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fa-regular.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fa-regular.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fa-solid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fa-solid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fa-solid.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fa-solid.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fontawesome-all.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fontawesome-all.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fontawesome-all.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fontawesome-all.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fontawesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fontawesome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fontawesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/css/fontawesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_animated.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_animated.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_bordered-pulled.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_bordered-pulled.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_core.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_core.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_fixed-width.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_fixed-width.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_icons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_larger.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_larger.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_list.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_list.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_mixins.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_rotated-flipped.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_rotated-flipped.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_screen-reader.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_screen-reader.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_stacked.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_stacked.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/_variables.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/fa-brands.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/fa-brands.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/fa-regular.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/fa-regular.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/fa-solid.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/fa-solid.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/fontawesome.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/less/fontawesome.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/webfonts/fa-brands-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/webfonts/fa-brands-400.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/webfonts/fa-regular-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/webfonts/fa-regular-400.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/webfonts/fa-solid-900.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/font-awesome/webfonts/fa-solid-900.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/material-design-iconic-font/css/material-design-iconic-font.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/material-design-iconic-font/css/material-design-iconic-font.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/material-design-iconic-font/css/materialdesignicons.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/material-design-iconic-font/css/materialdesignicons.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/simple-line-icons/css/simple-line-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/simple-line-icons/css/simple-line-icons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/simple-line-icons/fonts/Simple-Line-Icons.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/simple-line-icons/fonts/Simple-Line-Icons.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/simple-line-icons/less/simple-line-icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/simple-line-icons/less/simple-line-icons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/themify-icons/fonts/themify.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/themify-icons/fonts/themify.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/themify-icons/ie7/ie7.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/themify-icons/ie7/ie7.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/themify-icons/ie7/ie7.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/themify-icons/ie7/ie7.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/themify-icons/themify-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/themify-icons/themify-icons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/themify-icons/themify-icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/themify-icons/themify-icons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/css/weather-icons-core.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/css/weather-icons-core.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/css/weather-icons-wind.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/css/weather-icons-wind.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/css/weather-icons-wind.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/css/weather-icons-wind.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/css/weather-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/css/weather-icons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/css/weather-icons.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/css/weather-icons.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/fonts/weathericons-regular-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/fonts/weathericons-regular-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-beaufort.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-beaufort.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-day.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-day.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-direction.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-direction.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-misc.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-misc.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-moon-aliases.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-moon-aliases.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-moon.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-moon.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-neutral.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-neutral.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-night.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-night.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-time.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-time.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-wind-aliases.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-wind-aliases.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-wind-degrees.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-wind-degrees.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-wind.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-classes/classes-wind.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-beaufort.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-beaufort.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-day.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-day.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-direction.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-direction.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-misc.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-misc.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-moon.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-moon.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-neutral.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-neutral.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-night.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-night.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-time.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-time.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-wind-names.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/icon-variables/variables-wind-names.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/mappings/wi-forecast-io.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/mappings/wi-forecast-io.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/mappings/wi-owm.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/mappings/wi-owm.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/mappings/wi-wmo4680.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/mappings/wi-wmo4680.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/mappings/wi-yahoo.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/mappings/wi-yahoo.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons-classes.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons-classes.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons-core.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons-core.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons-variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons-variables.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons-wind.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons-wind.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons-wind.min.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons-wind.min.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons.min.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/all/icons/weather-icons/less/weather-icons.min.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Class/CardInfoClass.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Class/CardInfoClass.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Class/DialogAddClass.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Class/DialogAddClass.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Class/MonthDataClass.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Class/MonthDataClass.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Class/MonthTableClass.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Class/MonthTableClass.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ContractDialog/ContractDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContractDialog/ContractDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/ConfirmDialogSuperAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/ConfirmDialogSuperAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/StatusDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/StatusDialog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Employees/CardInfoJapan.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Employees/CardInfoJapan.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Employees/DialogAddJapan.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Employees/DialogAddJapan.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Employees/MonthTableJapan.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Employees/MonthTableJapan.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Employees/MonthdataJapan.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Employees/MonthdataJapan.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Loading/Loading.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loading/Loading.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Loading/LoadingAll.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loading/LoadingAll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Loading/ProcessAll.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loading/ProcessAll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/avatar/avatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/avatar/avatar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/contract/CardInfoContract.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contract/CardInfoContract.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/contract/DialogAddContract.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contract/DialogAddContract.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/contract/MonthDataContract.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contract/MonthDataContract.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/contract/MonthTableContract.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contract/MonthTableContract.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/Visitirate-views/Visitirate-views.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/browser-stats/browsedata.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/browser-stats/browser-stats.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/calendar-element/calendar-element.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/calendar-element/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/ConfirmDialogSuperAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/calendar-element/event-data.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/card-bandwidth/card-bandwidth.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/card-city/card-city.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/card-contact/card-contact.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/card-contact/data.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/card-download/card-download.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/card-profile/CardProfileTeacher.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard-components/card-profile/CardProfileTeacher.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/card-profile/InfoStudent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard-components/card-profile/InfoStudent.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/card-profile/InfoTeacher.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard-components/card-profile/InfoTeacher.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/card-profile/ListClass.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard-components/card-profile/ListClass.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/card-profile/Transcript.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard-components/card-profile/Transcript.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/card-profile/card-profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard-components/card-profile/card-profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/chat/chat.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/chat/message.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/comments/comments.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/current-visitors/current-visitors.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/feeds/feeddata.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/feeds/feeds.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard-components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/messages/data.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/messages/messages.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/month-table/month-table.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard-components/month-table/month-table.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/newsleter-compaign/newsdata.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/newsleter-compaign/newsleter-compaign.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/sales-overview/sales-overview.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/sales-pd/sales-pd.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/social-cards/social-cards.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/timeline/timeline.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/todo-list/todo-list.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/total-visit/total-visits.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard-components/total-visit/total-visits.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/user-views/user-views.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/visitors/visitors.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dashboard-components/month-table/monthdata.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard-components/month-table/monthdata.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/data.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/data.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/menu/LongMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/menu/LongMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/profile/CardInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile/CardInfo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile/changePassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile/changePassword.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/profile/info.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile/info.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/profile/setting.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile/setting.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/profile/settingTeacher.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile/settingTeacher.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/transcript./EditDialogPoint.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/transcript./EditDialogPoint.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar/sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/sidebar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/transcript/EditDialogPoint.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/transcript/EditDialogPoint.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/firebase/Class.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/Class.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/firebase/Transcript.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/Transcript.js" afterDir="false" />
@@ -66,93 +432,47 @@
       <change beforePath="$PROJECT_DIR$/src/firebase/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/firebase/contract.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/contract.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/firebase/employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/employee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/firebase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/storage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/firebase/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/blanklayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/blanklayout.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/fulllayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/fulllayout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/authroutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/authroutes.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/routing.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routing.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Contract/Contract.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Contract/Contract.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MyClass/MyClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MyClass/MyClass.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MyContract/MyContract.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MyContract/MyContract.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MyTranscript/MyTranscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MyTranscript/MyTranscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MyTranscriptClass/DataConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MyTranscriptClass/DataConfig.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MyTranscriptClass/MyTranscriptClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MyTranscriptClass/MyTranscriptClass.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Transcript/DataConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Transcript/DataConfig.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Transcript/Transcript.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Transcript/Transcript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/authentication/RegistrationFormTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/authentication/RegistrationFormTest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/authentication/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/authentication/login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/authentication/login2.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/authentication/register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/authentication/register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/authentication/register2.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/calendar/calendar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/charts/c3-data.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/charts/c3chart.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/charts/chartjs-data.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/charts/chartjs.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/chat/Message.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/chat/chat-data.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/chat/chat.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboards/dashboard1.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboards/dashboard2.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboards/dashboard3.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboards/dashboard4.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/email/email-compose.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/email/email-data.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/email/email-details.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/email/email-list-item.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/email/email-list.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/email/email-sidebar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/email/email.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/form-layouts/basic.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/form-layouts/form-grids.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/form-layouts/form-groups.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/form-layouts/form-inputs.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/form-layouts/material.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/form-pickers/data.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/form-pickers/datetimepicker.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/form-pickers/tag-select.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/icons/flag.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/icons/fontawesome.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/icons/material.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/icons/simpleline.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/icons/themify.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/icons/weather.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/maps/vectormap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/maps/vectormap.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/authentication/registrationForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/authentication/registrationForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/authentication/validators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/authentication/validators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/class/LearningClass.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/class/LearningClass.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/employees/Japan.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/employees/Japan.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/ranking/CellRanking.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ranking/CellRanking.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/ranking/Ranking.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ranking/Ranking.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/sample-pages/profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sample-pages/profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/steps/Step1.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/steps/Step1.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/steps/Step2.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/steps/Step2.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/steps/Step3.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/steps/Step3.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/steps/Step4.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/steps/Step4.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/steps/Step5.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/steps/Step5.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/steps/StepsTeacher.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/steps/StepsTeacher.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/steps/formStepsTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/steps/formStepsTest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/steps/steps.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/steps/steps.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/student/Student.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/student/Student.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/tables/data-bootstrap-table.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/tables/react-bootstrap-table.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/tables/reactable-data.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/tables/reacttable.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/tables/tablebasic.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/alert.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/badge.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/breadcrumb.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/btn-group.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/button.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/cards.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/carousel.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/collapse.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/dropdown.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/jumbotron.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/layout.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/listgroup.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/media.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/modal.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/navbar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/navs.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/pagination.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/popover.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/progress.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/table.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/tabs.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ui-components/tooltip.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/widget/widget.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/teacher/Teacher.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/teacher/Teacher.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -164,120 +484,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/profile/setting.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3910">
-              <caret line="176" column="38" selection-start-line="176" selection-start-column="38" selection-end-line="176" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/sample-pages/profile.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1058">
-              <caret line="71" column="18" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/profile/info.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="851">
-              <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/profile/CardInfo.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1541">
-              <caret line="69" column="42" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/assets/custom.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="709">
-              <caret line="191" column="20" lean-forward="true" selection-start-line="191" selection-start-column="20" selection-end-line="191" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/authentication/login.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="52" column="46" lean-forward="true" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/views/authentication/register.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2251">
-              <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="713">
-              <caret line="35" column="15" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#1137#1188#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/MyTranscript/MyTranscript.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1104">
-              <caret line="65" column="78" selection-start-line="65" selection-start-column="78" selection-end-line="65" selection-end-column="78" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/ranking/CellRanking.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1725">
-              <caret line="79" column="58" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="58" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -288,18 +495,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>type</find>
-      <find>this.state.user</find>
-      <find>Cards</find>
-      <find>renderInput</find>
-      <find>sidebarPosition</find>
-      <find>headerPosition</find>
-      <find>studentRoutes</find>
-      <find>routes</find>
-      <find>EditDialogPoint</find>
-      <find>registered</find>
       <find>isCreate</find>
-      <find>isLogin</find>
       <find>active</find>
       <find>loading</find>
       <find>tooltipOpen</find>
@@ -310,14 +506,25 @@
       <find>&lt;Dialog</find>
       <find>&lt;DialogActions&gt;</find>
       <find>gender</find>
-      <find>FormValidate</find>
       <find>vectormap.css</find>
       <find>scholarship</find>
       <find>setState</find>
       <find>&lt;Datetime</find>
       <find>renderMonth={(props, month) =&gt; &lt;td {...props}&gt;Th {month + 1}&lt;/td&gt;}</find>
-      <find>&lt;Datetime</find>
       <find>nav-item</find>
+      <find>data</find>
+      <find>loginform</find>
+      <find>FormValidate</find>
+      <find>modal</find>
+      <find>toggle</find>
+      <find>isLogin</find>
+      <find>renderButtonEdit</find>
+      <find>save</find>
+      <find>handleChange</find>
+      <find>handleChangeOpen</find>
+      <find>Email</find>
+      <find>toggleTooltip</find>
+      <find>progress-cards.jsx</find>
     </findStrings>
     <replaceStrings>
       <replace>col-6</replace>
@@ -329,57 +536,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/views/authentication/RegistrationFormTest.js" />
-        <option value="$PROJECT_DIR$/src/routes/authroutes.jsx" />
-        <option value="$PROJECT_DIR$/src/views/steps/formStepsTest.js" />
-        <option value="$PROJECT_DIR$/src/components/Loading/ProcessAll.js" />
-        <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/redux/actions.js" />
-        <option value="$PROJECT_DIR$/src/redux/reducers.js" />
-        <option value="$PROJECT_DIR$/src/firebase/employee.js" />
-        <option value="$PROJECT_DIR$/src/firebase/contract.js" />
-        <option value="$PROJECT_DIR$/src/firebase/Class.js" />
-        <option value="$PROJECT_DIR$/src/firebase/Transcript.js" />
-        <option value="$PROJECT_DIR$/src/components/Employees/CardInfoJapan.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Employees/MonthTableJapan.jsx" />
-        <option value="$PROJECT_DIR$/src/components/contract/MonthTableContract.jsx" />
         <option value="$PROJECT_DIR$/src/components/contract/CardInfoContract.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Class/CardInfoClass.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Class/MonthTableClass.jsx" />
-        <option value="$PROJECT_DIR$/src/views/ranking/Ranking.js" />
-        <option value="$PROJECT_DIR$/src/components/transcript/EditDialogPoint.js" />
-        <option value="$PROJECT_DIR$/src/views/Transcript/DataConfig.js" />
-        <option value="$PROJECT_DIR$/src/views/Transcript/Transcript.js" />
-        <option value="$PROJECT_DIR$/src/components/dashboard-components/month-table/month-table.jsx" />
-        <option value="$PROJECT_DIR$/src/views/student/Student.jsx" />
-        <option value="$PROJECT_DIR$/src/firebase/user.js" />
-        <option value="$PROJECT_DIR$/src/components/dashboard-components/card-profile/card-profile.jsx" />
+        <option value="$PROJECT_DIR$/src/components/contract/DialogAddContract.jsx" />
+        <option value="$PROJECT_DIR$/src/components/contract/MonthDataContract.jsx" />
+        <option value="$PROJECT_DIR$/src/components/contract/MonthTableContract.jsx" />
         <option value="$PROJECT_DIR$/src/components/ContractDialog/ContractDialog.js" />
-        <option value="$PROJECT_DIR$/src/components/Dialog/StatusDialog.js" />
-        <option value="$PROJECT_DIR$/src/components/Dialog/ConfirmDialogSuperAdmin.js" />
-        <option value="$PROJECT_DIR$/src/components/dashboard-components/card-profile/InfoTeacher.jsx" />
-        <option value="$PROJECT_DIR$/src/components/dashboard-components/card-profile/InfoStudent.jsx" />
-        <option value="$PROJECT_DIR$/src/firebase/admin.js" />
+        <option value="$PROJECT_DIR$/src/components/dashboard-components/card-profile/card-profile.jsx" />
         <option value="$PROJECT_DIR$/src/components/dashboard-components/card-profile/CardProfileTeacher.jsx" />
-        <option value="$PROJECT_DIR$/src/views/MyClass/MyClass.js" />
-        <option value="$PROJECT_DIR$/src/components/dashboard-components/total-visit/total-visits.jsx" />
-        <option value="$PROJECT_DIR$/src/components/dashboard-components/current-visitors/current-visitors.jsx" />
+        <option value="$PROJECT_DIR$/src/components/dashboard-components/card-profile/InfoStudent.jsx" />
+        <option value="$PROJECT_DIR$/src/components/dashboard-components/card-profile/InfoTeacher.jsx" />
+        <option value="$PROJECT_DIR$/src/components/dashboard-components/card-profile/ListClass.jsx" />
+        <option value="$PROJECT_DIR$/src/components/dashboard-components/card-profile/Transcript.jsx" />
+        <option value="$PROJECT_DIR$/src/components/dashboard-components/month-table/month-table.jsx" />
+        <option value="$PROJECT_DIR$/src/components/dashboard-components/month-table/monthdata.jsx" />
         <option value="$PROJECT_DIR$/src/components/dashboard-components/index.js" />
-        <option value="$PROJECT_DIR$/src/firebase/auth.js" />
-        <option value="$PROJECT_DIR$/src/views/ranking/CellRanking.js" />
-        <option value="$PROJECT_DIR$/src/views/MyTranscript/MyTranscript.js" />
-        <option value="$PROJECT_DIR$/src/views/steps/Step4.jsx" />
+        <option value="$PROJECT_DIR$/src/components/Dialog/ConfirmDialogSuperAdmin.js" />
+        <option value="$PROJECT_DIR$/src/components/Dialog/StatusDialog.js" />
+        <option value="$PROJECT_DIR$/src/components/Employees/CardInfoJapan.jsx" />
+        <option value="$PROJECT_DIR$/src/components/Employees/DialogAddJapan.jsx" />
+        <option value="$PROJECT_DIR$/src/components/Employees/MonthdataJapan.jsx" />
+        <option value="$PROJECT_DIR$/src/components/Employees/MonthTableJapan.jsx" />
+        <option value="$PROJECT_DIR$/src/components/footer/footer.jsx" />
+        <option value="$PROJECT_DIR$/src/components/header/header.jsx" />
+        <option value="$PROJECT_DIR$/src/components/Loading/Loading.js" />
+        <option value="$PROJECT_DIR$/src/components/Loading/LoadingAll.js" />
+        <option value="$PROJECT_DIR$/src/components/Loading/ProcessAll.js" />
+        <option value="$PROJECT_DIR$/src/components/menu/LongMenu.js" />
+        <option value="$PROJECT_DIR$/src/components/profile/CardInfo.jsx" />
+        <option value="$PROJECT_DIR$/src/components/profile/changePassword.jsx" />
+        <option value="$PROJECT_DIR$/src/components/profile/info.jsx" />
         <option value="$PROJECT_DIR$/src/components/profile/setting.jsx" />
         <option value="$PROJECT_DIR$/src/components/profile/settingTeacher.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Employees/DialogAddJapan.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Class/DialogAddClass.jsx" />
-        <option value="$PROJECT_DIR$/src/views/steps/StepsTeacher.jsx" />
-        <option value="$PROJECT_DIR$/src/components/contract/DialogAddContract.jsx" />
-        <option value="$PROJECT_DIR$/src/components/profile/CardInfo.jsx" />
-        <option value="$PROJECT_DIR$/src/components/profile/info.jsx" />
-        <option value="$PROJECT_DIR$/src/assets/custom.css" />
-        <option value="$PROJECT_DIR$/src/views/authentication/login.jsx" />
-        <option value="$PROJECT_DIR$/src/views/authentication/register.jsx" />
+        <option value="$PROJECT_DIR$/src/components/sidebar/sidebar.jsx" />
+        <option value="$PROJECT_DIR$/src/components/transcript/EditDialogPoint.js" />
+        <option value="$PROJECT_DIR$/src/firebase/admin.js" />
+        <option value="$PROJECT_DIR$/src/firebase/auth.js" />
+        <option value="$PROJECT_DIR$/src/firebase/Class.js" />
+        <option value="$PROJECT_DIR$/src/firebase/contract.js" />
+        <option value="$PROJECT_DIR$/src/firebase/employee.js" />
+        <option value="$PROJECT_DIR$/src/firebase/firebase.js" />
+        <option value="$PROJECT_DIR$/src/firebase/index.js" />
+        <option value="$PROJECT_DIR$/src/firebase/storage.js" />
+        <option value="$PROJECT_DIR$/src/firebase/test.js" />
+        <option value="$PROJECT_DIR$/src/firebase/Transcript.js" />
+        <option value="$PROJECT_DIR$/src/firebase/user.js" />
+        <option value="$PROJECT_DIR$/src/layouts/blanklayout.jsx" />
+        <option value="$PROJECT_DIR$/src/layouts/fulllayout.jsx" />
+        <option value="$PROJECT_DIR$/src/routes/authroutes.jsx" />
+        <option value="$PROJECT_DIR$/src/routes/routing.jsx" />
+        <option value="$PROJECT_DIR$/src/redux/reducers.js" />
+        <option value="$PROJECT_DIR$/src/redux/actions.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
       </list>
     </option>
   </component>
@@ -394,7 +601,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -407,51 +613,24 @@
               <item name="Project" type="462c0819:PsiDirectoryNode" />
               <item name="build" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="authentication" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/images/big" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="http.proxy" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project" />
       <recent name="D:\Project\src\assets\images\big" />
       <recent name="C:\Users\tttung01\WebstormProjects\Vilaco_R\src\assets\animation" />
       <recent name="C:\Users\tttung01\WebstormProjects\Vilaco_R\src\assets\images" />
@@ -503,8 +682,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
+        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
@@ -536,6 +715,12 @@
       <workItem from="1556961214212" duration="4902000" />
       <workItem from="1557025364316" duration="8614000" />
       <workItem from="1557238678872" duration="516000" />
+      <workItem from="1557245083868" duration="52000" />
+      <workItem from="1557628504182" duration="4441000" />
+      <workItem from="1557930650882" duration="12000" />
+      <workItem from="1558840169554" duration="5031000" />
+      <workItem from="1558967545902" duration="5086000" />
+      <workItem from="1560051193470" duration="314000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1554375080605</created>
@@ -565,11 +750,32 @@
       <option name="project" value="LOCAL" />
       <updated>1556208345653</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update">
+      <created>1557245122326</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1557245122326</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update">
+      <created>1557632692852</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1557632692852</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update">
+      <created>1558972594299</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1558972594299</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133083000" />
+    <option name="totallyTimeSpent" value="148019000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -581,16 +787,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.67382413" visible="true" weight="0.2249803" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6690533" visible="true" weight="0.2249803" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.32617587" side_tool="true" visible="true" weight="0.2249803" />
+      <window_info id="npm" order="2" sideWeight="0.33094668" side_tool="true" visible="true" weight="0.2249803" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22195704" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3293556" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.22195704" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -635,239 +840,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Loading/LoadingAll.js">
+    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/card-profile/ListClass.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="39" />
+        <state relative-caret-position="184">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Loading/ProcessAll.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/reducers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="67" column="40" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#279#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase/employee.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase/contract.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21">
-          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase/Class.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase/Transcript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Employees/CardInfoJapan.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="82" column="72" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Employees/MonthTableJapan.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="99" column="74" lean-forward="true" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="74" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/contract/MonthTableContract.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="125" column="74" lean-forward="true" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/contract/CardInfoContract.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="159" column="27" lean-forward="true" selection-start-line="159" selection-start-column="7" selection-end-line="159" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Class/CardInfoClass.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="129" column="27" lean-forward="true" selection-start-line="129" selection-start-column="7" selection-end-line="129" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Class/MonthTableClass.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="111" column="74" lean-forward="true" selection-start-line="111" selection-start-column="6" selection-end-line="111" selection-end-column="74" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/transcript/EditDialogPoint.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="45" column="28" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/month-table/month-table.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="34" column="32" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/student/Student.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ContractDialog/ContractDialog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="46" column="39" lean-forward="true" selection-end-line="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bo/BoFirebase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Transcript/DataConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1495">
-          <caret line="65" column="14" lean-forward="true" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Dialog/StatusDialog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="76" column="69" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Dialog/ConfirmDialogSuperAdmin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2783">
-          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/card-profile/InfoTeacher.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="58" column="93" selection-start-line="58" selection-start-column="93" selection-end-line="58" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/card-profile/card-profile.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="216" column="41" selection-start-line="216" selection-start-column="41" selection-end-line="216" selection-end-column="41" />
+        <state relative-caret-position="92">
+          <caret line="4" column="50" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="50" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -876,104 +862,195 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/card-profile/InfoStudent.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="63" column="85" selection-start-line="63" selection-start-column="85" selection-end-line="63" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="28" column="88" selection-start-line="28" selection-start-column="88" selection-end-line="28" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/card-profile/CardProfileTeacher.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="181" column="14" selection-start-line="180" selection-start-column="64" selection-end-line="181" selection-end-column="14" />
+        <state relative-caret-position="20">
+          <caret line="4" column="43" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="43" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/MyClass/MyClass.js">
+    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/card-profile/Transcript.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="140" column="87" selection-start-line="140" selection-start-column="87" selection-end-line="140" selection-end-column="87" />
+        <state relative-caret-position="230">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/card-bandwidth/card-bandwidth.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/sales-overview/sales-overview.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/social-cards/social-cards.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/todo-list/todo-list.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/user-views/user-views.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/views/form-validation/form-validation.jsx">
+    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/month-table/month-table.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+        <state>
+          <caret line="207" column="34" selection-start-line="207" selection-start-column="34" selection-end-line="207" selection-end-column="34" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase/auth.js">
+    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/progress-cards/progress-cards.jsx" />
+    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/total-revenue/total-revenue.jsx" />
+    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/total-visit/total-visits.jsx" />
+    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/month-table/monthdata.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Dialog/ConfirmDialogSuperAdmin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-23">
+          <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Dialog/StatusDialog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Employees/CardInfoJapan.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="83" column="24" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Employees/DialogAddJapan.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/reactstrap/src/CardBody.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Transcript/Transcript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5681">
-          <caret line="262" column="37" selection-start-line="262" selection-start-column="37" selection-end-line="262" selection-end-column="37" />
+          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/ranking/Ranking.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Employees/MonthdataJapan.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4186">
-          <caret line="194" column="53" selection-start-line="194" selection-start-column="44" selection-end-line="194" selection-end-column="53" />
+        <state relative-caret-position="92">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/profile/setting.jsx">
+    <entry file="file://$PROJECT_DIR$/src/components/Employees/MonthTableJapan.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3910">
-          <caret line="176" column="38" selection-start-line="176" selection-start-column="38" selection-end-line="176" selection-end-column="38" />
+        <state relative-caret-position="368">
+          <caret line="88" column="29" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/sample-pages/profile.jsx">
+    <entry file="file://$PROJECT_DIR$/src/components/footer/footer.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="71" column="18" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+        <state relative-caret-position="184">
+          <caret line="8" column="15" lean-forward="true" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/header/data.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2300">
+          <caret line="100" column="39" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/header/header.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1449">
+          <caret line="24" column="38" lean-forward="true" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Loading/Loading.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Loading/LoadingAll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Loading/ProcessAll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/menu/LongMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/profile/CardInfo.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-253">
+          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/profile/changePassword.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-506">
+          <caret line="95" column="18" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="18" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -982,75 +1059,219 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/profile/info.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/profile/CardInfo.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1541">
-          <caret line="69" column="42" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/dashboard-components/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="35" column="15" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#1137#1188#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/MyTranscript/MyTranscript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="65" column="78" selection-start-line="65" selection-start-column="78" selection-end-line="65" selection-end-column="78" />
+        <state relative-caret-position="69">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/ranking/CellRanking.js">
+    <entry file="file://$PROJECT_DIR$/src/components/profile/setting.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1725">
-          <caret line="79" column="58" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="58" />
+        <state relative-caret-position="207">
+          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="41" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/custom.css">
+    <entry file="file://$PROJECT_DIR$/src/components/profile/settingTeacher.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="191" column="20" lean-forward="true" selection-start-line="191" selection-start-column="20" selection-end-line="191" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/authentication/login.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="52" column="46" lean-forward="true" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
+        <state relative-caret-position="-138">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/authentication/register.jsx">
+    <entry file="file://$PROJECT_DIR$/src/components/sidebar/sidebar.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2251">
-          <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
+        <state relative-caret-position="92">
+          <caret line="52" column="15" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/transcript/EditDialogPoint.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="48" column="15" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/firebase/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/firebase/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="44" column="36" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/firebase/Class.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="69" column="31" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/firebase/contract.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="64" column="32" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/firebase/employee.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/firebase/firebase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/firebase/test.js" />
+    <entry file="file://$PROJECT_DIR$/src/firebase/storage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/firebase/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/registerServiceWorker.js" />
+    <entry file="file://$PROJECT_DIR$/src/firebase/Transcript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="897">
+          <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/firebase/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3749">
+          <caret line="166" column="21" selection-start-line="166" selection-start-column="21" selection-end-line="166" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/blanklayout.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/fulllayout.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/authroutes.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/routing.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1863">
+          <caret line="92" column="34" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="19" column="60" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bo/BoFirebase.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
