@@ -6,7 +6,7 @@ import RegistrationFormTest from "../views/authentication/RegistrationFormTest";
 let authRoutes = [
     { path: '/xac-thuc/dang-nhap', name: 'Login', icon: 'mdi mdi-account-key', component: Login },
     { path: '/xac-thuc/dang-ky', name: 'Register', icon: 'mdi mdi-account-plus', component: Register },
-    { path: '/xac-thuc/dang-ky-test', name: 'Register', icon: 'mdi mdi-account-plus', component: RegistrationFormTest },
+    { path: '/xac-thuc/dang-ky-khong-xac-thuc', name: 'Register', icon: 'mdi mdi-account-plus', component: RegistrationFormTest },
     { path: '/xac-thuc/mau-dang-ky', name: 'RegistrationForm', icon: 'mdi mdi-account-key', component: RegistrationForm }
 ];
 export default authRoutes; 

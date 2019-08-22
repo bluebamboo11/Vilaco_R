@@ -133,7 +133,7 @@ class FormStepsTest extends Component {
         return (
             <Card className="col-12">
                 <CardBody className="border-bottom">
-                    <CardTitle className="mb-0"><i className="mdi mdi-border-right mr-2"></i>Đăng ký</CardTitle>
+                    <CardTitle className="mb-0"><i className="mdi mdi-border-right mr-2"></i>Đăng ký không xác thực</CardTitle>
                     <h6 className="card-subtitle mb-0 mt-1">Thực hiện các bước sau để hoàn thành mẫu đăng ký của
                         bạn</h6>
                 </CardBody>

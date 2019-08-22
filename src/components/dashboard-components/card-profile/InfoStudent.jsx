@@ -99,7 +99,7 @@ class InfoStudent extends React.Component {
                     </div>
                     <div className="info-group row">
                         <div className="col-sm-3 col-form-div pt-2">
-                            Sở trường
+                            Tên người thân
                         </div>
                         <div className="col-sm-9 pb-2">
                             <div className="form-control form-control-custom">{relativeName}</div>
@@ -107,7 +107,7 @@ class InfoStudent extends React.Component {
                     </div>
                     <div className="info-group row">
                         <div className="col-sm-3 col-form-div pt-2">
-                            Sở đoản
+                           Địa chỉ gia đình
                         </div>
                         <div className="col-sm-9 pb-2">
                             <div className="form-control form-control-custom">{familyAddress}</div>
